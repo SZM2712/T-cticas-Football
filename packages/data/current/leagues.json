@@ -1,0 +1,1737 @@
+{
+  "source": "football-data.org",
+  "importedAt": "2026-10-11T06:30:09.420Z",
+  "season": "2026/27",
+  "leagues": [
+    {
+      "nation": "GB-ENG",
+      "tier": 1,
+      "clubs": [
+        {
+          "n": "Arsenal",
+          "c": "London",
+          "q": 16,
+          "col": [
+            "#EF0107",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Emirates Stadium",
+            60704
+          ],
+          "f": 1886
+        },
+        {
+          "n": "Aston Villa",
+          "c": "Birmingham",
+          "q": 14.9,
+          "col": [
+            "#670E36",
+            "#95BFE5"
+          ],
+          "st": [
+            "Villa Park",
+            42640
+          ],
+          "f": 1874
+        },
+        {
+          "n": "Chelsea",
+          "c": "London",
+          "q": 15.6,
+          "col": [
+            "#034694",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stamford Bridge",
+            40343
+          ],
+          "f": 1905
+        },
+        {
+          "n": "Everton",
+          "c": "Liverpool",
+          "q": 13.9,
+          "col": [
+            "#003399",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Hill Dickinson Stadium",
+            52888
+          ],
+          "f": 1878
+        },
+        {
+          "n": "Fulham",
+          "c": "London",
+          "q": 14,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "st": [
+            "Craven Cottage",
+            29600
+          ],
+          "f": 1879
+        },
+        {
+          "n": "Liverpool",
+          "c": "Liverpool",
+          "q": 16,
+          "col": [
+            "#C8102E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Anfield",
+            61276
+          ],
+          "f": 1892
+        },
+        {
+          "n": "Manchester City",
+          "s": "Man City",
+          "c": "Manchester",
+          "q": 15.9,
+          "col": [
+            "#6CABDD",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Etihad Stadium",
+            53400
+          ],
+          "f": 1880
+        },
+        {
+          "n": "Manchester United",
+          "s": "Man United",
+          "c": "Manchester",
+          "q": 14.9,
+          "col": [
+            "#DA291C",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Old Trafford",
+            74310
+          ],
+          "f": 1878
+        },
+        {
+          "n": "Newcastle United",
+          "s": "Newcastle",
+          "c": "Newcastle",
+          "q": 15.1,
+          "col": [
+            "#241F20",
+            "#FFFFFF"
+          ],
+          "st": [
+            "St James' Park",
+            52305
+          ],
+          "f": 1892
+        },
+        {
+          "n": "Sunderland",
+          "c": "Sunderland",
+          "q": 13.3,
+          "col": [
+            "#EB172B",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadium of Light",
+            49000
+          ],
+          "f": 1879
+        },
+        {
+          "n": "Tottenham Hotspur",
+          "s": "Tottenham",
+          "c": "London",
+          "q": 15,
+          "col": [
+            "#FFFFFF",
+            "#132257"
+          ],
+          "st": [
+            "Tottenham Hotspur Stadium",
+            62850
+          ],
+          "f": 1882
+        },
+        {
+          "n": "Hull City",
+          "s": "Hull",
+          "c": "Hull",
+          "q": 11.3,
+          "col": [
+            "#F5A12D",
+            "#000000"
+          ],
+          "st": [
+            "MKM Stadium",
+            25586
+          ],
+          "f": 1904
+        },
+        {
+          "n": "Leeds United",
+          "s": "Leeds",
+          "c": "Leeds",
+          "q": 13.5,
+          "col": [
+            "#FFFFFF",
+            "#1D428A"
+          ],
+          "st": [
+            "Elland Road",
+            37645
+          ],
+          "f": 1919
+        },
+        {
+          "n": "Ipswich Town",
+          "s": "Ipswich",
+          "c": "Ipswich",
+          "q": 12.2,
+          "col": [
+            "#0044A9",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Portman Road",
+            29813
+          ],
+          "f": 1878
+        },
+        {
+          "n": "Nottingham Forest",
+          "s": "Nott'm Forest",
+          "c": "Nottingham",
+          "q": 14.4,
+          "col": [
+            "#DD0000",
+            "#FFFFFF"
+          ],
+          "st": [
+            "City Ground",
+            30404
+          ],
+          "f": 1865
+        },
+        {
+          "n": "Crystal Palace",
+          "c": "London",
+          "q": 14.3,
+          "col": [
+            "#1B458F",
+            "#C4122E"
+          ],
+          "st": [
+            "Selhurst Park",
+            25486
+          ],
+          "f": 1905
+        },
+        {
+          "n": "Brighton & Hove Albion",
+          "s": "Brighton",
+          "c": "Brighton",
+          "q": 14.5,
+          "col": [
+            "#0057B8",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Amex Stadium",
+            31876
+          ],
+          "f": 1901
+        },
+        {
+          "n": "Brentford",
+          "c": "London",
+          "q": 14.1,
+          "col": [
+            "#E30613",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Gtech Community Stadium",
+            17250
+          ],
+          "f": 1889
+        },
+        {
+          "n": "Bournemouth",
+          "c": "Bournemouth",
+          "q": 14.2,
+          "col": [
+            "#DA291C",
+            "#000000"
+          ],
+          "st": [
+            "Vitality Stadium",
+            11307
+          ],
+          "f": 1899
+        },
+        {
+          "n": "Coventry City",
+          "s": "Coventry",
+          "c": "Coventry",
+          "q": 11.8,
+          "col": [
+            "#6CABDD",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Coventry Building Society Arena",
+            32609
+          ],
+          "f": 1883
+        }
+      ]
+    },
+    {
+      "nation": "GB-ENG",
+      "tier": 2,
+      "clubs": [
+        {
+          "n": "Blackburn Rovers",
+          "s": "Blackburn",
+          "c": "Blackburn",
+          "q": 11.1,
+          "col": [
+            "#009EE0",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Ewood Park",
+            31367
+          ],
+          "f": 1875
+        },
+        {
+          "n": "Bolton Wanderers",
+          "s": "Bolton",
+          "c": "Bolton",
+          "q": 10.3,
+          "col": [
+            "#FFFFFF",
+            "#263C7E"
+          ]
+        },
+        {
+          "n": "Norwich City",
+          "s": "Norwich",
+          "c": "Norwich",
+          "q": 11.5,
+          "col": [
+            "#FFF200",
+            "#00A650"
+          ],
+          "st": [
+            "Carrow Road",
+            27359
+          ],
+          "f": 1902
+        },
+        {
+          "n": "Queens Park Rangers",
+          "s": "QPR",
+          "c": "London",
+          "q": 11,
+          "col": [
+            "#1D5BA4",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Loftus Road",
+            18439
+          ],
+          "f": 1882
+        },
+        {
+          "n": "Stoke City",
+          "s": "Stoke",
+          "c": "Stoke",
+          "q": 11.2,
+          "col": [
+            "#E03A3E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "bet365 Stadium",
+            30089
+          ],
+          "f": 1863
+        },
+        {
+          "n": "Swansea City",
+          "s": "Swansea",
+          "c": "Swansea",
+          "q": 11,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "st": [
+            "Swansea.com Stadium",
+            21088
+          ],
+          "f": 1912
+        },
+        {
+          "n": "West Bromwich Albion",
+          "s": "West Brom",
+          "c": "West Bromwich",
+          "q": 11.6,
+          "col": [
+            "#122F67",
+            "#FFFFFF"
+          ],
+          "st": [
+            "The Hawthorns",
+            26850
+          ],
+          "f": 1878
+        },
+        {
+          "n": "Wolverhampton Wanderers",
+          "s": "Wolves",
+          "c": "Wolverhampton",
+          "q": 13.6,
+          "col": [
+            "#FDB913",
+            "#231F20"
+          ],
+          "st": [
+            "Molineux",
+            31750
+          ],
+          "f": 1877
+        },
+        {
+          "n": "Portsmouth",
+          "c": "Portsmouth",
+          "q": 10.9,
+          "col": [
+            "#001489",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Fratton Park",
+            20867
+          ],
+          "f": 1898
+        },
+        {
+          "n": "Burnley",
+          "c": "Burnley",
+          "q": 13.1,
+          "col": [
+            "#6C1D45",
+            "#99D6EA"
+          ],
+          "st": [
+            "Turf Moor",
+            21944
+          ],
+          "f": 1882
+        },
+        {
+          "n": "Birmingham City",
+          "s": "Birmingham",
+          "c": "Birmingham",
+          "q": 11.6,
+          "col": [
+            "#0000FF",
+            "#FFFFFF"
+          ],
+          "st": [
+            "St Andrew's",
+            29409
+          ],
+          "f": 1875
+        },
+        {
+          "n": "Southampton",
+          "c": "Southampton",
+          "q": 12.1,
+          "col": [
+            "#D71920",
+            "#FFFFFF"
+          ],
+          "st": [
+            "St Mary's Stadium",
+            32384
+          ],
+          "f": 1885
+        },
+        {
+          "n": "Derby County",
+          "s": "Derby",
+          "c": "Derby",
+          "q": 11.1,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "st": [
+            "Pride Park",
+            32956
+          ],
+          "f": 1884
+        },
+        {
+          "n": "Middlesbrough",
+          "c": "Middlesbrough",
+          "q": 11.8,
+          "col": [
+            "#E11B22",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Riverside Stadium",
+            34742
+          ],
+          "f": 1876
+        },
+        {
+          "n": "Watford",
+          "c": "Watford",
+          "q": 11.3,
+          "col": [
+            "#FBEE23",
+            "#ED2127"
+          ],
+          "st": [
+            "Vicarage Road",
+            22200
+          ],
+          "f": 1881
+        },
+        {
+          "n": "Charlton Athletic",
+          "s": "Charlton",
+          "c": "London",
+          "q": 10.8,
+          "col": [
+            "#D4021D",
+            "#FFFFFF"
+          ],
+          "st": [
+            "The Valley",
+            27111
+          ],
+          "f": 1905
+        },
+        {
+          "n": "Sheffield United",
+          "s": "Sheffield Utd",
+          "c": "Sheffield",
+          "q": 11.8,
+          "col": [
+            "#EE2737",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Bramall Lane",
+            32050
+          ],
+          "f": 1889
+        },
+        {
+          "n": "Millwall",
+          "c": "London",
+          "q": 11.2,
+          "col": [
+            "#001D5E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "The Den",
+            20146
+          ],
+          "f": 1885
+        },
+        {
+          "n": "Bristol City",
+          "c": "Bristol",
+          "q": 11.4,
+          "col": [
+            "#E21C38",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Ashton Gate",
+            27000
+          ],
+          "f": 1894
+        },
+        {
+          "n": "Wrexham",
+          "c": "Wrexham",
+          "q": 11.2,
+          "col": [
+            "#D71920",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Racecourse Ground",
+            12600
+          ],
+          "f": 1864
+        },
+        {
+          "n": "West Ham United",
+          "s": "West Ham",
+          "c": "London",
+          "q": 14,
+          "col": [
+            "#7A263A",
+            "#1BB1E7"
+          ],
+          "st": [
+            "London Stadium",
+            62500
+          ],
+          "f": 1895
+        },
+        {
+          "n": "Cardiff City",
+          "s": "Cardiff",
+          "c": "Cardiff",
+          "q": 10.8,
+          "col": [
+            "#0057B8",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Cardiff City Stadium",
+            20000
+          ],
+          "f": 1899
+        },
+        {
+          "n": "Preston North End",
+          "s": "Preston",
+          "c": "Preston",
+          "q": 11.1,
+          "col": [
+            "#FFFFFF",
+            "#001D5E"
+          ],
+          "st": [
+            "Deepdale",
+            23404
+          ],
+          "f": 1880
+        },
+        {
+          "n": "Lincoln City",
+          "s": "Lincoln City",
+          "c": "Lincoln City",
+          "q": 10.8,
+          "col": [
+            "#C8102E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Sincil Bank Stadium",
+            20000
+          ],
+          "f": 1883
+        }
+      ]
+    },
+    {
+      "nation": "ES",
+      "tier": 1,
+      "clubs": [
+        {
+          "n": "Athletic Club",
+          "s": "Athletic",
+          "c": "Bilbao",
+          "q": 14.5,
+          "col": [
+            "#EE2523",
+            "#FFFFFF"
+          ],
+          "st": [
+            "San Mamés",
+            53289
+          ],
+          "f": 1898
+        },
+        {
+          "n": "Atlético de Madrid",
+          "s": "Atlético",
+          "c": "Madrid",
+          "q": 15.3,
+          "col": [
+            "#CB3524",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Riyadh Air Metropolitano",
+            70460
+          ],
+          "f": 1903
+        },
+        {
+          "n": "Osasuna",
+          "c": "Pamplona",
+          "q": 13.4,
+          "col": [
+            "#D91A21",
+            "#0A346F"
+          ],
+          "st": [
+            "El Sadar",
+            23576
+          ],
+          "f": 1920
+        },
+        {
+          "n": "Espanyol",
+          "c": "Barcelona",
+          "q": 13.3,
+          "col": [
+            "#007FC8",
+            "#FFFFFF"
+          ],
+          "st": [
+            "RCDE Stadium",
+            40000
+          ],
+          "f": 1900
+        },
+        {
+          "n": "FC Barcelona",
+          "s": "Barcelona",
+          "c": "Barcelona",
+          "q": 16,
+          "col": [
+            "#A50044",
+            "#004D98"
+          ],
+          "st": [
+            "Spotify Camp Nou",
+            99354
+          ],
+          "f": 1899
+        },
+        {
+          "n": "Getafe",
+          "c": "Getafe",
+          "q": 13.2,
+          "col": [
+            "#005999",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Coliseum",
+            16500
+          ],
+          "f": 1983
+        },
+        {
+          "n": "Málaga CF",
+          "s": "Málaga",
+          "c": "Málaga",
+          "q": 11.1,
+          "col": [
+            "#0B6BB4",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Real Madrid",
+          "c": "Madrid",
+          "q": 16.1,
+          "col": [
+            "#FFFFFF",
+            "#FEBE10"
+          ],
+          "st": [
+            "Santiago Bernabéu",
+            83186
+          ],
+          "f": 1902
+        },
+        {
+          "n": "Rayo Vallecano",
+          "s": "Rayo",
+          "c": "Madrid",
+          "q": 13.4,
+          "col": [
+            "#FFFFFF",
+            "#E53027"
+          ],
+          "st": [
+            "Estadio de Vallecas",
+            14708
+          ],
+          "f": 1924
+        },
+        {
+          "n": "Levante",
+          "c": "Valencia",
+          "q": 12.8,
+          "col": [
+            "#B4053F",
+            "#004D98"
+          ],
+          "st": [
+            "Ciutat de València",
+            26354
+          ],
+          "f": 1909
+        },
+        {
+          "n": "Real Betis",
+          "s": "Betis",
+          "c": "Sevilla",
+          "q": 14.3,
+          "col": [
+            "#00954C",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Benito Villamarín",
+            60721
+          ],
+          "f": 1907
+        },
+        {
+          "n": "Real Sociedad",
+          "s": "R. Sociedad",
+          "c": "San Sebastián",
+          "q": 14.1,
+          "col": [
+            "#0067B1",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Reale Arena",
+            39500
+          ],
+          "f": 1909
+        },
+        {
+          "n": "Villarreal",
+          "c": "Villarreal",
+          "q": 14.5,
+          "col": [
+            "#FFE667",
+            "#005187"
+          ],
+          "st": [
+            "Estadio de la Cerámica",
+            23500
+          ],
+          "f": 1923
+        },
+        {
+          "n": "Valencia",
+          "c": "Valencia",
+          "q": 13.6,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "st": [
+            "Mestalla",
+            49430
+          ],
+          "f": 1919
+        },
+        {
+          "n": "Deportivo Alavés",
+          "s": "Alavés",
+          "c": "Vitoria-Gasteiz",
+          "q": 13.1,
+          "col": [
+            "#0761AF",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Mendizorroza",
+            19840
+          ],
+          "f": 1921
+        },
+        {
+          "n": "Elche",
+          "c": "Elche",
+          "q": 12.8,
+          "col": [
+            "#FFFFFF",
+            "#05642C"
+          ],
+          "st": [
+            "Martínez Valero",
+            31388
+          ],
+          "f": 1923
+        },
+        {
+          "n": "Celta de Vigo",
+          "s": "Celta",
+          "c": "Vigo",
+          "q": 13.7,
+          "col": [
+            "#8AC3EE",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Abanca-Balaídos",
+            24870
+          ],
+          "f": 1923
+        },
+        {
+          "n": "Sevilla",
+          "c": "Sevilla",
+          "q": 13.6,
+          "col": [
+            "#FFFFFF",
+            "#D71920"
+          ],
+          "st": [
+            "Ramón Sánchez-Pizjuán",
+            43883
+          ],
+          "f": 1890
+        },
+        {
+          "n": "Deportivo de La Coruña",
+          "s": "Deportivo",
+          "c": "A Coruña",
+          "q": 11.5,
+          "col": [
+            "#0067B1",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Racing de Santander",
+          "s": "Racing",
+          "c": "Santander",
+          "q": 11.4,
+          "col": [
+            "#FFFFFF",
+            "#00A650"
+          ]
+        }
+      ]
+    },
+    {
+      "nation": "IT",
+      "tier": 1,
+      "clubs": [
+        {
+          "n": "AC Milan",
+          "s": "Milan",
+          "c": "Milano",
+          "q": 15.1,
+          "col": [
+            "#FB090B",
+            "#000000"
+          ],
+          "st": [
+            "San Siro",
+            75817
+          ],
+          "f": 1899
+        },
+        {
+          "n": "Fiorentina",
+          "c": "Firenze",
+          "q": 14.1,
+          "col": [
+            "#482E92",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadio Artemio Franchi",
+            43147
+          ],
+          "f": 1926
+        },
+        {
+          "n": "AS Roma",
+          "s": "Roma",
+          "c": "Roma",
+          "q": 14.8,
+          "col": [
+            "#8E1F2F",
+            "#F0BC42"
+          ],
+          "st": [
+            "Stadio Olimpico",
+            70634
+          ],
+          "f": 1927
+        },
+        {
+          "n": "Atalanta",
+          "c": "Bergamo",
+          "q": 14.9,
+          "col": [
+            "#1E71B8",
+            "#000000"
+          ],
+          "st": [
+            "Gewiss Stadium",
+            24950
+          ],
+          "f": 1907
+        },
+        {
+          "n": "Bologna",
+          "c": "Bologna",
+          "q": 14.3,
+          "col": [
+            "#1A2F48",
+            "#A21C26"
+          ],
+          "st": [
+            "Stadio Renato Dall'Ara",
+            36462
+          ],
+          "f": 1909
+        },
+        {
+          "n": "Cagliari",
+          "c": "Cagliari",
+          "q": 13,
+          "col": [
+            "#B5121B",
+            "#002350"
+          ],
+          "st": [
+            "Unipol Domus",
+            16416
+          ],
+          "f": 1920
+        },
+        {
+          "n": "Genoa",
+          "c": "Genova",
+          "q": 13.2,
+          "col": [
+            "#A41E34",
+            "#003B70"
+          ],
+          "st": [
+            "Stadio Luigi Ferraris",
+            36599
+          ],
+          "f": 1893
+        },
+        {
+          "n": "Inter",
+          "c": "Milano",
+          "q": 15.6,
+          "col": [
+            "#0068A8",
+            "#000000"
+          ],
+          "st": [
+            "San Siro",
+            75817
+          ],
+          "f": 1908
+        },
+        {
+          "n": "Juventus",
+          "c": "Torino",
+          "q": 15.1,
+          "col": [
+            "#000000",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Allianz Stadium",
+            41507
+          ],
+          "f": 1897
+        },
+        {
+          "n": "Lazio",
+          "c": "Roma",
+          "q": 14.3,
+          "col": [
+            "#87D8F7",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadio Olimpico",
+            70634
+          ],
+          "f": 1900
+        },
+        {
+          "n": "Parma",
+          "c": "Parma",
+          "q": 13,
+          "col": [
+            "#FFDD00",
+            "#1B4692"
+          ],
+          "st": [
+            "Stadio Ennio Tardini",
+            22352
+          ],
+          "f": 1913
+        },
+        {
+          "n": "Napoli",
+          "c": "Napoli",
+          "q": 15.3,
+          "col": [
+            "#12A0D7",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadio Diego Armando Maradona",
+            54726
+          ],
+          "f": 1926
+        },
+        {
+          "n": "Udinese",
+          "c": "Udine",
+          "q": 13.3,
+          "col": [
+            "#000000",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Bluenergy Stadium",
+            25144
+          ],
+          "f": 1896
+        },
+        {
+          "n": "Venezia",
+          "c": "Venezia",
+          "q": 11.8,
+          "col": [
+            "#000000",
+            "#F28C28"
+          ]
+        },
+        {
+          "n": "Frosinone",
+          "c": "Frosinone",
+          "q": 11,
+          "col": [
+            "#FFE500",
+            "#0057B8"
+          ]
+        },
+        {
+          "n": "Sassuolo",
+          "c": "Sassuolo",
+          "q": 13.1,
+          "col": [
+            "#00A752",
+            "#000000"
+          ],
+          "st": [
+            "Mapei Stadium",
+            21584
+          ],
+          "f": 1920
+        },
+        {
+          "n": "Torino",
+          "c": "Torino",
+          "q": 13.5,
+          "col": [
+            "#881F19",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadio Olimpico Grande Torino",
+            27958
+          ],
+          "f": 1906
+        },
+        {
+          "n": "Lecce",
+          "c": "Lecce",
+          "q": 12.8,
+          "col": [
+            "#FFE500",
+            "#D71920"
+          ],
+          "st": [
+            "Stadio Via del Mare",
+            31533
+          ],
+          "f": 1908
+        },
+        {
+          "n": "Monza",
+          "c": "Monza",
+          "q": 11.9,
+          "col": [
+            "#E30613",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Como",
+          "c": "Como",
+          "q": 14.3,
+          "col": [
+            "#0047BB",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadio Giuseppe Sinigaglia",
+            13602
+          ],
+          "f": 1907
+        }
+      ]
+    },
+    {
+      "nation": "DE",
+      "tier": 1,
+      "clubs": [
+        {
+          "n": "1. FC Köln",
+          "s": "Köln",
+          "c": "Köln",
+          "q": 13.1,
+          "col": [
+            "#FFFFFF",
+            "#ED1C24"
+          ],
+          "st": [
+            "RheinEnergieStadion",
+            50000
+          ],
+          "f": 1948
+        },
+        {
+          "n": "TSG Hoffenheim",
+          "s": "Hoffenheim",
+          "c": "Sinsheim",
+          "q": 13.9,
+          "col": [
+            "#1961B5",
+            "#FFFFFF"
+          ],
+          "st": [
+            "PreZero Arena",
+            30150
+          ],
+          "f": 1899
+        },
+        {
+          "n": "Bayer Leverkusen",
+          "s": "Leverkusen",
+          "c": "Leverkusen",
+          "q": 15,
+          "col": [
+            "#E32221",
+            "#000000"
+          ],
+          "st": [
+            "BayArena",
+            30210
+          ],
+          "f": 1904
+        },
+        {
+          "n": "Borussia Dortmund",
+          "s": "Dortmund",
+          "c": "Dortmund",
+          "q": 15.2,
+          "col": [
+            "#FDE100",
+            "#000000"
+          ],
+          "st": [
+            "Signal Iduna Park",
+            81365
+          ],
+          "f": 1909
+        },
+        {
+          "n": "Bayern München",
+          "s": "Bayern",
+          "c": "München",
+          "q": 16.1,
+          "col": [
+            "#DC052D",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Allianz Arena",
+            75024
+          ],
+          "f": 1900
+        },
+        {
+          "n": "FC Schalke 04",
+          "s": "Schalke",
+          "c": "Gelsenkirchen",
+          "q": 11.7,
+          "col": [
+            "#004D9D",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Hamburger SV",
+          "s": "Hamburg",
+          "c": "Hamburg",
+          "q": 13.2,
+          "col": [
+            "#FFFFFF",
+            "#0A3F86"
+          ],
+          "st": [
+            "Volksparkstadion",
+            57000
+          ],
+          "f": 1887
+        },
+        {
+          "n": "VfB Stuttgart",
+          "s": "Stuttgart",
+          "c": "Stuttgart",
+          "q": 14.6,
+          "col": [
+            "#FFFFFF",
+            "#E32219"
+          ],
+          "st": [
+            "MHPArena",
+            60449
+          ],
+          "f": 1893
+        },
+        {
+          "n": "Werder Bremen",
+          "s": "Bremen",
+          "c": "Bremen",
+          "q": 13.5,
+          "col": [
+            "#1D9053",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Weserstadion",
+            42100
+          ],
+          "f": 1899
+        },
+        {
+          "n": "1. FSV Mainz 05",
+          "s": "Mainz",
+          "c": "Mainz",
+          "q": 13.6,
+          "col": [
+            "#C3141E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Mewa Arena",
+            33305
+          ],
+          "f": 1905
+        },
+        {
+          "n": "FC Augsburg",
+          "s": "Augsburg",
+          "c": "Augsburg",
+          "q": 13.3,
+          "col": [
+            "#BA3733",
+            "#46714D"
+          ],
+          "st": [
+            "WWK Arena",
+            30660
+          ],
+          "f": 1907
+        },
+        {
+          "n": "SC Freiburg",
+          "s": "Freiburg",
+          "c": "Freiburg",
+          "q": 14,
+          "col": [
+            "#000000",
+            "#E2001A"
+          ],
+          "st": [
+            "Europa-Park Stadion",
+            34700
+          ],
+          "f": 1904
+        },
+        {
+          "n": "Borussia Mönchengladbach",
+          "s": "Gladbach",
+          "c": "Mönchengladbach",
+          "q": 13.6,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "st": [
+            "Borussia-Park",
+            54042
+          ],
+          "f": 1900
+        },
+        {
+          "n": "Eintracht Frankfurt",
+          "s": "Frankfurt",
+          "c": "Frankfurt",
+          "q": 14.5,
+          "col": [
+            "#E1000F",
+            "#000000"
+          ],
+          "st": [
+            "Deutsche Bank Park",
+            58000
+          ],
+          "f": 1899
+        },
+        {
+          "n": "Union Berlin",
+          "s": "Union",
+          "c": "Berlin",
+          "q": 13.4,
+          "col": [
+            "#EB1923",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadion An der Alten Försterei",
+            22012
+          ],
+          "f": 1966
+        },
+        {
+          "n": "SC Paderborn 07",
+          "s": "Paderborn",
+          "c": "Paderborn",
+          "q": 11.3,
+          "col": [
+            "#005CA9",
+            "#000000"
+          ]
+        },
+        {
+          "n": "SV Elversberg",
+          "s": "Elversberg",
+          "c": "Spiesen-Elversberg",
+          "q": 11.1,
+          "col": [
+            "#000000",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "RB Leipzig",
+          "s": "Leipzig",
+          "c": "Leipzig",
+          "q": 14.8,
+          "col": [
+            "#FFFFFF",
+            "#DD0741"
+          ],
+          "st": [
+            "Red Bull Arena",
+            47069
+          ],
+          "f": 2009
+        }
+      ]
+    },
+    {
+      "nation": "FR",
+      "tier": 1,
+      "clubs": [
+        {
+          "n": "Toulouse FC",
+          "s": "Toulouse",
+          "c": "Toulouse",
+          "q": 13.2,
+          "col": [
+            "#5A2A82",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stadium de Toulouse",
+            33150
+          ],
+          "f": 1970
+        },
+        {
+          "n": "Stade Brestois",
+          "s": "Brest",
+          "c": "Brest",
+          "q": 13.3,
+          "col": [
+            "#E2001A",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stade Francis-Le Blé",
+            15931
+          ],
+          "f": 1950
+        },
+        {
+          "n": "Olympique de Marseille",
+          "s": "Marseille",
+          "c": "Marseille",
+          "q": 14.8,
+          "col": [
+            "#2FAEE0",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Orange Vélodrome",
+            67394
+          ],
+          "f": 1899
+        },
+        {
+          "n": "AJ Auxerre",
+          "s": "Auxerre",
+          "c": "Auxerre",
+          "q": 12.7,
+          "col": [
+            "#FFFFFF",
+            "#004B9C"
+          ],
+          "st": [
+            "Stade de l'Abbé-Deschamps",
+            18541
+          ],
+          "f": 1905
+        },
+        {
+          "n": "LOSC Lille",
+          "s": "Lille",
+          "c": "Lille",
+          "q": 14.4,
+          "col": [
+            "#E01E13",
+            "#20325F"
+          ],
+          "st": [
+            "Decathlon Arena",
+            50186
+          ],
+          "f": 1944
+        },
+        {
+          "n": "OGC Nice",
+          "s": "Nice",
+          "c": "Nice",
+          "q": 13.9,
+          "col": [
+            "#C20E1A",
+            "#000000"
+          ],
+          "st": [
+            "Allianz Riviera",
+            36178
+          ],
+          "f": 1904
+        },
+        {
+          "n": "Olympique Lyonnais",
+          "s": "Lyon",
+          "c": "Lyon",
+          "q": 14.4,
+          "col": [
+            "#FFFFFF",
+            "#DA0812"
+          ],
+          "st": [
+            "Groupama Stadium",
+            59186
+          ],
+          "f": 1950
+        },
+        {
+          "n": "Paris Saint-Germain",
+          "s": "PSG",
+          "c": "Paris",
+          "q": 16,
+          "col": [
+            "#004170",
+            "#DA291C"
+          ],
+          "st": [
+            "Parc des Princes",
+            47929
+          ],
+          "f": 1970
+        },
+        {
+          "n": "FC Lorient",
+          "s": "Lorient",
+          "c": "Lorient",
+          "q": 12.6,
+          "col": [
+            "#F58025",
+            "#000000"
+          ],
+          "st": [
+            "Stade du Moustoir",
+            18110
+          ],
+          "f": 1926
+        },
+        {
+          "n": "Stade Rennais",
+          "s": "Rennes",
+          "c": "Rennes",
+          "q": 13.8,
+          "col": [
+            "#E13327",
+            "#000000"
+          ],
+          "st": [
+            "Roazhon Park",
+            29778
+          ],
+          "f": 1901
+        },
+        {
+          "n": "ES Troyes AC",
+          "s": "Troyes",
+          "c": "Troyes",
+          "q": 10.9,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Angers SCO",
+          "s": "Angers",
+          "c": "Angers",
+          "q": 12.6,
+          "col": [
+            "#000000",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stade Raymond-Kopa",
+            19350
+          ],
+          "f": 1919
+        },
+        {
+          "n": "Le Havre AC",
+          "s": "Le Havre",
+          "c": "Le Havre",
+          "q": 12.5,
+          "col": [
+            "#0F2F5B",
+            "#89C3E6"
+          ],
+          "st": [
+            "Stade Océane",
+            25178
+          ],
+          "f": 1872
+        },
+        {
+          "n": "Le Mans FC",
+          "s": "Le Mans",
+          "c": "Le Mans",
+          "q": 10.4,
+          "col": [
+            "#E2001A",
+            "#FFE500"
+          ]
+        },
+        {
+          "n": "RC Lens",
+          "s": "Lens",
+          "c": "Lens",
+          "q": 14,
+          "col": [
+            "#FDD000",
+            "#E52028"
+          ],
+          "st": [
+            "Stade Bollaert-Delelis",
+            37705
+          ],
+          "f": 1906
+        },
+        {
+          "n": "AS Monaco",
+          "s": "Monaco",
+          "c": "Monaco",
+          "q": 14.7,
+          "col": [
+            "#E7212C",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stade Louis-II",
+            16360
+          ],
+          "f": 1924
+        },
+        {
+          "n": "RC Strasbourg",
+          "s": "Strasbourg",
+          "c": "Strasbourg",
+          "q": 13.9,
+          "col": [
+            "#009FE3",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stade de la Meinau",
+            26109
+          ],
+          "f": 1906
+        },
+        {
+          "n": "Paris FC",
+          "c": "Paris",
+          "q": 12.8,
+          "col": [
+            "#13294B",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stade Jean-Bouin",
+            19904
+          ],
+          "f": 1969
+        }
+      ]
+    }
+  ]
+}

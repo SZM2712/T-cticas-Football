@@ -1,0 +1,2792 @@
+# Importación de football-data.org (2026/27)
+
+- Fecha: 2026-10-11T06:30:09.420Z
+- Clubes reconocidos: 144 · nuevos: 2
+- Jugadores conocidos (conservan su nivel): 1356
+- Jugadores nuevos con nivel **estimado** (revisar en players.csv, columna estimated=1): 2452
+- Descartados: 74
+
+## Clubes nuevos
+- Cardiff City
+- Lincoln City
+
+## Jugadores nuevos (nivel estimado)
+- Max Dowman — Arsenal (ST, 2009, GB-ENG): 14.8
+- Victor Nilsson-Lindelöf — Aston Villa (CB, 1994, SE): 15.1
+- Taylor Harwood-Bellis — Aston Villa (CB, 2002, GB-ENG): 15.5
+- Modou Keba Cisse — Aston Villa (CB, 2005, SN): 14.7
+- Ross Barkley — Aston Villa (CM, 1993, GB-ENG): 15.1
+- Alysson — Aston Villa (ST, 2006, BR): 14.7
+- Ibrahim M'Baye — Aston Villa (ST, 2008, SN): 13.7
+- Brian Madjo — Aston Villa (ST, 2009, LU): 13.7
+- George Hemmings — Aston Villa (ST, 2007, GB-ENG): 13.7
+- Gabriel Slonina — Chelsea (GK, 2004, US): 15
+- Teddy Sharman-Lowe — Chelsea (GK, 2003, GB-ENG): 15.8
+- Marco Palestra — Chelsea (CB, 2005, IT): 15.4
+- Aaron Anselmino — Chelsea (CB, 2005, AR): 15.4
+- Josh Acheampong — Chelsea (CB, 2006, GB-ENG): 15.4
+- Thomas King — Everton (GK, 1995, GB-WLS): 13.7
+- Hayden Hackney — Everton (CM, 2002, GB-ENG): 14.5
+- Merlin Röhl — Everton (CM, 2002, DE): 14.5
+- Harrison Armstrong — Everton (CM, 2007, GB-ENG): 12.7
+- Thierno Barry — Everton (ST, 2000, FR): 14.5
+- Tyrique George — Everton (ST, 2006, GB-ENG): 13.7
+- Benjamin Lecomte — Fulham (GK, 1991, FR): 13.2
+- Alex Borto — Fulham (GK, 2003, US): 14.2
+- Ryan Sessegnon — Fulham (CB, 2000, GB-ENG): 14.6
+- Jorge Cuenca — Fulham (CB, 1999, ES): 14.6
+- Luc De Fougerolles — Fulham (CB, 2005, CA): 13.8
+- Shea Charles — Fulham (CM, 2003, GB-NIR): 14.6
+- Joshua King — Fulham (CM, 2007, GB-ENG): 12.8
+- César Palacios — Fulham (CM, 2004, ES): 13.8
+- Manuel Angel — Fulham (CM, 2004, ES): 13.8
+- Jonah Kusi-Asare — Fulham (ST, 2007, SE): 12.8
+- Freddie Woodman — Liverpool (GK, 1997, GB-ENG): 16.2
+- Vítězslav Jaroš — Liverpool (GK, 2001, CZ): 16.2
+- Harvey Davies — Liverpool (GK, 2003, GB-ENG): 16.2
+- Kostas Tsimikas — Liverpool (CB, 1996, GR): 16.6
+- Trey Nyoni — Liverpool (CM, 2007, GB-ENG): 14.8
+- Marcus Bettinelli — Manchester City (GK, 1992, GB-ENG): 15.1
+- Josh Wilson-Esbrand — Manchester City (CB, 2002, GB-ENG): 16.5
+- Nico O'Reilly — Manchester City (CB, 2005, GB-ENG): 15.7
+- Allan — Manchester City (ST, 2004, BR): 15.7
+- Ryan McAidoo — Manchester City (ST, 2008, GB-ENG): 14.7
+- Karl Darlow — Manchester United (GK, 1990, GB-WLS): 14.1
+- Tom Heaton — Manchester United (GK, 1986, GB-ENG): 14.1
+- Dermot Mee — Manchester United (GK, 2002, GB-NIR): 15.1
+- Harry Amass — Manchester United (CB, 2007, GB-ENG): 13.7
+- Jack Fletcher — Manchester United (CM, 2007, GB-ENG): 13.7
+- Tyler Fletcher — Manchester United (CM, 2007, GB-ENG): 13.7
+- Shea Lacey — Manchester United (ST, 2007, GB-ENG): 13.7
+- Mark Gillespie — Newcastle United (GK, 1992, GB-ENG): 14.3
+- Lukáš Horníček — Newcastle United (GK, 2002, CZ): 15.3
+- Ewen Jaouen — Newcastle United (GK, 2005, FR): 14.5
+- Lewis Hall — Newcastle United (CB, 2025, GB-ENG): 13.9
+- Leo Shahar — Newcastle United (CB, 2007, GB-ENG): 13.9
+- Lewis Miley — Newcastle United (CM, 2006, GB-ENG): 14.9
+- Sean Steur — Newcastle United (CM, 2008, NL): 13.9
+- Aladji Bamba — Newcastle United (CM, 2006, FR): 14.9
+- William Osula — Newcastle United (ST, 2003, DK): 15.7
+- Simon Moore — Sunderland (GK, 1990, GB-ENG): 12.5
+- Melker Ellborg — Sunderland (GK, 2003, SE): 13.5
+- Luke O'Nien — Sunderland (CB, 1994, GB-ENG): 13.5
+- Reinildo — Sunderland (CB, 1994, MZ): 13.5
+- Aji Alese — Sunderland (CB, 2001, GB-ENG): 13.9
+- Dayann Methalie — Sunderland (CB, 2006, FR): 13.1
+- Alan Browne — Sunderland (CM, 1995, IE): 13.5
+- Abdoullah Ba — Sunderland (CM, 2003, FR): 13.9
+- Jules Ahoka — Sunderland (CM, 2005, CD): 13.1
+- Romaine Mundle — Sunderland (ST, 2003, GB-ENG): 13.9
+- Nilson Angulo — Sunderland (ST, 2003, EC): 13.9
+- Juan Angulo — Sunderland (ST, 2008, EC): 12.1
+- Jocelin Bi — Sunderland (ST, 2005, CI): 13.1
+- Brandon Austin — Tottenham Hotspur (GK, 1999, GB-ENG): 15.2
+- Ben Davies — Tottenham Hotspur (CB, 1993, GB-WLS): 15.2
+- Mykhailo Mudryk — Tottenham Hotspur (ST, 2001, UA): 15.6
+- Sávio — Tottenham Hotspur (ST, 2004, BR): 14.8
+- Dillon Phillips — Hull City (GK, 1995, GB-ENG): 11.1
+- Konstantinos Tzolakis — Hull City (GK, 2002, GR): 11.5
+- Matt Targett — Hull City (CB, 1995, GB-ENG): 11.5
+- Paddy McNair — Hull City (CB, 1995, GB-NIR): 11.5
+- John Egan — Hull City (CB, 1992, IE): 10.9
+- Lewie Coyle — Hull City (CB, 1995, GB-ENG): 11.5
+- Semi Ajayi — Hull City (CB, 1993, NG): 11.5
+- Ryan John Giles — Hull City (CB, 2000, GB-ENG): 11.9
+- Charlie Hughes — Hull City (CB, 2003, GB-ENG): 11.9
+- Nobel Mendy — Hull City (CB, 2004, SN): 11.1
+- Lucas Herrington — Hull City (CB, 2007, AU): 10.1
+- Regan Slater — Hull City (CM, 1999, GB-ENG): 11.9
+- Matty Crooks — Hull City (CM, 1994, GB-ENG): 11.5
+- Kieran Dowell — Hull City (CM, 1997, GB-ENG): 11.9
+- Abdülkadir Ömür — Hull City (CM, 1999, TR): 11.9
+- Eliot Matazo — Hull City (CM, 2002, BE): 11.9
+- Tim Iroegbunam — Hull City (CM, 2002, GB-ENG): 11.9
+- Lucas Gourna-Douath — Hull City (CM, 2003, FR): 11.9
+- Darko Gyabi — Hull City (CM, 2004, GB-ENG): 11.1
+- Jens Hjertö-Dahl — Hull City (CM, 2005, NO): 11.1
+- Óscar Zambrano — Hull City (CM, 2004, EC): 11.1
+- Christos Mouzakitis — Hull City (CM, 2006, GR): 11.1
+- Oliver McBurnie — Hull City (ST, 1996, GB-SCT): 11.9
+- Sorba Thomas — Hull City (ST, 1999, GB-WLS): 11.9
+- Joe Gelhardt — Hull City (ST, 2002, GB-ENG): 11.9
+- David Akintola — Hull City (ST, 1996, NG): 11.9
+- Elliot Stroud — Hull City (ST, 2002, SE): 11.9
+- Robinio Vaz — Hull City (ST, 2007, FR): 10.1
+- Mohamed Belloumi — Hull City (ST, 2002, DZ): 11.9
+- Alex Cairns — Leeds United (GK, 1993, GB-ENG): 13.3
+- James Justin — Leeds United (CB, 1998, GB-ENG): 14.1
+- Ao Tanaka — Leeds United (CM, 1998, JP): 14.1
+- Mateo Fernandez — Leeds United (ST, 2003, ES): 14.1
+- David Button — Ipswich Town (GK, 1989, GB-ENG): 11.4
+- Christian Walton — Ipswich Town (GK, 1995, GB-ENG): 12
+- Alex Palmer — Ipswich Town (GK, 1996, GB-ENG): 12.4
+- Kjell Scherpen — Ipswich Town (GK, 2000, NL): 12.4
+- Darnell Furlong — Ipswich Town (CB, 1995, GB-ENG): 12.4
+- Dara O'Shea — Ipswich Town (CB, 1999, IE): 12.8
+- Cédric Kipré — Ipswich Town (CB, 1996, CI): 12.8
+- Leif Davis — Ipswich Town (CB, 1999, GB-ENG): 12.8
+- Jacob Greaves — Ipswich Town (CB, 2000, GB-ENG): 12.8
+- Abdoul Ouattara — Ipswich Town (CB, 2005, CI): 12
+- Jack Taylor — Ipswich Town (CM, 1998, IE): 12.8
+- Azor Matusiwa — Ipswich Town (CM, 1998, NL): 12.8
+- Florentino — Ipswich Town (CM, 1999, PT): 12.8
+- Marcelino Núñez — Ipswich Town (CM, 2000, CL): 12.8
+- Anis Mehmeti — Ipswich Town (CM, 2001, AL): 12.8
+- Kasey McAteer — Ipswich Town (CM, 2001, IE): 12.8
+- Jack Clarke — Ipswich Town (ST, 2000, GB-ENG): 12.8
+- Chuba Akpom — Ipswich Town (ST, 1995, GB-ENG): 12.4
+- Jaden Philogene-Bidace — Ipswich Town (ST, 2002, GB-ENG): 12.8
+- Emersonn — Ipswich Town (ST, 2004, BR): 12
+- Abdul Issahaku — Ipswich Town (ST, 2004, GH): 12
+- Sindre Egeli — Ipswich Town (ST, 2006, NO): 12
+- John — Nottingham Forest (GK, 1996, BR): 14.6
+- Steven Benda — Nottingham Forest (GK, 1998, DE): 14.6
+- Jair Paula — Nottingham Forest (CB, 2005, BR): 14.2
+- Ousmane Diomande — Nottingham Forest (CB, 2004, CI): 14.2
+- Morgan Gibbs-White — Nottingham Forest (CM, 2000, GB-ENG): 15
+- Ryan Yates — Nottingham Forest (CM, 1997, GB-ENG): 15
+- James McAtee — Nottingham Forest (CM, 2002, GB-ENG): 15
+- Remi Matthews — Crystal Palace (GK, 1994, GB-ENG): 14.1
+- Axel Disasi — Crystal Palace (CB, 1998, FR): 14.9
+- Takehiro Tomiyasu — Crystal Palace (CB, 1998, JP): 14.9
+- Chadi Riad — Crystal Palace (CB, 2003, MA): 14.9
+- Honest Ahanor — Crystal Palace (CB, 2008, IT): 13.1
+- Cheick Doucouré — Crystal Palace (CM, 2000, ML): 14.9
+- Anan Khalaili — Crystal Palace (CM, 2004, IL): 14.1
+- Matheus Franca — Crystal Palace (ST, 2004, BR): 14.1
+- Darío Osorio — Crystal Palace (ST, 2004, CL): 14.1
+- Jesurun Rak-Sakyi — Crystal Palace (ST, 2002, GB-ENG): 14.9
+- Zavier Gozo — Crystal Palace (ST, 2007, US): 13.1
+- Jason Steele — Brighton & Hove Albion (GK, 1990, GB-ENG): 13.7
+- Thomas McGill — Brighton & Hove Albion (GK, 2000, GB-ENG): 14.7
+- Michael Svoboda — Brighton & Hove Albion (CB, 1998, AT): 15.1
+- Jaouen Hadjam — Brighton & Hove Albion (CB, 2003, DZ): 15.1
+- Costinha — Brighton & Hove Albion (CB, 2000, PT): 15.1
+- Femi Azeez — Brighton & Hove Albion (CM, 2001, GB-ENG): 15.1
+- Malick Yalcouyé — Brighton & Hove Albion (CM, 2005, ML): 14.3
+- Ibrahim Osman — Brighton & Hove Albion (ST, 2004, GH): 14.3
+- Stefanos Tzimas — Brighton & Hove Albion (ST, 2006, GR): 14.3
+- Promise Akinpelu — Brighton & Hove Albion (ST, 2001, CA): 15.1
+- Charalampos Kostoulas — Brighton & Hove Albion (ST, 2007, GR): 13.3
+- Zadok Yohanna — Brighton & Hove Albion (ST, 2007, NG): 13.3
+- Ellery Balcombe — Brentford (GK, 1999, GB-ENG): 14.3
+- Hákon Rafn Valdimarsson — Brentford (GK, 2001, IS): 14.3
+- El Hadji Malick Diouf — Brentford (CB, 2023, SN): 12.9
+- Ji-soo Kim — Brentford (CB, 2004, KR): 13.9
+- Jannik Schuster — Brentford (CB, 2006, AT): 13.9
+- Benjamin Fredrick — Brentford (CB, 2005, NG): 13.9
+- Josh Dasilva — Brentford (CM, 1998, GB-ENG): 14.7
+- Antoni Milambo — Brentford (CM, 2005, NL): 13.9
+- Yegor Yarmolyuk — Brentford (CM, 2004, UA): 13.9
+- Jaidon Anthony — Brentford (ST, 1999, GB-ENG): 14.7
+- Gustavo Gomes — Brentford (ST, 2005, BR): 13.9
+- Kaye Furo — Brentford (ST, 2007, BE): 12.9
+- Fraser Forster — Bournemouth (GK, 1988, GB-ENG): 13.4
+- Max Aarons — Bournemouth (CB, 2000, GB-ENG): 14.8
+- Julian Araujo — Bournemouth (CB, 2001, US): 14.8
+- Juanlu — Bournemouth (CB, 2003, ES): 14.8
+- Julio Soler — Bournemouth (CB, 2005, AR): 14
+- Veljko Milosavljević — Bournemouth (CB, 2007, RS): 13
+- Alex Toth — Bournemouth (CM, 2005, HU): 14
+- Ben Winterburn — Bournemouth (CM, 2004, GB-ENG): 14
+- Daniel Jebbison — Bournemouth (ST, 2003, CA): 14.8
+- Ben Doak — Bournemouth (ST, 2005, GB-SCT): 14
+- Alvaro Rodriguez — Bournemouth (ST, 2004, ES): 14
+- Rayan — Bournemouth (ST, 2006, BR): 14
+- Daniel Bentley — Coventry City (GK, 1993, GB-ENG): 11.6
+- Carl Rushworth — Coventry City (GK, 2001, GB-ENG): 12
+- Jake Bidwell — Coventry City (CB, 1993, GB-ENG): 12
+- Luke Woolfenden — Coventry City (CB, 1998, GB-ENG): 12.4
+- Jay Dasilva — Coventry City (CB, 1998, GB-WLS): 12.4
+- Milan van Ewijk — Coventry City (CB, 2000, NL): 12.4
+- Joel Latibeaudiere — Coventry City (CB, 2000, JM): 12.4
+- Bobby Thomas — Coventry City (CB, 2001, GB-ENG): 12.4
+- Kaine Kesler — Coventry City (CB, 2002, GB-ENG): 12.4
+- Stephen Mfuni — Coventry City (CB, 2008, GB-ENG): 10.6
+- Matt Grimes — Coventry City (CM, 1995, GB-ENG): 12
+- Gustavo Hamer — Coventry City (CM, 1997, NL): 12.4
+- Victor Torp — Coventry City (CM, 1999, DK): 12.4
+- Frank Onyeka — Coventry City (CM, 1998, NG): 12.4
+- Josh Eccles — Coventry City (CM, 2000, GB-ENG): 12.4
+- Jack Rudoni — Coventry City (CM, 2001, GB-ENG): 12.4
+- Caleb Yirenkyi — Coventry City (CM, 2006, GH): 11.6
+- Ephron Mason-Clark — Coventry City (ST, 1999, GB-ENG): 12.4
+- Brandon Thomas-Asante — Coventry City (ST, 1998, GH): 12.4
+- Taiwo Awoniyi — Coventry City (ST, 1997, NG): 12.4
+- Haji Wright — Coventry City (ST, 1998, US): 12.4
+- Tatsuhiro Sakamoto — Coventry City (ST, 1996, JP): 12.4
+- Ellis Simms — Coventry City (ST, 2001, GB-ENG): 12.4
+- Aynsley Pears — Blackburn Rovers (GK, 1998, GB-ENG): 11.3
+- Balázs Tóth — Blackburn Rovers (GK, 1997, HU): 11.3
+- Harry Pickering — Blackburn Rovers (CB, 1998, GB-ENG): 11.7
+- Scott Wharton — Blackburn Rovers (CB, 1997, GB-ENG): 11.7
+- Sean McLoughlin — Blackburn Rovers (CB, 1996, IE): 11.7
+- Yuri Ribeiro — Blackburn Rovers (CB, 1997, PT): 11.7
+- Lewis Miller — Blackburn Rovers (CB, 2000, AU): 11.7
+- Hayden Carter — Blackburn Rovers (CB, 1999, GB-ENG): 11.7
+- Ryan Alebiosu — Blackburn Rovers (CB, 2001, NG): 11.7
+- Tom Atcheson — Blackburn Rovers (CB, 2006, GB-NIR): 10.9
+- Gady Beyuku — Blackburn Rovers (CB, 2005, FR): 10.9
+- Sam Morsy — Blackburn Rovers (CM, 1991, EG): 10.7
+- Adam Forshaw — Blackburn Rovers (CM, 1991, GB-ENG): 10.7
+- Todd Cantwell — Blackburn Rovers (CM, 1998, GB-ENG): 11.7
+- Ryoya Morishita — Blackburn Rovers (CM, 1997, JP): 11.7
+- Dion De Neve — Blackburn Rovers (CM, 2001, BE): 11.7
+- Jake Garrett — Blackburn Rovers (CM, 2003, GB-ENG): 11.7
+- Kristi Montgomery — Blackburn Rovers (CM, 2004, GB-SCT): 10.9
+- Oladapo Afolayan — Blackburn Rovers (ST, 1998, GB-ENG): 11.7
+- Mathias Jørgensen — Blackburn Rovers (ST, 2000, DK): 11.7
+- Yuki Ohashi — Blackburn Rovers (ST, 1996, JP): 11.7
+- Jayden Fevrier — Blackburn Rovers (ST, 2003, GB-ENG): 11.7
+- Andri Guðjohnsen — Blackburn Rovers (ST, 2002, IS): 11.7
+- Jack Bonham — Bolton Wanderers (GK, 1993, IE): 10.1
+- Gavin Bazunu — Bolton Wanderers (GK, 2002, IE): 10.5
+- David Harrington — Bolton Wanderers (GK, 2000, IE): 10.5
+- Luke Hutchinson — Bolton Wanderers (GK, 2002, GB-ENG): 10.5
+- Nathan Broome — Bolton Wanderers (GK, 2002, GB-ENG): 10.5
+- Akin Famewo — Bolton Wanderers (CB, 1998, GB-ENG): 10.9
+- Ben Davies — Bolton Wanderers (CB, 1995, GB-ENG): 10.5
+- Eoin Toal — Bolton Wanderers (CB, 1999, GB-NIR): 10.9
+- Larra — Bolton Wanderers (CB, 1997, ES): 10.9
+- Lewis Brunt — Bolton Wanderers (CB, 2000, GB-ENG): 10.9
+- Max Conway — Bolton Wanderers (CB, 2003, GB-ENG): 10.9
+- Luca Stephenson — Bolton Wanderers (CB, 2003, GB-ENG): 10.9
+- Joel Randall — Bolton Wanderers (CM, 1999, GB-ENG): 10.9
+- Josh Sheehan — Bolton Wanderers (CM, 1995, GB-WLS): 10.5
+- Ethan Erhahon — Bolton Wanderers (CM, 2001, GB-SCT): 10.9
+- Ruben Rodrigues — Bolton Wanderers (CM, 1996, PT): 10.9
+- Atsuki Ito — Bolton Wanderers (CM, 1998, JP): 10.9
+- Xavier Simons — Bolton Wanderers (CM, 2003, GB-ENG): 10.9
+- David Watson — Bolton Wanderers (CM, 2005, GB-SCT): 10.1
+- John McAtee — Bolton Wanderers (ST, 1999, GB-ENG): 10.9
+- Ryan Hardie — Bolton Wanderers (ST, 1997, GB-SCT): 10.9
+- Theo Bair — Bolton Wanderers (ST, 1999, CA): 10.9
+- Jayden Nelson — Bolton Wanderers (ST, 2002, CA): 10.9
+- Kyliane Dong — Bolton Wanderers (ST, 2004, FR): 10.1
+- Sam Dalby — Bolton Wanderers (ST, 1999, GB-ENG): 10.9
+- Daniel Grimshaw — Norwich City (GK, 1998, GB-ENG): 11.7
+- Vladan Kovacevic — Norwich City (GK, 1998, BA): 11.7
+- Vicente Reyes — Norwich City (GK, 2003, CL): 11.7
+- Jack Stacey — Norwich City (CB, 1996, GB-ENG): 12.1
+- Harry Darling — Norwich City (CB, 1999, GB-ENG): 12.1
+- José Cordoba — Norwich City (CB, 2001, PA): 12.1
+- Benjamin Chrisene — Norwich City (CB, 2004, GB-ENG): 11.3
+- Lucien Mahovo — Norwich City (CB, 2005, GB-ENG): 11.3
+- Kellen Fisher — Norwich City (CB, 2001, GB-ENG): 12.1
+- Ruairi McConville — Norwich City (CB, 2005, GB-NIR): 11.3
+- Sam Field — Norwich City (CM, 1998, GB-ENG): 12.1
+- Kenny McLean — Norwich City (CM, 1992, GB-SCT): 11.1
+- Pelle Mattsson — Norwich City (CM, 2001, DK): 12.1
+- Edmond-Paris Maghoma — Norwich City (CM, 2001, GB-ENG): 12.1
+- Anis Ben Slimane — Norwich City (CM, 2001, TN): 12.1
+- Mirko Topić — Norwich City (CM, 2001, RS): 12.1
+- Amankwah Forson — Norwich City (CM, 2002, GH): 12.1
+- Ali Ahmed — Norwich City (CM, 2000, CA): 12.1
+- Oscar Schwartau — Norwich City (CM, 2006, DK): 11.3
+- Andre Brooks — Norwich City (CM, 2003, GB-ENG): 12.1
+- Jacob Wright — Norwich City (CM, 2005, GB-ENG): 11.3
+- Elliot Myles — Norwich City (CM, 2007, GB-ENG): 10.3
+- Gabriel Forsyth — Norwich City (CM, 2006, GB-SCT): 11.3
+- Anthony Musaba — Norwich City (ST, 2000, NL): 12.1
+- Mohamed Toure — Norwich City (ST, 2004, AU): 11.3
+- Mathias Kvistgaarden — Norwich City (ST, 2002, DK): 12.1
+- Jovon Makama — Norwich City (ST, 2004, GB-ENG): 11.3
+- Pape Diallo — Norwich City (ST, 2004, SN): 11.3
+- Ante Crnac — Norwich City (ST, 2003, HR): 12.1
+- Errol Mundle-Smith — Norwich City (ST, 2006, GB-ENG): 11.3
+- Calum Ward — Queens Park Rangers (GK, 2000, GB-ENG): 11.2
+- Pierce Charles — Queens Park Rangers (GK, 2005, GB-NIR): 10.4
+- Matteo Salamon — Queens Park Rangers (GK, 2004, GB-ENG): 10.4
+- Jake Clarke-Salter — Queens Park Rangers (CB, 1997, GB-ENG): 11.6
+- Jimmy Dunne — Queens Park Rangers (CB, 1997, IE): 11.6
+- Boy Kemper — Queens Park Rangers (CB, 1999, NL): 11.6
+- Tariq Lamptey — Queens Park Rangers (CB, 2000, GH): 11.6
+- Ronnie Edwards — Queens Park Rangers (CB, 2003, GB-ENG): 11.6
+- Dennis Cirkin — Queens Park Rangers (CB, 2002, LV): 11.6
+- Amadou Salif Mbengue — Queens Park Rangers (CB, 2002, SN): 11.6
+- Liam Morrison — Queens Park Rangers (CB, 2003, GB-SCT): 11.6
+- Kealey Adamson — Queens Park Rangers (CB, 2003, AU): 11.6
+- Ilias Chair — Queens Park Rangers (CM, 1997, MA): 11.6
+- Nicolas Madsen — Queens Park Rangers (CM, 2000, DK): 11.6
+- Glen Kamara — Queens Park Rangers (CM, 1995, FI): 11.2
+- Karamoko Dembélé — Queens Park Rangers (CM, 2003, GB-ENG): 11.6
+- Jonathan Varane — Queens Park Rangers (CM, 2001, FR): 11.6
+- Harvey Vale — Queens Park Rangers (CM, 2003, IE): 11.6
+- Isak Alemayehu Mulugeta — Queens Park Rangers (CM, 2006, SE): 10.8
+- Paul Smyth — Queens Park Rangers (ST, 1997, GB-NIR): 11.6
+- Koki Saito — Queens Park Rangers (ST, 2001, JP): 11.6
+- Rumarn Burrell — Queens Park Rangers (ST, 2000, JM): 11.6
+- Kwame Poku — Queens Park Rangers (ST, 2001, GH): 11.6
+- Alfie Lloyd — Queens Park Rangers (ST, 2003, GB-ENG): 11.6
+- Rayan Kolli — Queens Park Rangers (ST, 2005, DZ): 10.8
+- Richard Kone — Queens Park Rangers (ST, 2003, CI): 11.6
+- Frankie Fielding — Stoke City (GK, 1988, GB-ENG): 10.4
+- Joshua Griffiths — Stoke City (GK, 2001, GB-ENG): 11.4
+- Viktor Johansson — Stoke City (GK, 1998, SE): 11.4
+- Ben Gibson — Stoke City (CB, 1993, GB-ENG): 11.4
+- Ben Wilmot — Stoke City (CB, 1999, GB-ENG): 11.8
+- Aaron Cresswell — Stoke City (CB, 1989, GB-ENG): 10.8
+- Ben Johnson — Stoke City (CB, 2000, GB-ENG): 11.8
+- Luke Graham — Stoke City (CB, 1986, GB-SCT): 10.8
+- Junior Tchamadeu — Stoke City (CB, 2003, CM): 11.8
+- Bosun Lawal — Stoke City (CB, 2003, IE): 11.8
+- Maksym Taloverov — Stoke City (CB, 2000, UA): 11.8
+- Eric Junior Bocat — Stoke City (CB, 1999, FR): 11.8
+- Luca Bombino — Stoke City (CB, 2006, US): 11
+- Svante Ingelsson — Stoke City (CM, 1998, SE): 11.8
+- Ben Pearson — Stoke City (CM, 1995, GB-ENG): 11.4
+- Ethan Galbraith — Stoke City (CM, 2001, GB-NIR): 11.8
+- Justin Devenny — Stoke City (CM, 2003, GB-NIR): 11.8
+- Tomas Rigo — Stoke City (CM, 2002, SK): 11.8
+- Jack McGlynn — Stoke City (CM, 2003, US): 11.8
+- Joon-ho Bae — Stoke City (CM, 2003, KR): 11.8
+- Sam Gallagher — Stoke City (ST, 1995, GB-ENG): 11.4
+- George Hirst — Stoke City (ST, 1999, GB-SCT): 11.8
+- Róbert Boženík — Stoke City (ST, 1999, SK): 11.8
+- Million Manhoef — Stoke City (ST, 2002, NL): 11.8
+- Lamine Cissé — Stoke City (ST, 2003, FR): 11.8
+- Ato Ampah — Stoke City (ST, 2006, GB-ENG): 11
+- Andy Fisher — Swansea City (GK, 1998, GB-ENG): 11.2
+- Paul Farman — Swansea City (GK, 1989, GB-ENG): 10.2
+- Lawrence Vigouroux — Swansea City (GK, 1993, CL): 10.8
+- Cameron Burgess — Swansea City (CB, 1995, AU): 11.2
+- Josh Key — Swansea City (CB, 1999, GB-ENG): 11.6
+- Josh Tymon — Swansea City (CB, 1999, GB-ENG): 11.6
+- Benjamin Cabango — Swansea City (CB, 2000, GB-WLS): 11.6
+- Stephen Welsh — Swansea City (CB, 2000, GB-SCT): 11.6
+- Jenson Seelt — Swansea City (CB, 2003, NL): 11.6
+- Filip Lissah — Swansea City (CB, 2004, GB-ENG): 10.8
+- Tiago Parente — Swansea City (CB, 2006, PT): 10.8
+- Jay Fulton — Swansea City (CM, 1994, GB-SCT): 11.2
+- Stephen Eustáquio — Swansea City (CM, 1996, CA): 11.6
+- Gonçalo Franco — Swansea City (CM, 2000, PT): 11.6
+- Elijah Just — Swansea City (CM, 2000, NZ): 11.6
+- Marko Stamenic — Swansea City (CM, 2002, NZ): 11.6
+- Ben Lloyd — Swansea City (CM, 2005, GB-WLS): 10.8
+- Melker Widell — Swansea City (CM, 2002, SE): 11.6
+- Tom Iorpenda — Swansea City (CM, 2005, GB-ENG): 10.8
+- Ross Stewart — Swansea City (ST, 1996, GB-SCT): 11.6
+- Adam Idah — Swansea City (ST, 2001, IE): 11.6
+- Zeidane Inoussa — Swansea City (ST, 2002, SE): 11.6
+- Ronald — Swansea City (ST, 2001, BR): 11.6
+- Zan Vipotnik — Swansea City (ST, 2002, SI): 11.6
+- Moussa Kounfolo Yeo — Swansea City (ST, 2004, ML): 10.8
+- Ji-sung Eom — Swansea City (ST, 2002, KR): 11.6
+- Joseph Opoku — Swansea City (ST, 2005, GH): 10.8
+- Jeremy Monga — Swansea City (ST, 2009, GB-ENG): 9.8
+- Matt Ingram — West Bromwich Albion (GK, 1993, GB-ENG): 11.4
+- Max O’Leary — West Bromwich Albion (GK, 1996, IE): 11.8
+- Chris Mepham — West Bromwich Albion (CB, 1997, GB-WLS): 12.2
+- Callum Styles — West Bromwich Albion (CB, 2000, HU): 12.2
+- Conor Townsend — West Bromwich Albion (CB, 1993, GB-ENG): 11.8
+- Nathaniel Phillips — West Bromwich Albion (CB, 1997, GB-ENG): 12.2
+- George Campbell — West Bromwich Albion (CB, 2001, US): 12.2
+- Brayann Pereira — West Bromwich Albion (CB, 2003, FR): 12.2
+- Nolan Galves — West Bromwich Albion (CB, 2003, FR): 12.2
+- Alex Williams — West Bromwich Albion (CB, 2005, GB-WLS): 11.4
+- Jayson Molumby — West Bromwich Albion (CM, 1999, IE): 12.2
+- Felix Myhre — West Bromwich Albion (CM, 1999, NO): 12.2
+- Ousmane Diakité — West Bromwich Albion (CM, 2000, ML): 12.2
+- Isaac Price — West Bromwich Albion (CM, 2003, GB-NIR): 12.2
+- Harry Whitwell — West Bromwich Albion (CM, 2005, GB-ENG): 11.4
+- Rabby Nzingoula — West Bromwich Albion (CM, 2005, FR): 11.4
+- Toby Collyer — West Bromwich Albion (CM, 2004, GB-ENG): 11.4
+- Mikey Johnston — West Bromwich Albion (ST, 1999, IE): 12.2
+- Aune Selland Heggebö — West Bromwich Albion (ST, 2001, NO): 12.2
+- Tammer Bany — West Bromwich Albion (ST, 2003, DK): 12.2
+- Oliver Bostock — West Bromwich Albion (ST, 2007, GB-WLS): 10.4
+- Jimmy Morgan — West Bromwich Albion (ST, 2006, GB-ENG): 11.4
+- Barney Stewart — West Bromwich Albion (ST, 2004, GB-SCT): 11.4
+- Kareem Tunde — West Bromwich Albion (ST, 2005, ES): 11.4
+- John Ruddy — Wolverhampton Wanderers (GK, 1986, GB-ENG): 12.8
+- João Virgínia — Wolverhampton Wanderers (GK, 1999, PT): 13.8
+- Nasser Djiga — Wolverhampton Wanderers (CB, 2002, BF): 14.2
+- Pedro Lima — Wolverhampton Wanderers (CB, 2006, BR): 13.4
+- Boubacar Traoré — Wolverhampton Wanderers (CM, 2001, ML): 14.2
+- Tawanda Chirewa — Wolverhampton Wanderers (CM, 2003, ZW): 14.2
+- Tommy Doyle — Wolverhampton Wanderers (CM, 2001, GB-ENG): 14.2
+- Jordan James — Wolverhampton Wanderers (CM, 2004, GB-WLS): 13.4
+- Mateus Mané — Wolverhampton Wanderers (CM, 2007, PT): 12.4
+- Adam Armstrong — Wolverhampton Wanderers (ST, 1997, GB-ENG): 14.2
+- Nathan Fraser — Wolverhampton Wanderers (ST, 2005, GB-ENG): 13.4
+- Enso Gonzalez — Wolverhampton Wanderers (ST, 2005, PY): 13.4
+- Ben Killip — Portsmouth (GK, 1995, GB-ENG): 10.7
+- Nicolas Schmid — Portsmouth (GK, 1997, AT): 11.1
+- Daniel Bielica — Portsmouth (GK, 1999, PL): 11.1
+- Conor Shaughnessy — Portsmouth (CB, 1996, IE): 11.5
+- Connor Ogilvie — Portsmouth (CB, 1996, GB-ENG): 11.5
+- Regan Poole — Portsmouth (CB, 1998, GB-WLS): 11.5
+- Terry Devlin — Portsmouth (CB, 2003, GB-NIR): 11.5
+- Zak Swanson — Portsmouth (CB, 2000, GB-ENG): 11.5
+- Jacob Farrell — Portsmouth (CB, 2002, AU): 11.5
+- Jayden Meghoma — Portsmouth (CB, 2006, GB-ENG): 10.7
+- Madiodio Dia — Portsmouth (CB, 2004, SN): 10.7
+- Benjamin Arthur — Portsmouth (CB, 2005, GB-ENG): 10.7
+- Michael Ani — Portsmouth (CB, 2007, GB-ENG): 9.7
+- Chinedu Agu — Portsmouth (CB, 2007, GB-ENG): 9.7
+- Odin Bailey — Portsmouth (CM, 1999, GB-ENG): 11.5
+- John Swift — Portsmouth (CM, 1995, GB-ENG): 11.1
+- Marlon Pack — Portsmouth (CM, 1991, GB-ENG): 10.5
+- Ebou Adams — Portsmouth (CM, 1996, GM): 11.5
+- Luke le Roux — Portsmouth (CM, 2000, ZA): 11.5
+- Márk Kosznovszky — Portsmouth (CM, 2002, HU): 11.5
+- Rocco Robert Shein — Portsmouth (CM, 2003, EE): 11.5
+- Keshi Anderson — Portsmouth (ST, 1995, GB-ENG): 11.1
+- Colby Bishop — Portsmouth (ST, 1990, GB-ENG): 10.5
+- Marko Milovanovic — Portsmouth (ST, 2003, RS): 11.5
+- Harvey Blair — Portsmouth (ST, 2003, GB-ENG): 11.5
+- Adrian Segecic — Portsmouth (ST, 2004, AU): 10.7
+- Abu Kamara — Portsmouth (ST, 2003, GB-ENG): 11.5
+- Thomas Waddingham — Portsmouth (ST, 2005, AU): 10.7
+- Franco Umeh-Chibueze — Portsmouth (ST, 2005, IE): 10.7
+- Luke Brooke-Smith — Portsmouth (ST, 2008, NZ): 9.7
+- Ryan Kavuma-McQueen — Portsmouth (ST, 2009, GB-ENG): 9.7
+- Eoin Kenny — Portsmouth (ST, 2005, GB-NIR): 10.7
+- Ben Amos — Burnley (GK, 1990, GB-ENG): 12.3
+- Max Weiss — Burnley (GK, 2004, DE): 12.5
+- Louis Beyer — Burnley (CB, 2000, DE): 13.7
+- Connor Roberts — Burnley (CB, 1995, GB-WLS): 13.3
+- Anel Ahmedhodzic — Burnley (CB, 1999, BA): 13.7
+- Oliver Sonne — Burnley (CB, 2000, PE): 13.7
+- Shurandy Sambo — Burnley (CB, 2001, CW): 13.7
+- Bashir Humphreys — Burnley (CB, 2003, GB-ENG): 13.7
+- Max Alleyne — Burnley (CB, 2005, GB-ENG): 12.9
+- Mike Ndayishimye — Burnley (CM, 1999, BE): 13.7
+- Aaron Ramsey — Burnley (CM, 2003, GB-ENG): 13.7
+- Ugo Raghouber — Burnley (CM, 2003, FR): 13.7
+- Ashley Barnes — Burnley (ST, 1989, GB-ENG): 12.7
+- Michael Obafemi — Burnley (ST, 2000, IE): 13.7
+- Jacob Bruun Larsen — Burnley (ST, 1998, DK): 13.7
+- Zeki Amdouni — Burnley (ST, 2000, CH): 13.7
+- Largie Ramazani — Burnley (ST, 2001, BE): 13.7
+- Jaydon Banel — Burnley (ST, 2004, NL): 12.9
+- Dastan Satpayev — Burnley (ST, 2008, KZ): 11.9
+- Lluc Castell — Burnley (ST, 2006, ES): 12.9
+- Ryan Allsop — Birmingham City (GK, 1992, GB-ENG): 10.8
+- James Beadle — Birmingham City (GK, 2004, GB-ENG): 11
+- Brad Mayo — Birmingham City (GK, 2004, GB-ENG): 11
+- Bright Osayi-Samuel — Birmingham City (CB, 1997, NG): 12.2
+- Dael Fry — Birmingham City (CB, 1997, GB-ENG): 12.2
+- Phil Neumann — Birmingham City (CB, 1997, DE): 12.2
+- Lee Buchanan — Birmingham City (CB, 2001, GB-ENG): 12.2
+- Alex Cochrane — Birmingham City (CB, 2000, GB-ENG): 12.2
+- Ethan Laird — Birmingham City (CB, 2001, GB-ENG): 12.2
+- Christoph Klarer — Birmingham City (CB, 2000, AT): 12.2
+- Max Bird — Birmingham City (CM, 2000, GB-ENG): 12.2
+- Kanya Fujimoto — Birmingham City (CM, 1999, JP): 12.2
+- Tomoki Iwata — Birmingham City (CM, 1997, JP): 12.2
+- Taylor Gardner-Hickman — Birmingham City (CM, 2001, GB-ENG): 12.2
+- Marc Leonard — Birmingham City (CM, 2001, GB-SCT): 12.2
+- Jhon Solis — Birmingham City (CM, 2004, CO): 11.4
+- Seung-Ho Paik — Birmingham City (CM, 1997, KR): 12.2
+- Marvin Ducksch — Birmingham City (ST, 1994, DE): 11.8
+- Demarai Gray — Birmingham City (ST, 1996, JM): 12.2
+- Patrick Roberts — Birmingham City (ST, 1997, GB-ENG): 12.2
+- Scott Wright — Birmingham City (ST, 1997, GB-SCT): 12.2
+- Liam Millar — Birmingham City (ST, 1999, CA): 12.2
+- Jay Stansfield — Birmingham City (ST, 2002, GB-ENG): 12.2
+- Luis Vázquez — Birmingham City (ST, 2001, AR): 12.2
+- August Priske — Birmingham City (ST, 2004, DK): 11.4
+- Jamie Jones — Southampton (GK, 1989, GB-ENG): 11.3
+- George Long — Southampton (GK, 1993, GB-ENG): 11.9
+- Daniel Peretz — Southampton (GK, 2000, IL): 12.3
+- James Bree — Southampton (CB, 1997, GB-ENG): 12.7
+- Ryan Manning — Southampton (CB, 1996, IE): 12.7
+- Jack Stephens — Southampton (CB, 1994, GB-ENG): 12.3
+- Mads Roerslev — Southampton (CB, 1999, DK): 12.7
+- Nathan Wood-Gordon — Southampton (CB, 2002, GB-ENG): 12.7
+- Welington — Southampton (CB, 2001, BR): 12.7
+- Zach Abbott — Southampton (CB, 2006, GB-ENG): 11.9
+- Joachim Kayi Sanda — Southampton (CB, 2006, FR): 11.9
+- Flynn Downes — Southampton (CM, 1999, GB-ENG): 12.7
+- James Ward-Prowse — Southampton (CM, 1994, GB-ENG): 12.3
+- Finn Azaz — Southampton (CM, 2000, IE): 12.7
+- Léo Scienza — Southampton (CM, 1998, BR): 12.7
+- Tom Fellows — Southampton (CM, 2003, GB-ENG): 12.7
+- Caspar Jander — Southampton (CM, 2003, DE): 12.7
+- Kuryu Matsuki — Southampton (CM, 2003, JP): 12.7
+- Cameron Bragg — Southampton (CM, 2005, GB-SCT): 11.9
+- Romeo Akachukwu — Southampton (CM, 2006, IE): 11.9
+- Cyle Larin — Southampton (ST, 1995, CA): 12.3
+- Lewis Dobbin — Southampton (ST, 2003, GB-ENG): 12.7
+- Samuel Edozie — Southampton (ST, 2003, GB-ENG): 12.7
+- Damion Downs — Southampton (ST, 2004, US): 11.9
+- Divin Mubama — Southampton (ST, 2004, GB-ENG): 11.9
+- Josh Vickers — Derby County (GK, 1995, GB-ENG): 10.9
+- Richard O'Donnell — Derby County (GK, 1988, GB-ENG): 10.3
+- Jacob Widell Zetterström — Derby County (GK, 1998, SE): 11.3
+- Craig Forsyth — Derby County (CB, 1989, GB-SCT): 10.7
+- Matt Clarke — Derby County (CB, 1996, GB-ENG): 11.7
+- Charlie Taylor — Derby County (CB, 1993, GB-ENG): 11.3
+- Derry Murkin — Derby County (CB, 1999, GB-ENG): 11.7
+- Dion Sanderson — Derby County (CB, 1999, GB-ENG): 11.7
+- Sondre Langås — Derby County (CB, 2001, NO): 11.7
+- Max Johnston — Derby County (CB, 2003, GB-SCT): 11.7
+- Eiran Cashin — Derby County (CB, 2001, IE): 11.7
+- Lewis Travis — Derby County (CM, 1997, GB-ENG): 11.7
+- Joe Ward — Derby County (CM, 1995, GB-ENG): 11.3
+- Alex Mowatt — Derby County (CM, 1995, GB-ENG): 11.3
+- Samuel Szmodics — Derby County (CM, 1995, IE): 11.3
+- Kenzo Goudmijn — Derby County (CM, 2001, NL): 11.7
+- Oscar Fraulo — Derby County (CM, 2003, DK): 11.7
+- Bobby Clark — Derby County (CM, 2005, GB-ENG): 10.9
+- David Ozoh — Derby County (CM, 2002, GB-ENG): 11.7
+- Owen Eames — Derby County (CM, 2006, GB-ENG): 10.9
+- Corey Blackett-Taylor — Derby County (ST, 1997, GB-ENG): 11.7
+- Ryan Hedges — Derby County (ST, 1995, GB-WLS): 11.3
+- Carlton Morris — Derby County (ST, 1995, GB-ENG): 11.3
+- Rhian Brewster — Derby County (ST, 2000, GB-ENG): 11.7
+- Filip Bilbija — Derby County (ST, 2000, DE): 11.7
+- Mohammed Fuseini — Derby County (ST, 2002, GH): 11.7
+- Patrick Agyemang — Derby County (ST, 2000, US): 11.7
+- Jon McLaughlin — Middlesbrough (GK, 1987, GB-SCT): 11
+- Solomon Brynn — Middlesbrough (GK, 2000, GB-ENG): 12
+- Radek Vitek — Middlesbrough (GK, 2003, CZ): 12
+- Luke Ayling — Middlesbrough (CB, 1991, GB-ENG): 11.4
+- George Edmundson — Middlesbrough (CB, 1997, GB-ENG): 12.4
+- Callum Brittain — Middlesbrough (CB, 1997, GB-ENG): 12.4
+- Sam Byram — Middlesbrough (CB, 1993, GB-ENG): 12
+- Neto Borges — Middlesbrough (CB, 1996, BR): 12.4
+- Alfie Jones — Middlesbrough (CB, 1997, CA): 12.4
+- Adilson Malanda — Middlesbrough (CB, 2001, FR): 12.4
+- Ashley Phillips — Middlesbrough (CB, 2005, GB-ENG): 11.6
+- Riley McGree — Middlesbrough (CM, 1998, AU): 12.4
+- Connor Barron — Middlesbrough (CM, 2002, GB-SCT): 12.4
+- Sebastian Berhalter — Middlesbrough (CM, 2001, US): 12.4
+- Aidan Morris — Middlesbrough (CM, 2001, US): 12.4
+- Myles Peart-Harris — Middlesbrough (CM, 2002, GB-ENG): 12.4
+- Rokas Pukštas — Middlesbrough (CM, 2004, US): 11.6
+- Law McCabe — Middlesbrough (CM, 2006, GB-ENG): 11.6
+- Leo Castledine — Middlesbrough (CM, 2005, GB-ENG): 11.6
+- Dávid Strelec — Middlesbrough (ST, 2001, SK): 12.4
+- Morgan Whittaker — Middlesbrough (ST, 2001, GB-ENG): 12.4
+- Kyle Joseph — Middlesbrough (ST, 2001, GB-SCT): 12.4
+- Tommy Conway — Middlesbrough (ST, 2002, GB-SCT): 12.4
+- Jeremy Sarmiento — Middlesbrough (ST, 2002, EC): 12.4
+- Max Arfsten — Middlesbrough (ST, 2001, US): 12.4
+- Amario Cozier-Duberry — Middlesbrough (ST, 2005, GB-ENG): 11.6
+- Micah Hamilton — Middlesbrough (ST, 2003, GB-ENG): 12.4
+- William Lankshear — Middlesbrough (ST, 2005, GB-ENG): 11.6
+- Federico Ravaglia — Watford (GK, 1999, IT): 11.5
+- Sam Walker — Watford (GK, 1991, GB-ENG): 10.5
+- Daniel Bachmann — Watford (GK, 1994, AT): 11.1
+- Marc Bola — Watford (CB, 1997, GB-ENG): 11.9
+- Matthew Pollock — Watford (CB, 2001, GB-ENG): 11.9
+- Jeremy Ngakia — Watford (CB, 2000, GB-ENG): 11.9
+- Kévin Keben Biakolo — Watford (CB, 2004, CM): 11.1
+- Albert Eames — Watford (CB, 2005, GB-ENG): 11.1
+- Branimir Mlacic — Watford (CB, 2007, HR): 10.1
+- Edo Kayembe — Watford (CM, 1998, CD): 11.9
+- Martín Payero — Watford (CM, 1998, AR): 11.9
+- Hector Matthew Kyprianou — Watford (CM, 2001, CY): 11.9
+- Edoardo Bove — Watford (CM, 2002, IT): 11.9
+- Jack Grieves — Watford (CM, 2004, GB-ENG): 11.1
+- Stephy Mavididi — Watford (ST, 1998, GB-ENG): 11.9
+- Myron Boadu — Watford (ST, 2001, NL): 11.9
+- Kwadwo Baah — Watford (ST, 2003, DE): 11.9
+- Luca Kjerrumgaard — Watford (ST, 2003, DK): 11.9
+- Rocco Vata — Watford (ST, 2005, IE): 11.1
+- Othmane Maamma — Watford (ST, 2005, MA): 11.1
+- Mamadou Doumbia — Watford (ST, 2006, ML): 11.1
+- Nikoloz Chikovani — Watford (ST, 2007, GE): 10.1
+- Tiernan Brooks — Charlton Athletic (GK, 2003, IE): 11
+- Arthur Okonkwo — Charlton Athletic (GK, 2001, GB-ENG): 11
+- Will Mannion — Charlton Athletic (GK, 1998, GB-ENG): 11
+- Reece Burke — Charlton Athletic (CB, 1996, GB-ENG): 11.4
+- Amari'i Bell — Charlton Athletic (CB, 1994, JM): 11
+- Joe Rankin-Costello — Charlton Athletic (CB, 1999, GB-ENG): 11.4
+- Lloyd Jones — Charlton Athletic (CB, 1995, GB-ENG): 11
+- Kayne Ramsey — Charlton Athletic (CB, 2000, GB-ENG): 11.4
+- Dan McNamara — Charlton Athletic (CB, 1998, IE): 11.4
+- Ivan Mesík — Charlton Athletic (CB, 2001, SK): 11.4
+- Billy Koumetio — Charlton Athletic (CB, 2002, FR): 11.4
+- Sichenje Collins — Charlton Athletic (CB, 2003, KE): 11.4
+- Tyler Bindon — Charlton Athletic (CB, 2005, NZ): 10.6
+- Josh Edwards — Charlton Athletic (CB, 2000, GB-SCT): 11.4
+- Nathaniel Chalobah — Charlton Athletic (CM, 1994, GB-ENG): 11
+- Greg Docherty — Charlton Athletic (CM, 1996, GB-SCT): 11.4
+- Conor Coventry — Charlton Athletic (CM, 2000, IE): 11.4
+- Harvey Knibbs — Charlton Athletic (CM, 1999, GB-ENG): 11.4
+- Sonny Carey — Charlton Athletic (CM, 2001, GB-ENG): 11.4
+- Timothy Noor Ouma — Charlton Athletic (CM, 2004, KE): 10.6
+- Alan Mwamba — Charlton Athletic (CM, 2006, GB-ENG): 10.6
+- Karlan Ahearne-Grant — Charlton Athletic (ST, 1997, GB-ENG): 11.4
+- Matt Godden — Charlton Athletic (ST, 1991, GB-ENG): 10.4
+- Charlie Kelman — Charlton Athletic (ST, 2001, US): 11.4
+- Robert Apter — Charlton Athletic (ST, 2003, GB-SCT): 11.4
+- Tyreece Campbell — Charlton Athletic (ST, 2003, JM): 11.4
+- Miles Leaburn — Charlton Athletic (ST, 2003, GB-ENG): 11.4
+- Millenic Alli — Charlton Athletic (ST, 2000, IE): 11.4
+- Micah Mbick — Charlton Athletic (ST, 2006, GB-ENG): 10.6
+- Robert Nkeng — Charlton Athletic (ST, 2007, ES): 9.6
+- Adam Davies — Sheffield United (GK, 1992, GB-WLS): 11
+- Michael Cooper — Sheffield United (GK, 1999, GB-ENG): 12
+- Rhys Norrington-Davies — Sheffield United (CB, 1999, GB-WLS): 12.4
+- Harrison Burrows — Sheffield United (CB, 2002, GB-ENG): 12.4
+- Liam Kitching — Sheffield United (CB, 1999, GB-ENG): 12.4
+- Jamie Shackleton — Sheffield United (CB, 1999, GB-ENG): 12.4
+- Sam McCallum — Sheffield United (CB, 2000, GB-ENG): 12.4
+- Femi Seriki — Sheffield United (CB, 2002, GB-ENG): 12.4
+- Japhet Tanganga — Sheffield United (CB, 1999, GB-ENG): 12.4
+- Mark McGuinness — Sheffield United (CB, 2001, IE): 12.4
+- Jamal Baptiste — Sheffield United (CB, 2003, GB-ENG): 12.4
+- Nils Zätterström — Sheffield United (CB, 2005, SE): 11.6
+- Kalvin Phillips — Sheffield United (CM, 1995, GB-ENG): 12
+- Joe Rothwell — Sheffield United (CM, 1995, GB-ENG): 12
+- Jaïro Riedewald — Sheffield United (CM, 1996, NL): 12.4
+- Tahith Chong — Sheffield United (CM, 1999, CW): 12.4
+- Ollie Arblaster — Sheffield United (CM, 2004, GB-ENG): 11.6
+- Sydie Peck — Sheffield United (CM, 2004, GB-ENG): 11.6
+- Patrick Bamford — Sheffield United (ST, 1993, GB-ENG): 12
+- Tyrese Campbell — Sheffield United (ST, 1999, GB-ENG): 12.4
+- Ben Brereton — Sheffield United (ST, 1999, CL): 12.4
+- Thomas Cannon — Sheffield United (ST, 2002, IE): 12.4
+- Romelle Donovan — Sheffield United (ST, 1974, GB-ENG): 11.4
+- Ryan Oné — Sheffield United (ST, 2006, GB-SCT): 11.6
+- Ehije Ukaki — Sheffield United (ST, 2004, NG): 11.6
+- Joel Coleman — Millwall (GK, 1995, GB-ENG): 11
+- Lukas Jensen — Millwall (GK, 1999, DK): 11.4
+- Max Crocombe — Millwall (GK, 1993, NZ): 11
+- Filip Marshall — Millwall (GK, 2003, GB-ENG): 11.4
+- George Evans — Millwall (GK, 2005, GB-ENG): 10.6
+- Danny Batth — Millwall (CB, 1990, GB-ENG): 10.8
+- Ryan Leonard — Millwall (CB, 1992, GB-ENG): 10.8
+- Jake Cooper — Millwall (CB, 1995, GB-ENG): 11.4
+- Jordi Osei-Tutu — Millwall (CB, 1998, GB-ENG): 11.8
+- Tristan Crama — Millwall (CB, 2001, FR): 11.8
+- Elkan Baggott — Millwall (CB, 2002, ID): 11.8
+- Caleb Taylor — Millwall (CB, 2003, GB-ENG): 11.8
+- Zak Sturge — Millwall (CB, 2004, GB-ENG): 11
+- Massimo Luongo — Millwall (CM, 1992, AU): 10.8
+- Casper De Norre — Millwall (CM, 1997, BE): 11.8
+- Mark Sykes — Millwall (CM, 1997, IE): 11.8
+- Alfie Doughty — Millwall (CM, 1999, GB-ENG): 11.8
+- Luke Cundle — Millwall (CM, 2002, GB-ENG): 11.8
+- Mathis Servais — Millwall (CM, 2004, BE): 11
+- Derek Mazou-Sacko — Millwall (CM, 2004, FR): 11
+- Jenson Metcalfe — Millwall (CM, 2004, GB-ENG): 11
+- Daniel Kelly — Millwall (CM, 2005, GB-SCT): 11
+- Lyndon Dykes — Millwall (ST, 1995, GB-SCT): 11.4
+- Camiel Neghli — Millwall (ST, 2001, DZ): 11.8
+- Josh Coburn — Millwall (ST, 2002, GB-ENG): 11.8
+- Zak Lovelace — Millwall (ST, 2006, GB-ENG): 11
+- Romain Esse — Millwall (ST, 1999, GB-ENG): 11.8
+- Mihailo Ivanovic — Millwall (ST, 2004, RS): 11
+- Kyrell Lisbie — Millwall (ST, 2003, GB-ENG): 11.8
+- Benicio Baker-Boaitey — Millwall (ST, 2004, GB-ENG): 11
+- Bradley Collins — Bristol City (GK, 1997, GB-ENG): 11.6
+- Lewis Thomas — Bristol City (GK, 1997, GB-WLS): 11.6
+- Sam Tickle — Bristol City (GK, 2002, GB-ENG): 11.6
+- Rob Dickie — Bristol City (CB, 1996, GB-ENG): 12
+- Cameron Pring — Bristol City (CB, 1998, GB-ENG): 12
+- Robert Atkinson — Bristol City (CB, 1998, GB-ENG): 12
+- George Tanner — Bristol City (CB, 1999, GB-ENG): 12
+- Luke McNally — Bristol City (CB, 1999, IE): 12
+- Noah Eile — Bristol City (CB, 2002, SE): 12
+- Elijah Morrison — Bristol City (CB, 2006, GB-ENG): 11.2
+- Lisav Eissat — Bristol City (CB, 2005, IL): 11.2
+- Rio Cardines — Bristol City (CB, 2006, TT): 11.2
+- Seb Naylor — Bristol City (CB, 2005, GB-ENG): 11.2
+- Joe Williams — Bristol City (CM, 1996, GB-ENG): 12
+- Scott Twine — Bristol City (CM, 1999, GB-ENG): 12
+- Adam Randell — Bristol City (CM, 2000, GB-ENG): 12
+- Brian De Keersmaecker — Bristol City (CM, 2000, BE): 12
+- Jason Knight — Bristol City (CM, 2001, IE): 12
+- Tomi Horvat — Bristol City (CM, 1999, SI): 12
+- Gibson Yah — Bristol City (CM, 2003, NL): 12
+- Sam Greenwood — Bristol City (CM, 2002, GB-ENG): 12
+- Jed Wallace — Bristol City (ST, 1994, GB-ENG): 11.6
+- Elijah Adebayo — Bristol City (ST, 1998, GB-ENG): 12
+- Sam Bell — Bristol City (ST, 2002, GB-ENG): 12
+- Lorent Tolaj — Bristol City (ST, 2001, CH): 12
+- Yu Hirakawa — Bristol City (ST, 2001, JP): 12
+- Dom Ballard — Bristol City (ST, 2005, GB-ENG): 11.2
+- Danny Ward — Wrexham (GK, 1993, GB-WLS): 11
+- Callum Burton — Wrexham (GK, 1996, GB-ENG): 11.4
+- Anthony Patterson — Wrexham (GK, 2000, GB-ENG): 11.4
+- Liberato Cacace — Wrexham (CB, 2000, NZ): 11.8
+- Dominic Hyam — Wrexham (CB, 1995, GB-SCT): 11.4
+- Zak Vyner — Wrexham (CB, 1997, GB-ENG): 11.8
+- Joe Worrall — Wrexham (CB, 1997, GB-ENG): 11.8
+- Issa Kaboré — Wrexham (CB, 2001, BF): 11.8
+- Max Cleworth — Wrexham (CB, 2002, GB-WLS): 11.8
+- Callum Doyle — Wrexham (CB, 2003, GB-ENG): 11.8
+- Jacques Ekomie — Wrexham (CB, 2003, GA): 11.8
+- Sebastian Revan — Wrexham (CB, 2003, GB-ENG): 11.8
+- Aaron James — Wrexham (CB, 2005, GB-ENG): 11
+- Danny Imray — Wrexham (CB, 2003, GB-ENG): 11.8
+- Callum O'Hare — Wrexham (CM, 1998, GB-ENG): 11.8
+- Oliver Rathbone — Wrexham (CM, 1996, GB-ENG): 11.8
+- George Dobson — Wrexham (CM, 1997, GB-ENG): 11.8
+- Ben Whiteman — Wrexham (CM, 1996, GB-ENG): 11.8
+- Ben Sheaf — Wrexham (CM, 1998, GB-ENG): 11.8
+- Matty James — Wrexham (CM, 1991, GB-ENG): 10.8
+- Lewis O'Brien — Wrexham (CM, 1998, GB-ENG): 11.8
+- Josh Windass — Wrexham (CM, 1994, GB-ENG): 11.4
+- Ryan Longman — Wrexham (CM, 2000, GB-ENG): 11.8
+- George Thomason — Wrexham (CM, 2002, GB-ENG): 11.8
+- Joe Rees — Wrexham (CM, 2008, GB-WLS): 10
+- Sam Smith — Wrexham (ST, 1998, GB-ENG): 11.8
+- Kieffer Moore — Wrexham (ST, 1992, GB-WLS): 10.8
+- Nathan Broadhead — Wrexham (ST, 1998, GB-WLS): 11.8
+- Davis Keillor-Dunn — Wrexham (ST, 1997, GB-ENG): 11.8
+- Bailey Cadamarteri — Wrexham (ST, 2005, JM): 11
+- Finlay Herrick — West Ham United (GK, 2006, GB-ENG): 13.4
+- Kyle Walker-Peters — West Ham United (CB, 1997, GB-ENG): 14.6
+- Oliver Scarles — West Ham United (CB, 2005, GB-ENG): 13.8
+- Ezra Mayers — West Ham United (CB, 2007, GB-ENG): 12.8
+- Lewis Orford — West Ham United (CM, 2006, GB-ENG): 13.8
+- Mohamadou Kante — West Ham United (CM, 2005, FR): 13.8
+- Divine Mukasa — West Ham United (CM, 2007, GB-ENG): 12.8
+- Maxwel Cornet — West Ham United (ST, 1996, CI): 14.6
+- Manor Solomon — West Ham United (ST, 1999, IL): 14.6
+- Pablo — West Ham United (ST, 2004, BR): 13.8
+- Edvin Austbø — West Ham United (ST, 2005, NO): 13.8
+- Keiber Lamadrid — West Ham United (ST, 2003, VE): 14.6
+- Nathan Trott — Cardiff City (GK, 1998, GB-ENG): 11
+- Matthew Turner — Cardiff City (GK, 2002, GB-WLS): 11
+- Harry Tyrer — Cardiff City (GK, 2001, GB-ENG): 11
+- Krystian Bielik — Cardiff City (CB, 1998, PL): 11.4
+- Perry Ng — Cardiff City (CB, 1996, GB-ENG): 11.4
+- Calum Chambers — Cardiff City (CB, 1995, GB-ENG): 11
+- Gabriel Osho — Cardiff City (CB, 1998, NG): 11.4
+- Joel Bagan — Cardiff City (CB, 2001, IE): 11.4
+- Will Fish — Cardiff City (CB, 2003, GB-ENG): 11.4
+- Calum Scanlon — Cardiff City (CB, 2005, GB-ENG): 10.6
+- Dylan Lawlor — Cardiff City (CB, 2006, GB-WLS): 10.6
+- Ronan Kpakio — Cardiff City (CB, 2007, GB-WLS): 9.6
+- David Turnbull — Cardiff City (CM, 1999, GB-SCT): 11.4
+- Jack Moylan — Cardiff City (CM, 2001, IE): 11.4
+- Rubin Colwill — Cardiff City (CM, 2002, GB-WLS): 11.4
+- Alex Robertson — Cardiff City (CM, 2003, AU): 11.4
+- Joel Colwill — Cardiff City (CM, 2004, GB-WLS): 10.6
+- Dakarai Mafico — Cardiff City (CM, 2006, GB-WLS): 10.6
+- Callum Robinson — Cardiff City (ST, 1995, IE): 11
+- Chris Willock — Cardiff City (ST, 1998, GB-ENG): 11.4
+- Ollie Tanner — Cardiff City (ST, 2002, GB-ENG): 11.4
+- Isaak Davies — Cardiff City (ST, 2001, GB-WLS): 11.4
+- Yousef Salech — Cardiff City (ST, 2002, DK): 11.4
+- Cian Ashford — Cardiff City (ST, 2004, GB-WLS): 10.6
+- Lee Nicholls — Preston North End (GK, 1992, GB-ENG): 10.3
+- Daniel Iversen — Preston North End (GK, 1997, DK): 11.3
+- Liam Lindsay — Preston North End (CB, 1995, GB-SCT): 11.3
+- Brad Potts — Preston North End (CB, 1994, GB-ENG): 11.3
+- Andrew Hughes — Preston North End (CB, 1992, GB-WLS): 10.7
+- Jordan Storey — Preston North End (CB, 1997, GB-ENG): 11.7
+- Pol Valentín Sancho — Preston North End (CB, 1997, ES): 11.7
+- Andrija Vukčević — Preston North End (CB, 1996, ME): 11.7
+- Lewis Gibson — Preston North End (CB, 2000, GB-ENG): 11.7
+- Thierry Small — Preston North End (CB, 2004, GB-ENG): 10.9
+- Odel Offiah — Preston North End (CB, 2002, GB-ENG): 11.7
+- Caleb Wiley — Preston North End (CB, 2004, US): 10.9
+- Harry Clarke — Preston North End (CB, 2001, GB-ENG): 11.7
+- Kacper Pasiek — Preston North End (CB, 2005, PL): 10.9
+- Alistair McCann — Preston North End (CM, 1999, GB-NIR): 11.7
+- Jordan Thompson — Preston North End (CM, 1997, GB-NIR): 11.7
+- Léo Leroy — Preston North End (CM, 2000, FR): 11.7
+- Liam Gibbs — Preston North End (CM, 2002, GB-ENG): 11.7
+- Alfie Devine — Preston North End (CM, 2004, GB-ENG): 10.9
+- Andrew Moran — Preston North End (CM, 2003, IE): 11.7
+- Kaedyn Kamara — Preston North End (CM, 2005, GB-ENG): 10.9
+- Theo Carroll — Preston North End (CM, 2007, GB-ENG): 9.9
+- Callum Lang — Preston North End (ST, 1998, GB-ENG): 11.7
+- Delano Burgzorg — Preston North End (ST, 1998, NL): 11.7
+- Jusef Erabi — Preston North End (ST, 2003, SE): 11.7
+- Johnny Kenny — Preston North End (ST, 2003, IE): 11.7
+- Stanley Mills — Preston North End (ST, 2003, GB-ENG): 11.7
+- Max Wilson — Preston North End (ST, 2007, GB-NIR): 9.9
+- Joe Gauci — Lincoln City (GK, 2000, AU): 11
+- James Pardington — Lincoln City (GK, 2000, GB-ENG): 11
+- George Wickens — Lincoln City (GK, 2001, GB-ENG): 11
+- Adam Jackson — Lincoln City (CB, 1994, GB-ENG): 11
+- Callum Elder — Lincoln City (CB, 1995, AU): 11
+- Tom Hamer — Lincoln City (CB, 1999, GB-ENG): 11.4
+- Sonny Bradley — Lincoln City (CB, 1992, GB-ENG): 10.4
+- Tendayi Darikwa — Lincoln City (CB, 1991, ZW): 10.4
+- Adam Reach — Lincoln City (CB, 1993, GB-ENG): 11
+- Ryley Towler — Lincoln City (CB, 2002, GB-ENG): 11.4
+- Daniel Oyegoke — Lincoln City (CB, 2003, GB-ENG): 11.4
+- Andrei Coubis — Lincoln City (CB, 2003, RO): 11.4
+- Deji Elerewe — Lincoln City (CB, 2003, GB-ENG): 11.4
+- Josh Honohan — Lincoln City (CB, 2001, IE): 11.4
+- Charlie Parks — Lincoln City (CB, 2007, GB-ENG): 9.6
+- Tom Bayliss — Lincoln City (CM, 1999, GB-ENG): 11.4
+- Conor McGrandles — Lincoln City (CM, 1995, GB-SCT): 11
+- Ivan Varfolomeev — Lincoln City (CM, 2004, UA): 10.6
+- Dom Jefferies — Lincoln City (CM, 2002, GB-WLS): 11.4
+- Chiedozie Ogbene — Lincoln City (ST, 1997, IE): 11.4
+- Ben House — Lincoln City (ST, 1999, GB-SCT): 11.4
+- Isaac Olaofe — Lincoln City (ST, 1999, GB-ENG): 11.4
+- Robert Street — Lincoln City (ST, 2001, GB-ENG): 11.4
+- Freddie Draper — Lincoln City (ST, 2004, GB-ENG): 10.6
+- Ethan Wheatley — Lincoln City (ST, 2006, GB-ENG): 10.6
+- Mikkel Ladefoged — Lincoln City (ST, 2003, DK): 11.4
+- Mason Melia — Lincoln City (ST, 2007, IE): 9.6
+- Álex Padilla — Athletic Club (GK, 2003, ES): 14.7
+- Aymeric Laporte — Athletic Club (CB, 1994, ES): 14.7
+- Aitor Paredes Casamichana — Athletic Club (CB, 2000, ES): 15.1
+- Unai Egiluz — Athletic Club (CB, 2002, ES): 15.1
+- Peio Canales — Athletic Club (CM, 2005, ES): 14.3
+- Alejandro Rego — Athletic Club (CM, 2003, ES): 15.1
+- Beñat Gerenabarrena — Athletic Club (CM, 2003, ES): 15.1
+- Nico Serrano — Athletic Club (ST, 2003, ES): 15.1
+- Álvaro Djaló — Athletic Club (ST, 1999, ES): 15.1
+- Sannadi — Athletic Club (ST, 2001, ES): 15.1
+- Salvi Esquivel — Atlético de Madrid (GK, 2005, ES): 14.7
+- Marcos Llorente — Atlético de Madrid (CB, 1995, ES): 15.5
+- Daniel Martínez — Atlético de Madrid (CB, 2004, ES): 15.1
+- Jorge Domínguez — Atlético de Madrid (CB, 2009, ES): 14.1
+- Johnny — Atlético de Madrid (CM, 2001, US): 15.9
+- Obed Vargas — Atlético de Madrid (CM, 2005, US): 15.1
+- Rodrigo Mendoza — Atlético de Madrid (CM, 2005, ES): 15.1
+- Pablo Barrios — Atlético de Madrid (CM, 2025, ES): 14.1
+- Arnau Ortiz — Atlético de Madrid (ST, 2001, ES): 15.9
+- Flavien Boyomo — Osasuna (CB, 2001, CM): 14
+- Rockson Yeboah — Osasuna (CB, 2004, GH): 13.2
+- Iñigo Arguibide — Osasuna (CB, 2005, ES): 13.2
+- Asier Osambela — Osasuna (CM, 2004, ES): 13.2
+- Kike Barja — Osasuna (ST, 1997, ES): 14
+- Raúl — Osasuna (ST, 2000, ES): 14
+- Raúl Moro — Osasuna (ST, 2002, ES): 14
+- Jonathan Dubasin — Osasuna (ST, 2000, ES): 14
+- Ángel Fortuño Viñas — Espanyol (GK, 2001, ES): 13.5
+- Unai Núñez — Espanyol (CB, 1997, ES): 13.9
+- Vanja Drkušič — Espanyol (CB, 1999, SI): 13.9
+- Omar El Hilali — Espanyol (CB, 2025, MA): 12.1
+- Roger Hinojo — Espanyol (CB, 2005, ES): 13.1
+- Moscardo — Espanyol (CM, 2005, BR): 13.1
+- Álex Calatrava — Espanyol (CM, 2000, ES): 13.9
+- Javier Hernández — Espanyol (CM, 2004, ES): 13.1
+- Rafel Bauzà — Espanyol (CM, 2005, ES): 13.1
+- Jofre Carreras Pagès — Espanyol (ST, 2001, ES): 13.9
+- Marcos Fernández — Espanyol (ST, 2003, ES): 13.9
+- Xavi Espart — FC Barcelona (CB, 2007, ES): 14.8
+- Brian Fariñas — FC Barcelona (CM, 2006, ES): 15.8
+- Hamza Abdelkarim — FC Barcelona (ST, 2008, EG): 14.8
+- Jesse Bisiwu — FC Barcelona (ST, 2008, BE): 14.8
+- Jiří Letáček — Getafe (GK, 1999, CZ): 13.4
+- Dakonam Djené — Getafe (CB, 1991, TG): 12.8
+- Femenía Far — Getafe (CB, 1991, ES): 12.8
+- Saba Sazonov — Getafe (CB, 2002, GE): 13.8
+- Zaid Romero — Getafe (CB, 1999, AR): 13.8
+- Andrés Garcia — Getafe (CB, 2003, ES): 13.8
+- Sebastián Boselli — Getafe (CB, 2003, UY): 13.8
+- Valou — Getafe (CB, 2005, CI): 13
+- Yvan Neyou — Getafe (CM, 1997, CM): 13.8
+- Francho Serrano — Getafe (CM, 2001, ES): 13.8
+- RamónTerrats Espacio — Getafe (CM, 2000, ES): 13.8
+- Juanmi — Getafe (ST, 1993, ES): 13.4
+- Enes Ünal — Getafe (ST, 1997, TR): 13.8
+- Ivan Azón — Getafe (ST, 2002, ES): 13.8
+- Chrisantus — Getafe (ST, 2003, NG): 13.8
+- Alfonso Herrero — Málaga CF (GK, 1994, ES): 10.9
+- Lopez Nogueras — Málaga CF (GK, 2004, ES): 10.5
+- Juan Berrocal — Málaga CF (CB, 1999, ES): 11.7
+- Alex Pastor Carayol — Málaga CF (CB, 1999, ES): 11.7
+- José Salinas — Málaga CF (CB, 2000, ES): 11.7
+- Diego Murillo — Málaga CF (CB, 2001, ES): 11.7
+- Einar Galilea — Málaga CF (CB, 1994, ES): 11.3
+- Rafa Garrido — Málaga CF (CB, 2004, ES): 10.9
+- Adam Aznou — Málaga CF (CB, 2006, MA): 10.9
+- Puga — Málaga CF (CB, 2000, ES): 11.7
+- Jens Cajuste — Málaga CF (CM, 1999, SE): 11.7
+- Ramón Enríquez Rodríguez — Málaga CF (CM, 2001, ES): 11.7
+- Dani Lorenzo — Málaga CF (CM, 2003, ES): 11.7
+- Carlos Dotor — Málaga CF (CM, 2001, ES): 11.7
+- Izan Merino — Málaga CF (CM, 2006, ES): 10.9
+- Aarón Ochoa — Málaga CF (CM, 2007, IE): 9.9
+- Eneko Jauregi Escobar — Málaga CF (ST, 1996, ES): 11.7
+- Juan Cruz — Málaga CF (ST, 2000, ES): 11.7
+- Joaquín Muñoz — Málaga CF (ST, 1999, ES): 11.7
+- Julen Lobete — Málaga CF (ST, 2000, ES): 11.7
+- David Larrubia — Málaga CF (ST, 2002, ES): 11.7
+- Haitam Abaida — Málaga CF (ST, 2002, MA): 11.7
+- Adrián Niño — Málaga CF (ST, 2004, ES): 10.9
+- Chupete — Málaga CF (ST, 2004, ES): 10.9
+- Raúl — Real Madrid (CB, 2003, ES): 16.7
+- Thiago Pitarch — Real Madrid (CM, 2007, ES): 14.9
+- Jorge Cestero — Real Madrid (CM, 2006, ES): 15.9
+- Carlos Espí — Real Madrid (ST, 2005, ES): 15.9
+- Morro — Rayo Vallecano (GK, 2000, ES): 13.6
+- Marash Kumbulla — Rayo Vallecano (CB, 2000, IT): 14
+- Mujaid Sadick — Rayo Vallecano (CB, 2000, ES): 14
+- Pedrosa — Rayo Vallecano (CB, 1998, ES): 14
+- Jozhua Vertrouwd — Rayo Vallecano (CB, 2004, NL): 13.2
+- Pelayo Fernández — Rayo Vallecano (CB, 2003, ES): 14
+- Pedro Díaz — Rayo Vallecano (CM, 1998, ES): 14
+- Randy Ntekja — Rayo Vallecano (CM, 1997, AO): 14
+- Gnangoro Bouare — Rayo Vallecano (CM, 2004, ES): 13.2
+- Raúl de Tomás — Rayo Vallecano (ST, 1994, ES): 13.6
+- Alexandre Alemão — Rayo Vallecano (ST, 1998, BR): 14
+- Fran Perez — Rayo Vallecano (ST, 2002, ES): 14
+- Georgiy Tsitaishvili — Rayo Vallecano (ST, 2000, GE): 14
+- Pablo Cuñat — Levante (GK, 2002, ES): 13
+- Álex Primo — Levante (GK, 2004, ES): 12.2
+- Xavi Grande — Levante (CB, 2005, ES): 12.6
+- Jorge Cabello — Levante (CB, 2004, ES): 12.6
+- Axel Tape — Levante (CB, 2007, FR): 11.6
+- Ifeanyi Ndukwe — Levante (CB, 2008, AT): 11.6
+- Nacho Pérez — Levante (CB, 2008, ES): 11.6
+- Marc Santos — Levante (CB, 2010, ES): 11.6
+- Jon Olasagasti — Levante (CM, 2000, ES): 13.4
+- Enzo Bardeli — Levante (CM, 2001, FR): 13.4
+- Dani Requena — Levante (CM, 2004, ES): 12.6
+- Thiago Fernandez — Levante (ST, 2004, AR): 12.6
+- Petar Ratkov — Levante (ST, 2003, RS): 13.4
+- Paco Cortés — Levante (ST, 2007, ES): 11.6
+- Yanis Musuayi — Levante (ST, 2007, BE): 11.6
+- Álvaro Vallés Rosa — Real Betis (GK, 1997, ES): 14.5
+- Diego Conde — Real Betis (GK, 1998, ES): 14.5
+- Ángel Ortiz — Real Betis (CB, 2004, ES): 14.1
+- Nelson Deossa — Real Betis (CM, 2000, CO): 14.9
+- Facundo Bernal — Real Betis (CM, 2003, UY): 14.9
+- Iker Losada — Real Betis (ST, 2001, ES): 14.9
+- Troy Parrott — Real Betis (ST, 2002, IE): 14.9
+- Unai Marrero — Real Sociedad (GK, 2001, ES): 14.3
+- Jon Pacheco — Real Sociedad (CB, 2001, ES): 14.7
+- Luka Sučić — Real Sociedad (CM, 2002, HR): 14.7
+- Beñat Turrientes — Real Sociedad (CM, 2002, ES): 14.7
+- Jon Gorrotxategi — Real Sociedad (CM, 2002, ES): 14.7
+- Ochieng — Real Sociedad (ST, 2003, KE): 14.7
+- Ruben Gomez — Villarreal (GK, 2002, ES): 14.7
+- Alex Freeman — Villarreal (CB, 2004, US): 14.3
+- Pau Navarro — Villarreal (CB, 2005, ES): 14.3
+- Nathan-Dylan Saliba — Villarreal (CM, 2004, CA): 14.3
+- Alassane Diatta — Villarreal (CM, 2005, SN): 14.3
+- Carlos Macià — Villarreal (CM, 2008, ES): 13.3
+- Cristian — Valencia (GK, 1998, ES): 13.8
+- Kayne van Oevelen — Valencia (GK, 2003, NL): 13.8
+- Justin de Haas — Valencia (CB, 2000, NL): 14.2
+- Jesus Vazquez Alcalde — Valencia (CB, 2003, ES): 14.2
+- Iker Córdoba — Valencia (CB, 2005, ES): 13.4
+- Aliou Dieng — Valencia (CM, 1997, ML): 14.2
+- Sergi Canós — Valencia (ST, 1997, ES): 14.2
+- Umar Sadiq — Valencia (ST, 1997, NG): 14.2
+- Ryunosuke Sato — Valencia (ST, 2006, JP): 13.4
+- Adrian Rodriguez — Deportivo Alavés (GK, 2000, AR): 13.3
+- Ville Koski — Deportivo Alavés (CB, 2002, FI): 13.7
+- Hugo Novoa — Deportivo Alavés (CB, 2003, ES): 13.7
+- Yusi — Deportivo Alavés (CB, 2005, ES): 12.9
+- Denís Suárez — Deportivo Alavés (CM, 1994, ES): 13.3
+- Carlos Benavidez — Deportivo Alavés (CM, 1998, UY): 13.7
+- Ander Guevara — Deportivo Alavés (CM, 1997, ES): 13.7
+- Pablo Ibáñez Tébar — Deportivo Alavés (CM, 1998, ES): 13.7
+- Tomas Mendes — Deportivo Alavés (CM, 2004, ES): 12.9
+- Selu Diallo — Deportivo Alavés (CM, 2003, ES): 13.7
+- Mikel Rodríguez — Deportivo Alavés (CM, 2002, ES): 13.7
+- Aitor Mañas — Deportivo Alavés (ST, 2003, ES): 13.7
+- Ángel Pérez — Deportivo Alavés (ST, 2002, ES): 13.7
+- Alejandro Iturbe — Elche (GK, 2003, ES): 13
+- Bambo Diaby — Elche (CB, 1997, ES): 13.4
+- Víctor Chust — Elche (CB, 2000, ES): 13.4
+- Kevin Lomónaco — Elche (CB, 2002, AR): 13.4
+- Roy Revivo — Elche (CB, 2003, IL): 13.4
+- Rubén Sánchez — Elche (CB, 2024, ES): 11.6
+- Buba — Elche (CB, 2007, ES): 11.6
+- Matia Barzic — Elche (CB, 2004, HR): 12.6
+- Gonzalo Villar — Elche (CM, 1998, ES): 13.4
+- Federico Redondo — Elche (CM, 2003, AR): 13.4
+- Facundo Buonanotte — Elche (CM, 2004, AR): 12.6
+- Javi Morcillo — Elche (CM, 2006, ES): 12.6
+- Grady Diangana — Elche (ST, 1998, CD): 13.4
+- Ezequiel Ponce — Elche (ST, 1997, AR): 13.4
+- Josán Fernández — Elche (ST, 1989, ES): 12.4
+- Tete Morente — Elche (ST, 1996, ES): 13.4
+- Fernando Niño — Elche (ST, 2000, ES): 13.4
+- Lucas Cepeda — Elche (ST, 2002, CL): 13.4
+- Abiel Osorio — Elche (ST, 2002, AR): 13.4
+- Yago Santiago — Elche (ST, 2003, ES): 13.4
+- Ali Houary — Elche (ST, 2005, ES): 12.6
+- Adam — Elche (ST, 2005, ES): 12.6
+- Sebastían Cáceres — Celta de Vigo (CB, 1999, UY): 14.3
+- Abdoulaye Fayé — Celta de Vigo (CB, 1978, SN): 13.3
+- Yoel Lago — Celta de Vigo (CB, 2004, ES): 13.5
+- Aleix Febas — Celta de Vigo (CM, 1996, ES): 14.3
+- Miguel Román — Celta de Vigo (CM, 2002, ES): 14.3
+- Couhaib Driouech — Celta de Vigo (ST, 2002, MA): 14.3
+- Hugo Gonzalez — Celta de Vigo (ST, 2003, ES): 14.3
+- Jones El-Abdellaoui — Celta de Vigo (ST, 2006, NO): 13.5
+- Fran Gonzalez — Sevilla (GK, 2005, ES): 13
+- Fábio Cardoso — Sevilla (CB, 1994, PT): 13.8
+- Arouna Sangante — Sevilla (CB, 2002, SN): 14.2
+- Castrin — Sevilla (CB, 2003, ES): 14.2
+- Julio Díaz — Sevilla (CB, 2005, ES): 13.4
+- Giorgi Kochorashvili — Sevilla (CM, 1999, GE): 14.2
+- Manu Bueno — Sevilla (CM, 2004, ES): 13.4
+- Nicolás Guillén — Sevilla (CM, 2008, ES): 12.4
+- Peque — Sevilla (ST, 2002, ES): 14.2
+- Robbie Ure — Sevilla (ST, 2004, GB-SCT): 13.4
+- Lucas Stassin — Sevilla (ST, 2004, BE): 13.4
+- Isaac — Sevilla (ST, 2000, ES): 14.2
+- Miguel Ángel Sierra — Sevilla (ST, 2004, ES): 13.4
+- Álvaro Fernández — Deportivo de La Coruña (GK, 1998, ES): 11.7
+- German Parreno — Deportivo de La Coruña (GK, 1993, ES): 11.3
+- Ximo Navarro — Deportivo de La Coruña (CB, 1990, ES): 11.1
+- Giacomo Quagliata — Deportivo de La Coruña (CB, 2000, IT): 12.1
+- Arnau Comas — Deportivo de La Coruña (CB, 2000, ES): 12.1
+- Lucas Noubi — Deportivo de La Coruña (CB, 2005, BE): 11.3
+- Miguel Loureiro — Deportivo de La Coruña (CB, 1996, ES): 12.1
+- Dani Barcia — Deportivo de La Coruña (CB, 2003, ES): 12.1
+- Ede Bright — Deportivo de La Coruña (CB, 2007, PL): 10.3
+- Mario Soriano — Deportivo de La Coruña (CM, 2002, ES): 12.1
+- Riki Rodríguez — Deportivo de La Coruña (CM, 1997, ES): 12.1
+- Lorenzo Amatucci — Deportivo de La Coruña (CM, 2004, IT): 11.3
+- Diego Villares — Deportivo de La Coruña (CM, 1996, ES): 12.1
+- Teun Gijselhart — Deportivo de La Coruña (CM, 2005, NL): 11.3
+- Jonathan Asp-Jensen — Deportivo de La Coruña (CM, 2006, DK): 11.3
+- Noé Carrillo — Deportivo de La Coruña (CM, 2006, ES): 11.3
+- Adama Traoré — Deportivo de La Coruña (ST, 1996, ES): 12.1
+- Zakaria Eddahchouri — Deportivo de La Coruña (ST, 2000, NL): 12.1
+- Luismi Cruz — Deportivo de La Coruña (ST, 2001, ES): 12.1
+- David Mella — Deportivo de La Coruña (ST, 2005, ES): 11.3
+- Peke — Deportivo de La Coruña (ST, 2002, ES): 12.1
+- Nsongo Tonfack — Deportivo de La Coruña (ST, 2004, CM): 11.3
+- Simon Eriksson — Racing de Santander (GK, 2006, SE): 10.8
+- José Manuel — Racing de Santander (CB, 1998, ES): 12
+- Pablo Ramon — Racing de Santander (CB, 2001, ES): 12
+- Álvaro Mantilla — Racing de Santander (CB, 2000, ES): 12
+- Jeanuel Belocian — Racing de Santander (CB, 2005, FR): 11.2
+- Facundo González — Racing de Santander (CB, 2003, UY): 12
+- Pedro Felipe — Racing de Santander (CB, 2004, BR): 11.2
+- Salinas — Racing de Santander (CB, 2007, ES): 10.2
+- Íñigo Sainz Maza — Racing de Santander (CM, 1998, ES): 12
+- Maguette Gueye — Racing de Santander (CM, 2002, SN): 12
+- Asier Villalibre — Racing de Santander (ST, 1997, ES): 12
+- Iñigo Vicente — Racing de Santander (ST, 1998, ES): 12
+- Giorgi Guliashvili — Racing de Santander (ST, 2001, GE): 12
+- Pablo García — Racing de Santander (ST, 2000, ES): 12
+- Arana — Racing de Santander (ST, 2000, ES): 12
+- Yassir Zabiri — Racing de Santander (ST, 2005, MA): 11.2
+- Iker Luque — Racing de Santander (ST, 2005, ES): 11.2
+- Lorenzo Torriani — AC Milan (GK, 2005, IT): 14.5
+- Filippo Terracciano — AC Milan (CB, 2003, IT): 15.7
+- Sankhoun Diawara — AC Milan (CB, 2006, FR): 14.9
+- Ardon Jasari — AC Milan (CM, 2002, CH): 15.7
+- Yunus Musah — AC Milan (CM, 2002, US): 15.7
+- Diego Moreira — AC Milan (CM, 2004, BE): 14.9
+- Alphadjo Cisse — AC Milan (CM, 2006, IT): 14.9
+- Christian Comotto — AC Milan (CM, 2008, IT): 13.9
+- Francesco Camarda — AC Milan (ST, 2008, IT): 13.9
+- Luca Lezzerini — Fiorentina (GK, 1995, IT): 13.9
+- Oliver Christensen — Fiorentina (GK, 1999, DK): 14.3
+- João Mário Lopes — Fiorentina (CB, 2000, PT): 14.7
+- Viery — Fiorentina (CB, 2005, BR): 13.9
+- Víctor Valdepeñas — Fiorentina (CB, 2006, ES): 13.9
+- Antonín Barák — Fiorentina (CM, 1994, CZ): 14.3
+- Marco Brescianini — Fiorentina (CM, 2000, IT): 14.7
+- Christ Ravynel Inao Oulaï — Fiorentina (CM, 2006, CI): 13.9
+- Alieu Njie — Fiorentina (ST, 2005, SE): 13.9
+- Pierluigi Gollini — AS Roma (GK, 1995, IT): 14.6
+- Devis Vásquez — AS Roma (GK, 2026, CO): 13.2
+- Giorgio De Marzi — AS Roma (GK, 2007, US): 13.2
+- Evan N'Dicka — AS Roma (CB, 1999, CI): 15.4
+- Anass Salah-Eddine — AS Roma (CB, 2002, MA): 15.4
+- Devyne Rensch — AS Roma (CB, 2003, NL): 15.4
+- Daniele Ghilardi — AS Roma (CB, 2003, IT): 15.4
+- Emanuele Lulli — AS Roma (CB, 2007, IT): 13.6
+- Niccolo Pisilli — AS Roma (CM, 2004, IT): 14.6
+- Marco Sportiello — Atalanta (GK, 1992, IT): 14.1
+- Thomas Pompei — Atalanta (GK, 2006, IT): 14.3
+- Éderson — Atalanta (CM, 1989, BR): 14.5
+- Eljif Elmas — Atalanta (CM, 1999, MK): 15.5
+- Lorenzo Bernasconi — Atalanta (CM, 2003, IT): 15.5
+- Massimo Pessina — Bologna (GK, 2007, IT): 12.7
+- Ukko Happonen — Bologna (GK, 2007, FI): 12.7
+- Torbjørn Heggem — Bologna (CB, 1999, NO): 14.9
+- Nadir Zortea — Bologna (CB, 1999, IT): 14.9
+- Eivind Helland — Bologna (CB, 2005, NO): 14.1
+- Oussama El Azzouzi — Bologna (CM, 2001, MA): 14.9
+- Mikel Amondarain — Bologna (CM, 2005, AR): 14.1
+- Jesper Karlsson — Bologna (ST, 1998, SE): 14.9
+- Jay Enem — Bologna (ST, 2003, NL): 14.9
+- Nicolò Cambiaghi — Bologna (ST, 2024, IT): 13.1
+- Boris Radunović — Cagliari (GK, 1996, RS): 13.2
+- Alen Sherri — Cagliari (GK, 1997, AL): 13.2
+- Yukinari Sugawara — Cagliari (CB, 2000, JP): 13.6
+- Zé Pedro Figueiredo — Cagliari (CB, 1997, PT): 13.6
+- Giuseppe Aurelio — Cagliari (CB, 2000, IT): 13.6
+- Raphael Kofler — Cagliari (CB, 2005, IT): 12.8
+- Juan Martín Rodriguez — Cagliari (CB, 2005, UY): 12.8
+- Riyad Idrissi — Cagliari (CB, 2005, IT): 12.8
+- Roberto Gagliardini — Cagliari (CM, 1994, IT): 13.2
+- Harry Winks — Cagliari (CM, 1996, GB-ENG): 13.6
+- Daniel Maldini — Cagliari (CM, 2001, IT): 13.6
+- Yanis Massolin — Cagliari (CM, 2002, FR): 13.6
+- Alessandro Romano — Cagliari (CM, 2006, CH): 12.8
+- Joseph Liteta — Cagliari (CM, 2006, ZM): 12.8
+- Nicola Grandu — Cagliari (CM, 2006, IT): 12.8
+- Ivan Sulev — Cagliari (CM, 2006, BG): 12.8
+- Mbala N'Zola — Cagliari (ST, 1996, AO): 13.6
+- Gennaro Borrelli — Cagliari (ST, 2000, IT): 13.6
+- Riccardo Ciervo — Cagliari (ST, 2002, IT): 13.6
+- Kevin Carlos — Cagliari (ST, 2001, ES): 13.6
+- Alieu Fadera — Cagliari (ST, 2001, GM): 13.6
+- Kingstone Mutandwa — Cagliari (ST, 2003, ZM): 13.6
+- Yael Trepy — Cagliari (ST, 2006, FR): 12.8
+- Paul Mendy — Cagliari (ST, 2007, SN): 11.8
+- Justin Bijlow — Genoa (GK, 1998, NL): 13.4
+- Daniele Sommariva — Genoa (GK, 1997, IT): 13.4
+- Franz Stolz — Genoa (GK, 2001, AT): 13.4
+- Stefano Sabelli — Genoa (CB, 1993, IT): 13.4
+- Cody Drameh — Genoa (CB, 2001, GB-ENG): 13.8
+- Mario Mitaj — Genoa (CB, 2003, AL): 13.8
+- Sebastian Otoa — Genoa (CB, 2004, DK): 13
+- David Puczka — Genoa (CB, 2005, AT): 13
+- Mamedi Doucouré — Genoa (CB, 2007, FR): 12
+- Marcelo Vaz — Genoa (CB, 2007, GW): 12
+- Mikael Egill Ellertsson — Genoa (CM, 2002, IS): 13.8
+- Alexsandro Amorim — Genoa (CM, 2005, BR): 13
+- Ethan Meichtry — Genoa (CM, 2005, CH): 13
+- Samuel Wiafe — Genoa (CM, 2008, IT): 12
+- Milutin Osmajić — Genoa (ST, 1999, ME): 13.8
+- Elias Havel — Genoa (ST, 2003, AT): 13.8
+- Lorenzo Venturino — Genoa (ST, 2006, IT): 13
+- Raffaele Di Gennaro — Inter (GK, 1993, IT): 15.4
+- Carlos — Inter (CB, 1999, BR): 16.2
+- Andy Diouf — Inter (CM, 2003, FR): 16.2
+- Aleksandar Stankovic — Inter (CM, 2005, RS): 15.4
+- Marcus Thuram-Ulien — Inter (ST, 1997, FR): 16.2
+- Carlo Pinsoglio — Juventus (GK, 1990, IT): 14.3
+- Daniele Rugani — Juventus (CB, 1994, IT): 15.3
+- Khéphren Thuram-Ulie — Juventus (CM, 2001, FR): 15.7
+- Arkadiusz Milik — Juventus (ST, 1994, PL): 15.3
+- Kerim Alajbegović — Juventus (ST, 2007, BA): 13.9
+- Christos Mandas — Lazio (GK, 2001, GR): 14.5
+- Alessio Furlanetto — Lazio (GK, 2002, IT): 14.5
+- Davide Renzetti — Lazio (GK, 2006, IT): 13.7
+- Edoardo Motta — Lazio (GK, 2005, IT): 13.7
+- Alfonso Pedraza — Lazio (CB, 1996, ES): 14.9
+- Patric — Lazio (CB, 1993, ES): 14.5
+- Mohamed Salim Fares — Lazio (CB, 1996, DZ): 14.9
+- Romano Floriani — Lazio (CB, 2003, IT): 14.9
+- Oliver Nielsen — Lazio (CB, 2003, DK): 14.9
+- Filipe — Lazio (CB, 2005, BR): 14.1
+- Danilo Cataldi — Lazio (CM, 1994, IT): 14.5
+- Reda Belahyane — Lazio (CM, 2004, MA): 14.1
+- Adrian Przyborek — Lazio (CM, 2007, PL): 13.1
+- Valerio Farcomeni — Lazio (CM, 2006, IT): 14.1
+- Bruno Galassi — Lazio (CM, 2007, ES): 13.1
+- Matteo Cancellieri — Lazio (ST, 2002, IT): 14.9
+- Federico Serra — Lazio (ST, 2006, IT): 14.1
+- Simone Ghidotti — Parma (GK, 2000, IT): 13.2
+- Edoardo Corvi — Parma (GK, 2001, IT): 13.2
+- Giovanni Daffara — Parma (GK, 2004, IT): 12.4
+- Enrico Del Prato — Parma (CB, 1999, IT): 13.6
+- Lautaro Valenti — Parma (CB, 1999, AR): 13.6
+- Franco Carboni — Parma (CB, 2003, AR): 13.6
+- Abdoulaye N'Diaye — Parma (CB, 2002, SN): 13.6
+- Ousmane Diallo — Parma (CB, 2007, ES): 11.8
+- Sascha Britschgi — Parma (CB, 2006, CH): 12.8
+- Dominik Drobnič — Parma (CB, 2007, SI): 11.8
+- Giovanni Fabbian — Parma (CM, 2003, IT): 13.6
+- Christian Ordonez — Parma (CM, 2004, AR): 12.8
+- Abdou-Salam Konate — Parma (CM, 2006, FR): 12.8
+- El Bilal Touré — Parma (ST, 2001, ML): 13.6
+- José Romero — Parma (ST, 2003, AR): 13.6
+- Matija Frigan — Parma (ST, 2003, HR): 13.6
+- Nesta Elphege — Parma (ST, 2001, FR): 13.6
+- Thomas de Martis — Parma (ST, 2008, AR): 11.8
+- Simone Lontani — Parma (ST, 2008, IT): 11.8
+- Nikita Contini Baranovsky — Napoli (GK, 1996, IT): 15.5
+- Costantino Favasuli — Napoli (CB, 2004, IT): 15.1
+- Luca Marianucci — Napoli (CB, 2004, IT): 15.1
+- Antonio Vergara — Napoli (CM, 2003, IT): 15.9
+- Dinis Rodrigues — Napoli (ST, 2005, PT): 15.1
+- Daniele Padelli — Udinese (GK, 1985, IT): 12.5
+- Bartosz Mrozek — Udinese (GK, 2000, PL): 13.5
+- Edoardo Piana — Udinese (GK, 2003, IT): 13.5
+- Enzo Ebosse — Udinese (CB, 1999, CM): 13.9
+- Alessandro Zanoli — Udinese (CB, 2000, IT): 13.9
+- Mërgim Vojvoda — Udinese (CB, 1995, XK): 13.5
+- Nicolo Bertola — Udinese (CB, 2003, IT): 13.9
+- James Abankwah — Udinese (CB, 2004, IE): 13.1
+- Matteo Palma — Udinese (CB, 2008, DE): 12.1
+- Giorgi Chakvetadze — Udinese (CM, 1999, GE): 13.9
+- Jakub Piotrowski — Udinese (CM, 1997, PL): 13.9
+- Oier Zarraga — Udinese (CM, 1999, ES): 13.9
+- Juan Arizala — Udinese (CM, 2005, CO): 13.1
+- David Pejičić — Udinese (CM, 2007, SI): 12.1
+- Vakoun Issouf Bayo — Udinese (ST, 1997, CI): 13.9
+- Lazar Jovanovic — Udinese (ST, 2006, RS): 13.1
+- Idrissa Guèye — Udinese (ST, 2006, SN): 13.1
+- Giulio Vinciati — Udinese (ST, 2007, IT): 12.1
+- Alessio Pozzi — Venezia (GK, 2000, IT): 12
+- Matteo Grandi — Venezia (GK, 1992, IT): 11
+- Filip Stankovic — Venezia (GK, 2002, RS): 12
+- Pasquale Mazzocchi — Venezia (CB, 1995, IT): 12
+- Marin Šverko — Venezia (CB, 1998, HR): 12.4
+- Ridgeciano Haps — Venezia (CB, 1993, SR): 12
+- Armel Bella Kotchap — Venezia (CB, 2001, DE): 12.4
+- Bartol Franjić — Venezia (CB, 2000, HR): 12.4
+- Redouane Halhal — Venezia (CB, 2003, MA): 12.4
+- Richie Sagrado — Venezia (CB, 2004, BE): 11.6
+- Antoine Hainaut — Venezia (CB, 2002, FR): 12.4
+- Joel Schingtienne — Venezia (CB, 2002, BE): 12.4
+- Calixte Ligue — Venezia (CB, 2005, CH): 11.6
+- Matias Moreno — Venezia (CB, 2003, AR): 12.4
+- Rufai Mohammed — Venezia (CB, 2006, GH): 11.6
+- Ale Gomes — Venezia (CB, 2008, ES): 10.6
+- Alfred Duncan — Venezia (CM, 1993, GH): 12
+- Þórir Jóhann Helgason — Venezia (CM, 2000, IS): 12.4
+- Kike Pérez — Venezia (CM, 1997, ES): 12.4
+- Gianluca Busio — Venezia (CM, 2002, US): 12.4
+- Simone Panada — Venezia (CM, 2002, IT): 12.4
+- Matteo Dagasso — Venezia (CM, 2004, IT): 11.6
+- Lamine Dabo — Venezia (CM, 2004, ES): 11.6
+- Saad El Haddad — Venezia (CM, 2005, MA): 11.6
+- Toni Fernández — Venezia (CM, 2008, ES): 10.6
+- Lorenzo Berardi — Venezia (CM, 2006, IT): 11.6
+- Lion Lauberbach — Venezia (ST, 1998, DE): 12.4
+- John Yeboah — Venezia (ST, 2000, EC): 12.4
+- Andrea Adorante — Venezia (ST, 2000, IT): 12.4
+- Albion Rrahmani — Venezia (ST, 2000, XK): 12.4
+- Kornel Lisman — Venezia (ST, 2006, PL): 11.6
+- Mohamed Malang Touré — Venezia (ST, 2006, SN): 11.6
+- Matteo Pisseri — Frosinone (GK, 1991, IT): 10.2
+- Sebastiano Desplanches — Frosinone (GK, 2003, IT): 11.2
+- Lorenzo Palmisani — Frosinone (GK, 2004, IT): 10.4
+- Eldin Lolic — Frosinone (GK, 2004, BA): 10.4
+- Aleksa Terzić — Frosinone (CB, 1999, RS): 11.6
+- Ilario Monterisi — Frosinone (CB, 2001, IT): 11.6
+- Anthony Oyono — Frosinone (CB, 2001, GA): 11.6
+- Wisdom Amey — Frosinone (CB, 2005, IT): 10.8
+- Giorgio Cittadini — Frosinone (CB, 2002, IT): 11.6
+- Enzo Tchato — Frosinone (CB, 2002, CM): 11.6
+- Gabriele Bracaglia — Frosinone (CB, 2003, IT): 11.6
+- Gabriele Calvani — Frosinone (CB, 2004, IT): 10.8
+- Omar Fayed — Frosinone (CB, 2003, EG): 11.6
+- Florian Grillitsch — Frosinone (CM, 1995, AT): 11.2
+- Alessio Zerbin — Frosinone (CM, 1999, IT): 11.6
+- Ben Lhassine Kone — Frosinone (CM, 2000, CI): 11.6
+- Francesco Gelli — Frosinone (CM, 1996, IT): 11.6
+- Giacomo Calò — Frosinone (CM, 1997, IT): 11.6
+- Ilias Koutsoupias — Frosinone (CM, 2001, GR): 11.6
+- Anouar El Azzouzi — Frosinone (CM, 2001, MA): 11.6
+- Luis Hasa — Frosinone (CM, 2004, AL): 10.8
+- Matteo Cichella — Frosinone (CM, 2005, IT): 10.8
+- Tomáš Bobček — Frosinone (ST, 2001, SK): 11.6
+- Daniel Birligea — Frosinone (ST, 2000, RO): 11.6
+- Antonio Raimondo — Frosinone (ST, 2004, IT): 10.8
+- Seydou Fini — Frosinone (ST, 2006, IT): 10.8
+- Giorgi Kvernadze — Frosinone (ST, 2003, GE): 11.6
+- Farés Ghedjemis — Frosinone (ST, 2002, DZ): 11.6
+- Alejandro Cichero — Frosinone (ST, 2006, VE): 10.8
+- Giacomo Satalino — Sassuolo (GK, 1999, IT): 13.3
+- Stefano Turati — Sassuolo (GK, 2001, IT): 13.3
+- Lorenzo Nyarko — Sassuolo (GK, 2007, IT): 11.5
+- Fali Candé — Sassuolo (CB, 1998, GW): 13.7
+- Cas Odenthal — Sassuolo (CB, 2000, NL): 13.7
+- Ignace Van Der Brempt — Sassuolo (CB, 2002, BE): 13.7
+- Fedde Leysen — Sassuolo (CB, 2003, BE): 13.7
+- Edoardo Pieragnolo — Sassuolo (CB, 2003, IT): 13.7
+- Yeferson Paz — Sassuolo (CB, 2002, CO): 13.7
+- Rafa Obrador — Sassuolo (CB, 2004, ES): 12.9
+- Giorgio Vezzosi — Sassuolo (CB, 2007, IT): 11.9
+- Andrea Ghion — Sassuolo (CM, 2000, IT): 13.7
+- Ismaël Koné — Sassuolo (CM, 2002, CA): 13.7
+- Vasilije Adzic — Sassuolo (CM, 2006, ME): 12.9
+- Ibrahim Sulemana — Sassuolo (CM, 2003, GH): 13.7
+- Luca Lipani — Sassuolo (CM, 2005, IT): 12.9
+- Cristian Volpato — Sassuolo (CM, 2026, IT): 11.9
+- Darryl Bakola — Sassuolo (CM, 2007, FR): 11.9
+- Simone Cinquegrano — Sassuolo (CM, 2004, IT): 12.9
+- Nicholas Pierini — Sassuolo (ST, 1998, IT): 13.7
+- Kieron Bowie — Sassuolo (ST, 2002, GB-SCT): 13.7
+- Benjamín Domínguez — Sassuolo (ST, 2003, AR): 13.7
+- Laurs Skjellerup — Sassuolo (ST, 2002, DK): 13.7
+- Lapo Siviero — Torino (GK, 2006, IT): 12.9
+- Diego Mascardi — Torino (GK, 2006, IT): 12.9
+- Nathan Patterson — Torino (CB, 2001, GB-SCT): 14.1
+- Niccolò Fortini — Torino (CB, 2006, IT): 13.3
+- Daniel Bragança — Torino (CM, 1999, PT): 14.1
+- Faustino Anjorin — Torino (CM, 2001, GB-ENG): 14.1
+- Kian Fitz-Jim — Torino (CM, 2003, NL): 14.1
+- Gaetano Oristanio — Torino (CM, 2002, IT): 14.1
+- Emirhan Ilkhan — Torino (CM, 2004, TR): 13.3
+- Cesare Casadei — Torino (CM, 2003, IT): 14.1
+- Alessio Cacciamani — Torino (CM, 2007, IT): 12.3
+- Andrea Luongo — Torino (CM, 2008, IT): 12.3
+- Pietro Pellegri — Torino (ST, 2001, IT): 14.1
+- Sandro Kulenović — Torino (ST, 1999, HR): 14.1
+- Zakaria Aboukhlal — Torino (ST, 2000, MA): 14.1
+- Marco Bleve — Lecce (GK, 1995, IT): 12.6
+- Alexandru Borbei — Lecce (GK, 2003, RO): 13
+- Plamen Penev — Lecce (GK, 2008, BG): 11.2
+- Gaby Jean — Lecce (CB, 2000, FR): 13.4
+- Corrie Ndaba — Lecce (CB, 1999, IE): 13.4
+- Jamil Siebert — Lecce (CB, 2002, DE): 13.4
+- Ali Dembele — Lecce (CB, 2004, FR): 12.6
+- Sebastian Esposito — Lecce (CB, 2003, AU): 13.4
+- Elijah Scott — Lecce (CB, 2006, DE): 12.6
+- Vernon Addo — Lecce (CB, 2005, NL): 12.6
+- Marlon Ubani — Lecce (CB, 2005, DE): 12.6
+- Lassana Coulibaly — Lecce (CM, 1996, ML): 13.4
+- Youssef Maleh — Lecce (CM, 1998, MA): 13.4
+- Omri Gandelman — Lecce (CM, 2000, IL): 13.4
+- Mohamed Kaba — Lecce (CM, 2001, FR): 13.4
+- Sadik Fofana — Lecce (CM, 2003, TG): 13.4
+- Olaf Gorter — Lecce (CM, 2005, NL): 12.6
+- Niko Kovač — Lecce (CM, 2005, BA): 12.6
+- Joel Monteiro — Lecce (ST, 1999, CH): 13.4
+- Konan N'Dri — Lecce (ST, 2000, CI): 13.4
+- Miloš Jović — Lecce (ST, 2006, RS): 12.6
+- Hjalte Laerke — Lecce (ST, 2007, DK): 11.6
+- Paco Esteban — Lecce (ST, 2006, ES): 12.6
+- Demba Thiam — Monza (GK, 1998, SN): 12.1
+- Noel Törnqvist — Monza (GK, 2002, SE): 12.1
+- Aljaž Strajnar — Monza (GK, 2007, SI): 10.3
+- Valentin Antov — Monza (CB, 2000, BG): 12.5
+- Samuele Birindelli — Monza (CB, 1999, IT): 12.5
+- Ricardo Mangas — Monza (CB, 1998, PT): 12.5
+- Andrea Carboni — Monza (CB, 2001, IT): 12.5
+- Saba Goglichidze — Monza (CB, 2004, GE): 11.7
+- Jan Ziółkowski — Monza (CB, 2005, PL): 11.7
+- Lorenzo Lucchesi — Monza (CB, 2003, IT): 12.5
+- Eddy Kouadio — Monza (CB, 2006, IT): 11.7
+- Adam Bakoune — Monza (CB, 2006, IT): 11.7
+- Yvan Maye — Monza (CB, 2006, FR): 11.7
+- Andrea Colpani — Monza (CM, 1999, IT): 12.5
+- Matteo Pessina — Monza (CM, 1997, IT): 12.5
+- Patrick Ciurria — Monza (CM, 1995, IT): 12.1
+- Leonardo Colombo — Monza (CM, 2005, IT): 11.7
+- Ebenezer Akinsanmiro — Monza (CM, 2004, NG): 11.7
+- Manga Foe Ondoa — Monza (CM, 2005, FR): 11.7
+- Mathis Mout — Monza (CM, 2007, IT): 10.7
+- Patrick Cutrone — Monza (ST, 1998, IT): 12.5
+- Dany Mota Carvalho — Monza (ST, 1998, PT): 12.5
+- Keïta Baldé — Monza (ST, 1995, SN): 12.1
+- Exequiel Zeballos — Monza (ST, 2002, AR): 12.5
+- Omari Forson — Monza (ST, 2004, GB-ENG): 11.7
+- Gustavo Varela — Monza (ST, 2005, PT): 11.7
+- Jay Robinson — Monza (ST, 2007, GB-ENG): 10.7
+- Kevin Martins — Monza (ST, 2005, IT): 11.7
+- Mauro Vigorito — Como (GK, 1990, IT): 13.5
+- Edoardo Goldaniga — Como (CB, 1993, IT): 14.5
+- Alberto Dossena — Como (CB, 1998, IT): 14.9
+- Kaiki — Como (CB, 2002, BR): 14.9
+- Willy Kambwala — Como (CB, 2004, CD): 14.1
+- Luca Mazzitelli — Como (CM, 1995, IT): 14.5
+- Maxence Caqueret — Como (CM, 2000, FR): 14.9
+- Martin Baturina — Como (CM, 2003, HR): 14.9
+- Adrian Lahdo — Como (CM, 2007, SE): 13.1
+- Mattia Liberali — Como (CM, 2007, IT): 13.1
+- Suliman Mustapha — Como (ST, 2001, AT): 14.9
+- Matthias Köbbing — 1. FC Köln (GK, 1997, DE): 13.3
+- Ron-Robert Zieler — 1. FC Köln (GK, 1989, DE): 12.3
+- Martin James — 1. FC Köln (GK, 2008, FR): 11.5
+- Alessio Castro-Montes — 1. FC Köln (CB, 1997, BE): 13.7
+- Luka Lochoshvili — 1. FC Köln (CB, 1998, GE): 13.7
+- Joël Schmied — 1. FC Köln (CB, 1998, CH): 13.7
+- Sebastian Sebulonsen — 1. FC Köln (CB, 2000, NO): 13.7
+- Elias Bakatukanda — 1. FC Köln (CB, 2004, DE): 12.9
+- Julian Pauli — 1. FC Köln (CB, 2005, DE): 12.9
+- Jahmai Simpson-Pusey — 1. FC Köln (CB, 2005, GB-ENG): 12.9
+- Paul Okon-Engstler — 1. FC Köln (CM, 2005, AU): 12.9
+- Gil Neves — 1. FC Köln (CM, 2008, PT): 11.9
+- Imad Rondić — 1. FC Köln (ST, 1999, BA): 13.7
+- Malek El Mala — 1. FC Köln (ST, 2005, DE): 12.9
+- Mikey Moore — 1. FC Köln (ST, 2007, GB-ENG): 11.9
+- Reigan Heskey — 1. FC Köln (ST, 2008, GB-ENG): 11.9
+- Luca Philipp — TSG Hoffenheim (GK, 2000, DE): 14.1
+- Lukas Petersson — TSG Hoffenheim (GK, 2004, IS): 13.3
+- Bernardo — TSG Hoffenheim (CB, 1995, BR): 14.1
+- Koki Machida — TSG Hoffenheim (CB, 1997, JP): 14.5
+- Valentin Gendrey — TSG Hoffenheim (CB, 2000, FR): 14.5
+- Arthur Chaves — TSG Hoffenheim (CB, 2001, BR): 14.5
+- Robin Hranac — TSG Hoffenheim (CB, 2000, CZ): 14.5
+- Mats Rots — TSG Hoffenheim (CB, 2006, NL): 13.7
+- Sean Dulic — TSG Hoffenheim (CB, 2005, DE): 13.7
+- Natnael Abraha — TSG Hoffenheim (CB, 2008, DE): 12.7
+- Alexander Prass — TSG Hoffenheim (CM, 2001, AT): 14.5
+- Bambase Conte — TSG Hoffenheim (CM, 2003, DE): 14.5
+- Leon Avdullahu — TSG Hoffenheim (CM, 1991, XK): 13.5
+- Luis Engelns — TSG Hoffenheim (CM, 2007, DE): 12.7
+- Nathan De Cat — TSG Hoffenheim (CM, 2008, BE): 12.7
+- Cajetan Lenz — TSG Hoffenheim (CM, 2006, DE): 13.7
+- Adam Daghim — TSG Hoffenheim (ST, 2005, DK): 13.7
+- Max Moerstedt — TSG Hoffenheim (ST, 2006, DE): 13.7
+- Niklas Lomb — Bayer Leverkusen (GK, 1993, DE): 14.8
+- Miguel Gutiérrez — Bayer Leverkusen (CB, 2001, ES): 15.6
+- Tim Oermann — Bayer Leverkusen (CB, 2003, DE): 15.6
+- Guéla Doué — Bayer Leverkusen (CB, 2025, CI): 13.8
+- Jonas Hofmann — Bayer Leverkusen (CM, 1992, DE): 14.6
+- Ignacio Fernández — Bayer Leverkusen (CM, 2002, AR): 15.6
+- Kennet Eichhorn — Bayer Leverkusen (CM, 2009, DE): 13.8
+- Naba Mensah — Bayer Leverkusen (CM, 2007, DE): 13.8
+- Eliesse Ben Seghir — Bayer Leverkusen (ST, 2025, FR): 13.8
+- Montrell Culbreath — Bayer Leverkusen (ST, 2007, DE): 13.8
+- Ndjicoura Bomba — Bayer Leverkusen (ST, 2008, ML): 13.8
+- Patrick Drewes — Borussia Dortmund (GK, 1993, DE): 15
+- Silas Ostrzinski — Borussia Dortmund (GK, 2003, DE): 15.4
+- Kouakou Gadou — Borussia Dortmund (CB, 2007, FR): 14
+- Filippo Mané — Borussia Dortmund (CB, 2005, IT): 15
+- Kaua Prates — Borussia Dortmund (CB, 2008, BR): 14
+- Luca Reggiani — Borussia Dortmund (CB, 2008, IT): 14
+- Konstantinos Karetsas — Borussia Dortmund (CM, 2007, BE): 14
+- Justin Lerma — Borussia Dortmund (CM, 2008, EC): 14
+- Mussa Kaba — Borussia Dortmund (CM, 2008, DE): 14
+- Enzo dos Santos — Borussia Dortmund (CM, 2009, LU): 14
+- Samuele Inácio — Borussia Dortmund (ST, 2008, IT): 14
+- Mathis Albert — Borussia Dortmund (ST, 2009, US): 14
+- Sven Ulreich — Bayern München (GK, 1988, DE): 15.3
+- David Daiber — Bayern München (CM, 2007, PT): 14.9
+- Bara Ndiaye — Bayern München (CM, 2007, SN): 14.9
+- Loris Karius — FC Schalke 04 (GK, 1993, DE): 11.5
+- Johannes Siebeking — FC Schalke 04 (GK, 2006, DE): 11.1
+- Maximilian Wöber — FC Schalke 04 (CB, 1998, AT): 12.3
+- Timo Becker — FC Schalke 04 (CB, 1997, DE): 12.3
+- Nikola Katić — FC Schalke 04 (CB, 1996, BA): 12.3
+- Hasan Kuruçay — FC Schalke 04 (CB, 1997, TR): 12.3
+- Adrian Gantenbein — FC Schalke 04 (CB, 2001, CH): 12.3
+- Vitalie Becker — FC Schalke 04 (CB, 2005, DE): 11.5
+- Mertcan Ayhan — FC Schalke 04 (CB, 2006, TR): 11.5
+- Kenan Karaman — FC Schalke 04 (CM, 1994, TR): 11.9
+- Janik Bachmann — FC Schalke 04 (CM, 1996, DE): 12.3
+- Finn Porath — FC Schalke 04 (CM, 1997, DE): 12.3
+- Dejan Ljubicic — FC Schalke 04 (CM, 1997, AT): 12.3
+- Ron Schallenberg — FC Schalke 04 (CM, 1998, DE): 12.3
+- Dina Ebimbe — FC Schalke 04 (CM, 2000, CM): 12.3
+- Satoshi Tanaka — FC Schalke 04 (CM, 2002, JP): 12.3
+- Adil Aouchiche — FC Schalke 04 (CM, 2002, DZ): 12.3
+- Soufiane El-Faouzi — FC Schalke 04 (CM, 2002, DE): 12.3
+- Luca Vozar — FC Schalke 04 (CM, 2007, DE): 10.5
+- Bryan Lasme — FC Schalke 04 (ST, 1998, FR): 12.3
+- Hwang Heechan — FC Schalke 04 (ST, 1996, KR): 12.3
+- Moussa Sylla — FC Schalke 04 (ST, 1999, ML): 12.3
+- Chikwubuike Adamu — FC Schalke 04 (ST, 2001, NG): 12.3
+- Emil Højlund — FC Schalke 04 (ST, 2005, DK): 11.5
+- Sander Tangvik — Hamburger SV (GK, 2002, NO): 13.4
+- Elias Lahti — Hamburger SV (GK, 2009, FI): 11.6
+- Fernando Dickes — Hamburger SV (GK, 2007, DE): 11.6
+- Nicolás Capaldo — Hamburger SV (CB, 1997, AR): 13.8
+- David Wolfe — Hamburger SV (CB, 2002, NO): 13.8
+- Joel Agyekum — Hamburger SV (CB, 2005, DE): 13
+- Zakaria El Ouahdi — Hamburger SV (CB, 2001, MA): 13.8
+- Shafiq Nandja — Hamburger SV (CB, 2007, DE): 12
+- Louis Lemke — Hamburger SV (CB, 2009, DE): 12
+- Bakery Jatta — Hamburger SV (CM, 1998, GM): 13.8
+- Immanuel Pherai — Hamburger SV (CM, 2001, SR): 13.8
+- Albert Gronbaek Erlykke — Hamburger SV (CM, 2001, DK): 13.8
+- Nicolai Remberg — Hamburger SV (CM, 2000, DE): 13.8
+- Bilal Nadir — Hamburger SV (CM, 2003, FR): 13.8
+- Martin Adeline — Hamburger SV (CM, 2003, FR): 13.8
+- Kofi Amoako — Hamburger SV (CM, 2005, DE): 13
+- Patson Daka — Hamburger SV (ST, 1998, ZM): 13.8
+- Otto Stange — Hamburger SV (ST, 2007, DE): 12
+- Alexander Røssing-Lelesiit — Hamburger SV (ST, 2007, NO): 12
+- Fabian Bredlow — VfB Stuttgart (GK, 1995, DE): 14.4
+- Marius Funk — VfB Stuttgart (GK, 1996, DE): 14.8
+- Stefan Drljača — VfB Stuttgart (GK, 1999, DE): 14.8
+- Dennis Seimen — VfB Stuttgart (GK, 2005, DE): 14
+- Dan-Axel Zagadou — VfB Stuttgart (CB, 1999, FR): 15.2
+- Leonidas Stergiou — VfB Stuttgart (CB, 2002, CH): 15.2
+- Lorenz Assignon — VfB Stuttgart (CB, 2000, FR): 15.2
+- Ameen Al Dakhil — VfB Stuttgart (CB, 2002, BE): 15.2
+- Luca Jaquez — VfB Stuttgart (CB, 2003, CH): 15.2
+- Bilal El Khannouss — VfB Stuttgart (CM, 2005, MA): 14.4
+- Jarzinho Malanga — VfB Stuttgart (CM, 2006, DE): 14.4
+- Ertugrul Yigit — VfB Stuttgart (CM, 2009, DE): 13.4
+- Badredine Bouanani — VfB Stuttgart (ST, 2004, DZ): 14.4
+- Justin Diehl — VfB Stuttgart (ST, 2024, DE): 13.4
+- Leo Sauer — VfB Stuttgart (ST, 2005, SK): 14.4
+- Jeremy — VfB Stuttgart (ST, 2005, EC): 14.4
+- Alexander Schlager — Werder Bremen (GK, 1996, AT): 13.7
+- Markus Kolke — Werder Bremen (GK, 1990, DE): 12.7
+- Stefan Smarkalev — Werder Bremen (GK, 2007, BG): 11.9
+- Felix Agu — Werder Bremen (CB, 1999, NG): 14.1
+- Julián Malatini — Werder Bremen (CB, 2001, AR): 14.1
+- Moussa N'Diaye — Werder Bremen (CB, 2002, SN): 14.1
+- Arthur Augusto — Werder Bremen (CB, 2003, BR): 14.1
+- Mick Schmetgens — Werder Bremen (CB, 2007, DE): 12.3
+- Oskar Wójcik — Werder Bremen (CB, 2003, PL): 14.1
+- Ludovit Reis — Werder Bremen (CM, 2000, NL): 14.1
+- Youri Regeer — Werder Bremen (CM, 2003, NL): 14.1
+- Skelly Alvero — Werder Bremen (CM, 2002, FR): 14.1
+- Chuki — Werder Bremen (CM, 2004, ES): 13.3
+- Dariusz Stalmach — Werder Bremen (CM, 2005, PL): 13.3
+- Dawid Kownacki — Werder Bremen (ST, 1997, PL): 14.1
+- Cédric Itten — Werder Bremen (ST, 1996, CH): 14.1
+- Salim Musah — Werder Bremen (ST, 2006, DE): 13.3
+- Kenny Quetant — Werder Bremen (ST, 2006, FR): 13.3
+- Paul Erevbenagie — Werder Bremen (ST, 2007, DE): 12.3
+- Alexander Schwolow — 1. FSV Mainz 05 (GK, 1992, DE): 12.8
+- Maximilian Kinzig — 1. FSV Mainz 05 (GK, 2003, DE): 13.8
+- Stefan Posch — 1. FSV Mainz 05 (CB, 1997, AT): 14.2
+- Silvan Widmer — 1. FSV Mainz 05 (CB, 1993, CH): 13.8
+- Fabio Gruber — 1. FSV Mainz 05 (CB, 2002, PE): 14.2
+- Kacper Potulski — 1. FSV Mainz 05 (CB, 2007, PL): 12.4
+- Marco Richter — 1. FSV Mainz 05 (CM, 1997, DE): 14.2
+- Lennart Maloney — 1. FSV Mainz 05 (CM, 1999, US): 14.2
+- Sota Kawasaki — 1. FSV Mainz 05 (CM, 2001, JP): 14.2
+- Hyun-seok Hong — 1. FSV Mainz 05 (CM, 1999, KR): 14.2
+- Otto Ruoppi — 1. FSV Mainz 05 (CM, 2003, FI): 14.2
+- Sheraldo Becker — 1. FSV Mainz 05 (ST, 1995, SR): 13.8
+- Silas Wamangituka — 1. FSV Mainz 05 (ST, 1999, CD): 14.2
+- Alynho Haidara — 1. FSV Mainz 05 (ST, 2008, CI): 12.4
+- Nediljko Labrović — FC Augsburg (GK, 1999, HR): 13.5
+- Tom Wisbereit — FC Augsburg (GK, 2007, DE): 11.7
+- Calvin Brackelmann — FC Augsburg (CB, 1999, DE): 13.9
+- Young-woo Seol — FC Augsburg (CB, 1998, KR): 13.9
+- Noahkai Banks — FC Augsburg (CB, 2006, US): 13.1
+- Hennes Behrens — FC Augsburg (CB, 2005, DE): 13.1
+- Robin Fellhauer — FC Augsburg (CM, 1998, DE): 13.9
+- Yannik Keitel — FC Augsburg (CM, 2000, DE): 13.9
+- Han-Noah Massengo — FC Augsburg (CM, 2001, FR): 13.9
+- Fabian Rieder — FC Augsburg (CM, 2002, CH): 13.9
+- Tim Breithaupt — FC Augsburg (CM, 2002, DE): 13.9
+- Anton Kade — FC Augsburg (CM, 2004, DE): 13.1
+- Sima Suso — FC Augsburg (CM, 2005, DE): 13.1
+- Tim Schnitzer — FC Augsburg (CM, 2008, DE): 12.1
+- Michael Gregoritsch — FC Augsburg (ST, 1994, AT): 13.5
+- Steve Mounié — FC Augsburg (ST, 1994, BJ): 13.5
+- Nathanael Mbuku — FC Augsburg (ST, 2002, CD): 13.9
+- Arijon Ibrahimovic — FC Augsburg (ST, 2005, DE): 13.1
+- Rodrigo Ribeiro — FC Augsburg (ST, 2005, PT): 13.1
+- Faik Sakar — FC Augsburg (ST, 2008, DE): 12.1
+- Uchenna Ogundu — FC Augsburg (ST, 2006, NG): 13.1
+- Florian Müller — SC Freiburg (GK, 1997, DE): 14.2
+- Jannik Huth — SC Freiburg (GK, 1994, DE): 13.8
+- Anthony Jung — SC Freiburg (CB, 1991, DE): 13.6
+- Philipp Treu — SC Freiburg (CB, 2000, DE): 14.6
+- Ifechukwu Ogbus — SC Freiburg (CB, 2005, CH): 13.8
+- Berkay Yılmaz — SC Freiburg (CB, 2005, TR): 13.8
+- Rihito Yamamoto — SC Freiburg (CM, 2001, JP): 14.6
+- Rouven Tarnutzer — SC Freiburg (CM, 2007, CH): 12.8
+- Jan-Niklas Beste — SC Freiburg (ST, 1999, DE): 14.6
+- Florent Muslija — SC Freiburg (ST, 1998, XK): 14.6
+- Cyriaque Irié — SC Freiburg (ST, 2005, BF): 13.8
+- Keisuke Goto — SC Freiburg (ST, 2005, JP): 13.8
+- Tobias Sippel — Borussia Mönchengladbach (GK, 1988, DE): 12.8
+- Daniel Batz — Borussia Mönchengladbach (GK, 1991, DE): 12.8
+- Jan Jakob Olschowsky — Borussia Mönchengladbach (GK, 2001, DE): 13.8
+- Daiki Hashioka — Borussia Mönchengladbach (CB, 1999, JP): 14.2
+- Yukhym Konoplya — Borussia Mönchengladbach (CB, 1999, UA): 14.2
+- Fabio Chiarodia — Borussia Mönchengladbach (CB, 2005, IT): 13.4
+- David Herold — Borussia Mönchengladbach (CB, 2003, DE): 14.2
+- Lukas Ullrich — Borussia Mönchengladbach (CB, 2004, DE): 13.4
+- Jan Leszczyński — Borussia Mönchengladbach (CB, 2007, PL): 12.4
+- Enzo Leopold — Borussia Mönchengladbach (CM, 2000, DE): 14.2
+- Jens Castrop — Borussia Mönchengladbach (CM, 2003, KR): 14.2
+- Zento Uno — Borussia Mönchengladbach (CM, 2003, JP): 14.2
+- Fritz Fleck — Borussia Mönchengladbach (CM, 2007, DE): 12.4
+- Wael Mohya — Borussia Mönchengladbach (CM, 2008, DE): 12.4
+- Mathieu Nguefack — Borussia Mönchengladbach (CM, 2008, DE): 12.4
+- Isac Lidberg — Borussia Mönchengladbach (ST, 1998, SE): 14.2
+- Tomáš Čvančara — Borussia Mönchengladbach (ST, 2000, CZ): 14.2
+- Nicolas Kühn — Borussia Mönchengladbach (ST, 2000, DE): 14.2
+- Hugo Bolin — Borussia Mönchengladbach (ST, 2003, SE): 14.2
+- Shuto Machino — Borussia Mönchengladbach (ST, 2002, JP): 14.2
+- Iaia Danfa — Borussia Mönchengladbach (ST, 2007, GW): 12.4
+- Jens Grahl — Eintracht Frankfurt (GK, 1988, DE): 13.7
+- Amil Siljevic — Eintracht Frankfurt (GK, 2007, DE): 12.9
+- Timmy Chandler — Eintracht Frankfurt (CB, 1990, US): 14.1
+- Lilian Brassier — Eintracht Frankfurt (CB, 1999, FR): 15.1
+- Elias Baum — Eintracht Frankfurt (CB, 2005, DE): 14.3
+- Keita Kosugi — Eintracht Frankfurt (CB, 2006, JP): 14.3
+- Otávio — Eintracht Frankfurt (CB, 2005, BR): 14.3
+- Noel Aseko Nkili — Eintracht Frankfurt (CM, 2005, DE): 14.3
+- Oscar Højlund — Eintracht Frankfurt (CM, 2005, DK): 14.3
+- Love Arrhov — Eintracht Frankfurt (CM, 2008, SE): 13.3
+- Jessic Ngankam — Eintracht Frankfurt (ST, 2000, DE): 15.1
+- Younes Ebnoutalib — Eintracht Frankfurt (ST, 2003, DE): 15.1
+- Ayoube Amaimouni-Echghouyab — Eintracht Frankfurt (ST, 2004, MA): 14.3
+- Malik Pimpong — Eintracht Frankfurt (ST, 2008, DK): 13.3
+- Carl Klaus — Union Berlin (GK, 1994, DE): 13.2
+- Matheo Raab — Union Berlin (GK, 1998, DE): 13.6
+- Marvin Friedrich — Union Berlin (CB, 1995, DE): 13.6
+- Ohis Uduokhai — Union Berlin (CB, 1997, DE): 14
+- Tom Rothe — Union Berlin (CB, 2004, DE): 13.2
+- Zeno Van Den Bosch — Union Berlin (CB, 2003, BE): 14
+- Stanley N'Soki — Union Berlin (CB, 1999, FR): 14
+- Andrik Markgraf — Union Berlin (CB, 2006, DE): 13.2
+- Robert Skov — Union Berlin (CM, 1996, DK): 14
+- Kastriot Imeri — Union Berlin (CM, 2000, CH): 14
+- Jeong Wooyeong — Union Berlin (CM, 1999, KR): 14
+- Emmanuel Latte Lath — Union Berlin (ST, 1999, CI): 14
+- Marin Ljubicic — Union Berlin (ST, 2002, HR): 14
+- Livan Burcu — Union Berlin (ST, 2004, TR): 13.2
+- Julien Friedrich — Union Berlin (ST, 2006, DE): 13.2
+- Linus Güther — Union Berlin (ST, 2010, DE): 12.2
+- Mekhi Gray — Union Berlin (ST, 2007, JM): 12.2
+- Markus Schubert — SC Paderborn 07 (GK, 1998, DE): 11.5
+- Nahuel Noll — SC Paderborn 07 (GK, 2003, DE): 11.5
+- Florian Pruhs — SC Paderborn 07 (GK, 2006, DE): 10.7
+- Felix Götze — SC Paderborn 07 (CB, 1998, DE): 11.9
+- Marcel Hoffmeier — SC Paderborn 07 (CB, 1999, DE): 11.9
+- Tjark Scheller — SC Paderborn 07 (CB, 2002, DE): 11.9
+- Jano ter Horst — SC Paderborn 07 (CB, 2002, DE): 11.9
+- Mattes Hansen — SC Paderborn 07 (CB, 2004, DE): 11.1
+- Tristan Zobel — SC Paderborn 07 (CB, 2003, DE): 11.9
+- Jonah Sticker — SC Paderborn 07 (CB, 2004, DE): 11.1
+- Nyamekye Awortwie-Grant — SC Paderborn 07 (CB, 2000, DE): 11.9
+- Ruben Müller — SC Paderborn 07 (CB, 2005, DE): 11.1
+- Tom Baack — SC Paderborn 07 (CM, 1999, DE): 11.9
+- Sebastian Klaas — SC Paderborn 07 (CM, 1998, DE): 11.9
+- Timur Gayret — SC Paderborn 07 (CM, 1998, DE): 11.9
+- Laurin Curda — SC Paderborn 07 (CM, 2001, DE): 11.9
+- Laurin Ulrich — SC Paderborn 07 (CM, 2005, DE): 11.1
+- Santiago Castaneda — SC Paderborn 07 (CM, 2004, US): 11.1
+- Luka Đurić — SC Paderborn 07 (CM, 2003, BA): 11.9
+- Clemens Lippmann — SC Paderborn 07 (CM, 2006, DE): 11.1
+- Niklas Mohr — SC Paderborn 07 (CM, 2004, DE): 11.1
+- Steffen Tigges — SC Paderborn 07 (ST, 1998, DE): 11.9
+- Sven Michel — SC Paderborn 07 (ST, 1990, DE): 10.9
+- Oliver Batista-Meier — SC Paderborn 07 (ST, 2001, DE): 11.9
+- Gabriel Vidovic — SC Paderborn 07 (ST, 2003, DE): 11.9
+- Stefano Marino — SC Paderborn 07 (ST, 2004, DE): 11.1
+- Deniz Zeitler — SC Paderborn 07 (ST, 2006, DE): 11.1
+- Albert Millgramm — SC Paderborn 07 (ST, 2004, DE): 11.1
+- Lasse Eickel — SC Paderborn 07 (ST, 2008, DE): 10.1
+- Tim Boss — SV Elversberg (GK, 1993, DE): 10.9
+- Frank Lehmann — SV Elversberg (GK, 1989, DE): 10.3
+- Nicolas Kristof — SV Elversberg (GK, 1999, AT): 11.3
+- Elias Etringer — SV Elversberg (GK, 2007, DE): 9.5
+- Florian Le Joncour — SV Elversberg (CB, 1995, FR): 11.3
+- Jan Gyamerah — SV Elversberg (CB, 1995, GH): 11.3
+- Luca Sirch — SV Elversberg (CB, 1999, DE): 11.7
+- Maximilian Rohr — SV Elversberg (CB, 1995, DE): 11.3
+- Lukas Pinckert — SV Elversberg (CB, 2000, DE): 11.7
+- Lasse Günther — SV Elversberg (CB, 2003, DE): 11.7
+- Look Sa Nicholas Mickelson — SV Elversberg (CB, 1999, TH): 11.7
+- Luis Seifert — SV Elversberg (CB, 2004, DE): 10.9
+- Amara Condé — SV Elversberg (CM, 1997, GN): 11.7
+- Łukasz Poręba — SV Elversberg (CM, 2000, PL): 11.7
+- Frederik Schmahl — SV Elversberg (CM, 2002, DE): 11.7
+- Felix Keidel — SV Elversberg (CM, 2003, DE): 11.7
+- Noah Darvich — SV Elversberg (CM, 2006, DE): 10.9
+- Francis Onyeka — SV Elversberg (CM, 2007, DE): 9.9
+- Luca Schnellbacher — SV Elversberg (ST, 1994, DE): 11.3
+- Tom Zimmerschied — SV Elversberg (ST, 1998, DE): 11.7
+- Luca Pfeiffer — SV Elversberg (ST, 1996, DE): 11.7
+- Lukas Petkov — SV Elversberg (ST, 2000, BG): 11.7
+- Jason Ceka — SV Elversberg (ST, 1999, DE): 11.7
+- Noel Futkeu — SV Elversberg (ST, 2002, DE): 11.7
+- Maurice Krattenmacher — SV Elversberg (ST, 2005, DE): 10.9
+- David Mokwa Ntusu — SV Elversberg (ST, 2004, FR): 10.9
+- Cole Campbell — SV Elversberg (ST, 2006, US): 10.9
+- Raif Adam — SV Elversberg (ST, 2005, DE): 10.9
+- Leopold Zingerle — RB Leipzig (GK, 1994, DE): 14.6
+- Benjamin Henrichs — RB Leipzig (CB, 1997, DE): 15.4
+- Lukas Klostermann — RB Leipzig (CB, 1996, DE): 15.4
+- Max Finkgräfe — RB Leipzig (CB, 2004, DE): 14.6
+- Abdoul Koné — RB Leipzig (CB, 2005, FR): 14.6
+- Ezechiel Banzuzi — RB Leipzig (CM, 2005, NL): 14.6
+- Andrija Maksimović — RB Leipzig (CM, 2007, RS): 13.6
+- Viggo Gebel — RB Leipzig (CM, 2007, DE): 13.6
+- Benno Kaltefleiter — RB Leipzig (CM, 2008, DE): 13.6
+- Romulo Cruz — RB Leipzig (ST, 2002, BR): 15.4
+- Marc Guiu — RB Leipzig (ST, 2006, ES): 14.6
+- Tidiam Gomis — RB Leipzig (ST, 2006, FR): 14.6
+- Samba Konaté — RB Leipzig (ST, 2009, FR): 13.6
+- Suleman Sani — RB Leipzig (ST, 2006, NG): 14.6
+- Mathys Niflore — Toulouse FC (GK, 2007, FR): 11.6
+- David Odogu — Toulouse FC (CB, 2006, DE): 13
+- Rafik Messali — Toulouse FC (CB, 2003, DZ): 13.8
+- Seny Koumbassa — Toulouse FC (CB, 2007, FR): 12
+- Niklas Schmidt — Toulouse FC (CM, 1998, DE): 13.8
+- Cristian Cásseres Jr. — Toulouse FC (CM, 2000, VE): 13.8
+- Francis Abu — Toulouse FC (CM, 2001, GH): 13.8
+- Aron Dönnum — Toulouse FC (CM, 1998, NO): 13.8
+- Thomas Jørgensen — Toulouse FC (CM, 2005, DK): 13
+- Niko Sigur — Toulouse FC (CM, 2003, CA): 13.8
+- Mathis Amougou — Toulouse FC (CM, 2006, FR): 13
+- Alexis Vossah — Toulouse FC (CM, 2008, FR): 12
+- Aymen Amaaouch — Toulouse FC (CM, 2009, FR): 12
+- Casper Tengstedt — Toulouse FC (ST, 2000, DK): 13.8
+- Jacen Russell-Rowe — Toulouse FC (ST, 2002, CA): 13.8
+- Sion Oppong — Toulouse FC (ST, 2007, SE): 12
+- Ilyas Azizi — Toulouse FC (ST, 2008, FR): 12
+- Julián Vignolo — Toulouse FC (ST, 2006, AR): 13
+- Egil Selvik — Stade Brestois (GK, 1997, NO): 13.5
+- Romain Cagnon — Stade Brestois (GK, 1997, FR): 13.5
+- Mathieu Patouillet — Stade Brestois (GK, 2004, FR): 12.7
+- Luc Zogbe — Stade Brestois (CB, 2005, CI): 13.1
+- Raphaël Le Guen — Stade Brestois (CB, 2006, FR): 13.1
+- Justin Bourgault — Stade Brestois (CB, 2005, FR): 13.1
+- Lucas Tousart — Stade Brestois (CM, 1997, FR): 13.9
+- Joris Chotard — Stade Brestois (CM, 2001, FR): 13.9
+- Mamady Diambou — Stade Brestois (CM, 2002, ML): 13.9
+- Joseph Nonge — Stade Brestois (CM, 2005, BE): 13.1
+- Hamidou Makalou — Stade Brestois (CM, 2006, ML): 13.1
+- Mama Baldé — Stade Brestois (ST, 1995, GW): 13.5
+- Axel Camblan — Stade Brestois (ST, 2025, FR): 12.1
+- Noah Edjouma — Stade Brestois (ST, 2005, FR): 13.1
+- Pathé Mboup — Stade Brestois (ST, 2003, SN): 13.9
+- Jeffrey De Lange — Olympique de Marseille (GK, 1998, NL): 15
+- Théo Vermot — Olympique de Marseille (GK, 1997, FR): 15
+- Jelle Van Neck — Olympique de Marseille (GK, 2004, BE): 14.2
+- Emerson — Olympique de Marseille (CB, 1994, IT): 15
+- Derek Cornelius — Olympique de Marseille (CB, 1997, CA): 15.4
+- Bamo Meité — Olympique de Marseille (CB, 2001, CI): 15.4
+- Tochukwu Nadi — Olympique de Marseille (CM, 2003, NG): 15.4
+- Amine Harit — Olympique de Marseille (ST, 1997, MA): 15.4
+- Neal Maupay — Olympique de Marseille (ST, 1996, FR): 15.4
+- Faris Moumbagna — Olympique de Marseille (ST, 2000, CM): 15.4
+- Keyliane Abdallah — Olympique de Marseille (ST, 2006, FR): 14.6
+- Tadjidine M'Madi — Olympique de Marseille (ST, 2007, FR): 13.6
+- Paul Nardi — AJ Auxerre (GK, 1994, FR): 12.5
+- Louis Mezerette — AJ Auxerre (GK, 2006, FR): 12.1
+- Francisco Sierralta — AJ Auxerre (CB, 1997, CL): 13.3
+- Bryan Okoh — AJ Auxerre (CB, 2003, CH): 13.3
+- Marvin Senaya — AJ Auxerre (CB, 2001, GH): 13.3
+- Fredrik Oppegard — AJ Auxerre (CB, 2002, NO): 13.3
+- Lamine Sy — AJ Auxerre (CB, 2002, FR): 13.3
+- Clement Akpa — AJ Auxerre (CB, 2001, CI): 13.3
+- Sekou Fofana — AJ Auxerre (CB, 2003, CI): 13.3
+- Telli Siwe — AJ Auxerre (CB, 2004, FR): 12.5
+- Elikya Legros — AJ Auxerre (CB, 2008, FR): 11.5
+- Alvin Petit Dol — AJ Auxerre (CB, 2006, FR): 12.5
+- Assane Dioussé — AJ Auxerre (CM, 1997, SN): 13.3
+- Romain Faivre — AJ Auxerre (CM, 1998, FR): 13.3
+- Naouirou Ahamada — AJ Auxerre (CM, 2002, FR): 13.3
+- Pierre Ekwah — AJ Auxerre (CM, 2002, FR): 13.3
+- Arthur Piedfort — AJ Auxerre (CM, 2005, BE): 12.5
+- Tidiane Devernois — AJ Auxerre (CM, 2007, FR): 11.5
+- Lamfia Dioubaté — AJ Auxerre (CM, 2007, FR): 11.5
+- Daniel Namaso — AJ Auxerre (ST, 2000, CM): 13.3
+- Eros Maddy — AJ Auxerre (ST, 2001, NL): 13.3
+- Cameron Archer — AJ Auxerre (ST, 2001, GB-ENG): 13.3
+- Josué Casimir — AJ Auxerre (ST, 2001, HT): 13.3
+- Lasso Coulibaly — AJ Auxerre (ST, 2002, CI): 13.3
+- Rayan Mandengue — AJ Auxerre (ST, 2006, CM): 12.5
+- Aristide Zossou — AJ Auxerre (ST, 2005, CI): 12.5
+- Xiangxin Wei — AJ Auxerre (ST, 2008, CN): 11.5
+- Ryan Rodin — AJ Auxerre (ST, 2006, FR): 12.5
+- Arnaud Bodart — LOSC Lille (GK, 1998, BE): 14.6
+- Orlando Gill — LOSC Lille (GK, 2000, PY): 14.6
+- Calvin Verdonk — LOSC Lille (CB, 1997, ID): 15
+- Nianzou Kouassi — LOSC Lille (CB, 2002, FR): 15
+- Loun Srdanovic — LOSC Lille (CB, 2006, CH): 14.2
+- Isaac Cossier — LOSC Lille (CB, 2006, FR): 14.2
+- Maurits Kjærgaard — LOSC Lille (CM, 2003, DK): 15
+- Ngal'ayel Mukau — LOSC Lille (CM, 2004, CD): 14.2
+- Mohamed Bayo — LOSC Lille (ST, 1993, GN): 14.6
+- Gaëtan Perrin — LOSC Lille (ST, 1996, FR): 15
+- Tiago Fonseca Morais — LOSC Lille (ST, 2003, PT): 15
+- Basar Onal — LOSC Lille (ST, 2004, TR): 14.2
+- Ethan Mbappé — LOSC Lille (ST, 2006, FR): 14.2
+- Soriba Diaoune — LOSC Lille (ST, 2007, FR): 13.2
+- Teddy Boulhendi — OGC Nice (GK, 2001, FR): 14.1
+- Ali El Abdi — OGC Nice (CB, 1993, TN): 14.1
+- Niels Nkounkou — OGC Nice (CB, 2000, FR): 14.5
+- Antoine Mendy — OGC Nice (CB, 2004, SN): 13.7
+- Moise Bombito — OGC Nice (CB, 2000, CA): 14.5
+- Mohamed Abdelmonem — OGC Nice (CB, 1999, EG): 14.5
+- Hamza Koutoune — OGC Nice (CB, 2006, MA): 13.7
+- Everton — OGC Nice (CM, 1995, BR): 14.1
+- Salis Abdul Samed — OGC Nice (CM, 2000, GH): 14.5
+- Issiaga Camara — OGC Nice (CM, 2005, GN): 13.7
+- Djibril Coulibaly — OGC Nice (CM, 2008, FR): 12.7
+- Nassim Laarej — OGC Nice (CM, 2009, FR): 12.7
+- Isak Jansson — OGC Nice (ST, 2002, SE): 14.5
+- Nathan N'Goumou — OGC Nice (ST, 2000, CM): 14.5
+- Sepe Elye Wahi — OGC Nice (ST, 2003, CI): 14.5
+- Zoumana Diallo — OGC Nice (ST, 2005, FR): 13.7
+- Victor Orakpo — OGC Nice (ST, 2006, NG): 13.7
+- Rémy Descamps — Olympique Lyonnais (GK, 1996, FR): 14.6
+- Justin Jose Bengui Joao — Olympique Lyonnais (GK, 2005, FR): 13.8
+- Lassine Diarra — Olympique Lyonnais (GK, 2002, ML): 14.6
+- Felix Bacher — Olympique Lyonnais (CB, 2000, AT): 15
+- Abner — Olympique Lyonnais (CB, 2000, BR): 15
+- Mohamed Ouédraogo — Olympique Lyonnais (CB, 2003, BF): 15
+- Noham Kamara — Olympique Lyonnais (CB, 2007, FR): 13.2
+- Paul Akouokou — Olympique Lyonnais (CM, 1997, CI): 15
+- Mads Bidstrup — Olympique Lyonnais (CM, 2001, DK): 15
+- Noah Nartey — Olympique Lyonnais (CM, 2005, DK): 14.2
+- Mathys De Carvalho — Olympique Lyonnais (CM, 2005, PT): 14.2
+- Khalis Merah — Olympique Lyonnais (CM, 2007, FR): 13.2
+- Julien Duranville — Olympique Lyonnais (ST, 2006, BE): 14.2
+- Kaïl Boudache — Olympique Lyonnais (ST, 2006, FR): 14.2
+- Alejandro Rodriguez — Olympique Lyonnais (ST, 2008, GB-ENG): 13.2
+- Rémi Himbert — Olympique Lyonnais (ST, 2008, FR): 13.2
+- Pedro Fernández — Paris Saint-Germain (CM, 2008, ES): 14.8
+- Mika Godts — Paris Saint-Germain (ST, 2005, BE): 15.8
+- Quentin Ndjantou — Paris Saint-Germain (ST, 2007, FR): 14.8
+- Benjamin Leroy — FC Lorient (GK, 1989, FR): 11.8
+- Bingourou Kamara — FC Lorient (GK, 1996, SN): 12.8
+- Alec Georgen — FC Lorient (CB, 1998, FR): 13.2
+- Souleymane Isaak Toure — FC Lorient (CB, 2003, FR): 13.2
+- Formose Mendy — FC Lorient (CB, 2001, SN): 13.2
+- Dembo Sylla — FC Lorient (CB, 2002, GN): 13.2
+- Nathaniel Adjei — FC Lorient (CB, 2002, GH): 13.2
+- Srđan Kuzmić — FC Lorient (CB, 2004, SI): 12.4
+- Nosa Edward Obaretin — FC Lorient (CB, 2003, IT): 13.2
+- Kan Guy Arsène Kouassi — FC Lorient (CB, 2004, BF): 12.4
+- Jean-Victor Makengo — FC Lorient (CM, 1998, FR): 13.2
+- Noah Cadiou — FC Lorient (CM, 1998, FR): 13.2
+- Bandiougou Fadiga — FC Lorient (CM, 2001, FR): 13.2
+- Noah Mbamba — FC Lorient (CM, 2005, BE): 12.4
+- Panos Katseris — FC Lorient (CM, 2001, GR): 13.2
+- Arthur Ebong — FC Lorient (CM, 2004, CM): 12.4
+- Gabin Bernardeau — FC Lorient (CM, 2006, FR): 12.4
+- Aiyegun Tosin — FC Lorient (ST, 1998, BJ): 13.2
+- Isak Jensen — FC Lorient (ST, 2003, DK): 13.2
+- Ibrahima Baldé — FC Lorient (ST, 2003, FR): 13.2
+- Mohamed Bamba — FC Lorient (ST, 2001, CI): 13.2
+- Souleymane Faye — FC Lorient (ST, 2003, SN): 13.2
+- Nicolas Lemaître — Stade Rennais (GK, 1997, FR): 14
+- Kilian Belazzoug — Stade Rennais (GK, 2006, FR): 13.2
+- Bryan Reynolds — Stade Rennais (CB, 2001, US): 14.4
+- Alidu Seidu — Stade Rennais (CB, 2000, GH): 14.4
+- Mahamadou Nagida — Stade Rennais (CB, 2005, CM): 13.6
+- Gonçalo Oliveira — Stade Rennais (CB, 2006, PT): 13.6
+- Sebastian Szymański — Stade Rennais (CM, 1999, PL): 14.4
+- Ayanda Sishuba — Stade Rennais (CM, 2005, BE): 13.6
+- Arnaud Nordin — Stade Rennais (ST, 1998, FR): 14.4
+- Musa Al Taamari — Stade Rennais (ST, 1997, JO): 14.4
+- Issa Soumaré — Stade Rennais (ST, 2022, SN): 12.6
+- Elias Legendre Quiñonez — Stade Rennais (ST, 2008, EC): 12.6
+- Zacharie Boucher — ES Troyes AC (GK, 1992, FR): 10.1
+- Hillel Konaté — ES Troyes AC (GK, 1994, BF): 10.7
+- Patrick Beach — ES Troyes AC (GK, 2003, AU): 11.1
+- Adrien Monfray — ES Troyes AC (CB, 1990, FR): 10.5
+- Paolo Gozzi Iweru — ES Troyes AC (CB, 2001, IT): 11.5
+- Lucas Maronnier — ES Troyes AC (CB, 2000, FR): 11.5
+- Michel Diaz — ES Troyes AC (CB, 2003, FR): 11.5
+- Yvann Titi — ES Troyes AC (CB, 2006, FR): 10.7
+- Tom Akpakoun — ES Troyes AC (CB, 2005, FR): 10.7
+- Anis Ouzenadji — ES Troyes AC (CB, 2006, FR): 10.7
+- Alexandre Phliponeau — ES Troyes AC (CM, 2000, FR): 11.5
+- Iron Gomis — ES Troyes AC (CM, 1999, FR): 11.5
+- Antoine Mille — ES Troyes AC (CM, 1997, FR): 11.5
+- Karim Dermane — ES Troyes AC (CM, 2003, TG): 11.5
+- Mouhamed Diop — ES Troyes AC (CM, 2000, SN): 11.5
+- Hugo Picard — ES Troyes AC (CM, 2003, FR): 11.5
+- Roman Murcy — ES Troyes AC (CM, 2006, FR): 10.7
+- Renaud Ripart — ES Troyes AC (ST, 1993, FR): 11.1
+- Timothée Nkada — ES Troyes AC (ST, 1999, FR): 11.5
+- Kandet Diawara — ES Troyes AC (ST, 2000, GN): 11.5
+- Jérémy Le Douaron — ES Troyes AC (ST, 1998, FR): 11.5
+- Ibrahim Traoré — ES Troyes AC (ST, 2006, FR): 10.7
+- Merwan Ifnaoui — ES Troyes AC (ST, 1998, FR): 11.5
+- Amadou Diakite — ES Troyes AC (ST, 2005, FR): 10.7
+- Elijah Olaniyi Odede — ES Troyes AC (ST, 2007, NG): 9.7
+- Melvin Zinga — Angers SCO (GK, 2002, FR): 12.8
+- Oumar Pona — Angers SCO (GK, 2006, ML): 12
+- Ousman Camara — Angers SCO (CB, 2003, FR): 13.2
+- Emmanuel Biumla — Angers SCO (CB, 2005, FR): 12.4
+- Lilian Rao-Lisoa — Angers SCO (CB, 2000, FR): 13.2
+- Joseph Kalulu — Angers SCO (CB, 2004, FR): 12.4
+- Marius Louãr — Angers SCO (CB, 2007, FR): 11.4
+- Branco van den Boomen — Angers SCO (CM, 1995, NL): 12.8
+- Louis Mouton — Angers SCO (CM, 2002, FR): 13.2
+- Yassin Belkhdim — Angers SCO (CM, 2002, MA): 13.2
+- Bané Diatta — Angers SCO (CM, 2008, FR): 11.4
+- Jim Allevinah — Angers SCO (ST, 1995, GA): 12.8
+- Amine El Ouazzani — Angers SCO (ST, 2001, FR): 13.2
+- Amine Sbaï — Angers SCO (ST, 2000, FR): 13.2
+- Anthony Bermont — Angers SCO (ST, 2005, FR): 12.4
+- Prosper Peter — Angers SCO (ST, 2007, NG): 11.4
+- Harouna Djibirin — Angers SCO (ST, 2006, CM): 12.4
+- Gauthier Gallon — Le Havre AC (GK, 1993, FR): 12.3
+- Lionel Mpasi — Le Havre AC (GK, 1994, CD): 12.3
+- Paul Argney — Le Havre AC (GK, 2006, FR): 11.9
+- Ahmed Touba — Le Havre AC (CB, 1999, DZ): 13.1
+- Vincent Sasso — Le Havre AC (CB, 1991, FR): 12.1
+- Ayumu Seko — Le Havre AC (CB, 2000, JP): 13.1
+- Timothee Pembele — Le Havre AC (CB, 2002, FR): 13.1
+- Elias Jelert Kristensen — Le Havre AC (CB, 2003, DK): 13.1
+- Stephan Zagadou — Le Havre AC (CB, 2008, FR): 11.3
+- Enzo Koffi — Le Havre AC (CB, 2006, FR): 12.3
+- Kaito Mizuta — Le Havre AC (CM, 2000, JP): 13.1
+- Amir Richardson — Le Havre AC (CM, 2002, MA): 13.1
+- Rassoul N'Diaye — Le Havre AC (CM, 2001, FR): 13.1
+- Junior Mwanga — Le Havre AC (CM, 2003, FR): 13.1
+- Simon Ebonog — Le Havre AC (CM, 2004, FR): 12.3
+- Ismail Bouneb — Le Havre AC (CM, 2006, FR): 12.3
+- Daren Mosengo — Le Havre AC (CM, 2006, FR): 12.3
+- Guy Zohouri — Le Havre AC (CM, 2007, CI): 11.3
+- Josh Maja — Le Havre AC (ST, 1998, NG): 13.1
+- Mbwana Samatta — Le Havre AC (ST, 1992, TZ): 12.1
+- Felix Mambimbi — Le Havre AC (ST, 2001, CH): 13.1
+- Andy Logbo — Le Havre AC (ST, 2004, FR): 12.3
+- Joan Tincres — Le Havre AC (ST, 2006, FR): 12.3
+- Sota Nakamura — Le Havre AC (ST, 2002, JP): 13.1
+- Rayan Fofana — Le Havre AC (ST, 2006, FR): 12.3
+- Nicolas Kocik — Le Mans FC (GK, 1998, FR): 10.6
+- Ewan Hatfout — Le Mans FC (GK, 2000, FR): 10.6
+- Augustin Delbecque — Le Mans FC (GK, 2002, FR): 10.6
+- Lucas Buadés — Le Mans FC (CB, 1997, FR): 11
+- Samuel Yohou — Le Mans FC (CB, 1991, FR): 10
+- Yasser Larouci — Le Mans FC (CB, 2001, DZ): 11
+- Raúl Torrente — Le Mans FC (CB, 2001, ES): 11
+- Lucas Calodat — Le Mans FC (CB, 2002, FR): 11
+- Rayan Bamba — Le Mans FC (CB, 2004, FR): 10.2
+- Théo Eyoum — Le Mans FC (CB, 2002, FR): 11
+- Noa Boisse — Le Mans FC (CB, 2006, FR): 10.2
+- Edwin Quarshie — Le Mans FC (CM, 1995, FR): 10.6
+- Alexandre Lauray — Le Mans FC (CM, 1997, FR): 11
+- Jean Vercruysse — Le Mans FC (CM, 2000, FR): 11
+- Milan Robin — Le Mans FC (CM, 1999, FR): 11
+- Martin Rossignol — Le Mans FC (CM, 2003, FR): 11
+- Lucas Bretelle — Le Mans FC (CM, 2002, FR): 11
+- Adil Bourabaa — Le Mans FC (CM, 2005, DZ): 10.2
+- Antoine Rabillard — Le Mans FC (ST, 1995, FR): 10.6
+- Dame Guèye — Le Mans FC (ST, 1995, SN): 10.6
+- Erwan Colas — Le Mans FC (ST, 1997, FR): 11
+- Bilal Brahimi — Le Mans FC (ST, 2000, FR): 11
+- Enzo Vagner — Le Mans FC (ST, 2006, BR): 10.2
+- William Harhouz — Le Mans FC (ST, 1999, FR): 11
+- Mathieu Gorgelin — RC Lens (GK, 1990, FR): 13.2
+- Régis Gurtner — RC Lens (GK, 1986, FR): 13.2
+- Ilan Jourdren — RC Lens (GK, 2008, FR): 12.4
+- Maik Nawrocki — RC Lens (CB, 2001, PL): 14.6
+- Saud Abdulhamid — RC Lens (CB, 1999, SA): 14.6
+- Jhoanner Chavez — RC Lens (CB, 2002, EC): 14.6
+- Pierre Ganiou — RC Lens (CB, 2005, FR): 13.8
+- Nidal Čelik — RC Lens (CB, 2006, BA): 13.8
+- Kyllian Antonio — RC Lens (CB, 2008, FR): 12.8
+- Souleymane Sagnan — RC Lens (CB, 2006, ML): 13.8
+- Thorgan Hazard — RC Lens (CM, 1993, BE): 14.2
+- Mickaël Cuisance — RC Lens (CM, 1999, FR): 14.6
+- Amadou Haïdara — RC Lens (CM, 1998, ML): 14.6
+- Yacine Titraoui — RC Lens (CM, 2003, DZ): 14.6
+- Mezian Soares — RC Lens (CM, 2009, PT): 12.8
+- Florian Thauvin — RC Lens (ST, 1993, FR): 14.2
+- Michał Skóraś — RC Lens (ST, 2000, PL): 14.6
+- Junior Kadile — RC Lens (ST, 2002, FR): 14.6
+- Franjo Ivanovic — RC Lens (ST, 2003, AT): 14.6
+- Yann Lienard — AS Monaco (GK, 2003, FR): 14.9
+- Jordan Teze — AS Monaco (CB, 1999, NL): 15.3
+- Flávio Nazinho — AS Monaco (CB, 2003, PT): 15.3
+- Christian Mawissa — AS Monaco (CB, 2005, FR): 14.5
+- Samuel Nibombe — AS Monaco (CB, 2007, BE): 13.5
+- Edan Diop — AS Monaco (CM, 2004, FR): 14.5
+- Stanis Idumbo-Muzambo — AS Monaco (CM, 2005, BE): 14.5
+- Mamadou Coulibaly — AS Monaco (CM, 2004, FR): 14.5
+- Pape Cabral — AS Monaco (CM, 2007, FR): 13.5
+- Paris Brunner — AS Monaco (ST, 2006, DE): 14.5
+- Mathys Detourbet — AS Monaco (ST, 2007, FR): 13.5
+- Filip Jörgensen — RC Strasbourg (GK, 2002, DK): 14.1
+- Miłosz Piekutowski — RC Strasbourg (GK, 2006, PL): 13.3
+- Abakar Sylla — RC Strasbourg (CB, 2002, CI): 14.5
+- Mateo Del Blanco — RC Strasbourg (CB, 2003, AR): 14.5
+- Lucas Høgsberg — RC Strasbourg (CB, 2006, DK): 13.7
+- Jeyland Mitchell — RC Strasbourg (CB, 2004, CR): 13.7
+- Karim Coulibaly — RC Strasbourg (CB, 2007, DE): 12.7
+- Genesis Antwi — RC Strasbourg (CB, 2007, GB-ENG): 12.7
+- Gio Reyna — RC Strasbourg (CM, 2002, US): 14.5
+- Dario Essugo — RC Strasbourg (CM, 2005, PT): 13.7
+- Pape Diop — RC Strasbourg (CM, 2003, SN): 14.5
+- Maximillian Oyedele — RC Strasbourg (CM, 2004, PL): 13.7
+- Samir El Mourabet — RC Strasbourg (CM, 2005, MA): 13.7
+- Benjamin Brantlind — RC Strasbourg (CM, 2008, SE): 12.7
+- Omari Kellyman — RC Strasbourg (CM, 2005, GB-ENG): 13.7
+- Diogo Lobão — RC Strasbourg (CM, 2006, PT): 13.7
+- Sekou Mara — RC Strasbourg (ST, 2002, FR): 14.5
+- Deivid Washington — RC Strasbourg (ST, 2005, BR): 13.7
+- Martial Godo — RC Strasbourg (ST, 2003, GB-ENG): 14.5
+- Samuel Amo-Ameyaw — RC Strasbourg (ST, 2006, GB-ENG): 13.7
+- Fabio Baldé — RC Strasbourg (ST, 2005, DE): 13.7
+- Oso — RC Strasbourg (ST, 2003, ES): 14.5
+- Gessime Yassine — RC Strasbourg (ST, 2005, FR): 13.7
+- Yaya Diemé — RC Strasbourg (ST, 2007, SN): 12.7
+- Jacobo Ortega — RC Strasbourg (ST, 2006, ES): 13.7
+- Hamari Traoré — Paris FC (CB, 1992, ML): 12.4
+- Thibault De Smet — Paris FC (CB, 1998, BE): 13.4
+- Samir Chergui — Paris FC (CB, 1999, DZ): 13.4
+- Otavio Ataide — Paris FC (CB, 2002, BR): 13.4
+- Yoan Kore — Paris FC (CB, 2004, FR): 12.6
+- Diego Coppola — Paris FC (CB, 2003, IT): 13.4
+- Adama Camara — Paris FC (CM, 1996, FR): 13.4
+- Patrick Zabi — Paris FC (CM, 2006, CI): 12.6
+- Rudy Matondo — Paris FC (CM, 2008, FR): 11.6
+- Moses Simon — Paris FC (ST, 1995, NG): 13
+- Jonathan Ikoné — Paris FC (ST, 1998, FR): 13.4
+- Pablo Pagis — Paris FC (ST, 2002, FR): 13.4
+- Omar Sissoko — Paris FC (ST, 2006, FR): 12.6
+- Cláudio Ramos — FC Porto (GK, 1991, PT): 13.4
+- João Costa Gomes — FC Porto (GK, 1996, PT): 14.4
+- João Afonso — FC Porto (GK, 2007, PT): 12.6
+- Nehuén Pérez — FC Porto (CB, 2000, AR): 14.8
+- Zaidu Sanusi — FC Porto (CB, 1997, NG): 14.8
+- Alberto Baio — FC Porto (CB, 2003, PT): 14.8
+- Dominik Prpić — FC Porto (CB, 2004, HR): 14
+- Martim Fernandes — FC Porto (CB, 2006, PT): 14
+- Souza — FC Porto (CB, 2006, BR): 14
+- Pablo Rosario — FC Porto (CM, 1997, NL): 14.8
+- Vasco Sousa — FC Porto (CM, 2003, PT): 14.8
+- Pepê — FC Porto (ST, 1997, BR): 14.8
+- William da Silva — FC Porto (ST, 2006, BR): 14
+- Gabriel Veron — FC Porto (ST, 2002, BR): 14.8
+- Oskar Pietuszewski — FC Porto (ST, 2008, PL): 13
+- Samuel Soares — Benfica (GK, 2002, PT): 14.5
+- Alexander Bah — Benfica (CB, 1997, DK): 14.9
+- Souffian El Karouani — Benfica (CB, 2000, MA): 14.9
+- Daniel Banjaqui — Benfica (CB, 2008, PT): 13.1
+- José Neto — Benfica (CB, 2008, PT): 13.1
+- Gabriel Índio — Benfica (CB, 2008, BR): 13.1
+- Leandro Barreiro Martins — Benfica (CM, 2000, LU): 14.9
+- Manu Silva — Benfica (CM, 2001, PT): 14.9
+- Bruma — Benfica (ST, 1994, GW): 14.5
+- Jakub Kamiński — Benfica (ST, 2002, PL): 14.9
+- Gianluca Prestianni — Benfica (ST, 2006, AR): 14.1
+- Anísio Cabral — Benfica (ST, 2008, PT): 13.1
+- Oliwier Zych — Vitória SC (GK, 2004, PL): 11.9
+- Lucas Furtado — Vitória SC (GK, 2005, BR): 11.9
+- Juan Castillo — Vitória SC (GK, 2003, CO): 12.7
+- Miguel Magalhães — Vitória SC (CB, 2002, PT): 13.1
+- Joao Mendes — Vitória SC (CB, 2000, PT): 13.1
+- Ahmed Sidibé — Vitória SC (CB, 2002, FR): 13.1
+- Óscar Rivas — Vitória SC (CB, 2000, ES): 13.1
+- Miguel Nóbrega — Vitória SC (CB, 2000, PT): 13.1
+- Anthony Strata — Vitória SC (CB, 2004, FR): 12.3
+- Thiago Balieiro — Vitória SC (CB, 2003, BR): 13.1
+- Francisco Dias — Vitória SC (CB, 2002, PT): 13.1
+- Samu — Vitória SC (CM, 1996, PT): 13.1
+- Lohann Doucet — Vitória SC (CM, 2002, BF): 13.1
+- Goncalo Nogueira — Vitória SC (CM, 2003, PT): 13.1
+- Beni — Vitória SC (CM, 2002, AO): 13.1
+- Ricardo Rocha — Vitória SC (CM, 2003, PT): 13.1
+- Marco Cruz — Vitória SC (CM, 2004, PT): 12.3
+- Matija Mitrović — Vitória SC (CM, 2004, RS): 12.3
+- Santi Verdi — Vitória SC (CM, 2008, PT): 11.3
+- Telmo Arcanjo — Vitória SC (ST, 2001, CV): 13.1
+- Alioune Ndoye — Vitória SC (ST, 2001, SN): 13.1
+- Vando Félix — Vitória SC (ST, 2002, GN): 13.1
+- Fabio Blanco — Vitória SC (ST, 2004, ES): 12.3
+- Victor Andersson — Vitória SC (ST, 2004, SE): 12.3
+- Rodrigo Macedo — Vitória SC (ST, 2003, PT): 13.1
+- Vignon Ouotro — Vitória SC (ST, 2005, CI): 12.3
+- Miguel Nogueira — Vitória SC (ST, 2005, PT): 12.3
+- Oumar Camara — Vitória SC (ST, 2007, FR): 11.3
+- Tiago Sá — SC Braga (GK, 1995, PT): 13.1
+- Bernardo Fontes — SC Braga (GK, 2002, BR): 13.5
+- João Carvalho — SC Braga (GK, 2004, PT): 12.7
+- Sikou Niakaté — SC Braga (CB, 1999, FR): 13.9
+- Vitor Carvalho — SC Braga (CB, 1997, BR): 13.9
+- Bartłomiej Wdowik — SC Braga (CB, 2000, PL): 13.9
+- Victor Perea — SC Braga (CB, 2000, ES): 13.9
+- Bright Arrey-Mbi — SC Braga (CB, 2003, DE): 13.9
+- Sergio Barcia — SC Braga (CB, 2000, ES): 13.9
+- Gustaf Lagerbielke — SC Braga (CB, 2000, SE): 13.9
+- Adrian Leon Barisic — SC Braga (CB, 2001, BA): 13.9
+- Adrian Bajrami — SC Braga (CB, 2002, CH): 13.9
+- Diogo Travassos — SC Braga (CB, 2004, PT): 13.1
+- Jonatás Noro — SC Braga (CB, 2005, PT): 13.1
+- João Moutinho — SC Braga (CM, 1986, PT): 12.9
+- Denis Huseinbasic — SC Braga (CM, 2001, BA): 13.9
+- Gabriel Silva — SC Braga (CM, 2002, BR): 13.9
+- Demir Tiknaz — SC Braga (CM, 2004, TR): 13.1
+- Jean-Baptiste Gorby — SC Braga (CM, 2002, FR): 13.9
+- Mario Dorgeles — SC Braga (CM, 2004, CI): 13.1
+- Diego Rodrigues — SC Braga (CM, 2005, PT): 13.1
+- Tomy Marqués — SC Braga (CM, 2006, ES): 13.1
+- Luisinho — SC Braga (CM, 2006, PT): 13.1
+- Ricardo Horta — SC Braga (ST, 1994, PT): 13.5
+- Fran Navarro — SC Braga (ST, 1998, ES): 13.9
+- Pau Victor Delgado — SC Braga (ST, 2001, ES): 13.9
+- Jovan Milošević — SC Braga (ST, 2005, RS): 13.1
+- João Aragão — SC Braga (ST, 2008, PT): 12.1
+- Joël Drommel — FC Twente (GK, 1996, NL): 12.8
+- Lars Unnerstall — FC Twente (GK, 1990, DE): 11.8
+- Issam El Maach — FC Twente (GK, 2000, MA): 12.8
+- Yannick Gerritsen — FC Twente (GK, 2006, NL): 12
+- Robin Pröpper — FC Twente (CB, 1993, NL): 12.8
+- Bart van Rooij — FC Twente (CB, 2001, NL): 13.2
+- Max Bruns — FC Twente (CB, 2002, NL): 13.2
+- Aske Adelgaard — FC Twente (CB, 2003, DK): 13.2
+- Stav Lemkin — FC Twente (CB, 2003, IL): 13.2
+- Juliën Mesbahi — FC Twente (CB, 2006, MA): 12.4
+- Krzysztof Kurowski — FC Twente (CB, 2006, PL): 12.4
+- Guilherme Peixoto — FC Twente (CB, 2006, PT): 12.4
+- Ruud Nijstad — FC Twente (CB, 2008, NL): 11.4
+- Thomas van den Belt — FC Twente (CM, 2001, NL): 13.2
+- Ramiz Zerrouki — FC Twente (CM, 1998, DZ): 13.2
+- Kristian Hlynsson — FC Twente (CM, 2004, IS): 12.4
+- Gijs Besselink — FC Twente (CM, 2004, NL): 12.4
+- Daouda Weidmann — FC Twente (CM, 2003, FR): 13.2
+- Jordy Bawuah — FC Twente (CM, 2006, BE): 12.4
+- Marko Pjaca — FC Twente (ST, 1995, HR): 12.8
+- Sam Lammers — FC Twente (ST, 1997, NL): 13.2
+- Naci Ünüvar — FC Twente (ST, 2003, TR): 13.2
+- Taylor Booth — FC Twente (ST, 2001, US): 13.2
+- Daan Rots — FC Twente (ST, 2001, NL): 13.2
+- Younes Taha — FC Twente (ST, 2002, MA): 13.2
+- Filip Thorvaldsen — FC Twente (ST, 2006, NO): 12.4
+- Lucas Vennegoor of Hesselink — FC Twente (ST, 2006, NL): 12.4
+- Sondre Ørjasæter — FC Twente (ST, 2003, NO): 13.2
+- Nick Olij — PSV (GK, 1995, NL): 13.8
+- Tijn Smolenaars — PSV (GK, 2005, NL): 13.4
+- Armando Obispo — PSV (CB, 1999, CW): 14.6
+- Mauro Júnior — PSV (CB, 1999, BR): 14.6
+- Lutsharel Geertruida — PSV (CB, 2000, NL): 14.6
+- Sergiño Dest — PSV (CB, 2000, US): 14.6
+- Kiliann Sildillia — PSV (CB, 2002, FR): 14.6
+- Adamo Nagalo — PSV (CB, 2002, BF): 14.6
+- Ryan Flamingo — PSV (CB, 2002, NL): 14.6
+- Yarek Gasiorowski — PSV (CB, 2005, ES): 13.8
+- Fabian Merién — PSV (CB, 2008, NL): 12.8
+- Sven Mijnans — PSV (CM, 2000, NL): 14.6
+- Paul Wanner — PSV (CM, 2005, AT): 13.8
+- Isaac Babadi — PSV (CM, 2005, NL): 13.8
+- Kodai Sano — PSV (CM, 2003, JP): 14.6
+- Joel van den Berg — PSV (CM, 2007, NL): 12.8
+- Noah Fernandez — PSV (CM, 2008, BE): 12.8
+- Alassane Pléa — PSV (ST, 1993, FR): 14.2
+- Dennis Man — PSV (ST, 1998, RO): 14.6
+- Ruben van Bommel — PSV (ST, 2004, NL): 13.8
+- Esmir Bajraktarevic — PSV (ST, 2005, BA): 13.8
+- Sami Ouaissa — PSV (ST, 2004, NL): 13.8
+- Amir Bouhamdi — PSV (ST, 2008, NL): 12.8
+- Liam Bossin — Feyenoord (GK, 1996, IE): 14
+- Florian Kastenmeier — Feyenoord (GK, 1996, DE): 14
+- Tjark Ernst — Feyenoord (GK, 2003, DE): 14
+- Mannou Berger — Feyenoord (GK, 2004, NL): 13.2
+- Jerry St. Juste — Feyenoord (CB, 1996, NL): 14.4
+- Bart Nieuwkoop — Feyenoord (CB, 1996, NL): 14.4
+- Jordan Lotomba — Feyenoord (CB, 1998, CH): 14.4
+- Mats Deijl — Feyenoord (CB, 1997, NL): 14.4
+- Gijs Smal — Feyenoord (CB, 1997, NL): 14.4
+- Tsuyoshi Watanabe — Feyenoord (CB, 1997, JP): 14.4
+- Jordan Bos — Feyenoord (CB, 2002, AU): 14.4
+- Mika Marmol — Feyenoord (CB, 2001, ES): 14.4
+- Thomas Beelen — Feyenoord (CB, 2001, NL): 14.4
+- Givairo Read — Feyenoord (CB, 2004, NL): 13.6
+- Thijs Kraaijeveld — Feyenoord (CB, 2007, NL): 12.6
+- Tijme Wessels — Feyenoord (CB, 2007, NL): 12.6
+- Sem Steijn — Feyenoord (CM, 2001, NL): 14.4
+- Jakub Moder — Feyenoord (CM, 1999, PL): 14.4
+- Oussama Targhalline — Feyenoord (CM, 2002, MA): 14.4
+- Luciano Valente — Feyenoord (CM, 2003, NL): 14.4
+- Gjivai Zechiël — Feyenoord (CM, 2004, NL): 13.6
+- Tobias van den Elshout — Feyenoord (CM, 2007, NL): 12.6
+- Gonçalo Borges — Feyenoord (ST, 2001, PT): 14.4
+- Nacho Ferri — Feyenoord (ST, 2004, ES): 13.6
+- Gaoussou Diarra — Feyenoord (ST, 2002, ML): 14.4
+- Shaqueel van Persie — Feyenoord (ST, 2006, NL): 13.6
+- Jivayno Zinhagel — Feyenoord (ST, 2009, NL): 12.6
+- Maarten Paes — Ajax (GK, 1998, ID): 13.9
+- Joeri Heerkens — Ajax (GK, 2006, NL): 13.1
+- Owen Wijndal — Ajax (CB, 1999, NL): 14.3
+- Anton Gaaei — Ajax (CB, 2002, DK): 14.3
+- Lucas Rosa — Ajax (CB, 2000, BR): 14.3
+- Dies Janse — Ajax (CB, 2006, NL): 13.5
+- Aaron Bouwman — Ajax (CB, 2007, NL): 12.5
+- Jofre Torrents — Ajax (CB, 2007, ES): 12.5
+- Oscar Gloch — Ajax (CM, 2004, IL): 13.5
+- Jorthy Mokio — Ajax (CM, 2008, BE): 12.5
+- Rayane Bounida — Ajax (CM, 2006, BE): 13.5
+- Abdellah Ouazane — Ajax (CM, 2009, MA): 12.5
+- Steven Berghuis — Ajax (ST, 1991, NL): 13.3
+- Kasper Dolberg — Ajax (ST, 1997, DK): 14.3
+- Viktor Tsyhankov — Ajax (ST, 1997, UA): 14.3
+- Oliver Edvardsen — Ajax (ST, 1999, NO): 14.3
+- Marcos Leonardo Almeida — Ajax (ST, 2003, BR): 14.3
+- Amourricho van Axel Dongen — Ajax (ST, 2004, NL): 13.5
+- Jeroen Zoet — AZ Alkmaar (GK, 1991, NL): 12.2
+- Jari De Busser — AZ Alkmaar (GK, 1999, BE): 13.2
+- Hobie Verhulst — AZ Alkmaar (GK, 1993, NL): 12.8
+- Rome Owusu-Oduro — AZ Alkmaar (GK, 2004, NL): 12.4
+- Wesley Hoedt — AZ Alkmaar (CB, 1994, NL): 13.2
+- Mees De Wit — AZ Alkmaar (CB, 1998, NL): 13.6
+- Denso Kasius — AZ Alkmaar (CB, 2002, NL): 13.6
+- Seiya Maikuma — AZ Alkmaar (CB, 1997, JP): 13.6
+- Maxim Dekker — AZ Alkmaar (CB, 2004, NL): 12.8
+- Wouter Goes — AZ Alkmaar (CB, 2004, NL): 12.8
+- Lewis Schouten — AZ Alkmaar (CB, 2004, NL): 12.8
+- Sam De Grand — AZ Alkmaar (CB, 2004, NL): 12.8
+- Mateo Chávez — AZ Alkmaar (CB, 2004, MX): 12.8
+- Elijah Dijkstra — AZ Alkmaar (CB, 2006, NL): 12.8
+- Andrea Natali — AZ Alkmaar (CB, 2008, IT): 11.8
+- Rion Ichihara — AZ Alkmaar (CB, 2005, JP): 12.8
+- Jordy Clasie — AZ Alkmaar (CM, 1991, NL): 12.6
+- Peer Koopmeiners — AZ Alkmaar (CM, 2000, NL): 13.6
+- Stije Resink — AZ Alkmaar (CM, 2003, NL): 13.6
+- Valdemar Andreasen — AZ Alkmaar (CM, 2005, DK): 12.8
+- Dave Kwakman — AZ Alkmaar (CM, 2004, NL): 12.8
+- Kees Smit — AZ Alkmaar (CM, 2006, NL): 12.8
+- Jizz Hornkamp — AZ Alkmaar (ST, 1998, NL): 13.6
+- Calvin Stengs — AZ Alkmaar (ST, 1998, NL): 13.6
+- Ibrahim Sadiq — AZ Alkmaar (ST, 2000, GH): 13.6
+- Mexx Meerdink — AZ Alkmaar (ST, 2003, NL): 13.6
+- Ro-Zangelo Daal — AZ Alkmaar (ST, 2004, NL): 12.8
+- Weslley Patati — AZ Alkmaar (ST, 2003, BR): 13.6
+- Ayoub Oufkir — AZ Alkmaar (ST, 2006, NL): 12.8
+- Wassim Bouziane — AZ Alkmaar (ST, 2006, NL): 12.8
+- Bendegúz Kovács — AZ Alkmaar (ST, 2007, HU): 11.8
+- Fábio — Fluminense (GK, 1980, BR): 11.8
+- Vitor Eudes — Fluminense (GK, 1998, BR): 12.8
+- Marcelo Pitaluga — Fluminense (GK, 2002, BR): 12.8
+- Gustavo Ramalho — Fluminense (GK, 2002, BR): 12.8
+- Lucas Emanuel — Fluminense (GK, 2008, BR): 11
+- Samuel Xavier — Fluminense (CB, 1990, BR): 12.2
+- Igor Rabello — Fluminense (CB, 1995, BR): 12.8
+- Renê — Fluminense (CB, 1992, BR): 12.2
+- Guga — Fluminense (CB, 1998, BR): 13.2
+- Guilherme Arana — Fluminense (CB, 1997, BR): 13.2
+- Ignácio — Fluminense (CB, 1996, BR): 13.2
+- Juan Freytes — Fluminense (CB, 2000, AR): 13.2
+- Julio Cesar — Fluminense (CB, 2006, BR): 12.4
+- Jemmes — Fluminense (CB, 2000, BR): 13.2
+- Davi Schuindt — Fluminense (CB, 2004, BR): 12.4
+- Ganso — Fluminense (CM, 1989, BR): 12.2
+- Alisson — Fluminense (CM, 1993, BR): 12.8
+- Otávio — Fluminense (CM, 1994, BR): 12.8
+- Yeferson Soteldo — Fluminense (CM, 1997, VE): 13.2
+- David Terans — Fluminense (CM, 1994, UY): 12.8
+- Nonato — Fluminense (CM, 1998, BR): 13.2
+- Luciano Acosta — Fluminense (CM, 1994, AR): 12.8
+- Jefferson Savarino — Fluminense (CM, 1996, VE): 13.2
+- Julián Millán — Fluminense (CM, 1998, CO): 13.2
+- Hércules — Fluminense (CM, 2000, BR): 13.2
+- João Pedro — Fluminense (CM, 2005, BR): 12.4
+- Facundo Bernal — Fluminense (CM, 2003, UY): 13.2
+- Kaio — Fluminense (CM, 2007, BR): 11.4
+- Breno — Fluminense (CM, 2007, BR): 11.4
+- Davi Melo — Fluminense (CM, 2005, BR): 12.4
+- Vagno — Fluminense (CM, 2007, BR): 11.4
+- Naarã Teixeira — Fluminense (CM, 2008, BR): 11.4
+- Hulk — Fluminense (ST, 1986, BR): 12.2
+- Germán Cano — Fluminense (ST, 1988, AR): 12.2
+- Agustín Canobbio — Fluminense (ST, 1998, UY): 13.2
+- Yago — Fluminense (ST, 2001, BR): 13.2
+- Kevin Serna — Fluminense (ST, 1997, CO): 13.2
+- Rodrigo Castillo — Fluminense (ST, 1999, AR): 13.2
+- Agner Moura — Fluminense (ST, 2005, BR): 12.4
+- Matheus Reis — Fluminense (ST, 2007, MX): 11.4
+- Riquelme Felipe — Fluminense (ST, 2007, BR): 11.4
+- Oliver — Fluminense (ST, 2007, BR): 11.4
+- Keven Samuel — Fluminense (ST, 2007, BR): 11.4
+- Wesley Natã — Fluminense (ST, 2008, BR): 11.4
+- Kelwin — Fluminense (ST, 2006, BR): 12.4
+- John Kennedy — Fluminense (ST, 2002, BR): 13.2
+- Marcelo Lomba — Palmeiras (GK, 1986, BR): 12.5
+- Carlos Miguel — Palmeiras (GK, 1998, BR): 13.5
+- Wanderson Ferreira — Palmeiras (GK, 2005, BR): 12.7
+- Luiz Sá — Palmeiras (GK, 2007, BR): 11.7
+- Kauan Lima — Palmeiras (GK, 2007, BR): 11.7
+- Joaquín Piquerez — Palmeiras (CB, 1998, UY): 13.9
+- Alexander Barboza — Palmeiras (CB, 1995, AR): 13.5
+- Bruno Fuchs — Palmeiras (CB, 1999, BR): 13.9
+- Khellven — Palmeiras (CB, 2001, BR): 13.9
+- Murilo Cerqueira — Palmeiras (CB, 1997, BR): 13.9
+- Agustin Giay — Palmeiras (CB, 2004, AR): 13.1
+- Jefte — Palmeiras (CB, 2003, BR): 13.9
+- Luis Gustavo — Palmeiras (CB, 2006, BR): 13.1
+- Arthur Santana — Palmeiras (CB, 2005, BR): 13.1
+- Meykson Silmark — Palmeiras (CB, 2006, BR): 13.1
+- Koné Zié Mohamed — Palmeiras (CB, 2007, CI): 12.1
+- Jhon Arias — Palmeiras (CM, 1997, CO): 13.9
+- Lucas Evangelista — Palmeiras (CM, 1995, BR): 13.5
+- Mauricio — Palmeiras (CM, 2001, PY): 13.9
+- Emiliano Martínez — Palmeiras (CM, 1999, UY): 13.9
+- Vitor de Almeida — Palmeiras (CM, 2005, BR): 13.1
+- Vitor Figueiredo — Palmeiras (CM, 2006, BR): 13.1
+- Victor Gabriel — Palmeiras (CM, 2006, BR): 13.1
+- Rafael Coutinho — Palmeiras (CM, 2006, BR): 13.1
+- Erick Machado — Palmeiras (CM, 2007, BR): 12.1
+- Luis Pacheco — Palmeiras (CM, 2008, BR): 12.1
+- Gabriel Silva — Palmeiras (CM, 2007, BR): 12.1
+- Eduardo Conceição — Palmeiras (CM, 2009, BR): 12.1
+- Paulinho — Palmeiras (ST, 2000, BR): 13.9
+- Luighi Hanri — Palmeiras (ST, 2006, BR): 13.1
+- Riquelme Fillipi — Palmeiras (ST, 2006, BR): 13.1
+- Larson — Palmeiras (ST, 2005, BR): 13.1
+- Allan — Palmeiras (ST, 2004, BR): 13.1
+- Heittor da Silva — Palmeiras (ST, 2007, BR): 12.1
+- Felipe Anderson — Palmeiras (LW, 1993, BR): 13.5
+- Neto — Botafogo (GK, 1989, BR): 12
+- Raul — Botafogo (GK, 1997, BR): 13
+- Leo Linck — Botafogo (GK, 2001, BR): 13
+- Cristhian Loor — Botafogo (GK, 2006, EC): 12.2
+- Rhyan Luca — Botafogo (GK, 2006, BR): 12.2
+- Vitinho — Botafogo (CB, 1999, BR): 13.4
+- Marçal — Botafogo (CB, 1989, BR): 12.4
+- Nahuel Ferraresi — Botafogo (CB, 1998, VE): 13.4
+- Kaio Pantaleão — Botafogo (CB, 1995, BR): 13
+- Caio Roque — Botafogo (CB, 2002, BR): 13.4
+- Mateo Ponte — Botafogo (CB, 2003, UY): 13.4
+- Bastos — Botafogo (CB, 1991, AO): 12.4
+- Jhoan Hernández — Botafogo (CB, 2006, CO): 12.6
+- Ythallo — Botafogo (CB, 2004, BR): 12.6
+- Anthony — Botafogo (CB, 2005, BR): 12.6
+- Wallace — Botafogo (CB, 2007, BR): 11.6
+- Victor Hugo — Botafogo (CB, 2007, BR): 11.6
+- Caio Valle — Botafogo (CB, 2007, BR): 11.6
+- Carlos Santos — Botafogo (CB, 2005, BR): 12.6
+- Gabriel Pereira — Botafogo (CB, 2006, BR): 12.6
+- Gabriel Abdias — Botafogo (CB, 2006, BR): 12.6
+- Marcos Vinagre — Botafogo (CB, 2007, BR): 11.6
+- Pedro de Paula — Botafogo (CB, 2008, BR): 11.6
+- João Lira — Botafogo (CB, 2008, BR): 11.6
+- Arthur Alves — Botafogo (CB, 2008, BR): 11.6
+- Edenilson — Botafogo (CM, 1989, BR): 12.4
+- Allan — Botafogo (CM, 1991, BR): 12.4
+- Danilo dos Santos de Oliveira — Botafogo (CM, 2001, BR): 13.4
+- Cristian Medina — Botafogo (CM, 2002, AR): 13.4
+- Lucas Villalba — Botafogo (CM, 2001, UY): 13.4
+- Matheus Martins — Botafogo (CM, 2003, BR): 13.4
+- Bernardo Valim — Botafogo (CM, 2006, BR): 12.6
+- Newton — Botafogo (CM, 2000, BR): 13.4
+- Jordan Barrera — Botafogo (CM, 2006, CO): 12.6
+- Kaua Branco — Botafogo (CM, 2006, BR): 12.6
+- Alvaro Montoro — Botafogo (CM, 2007, AR): 11.6
+- Lucyo — Botafogo (CM, 2006, BR): 12.6
+- Lucas Camilo — Botafogo (CM, 2006, BR): 12.6
+- Zappelini — Botafogo (CM, 2007, BR): 11.6
+- Kauan — Botafogo (CM, 2006, BR): 12.6
+- Samuel da Silva — Botafogo (CM, 2008, BR): 11.6
+- Davi Alves — Botafogo (CM, 2008, BR): 11.6
+- Felipe Januário — Botafogo (CM, 2007, BR): 11.6
+- Joaquín Correa — Botafogo (ST, 1994, AR): 13
+- Júnior Santos — Botafogo (ST, 1994, BR): 13
+- Chris Ramos — Botafogo (ST, 1997, ES): 13.4
+- Weliton Santos — Botafogo (ST, 2005, BR): 12.6
+- Nathan Ribeiro — Botafogo (ST, 2005, BR): 12.6
+- Arthur Izaque — Botafogo (ST, 2007, BR): 11.6
+- Kadir Barría — Botafogo (ST, 2007, PA): 11.6
+- Rogerio Medeiros — Botafogo (ST, 2008, BR): 11.6
+- Matheusinho — Botafogo (ST, 2007, BR): 11.6
+- Miguel Caldas — Botafogo (ST, 2008, BR): 11.6
+- Arthur Cabral — Botafogo (ST, 1998, BR): 13.4
+- Carlos Coronel — São Paulo (GK, 1996, PY): 12.6
+- Rafael Monteiro — São Paulo (GK, 1989, BR): 11.6
+- Young — São Paulo (GK, 2002, BR): 12.6
+- Felipe — São Paulo (GK, 2005, BR): 11.8
+- João Pedro — São Paulo (GK, 2006, BR): 11.8
+- Robert Arboleda — São Paulo (CB, 1991, EC): 12
+- Lucas Ramon — São Paulo (CB, 1994, BR): 12.6
+- Alan Franco — São Paulo (CB, 1996, AR): 13
+- Enzo Díaz — São Paulo (CB, 1995, AR): 12.6
+- Luan — São Paulo (CB, 1999, BR): 13
+- José Sabino — São Paulo (CB, 1996, BR): 13
+- Matheus Doria — São Paulo (CB, 1994, BR): 12.6
+- Matheus Belém — São Paulo (CB, 2003, BR): 13
+- Igor Teixeira — São Paulo (CB, 2007, BR): 11.2
+- Isac — São Paulo (CB, 2006, BR): 12.2
+- Igor Odoni — São Paulo (CB, 2007, BR): 11.2
+- Pedro Henrique — São Paulo (CB, 2007, BR): 11.2
+- Nicolas — São Paulo (CB, 2007, BR): 11.2
+- Raphael — São Paulo (CB, 2005, BR): 12.2
+- Luis Osorio — São Paulo (CB, 2006, BR): 12.2
+- Lucas Moura — São Paulo (CM, 1992, BR): 12
+- Cauly — São Paulo (CM, 1995, BR): 12.6
+- Danielzinho — São Paulo (CM, 1994, BR): 12.6
+- Marcos Antônio — São Paulo (CM, 2000, BR): 13
+- Ferreira — São Paulo (CM, 1997, BR): 13
+- Damian Bobadilla — São Paulo (CM, 2001, PY): 13
+- Pablo Maia — São Paulo (CM, 2002, BR): 13
+- Felipe Negrucci — São Paulo (CM, 2004, BR): 12.2
+- Mateus Manso — São Paulo (CM, 2004, BR): 12.2
+- Pedrinho — São Paulo (CM, 2007, BR): 11.2
+- Maik — São Paulo (CM, 2005, BR): 12.2
+- Hugo — São Paulo (CM, 2004, BR): 12.2
+- Djhordney — São Paulo (CM, 2007, BR): 11.2
+- Artur Guimaraes — São Paulo (ST, 1998, BR): 13
+- Jonathan Calleri — São Paulo (ST, 1993, AR): 12.6
+- Luciano — São Paulo (ST, 1993, BR): 12.6
+- André Silva — São Paulo (ST, 1997, BR): 13
+- Gonzalo Tapia — São Paulo (ST, 2002, CL): 13
+- Ryan Rodrigues — São Paulo (ST, 2006, BR): 12.2
+- Lucca Marques — São Paulo (ST, 2007, BR): 11.2
+- Paulo Sérgio — São Paulo (ST, 2005, BR): 12.2
+- Perivan — São Paulo (ST, 2007, BR): 11.2
+- Wendell — São Paulo (LB, 1993, BR): 12.6
+- Cédric — São Paulo (RB, 1991, PT): 12
+- Rafael Tolói — São Paulo (CB, 1990, IT): 12
+- Matheus Donelli — Corinthians (GK, 2002, BR): 12.6
+- Kauê — Corinthians (GK, 2004, BR): 11.8
+- Felipexxx — Corinthians (GK, 2005, BR): 11.8
+- Matheuzinho — Corinthians (CB, 2000, BR): 13
+- André Ramalho — Corinthians (CB, 1992, BR): 12
+- Raniele — Corinthians (CB, 1996, BR): 13
+- Hugo — Corinthians (CB, 1997, BR): 13
+- Pedro Milans — Corinthians (CB, 2002, UY): 13
+- Bidu — Corinthians (CB, 1999, BR): 13
+- João Pedro — Corinthians (CB, 2003, BR): 13
+- Guilherme Pellegrin — Corinthians (CB, 2006, BR): 12.2
+- João Vitor — Corinthians (CB, 2007, BR): 11.2
+- André Luiz — Corinthians (CB, 2006, BR): 12.2
+- João Vitor — Corinthians (CB, 2005, BR): 12.2
+- Iago da Silva — Corinthians (CB, 2009, BR): 11.2
+- Charles — Corinthians (CM, 1996, BR): 13
+- Alex Santana — Corinthians (CM, 1995, BG): 12.6
+- Matheus Pereira — Corinthians (CM, 1998, BR): 13
+- Jesse Lingard — Corinthians (CM, 1992, GB-ENG): 12
+- Zakaria Labyad — Corinthians (CM, 1993, MA): 12.6
+- André Carrillo — Corinthians (CM, 1991, PE): 12
+- Allan — Corinthians (CM, 1997, BR): 13
+- Rodrigo Garro — Corinthians (CM, 1998, AR): 13
+- Bidon — Corinthians (CM, 2005, BR): 12.2
+- Kayke — Corinthians (CM, 2004, BR): 12.2
+- Yago — Corinthians (CM, 2006, BR): 12.2
+- Guilherme — Corinthians (CM, 2007, BR): 11.2
+- Luiz de Nardi — Corinthians (CM, 2007, BR): 11.2
+- Luiz Eduardo — Corinthians (CM, 2007, BR): 11.2
+- Luiz Gustavo — Corinthians (CM, 2006, BR): 12.2
+- Guilherme Amorim — Corinthians (CM, 2008, BR): 11.2
+- Yuri Alberto — Corinthians (ST, 2001, BR): 13
+- Memphis Depay — Corinthians (ST, 1994, NL): 12.6
+- Vitinho — Corinthians (ST, 1993, BR): 12.6
+- Pedro Raul — Corinthians (ST, 1996, BR): 13
+- Dieguinho — Corinthians (ST, 2007, BR): 11.2
+- Nícollas Mello — Corinthians (ST, 2008, BR): 11.2
+- Fabrizio Angileri — Corinthians (LB, 1994, AR): 12.6
+- Gabriel Paulista — Corinthians (CB, 1990, BR): 12
+- Gustavo Henrique — Corinthians (CB, 1993, BR): 12.6
+- Kaio César — Corinthians (RW, 2004, BR): 12.2
+- Andrew — Flamengo (GK, 2001, BR): 13.6
+- Francisco Dyogo — Flamengo (GK, 2004, BR): 12.8
+- Léo Nannetti — Flamengo (GK, 2007, BR): 11.8
+- Pedro Henrique — Flamengo (GK, 2008, BR): 11.8
+- Ayrton Lucas — Flamengo (CB, 1997, BR): 14
+- Guillermo Varela — Flamengo (CB, 1993, UY): 13.6
+- Vitão — Flamengo (CB, 2000, BR): 14
+- Daniel Sales — Flamengo (CB, 2006, BR): 13.2
+- João Pedro — Flamengo (CB, 2006, BR): 13.2
+- Gusttavo — Flamengo (CB, 2006, BR): 13.2
+- Johnny Goes — Flamengo (CB, 2007, BR): 12.2
+- Antonio Da Silva — Flamengo (CB, 2006, BR): 13.2
+- Daniel Carvalho — Flamengo (CB, 2009, BR): 12.2
+- Nicolas de la Cruz — Flamengo (CM, 1997, UY): 14
+- Evertton — Flamengo (CM, 2003, BR): 14
+- Yan — Flamengo (CM, 2005, BR): 13.2
+- João Victor — Flamengo (CM, 2007, BR): 12.2
+- Pablo Lucio — Flamengo (CM, 2007, BR): 12.2
+- Lucas — Flamengo (CM, 2007, BR): 12.2
+- Luiz Felipe — Flamengo (CM, 2008, BR): 12.2
+- Joshua — Flamengo (CM, 2007, BR): 12.2
+- Ramires — Flamengo (CM, 2006, BR): 13.2
+- João Vitor — Flamengo (CM, 2009, BR): 12.2
+- Kaio — Flamengo (CM, 2007, BR): 12.2
+- Kaio Júnior — Flamengo (CM, 2007, BR): 12.2
+- Juan Sayago — Flamengo (CM, 2007, AR): 12.2
+- Éverton — Flamengo (ST, 1996, BR): 14
+- Bruno Henrique — Flamengo (ST, 1990, BR): 13
+- Luiz Araújo — Flamengo (ST, 1996, BR): 14
+- Guilherme — Flamengo (ST, 2006, BR): 13.2
+- Douglas Telles — Flamengo (ST, 2007, BR): 12.2
+- João Paulo — Flamengo (ST, 2007, BR): 12.2
+- Alan Silva — Flamengo (ST, 2007, BR): 12.2
+- Ryan de Oliveira — Flamengo (ST, 2008, BR): 12.2
+- Emerson Royal — Flamengo (RB, 1999, BR): 14
+- Saúl — Flamengo (CM, 1994, ES): 13.6
+- Wiktor Nowak — Slavia Praha (CM, 2004, PL): 12.9
+
+## Jugadores conocidos que ya no aparecen en su club (revisar destino)
+- Mohamed Salah (Liverpool)
+- Leandro Trossard (Arsenal)
+- Nathan Aké (Manchester City)
+- Tijjani Reijnders (Manchester City)
+- Filip Jørgensen (Chelsea)
+- Lewis Hall (Newcastle United)
+- Jadon Sancho (Aston Villa)
+- Ollie Watkins (Aston Villa)
+- Casemiro (Manchester United)
+- James Milner (Brighton & Hove Albion)
+- Stefanos Tzimas (Brighton & Hove Albion)
+- John Victor (Nottingham Forest)
+- Oleksandr Zinchenko (Nottingham Forest)
+- Morgan Gibbs-White (Nottingham Forest)
+- Yehor Yarmoliuk (Brentford)
+- Kevin (Fulham)
+- El Hadji Malick Diouf (West Ham United)
+- Crysencio Summerville (West Ham United)
+- Seamus Coleman (Everton)
+- Idrissa Gueye (Everton)
+- Tim Iroegbunam (Everton)
+- Thierno Barry (Everton)
+- Sam Johnstone (Wolverhampton Wanderers)
+- Emmanuel Agbadou (Wolverhampton Wanderers)
+- Hwang Hee-chan (Wolverhampton Wanderers)
+- Reinildo Mandava (Sunderland)
+- Dan Neil (Sunderland)
+- Simon Adingra (Sunderland)
+- Bertrand Traoré (Sunderland)
+- Lesley Ugochukwu (Burnley)
+- Florentino Luís (Burnley)
+- Jaidon Anthony (Burnley)
+- Raúl Asencio (Real Madrid)
+- David Alaba (Real Madrid)
+- Dani Carvajal (Real Madrid)
+- Robert Lewandowski (FC Barcelona)
+- Pablo Barrios (Atlético de Madrid)
+- Johnny Cardoso (Atlético de Madrid)
+- Thiago Almada (Atlético de Madrid)
+- Antoine Griezmann (Atlético de Madrid)
+- Aitor Paredes (Athletic Club)
+- Mikel Vesga (Athletic Club)
+- Maroan Sannadi (Athletic Club)
+- Arnau Tenas (Villarreal)
+- Thomas Partey (Villarreal)
+- Dani Parejo (Villarreal)
+- Álvaro Valles (Real Betis)
+- Pau López (Real Betis)
+- Ricardo Rodríguez (Real Betis)
+- Chimy Ávila (Real Betis)
+- Aritz Elustondo (Real Sociedad)
+- Jon Gorrotxategi (Real Sociedad)
+- Brais Méndez (Real Sociedad)
+- Joseph Aidoo (Celta de Vigo)
+- Fran Beltrán (Celta de Vigo)
+- Matías Vecino (Celta de Vigo)
+- Jesús Vázquez (Valencia)
+- Dimitri Foulquier (Valencia)
+- Lucas Beltrán (Valencia)
+- Tanguy Nianzou (Sevilla)
+- Andrés Castrín (Sevilla)
+- Juanlu Sánchez (Sevilla)
+- Batista Mendy (Sevilla)
+- Adnan Januzaj (Sevilla)
+- Isaac Romero (Sevilla)
+- Alexis Sánchez (Sevilla)
+- Flavien Boyomo (Osasuna)
+- Juan Cruz (Osasuna)
+- Raúl García de Haro (Osasuna)
+- Óscar Trejo (Rayo Vallecano)
+- Randy Nteka (Rayo Vallecano)
+- Omar El Hilali (Espanyol)
+- Rubén Sánchez (Espanyol)
+- Ramon Terrats (Espanyol)
+- Djené Dakonam (Getafe)
+- Domingos Duarte (Getafe)
+- Allan Nyom (Getafe)
+- Mauro Arambarri (Getafe)
+- Christantus Uche (Getafe)
+- Adrián Liso (Getafe)
+- Facundo Garcés (Deportivo Alavés)
+- Víctor Parada (Deportivo Alavés)
+- Pablo Ibáñez (Deportivo Alavés)
+- Unai Elgezabal (Levante)
+- Diego Pampín (Levante)
+- Unai Vencedor (Levante)
+- José Luis Morales (Levante)
+- Iñaki Peña (Elche)
+- Aleix Febas (Elche)
+- Rafa Mir (Elche)
+- Yann Sommer (Inter)
+- Francesco Acerbi (Inter)
+- Stefan de Vrij (Inter)
+- Carlos Augusto (Inter)
+- Matteo Darmian (Inter)
+- Marcus Thuram (Inter)
+- Romelu Lukaku (Napoli)
+- Mattia Perin (Juventus)
+- Khéphren Thuram (Juventus)
+- Dušan Vlahović (Juventus)
+- Ardon Jashari (AC Milan)
+- Rafael Leão (AC Milan)
+- Berat Djimsiti (Atalanta)
+- Evan Ndicka (AS Roma)
+- Leon Bailey (AS Roma)
+- Stephan El Shaarawy (AS Roma)
+- Alberto Moreno (Como)
+- Sergi Roberto (Como)
+- Álvaro Morata (Como)
+- Samuel Gigot (Lazio)
+- Matteo Guendouzi (Lazio)
+- Pedro (Lazio)
+- Charalampos Lykogiannis (Bologna)
+- Remo Freuler (Bologna)
+- Ciro Immobile (Bologna)
+- Guillermo Maripán (Torino)
+- Marcus Pedersen (Torino)
+- Valentino Lazaro (Torino)
+- Kristjan Asllani (Torino)
+- Adrien Tamèze (Torino)
+- Kingsley Ehizibue (Udinese)
+- Adam Buksa (Udinese)
+- Nicola Leali (Genoa)
+- Morten Thorsby (Genoa)
+- Ruslan Malinovskyi (Genoa)
+- Valentín Carboni (Genoa)
+- Filippo Romagna (Sassuolo)
+- Aster Vranckx (Sassuolo)
+- Cristian Volpato (Sassuolo)
+- Sebastiano Luperto (Cagliari)
+- Gabriele Zappa (Cagliari)
+- Andrea Belotti (Cagliari)
+- Leonardo Pavoletti (Cagliari)
+- Enrico Delprato (Parma)
+- Woyo Coulibaly (Parma)
+- Nahuel Estévez (Parma)
+- Jacob Ondrejka (Parma)
+- Adrian Benedyczak (Parma)
+- Ylber Ramadani (Lecce)
+- Lameck Banda (Lecce)
+- Raphaël Guerreiro (Bayern München)
+- Niklas Süle (Borussia Dortmund)
+- Eliesse Ben Seghir (Bayer Leverkusen)
+- Ernest Poku (Bayer Leverkusen)
+- El Chadaille Bitshiabu (RB Leipzig)
+- Kevin Kampl (RB Leipzig)
+- Rômulo (RB Leipzig)
+- Alexander Nübel (VfB Stuttgart)
+- Bilal El Khannouss (VfB Stuttgart)
+- Rasmus Kristensen (Eintracht Frankfurt)
+- Elye Wahi (Eintracht Frankfurt)
+- Philipp Treu (SC Freiburg)
+- Nicolas Höfler (SC Freiburg)
+- Junior Adamu (SC Freiburg)
+- Leon Avdullahu (TSG Hoffenheim)
+- Ihlas Bebou (TSG Hoffenheim)
+- Jonas Omlin (Borussia Mönchengladbach)
+- Haris Tabaković (Borussia Mönchengladbach)
+- Shūto Machino (Borussia Mönchengladbach)
+- Andreas Hanche-Olsen (1. FSV Mainz 05)
+- Lee Jae-sung (1. FSV Mainz 05)
+- Armindo Sieb (1. FSV Mainz 05)
+- Nelson Weiper (1. FSV Mainz 05)
+- Leonardo Bittencourt (Werder Bremen)
+- Diogo Leite (Union Berlin)
+- Cédric Zesiger (FC Augsburg)
+- Dimitrios Giannoulis (FC Augsburg)
+- Elvis Rexhbeçaj (FC Augsburg)
+- Fredrik Jensen (FC Augsburg)
+- Samuel Essende (FC Augsburg)
+- William Mikelbrencis (Hamburger SV)
+- Jonas Meffert (Hamburger SV)
+- Nicolás Capaldo (Hamburger SV)
+- Jean-Luc Dompé (Hamburger SV)
+- Robert Glatzel (Hamburger SV)
+- Cenk Özkacar (1. FC Köln)
+- Amir Murillo (Olympique de Marseille)
+- Mason Greenwood (Olympique de Marseille)
+- Paul Pogba (AS Monaco)
+- Krépin Diatta (AS Monaco)
+- Chancel Mbemba (LOSC Lille)
+- Abner Vinícius (Olympique Lyonnais)
+- Rachid Ghezzal (Olympique Lyonnais)
+- Malang Sarr (RC Lens)
+- Wesley Saïd (RC Lens)
+- Allan Saint-Maximin (RC Lens)
+- Morgan Guilavogui (RC Lens)
+- Dante (OGC Nice)
+- Tanguy Ndombélé (OGC Nice)
+- Tom Louchet (OGC Nice)
+- Guéla Doué (RC Strasbourg)
+- Félix Lemaréchal (RC Strasbourg)
+- Christopher Wooh (Stade Rennais)
+- Mousa Al-Tamari (Stade Rennais)
+- Breel Embolo (Stade Rennais)
+- Radosław Majecki (Stade Brestois)
+- Cristian Cásseres (Toulouse FC)
+- Vincent Sierro (Toulouse FC)
+- Aron Dønnum (Toulouse FC)
+- Frank Magri (Toulouse FC)
+- Donovan Léon (AJ Auxerre)
+- Jubal (AJ Auxerre)
+- Paul Joly (AJ Auxerre)
+- Elisha Owusu (AJ Auxerre)
+- Hervé Koffi (Angers SCO)
+- Pablo Pagis (FC Lorient)
+- Bamba Dieng (FC Lorient)
+- Arthur Desmas (Le Havre AC)
+- Étienne Youte Kinkoue (Le Havre AC)
+- Loïc Nego (Le Havre AC)
+- Abdoulaye Touré (Le Havre AC)
+- Rassoul Ndiaye (Le Havre AC)
+- Issa Soumaré (Le Havre AC)
+- André Ayew (Le Havre AC)
+- Nicolás Otamendi (Benfica)
+- Alberto Costa (FC Porto)
+- William Gomes (FC Porto)
+- Samu Aghehowa (FC Porto)
+- Timon Wellenreuther (Feyenoord)
+- Gernot Trauner (Feyenoord)
+- Simon Mignolet (Club Brugge)
+- Hans Vanaken (Club Brugge)
+- Hugo Vetlesen (Club Brugge)
+- Uğurcan Çakır (Galatasaray)
+- Davinson Sánchez (Galatasaray)
+- Abdülkerim Bardakcı (Galatasaray)
+- Wilfried Singo (Galatasaray)
+- Lucas Torreira (Galatasaray)
+- İlkay Gündoğan (Galatasaray)
+- Gabriel Sara (Galatasaray)
+- Barış Alper Yılmaz (Galatasaray)
+- Yunus Akgün (Galatasaray)
+- Leroy Sané (Galatasaray)
+- Victor Osimhen (Galatasaray)
+- Mauro Icardi (Galatasaray)
+- Ederson (Fenerbahçe)
+- Milan Škriniar (Fenerbahçe)
+- Çağlar Söyüncü (Fenerbahçe)
+- Jayden Oosterwolde (Fenerbahçe)
+- Archie Brown (Fenerbahçe)
+- Nélson Semedo (Fenerbahçe)
+- Fred (Fenerbahçe)
+- Marco Asensio (Fenerbahçe)
+- Anderson Talisca (Fenerbahçe)
+- Kerem Aktürkoğlu (Fenerbahçe)
+- Saúl Ñíguez (Flamengo)
+- Weverton (Palmeiras)
+- Raphael Veiga (Palmeiras)
+- Facundo Torres (Palmeiras)
+
+## Descartados
+- Mahdi Nicoll-Jazuli (Chelsea): posición "null"
+- Kyran Thompson (Newcastle United): posición "null"
+- Michael Mills (Newcastle United): posición "null"
+- Mason Miley (Newcastle United): posición "null"
+- Younes Ibrahim (Brighton & Hove Albion): posición "null"
+- Augustus Kargbo (Blackburn Rovers): nacionalidad "Sierra Leone"
+- Chris Forino-Joseph (Bolton Wanderers): nacionalidad "Saint Lucia"
+- Thierry Gale (Bolton Wanderers): nacionalidad "Barbados"
+- Justin Obikwu (Queens Park Rangers): nacionalidad "Trinidad and Tobago"
+- Alfie Maughan (West Bromwich Albion): posición "null"
+- Rafiki Said Ahamada (Wolverhampton Wanderers): nacionalidad "Comoros"
+- Iyad Mohamed (Portsmouth): nacionalidad "Comoros"
+- Tyrese Shade (Portsmouth): nacionalidad "Saint Kitts and Nevis"
+- Tayo Singerr (Portsmouth): sin fecha de nacimiento
+- Nathaniel Chioma (Portsmouth): sin fecha de nacimiento
+- Ryan Nyambe (Derby County): nacionalidad "Namibia"
+- Alex Bangura (Middlesbrough): nacionalidad "Sierra Leone"
+- Amin Nabizada (Watford): nacionalidad "Afghanistan"
+- Hamza Choudhury (Sheffield United): nacionalidad "Bangladesh"
+- Taïryk Arconte (Millwall): nacionalidad "Guadeloupe"
+- Samuel Chesworth (Wrexham): posición "null"
+- Charlie Holt (Cardiff City): posición "null"
+- Yunus Konak (Lincoln City): sin fecha de nacimiento
+- Recco Hackett-Fairchild (Lincoln City): nacionalidad "Saint Lucia"
+- Christian Imga (Athletic Club): posición "null"
+- Víctor Mullerat (Espanyol): posición "null"
+- Iker Rodríguez (FC Barcelona): posición "null"
+- Davinchi (Getafe): sin fecha de nacimiento
+- Angel Recio (Málaga CF): sin fecha de nacimiento
+- Júnior Firpo (Real Betis): nacionalidad "Dominican Republic"
+- Dimitri Foulquier (Valencia): nacionalidad "Guadeloupe"
+- Rodrigo Gamón (Valencia): posición "null"
+- Facundo Garcés (Deportivo Alavés): nacionalidad "Malaysia"
+- Mariano Díaz (Deportivo Alavés): nacionalidad "Dominican Republic"
+- Thomas Lemar (Elche): nacionalidad "Guadeloupe"
+- Rahim Alhassane (Bologna): nacionalidad "Niger"
+- Djibril Diallo (Parma): posición "null"
+- Claudio Pugliese (Napoli): posición "null"
+- Oumar Ngom (Lecce): nacionalidad "Mauritania"
+- Lorenzo Ginelli (Como): posición "null"
+- Giannis Konstantelias (Borussia Dortmund): sin fecha de nacimiento
+- Warmed Omari (Hamburger SV): nacionalidad "Comoros"
+- Daniel Elfadli (Hamburger SV): nacionalidad "Libya"
+- Karl Hein (Werder Bremen): sin fecha de nacimiento
+- Lee Jaesung (1. FSV Mainz 05): nacionalidad "Korea, South"
+- Juma Bah (FC Augsburg): nacionalidad "Sierra Leone"
+- Raphael Obermair (SC Paderborn 07): nacionalidad "Philippines"
+- Théo Collin (Toulouse FC): posición "null"
+- Enzo Monchatre (Stade Brestois): posición "null"
+- Geoffrey Kondogbia (Olympique de Marseille): nacionalidad "Central African Republic"
+- Mamadou Diop (AJ Auxerre): nacionalidad "Mauritania"
+- Christ Makosso (AJ Auxerre): nacionalidad "Congo"
+- Rémy Labeau Lascary (AJ Auxerre): nacionalidad "Guadeloupe"
+- Youssouf Ndayishimiye (OGC Nice): nacionalidad "Burundi"
+- Brad Mantsounga (OGC Nice): nacionalidad "Congo"
+- Ismaëlben Boura (ES Troyes AC): nacionalidad "Comoros"
+- Lassana Simakha (ES Troyes AC): posición "null"
+- Enisio Carneiro (ES Troyes AC): posición "null"
+- Mamadou Usman Simbakoli (Angers SCO): nacionalidad "Central African Republic"
+- Hakim Dongopandji (Le Havre AC): posición "null"
+- Harold Voyer (Le Mans FC): nacionalidad "Martinique"
+- Louis Mafouta (Le Mans FC): nacionalidad "Central African Republic"
+- Samu Omorodion (FC Porto): sin fecha de nacimiento
+- Dani Slory (Feyenoord): posición "null"
+- Theodoros Delianidis (Feyenoord): posición "null"
+- Ruan Sales (Fluminense): posición "null"
+- Miguel Bilong (Palmeiras): posición "null"
+- Victor Gonçalves (Botafogo): posición "null"
+- Herick Garcia (Botafogo): posición "null"
+- David Barčot (Slavia Praha): posición "null"
+- Karel Belžík (Slavia Praha): posición "null"
+- Emmanuel Ayaosi (Slavia Praha): posición "null"
+- Pavel Kačor (Slavia Praha): posición "null"
+- Oskar Kubiak (Slavia Praha): posición "null"
