@@ -8,7 +8,7 @@ import { tryAdvance } from "../competition/progress";
 import { TeamSchedule } from "../competition/schedule";
 import { windowsOf } from "../competition/seasonPlan";
 import { callUps, generateWorld, type GenerateOptions } from "../gen/world";
-import { quickResult, updateElo } from "../match/quick";
+import { playMatch, type EngineMode, type PlayedMatch } from "../match/play";
 import { seasonStartDay } from "../time/calendar";
 import type { Match, World } from "../types/domain";
 import type { GameDay } from "../types/ids";
@@ -18,16 +18,18 @@ import { buildSeason, closeSeason } from "./season";
 export interface Game {
   world: World;
   ctx: Ctx;
+  /** Motor de partido: "auto" (por LOD), o forzar uno (simulaciones de balance). */
+  engine: EngineMode;
 }
 
 /** Envuelve un mundo (recién generado o cargado) con sus índices en memoria. */
-export function openGame(world: World): Game {
-  return { world, ctx: { world, schedule: TeamSchedule.fromWorld(world), clashes: 0 } };
+export function openGame(world: World, engine: EngineMode = "auto"): Game {
+  return { world, ctx: { world, schedule: TeamSchedule.fromWorld(world), clashes: 0 }, engine };
 }
 
 /** Genera un mundo nuevo y crea el calendario de su primera temporada. */
-export function newGame(opts: GenerateOptions): Game {
-  const game = openGame(generateWorld(opts));
+export function newGame(opts: GenerateOptions, engine: EngineMode = "auto"): Game {
+  const game = openGame(generateWorld(opts), engine);
   buildSeason(game.ctx, game.world.meta.season);
   return game;
 }
@@ -48,7 +50,13 @@ function aggregateBefore(world: World, m: Match): [number, number] | undefined {
   return [h, a];
 }
 
-export function advanceDay(game: Game): void {
+export interface AdvanceOptions {
+  /** Partidos de los que se quieren fotogramas para el visor (o todos con `true`). */
+  frames?: boolean | ReadonlySet<string>;
+}
+
+/** Avanza un día. Devuelve los partidos jugados (con su informe completo). */
+export function advanceDay(game: Game, opts: AdvanceOptions = {}): PlayedMatch[] {
   const { world, ctx } = game;
   const day = (world.meta.today + 1) as GameDay;
   world.meta.today = day;
@@ -69,16 +77,21 @@ export function advanceDay(game: Game): void {
   }
   if (day === tournamentStart(season + 1) - 10) callUps(world);
 
-  // Partidos del día. En la Fase 1 se resuelven con el modelo rápido provisional.
+  // Partidos del día: motor completo por zonas o modelo rápido según el LOD.
   const ratings = new Map<string, number>();
+  const played: PlayedMatch[] = [];
   for (const id of ctx.schedule.matchesOn(day)) {
     const m = world.matches[id];
     if (!m || m.result) continue;
-    m.result = quickResult(world, m, worldRng(world).fork(`match/${m.id}`), ratings, aggregateBefore(world, m));
-    updateElo(world, m);
+    const frames = opts.frames === true || (typeof opts.frames === "object" && opts.frames.has(m.id));
+    const aggregate = aggregateBefore(world, m);
+    const playOpts: Parameters<typeof playMatch>[3] = { mode: game.engine, frames, ratings };
+    if (aggregate) playOpts.aggregate = aggregate;
+    played.push(playMatch(world, m, worldRng(world).fork(`match/${m.id}`), playOpts));
     const comp = world.competitions[m.competitionId];
     if (comp) tryAdvance(ctx, comp);
   }
+  return played;
 }
 
 export function advanceDays(game: Game, days: number): void {

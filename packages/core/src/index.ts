@@ -22,6 +22,23 @@ export { groupTable, type TableRow } from "./competition/standings";
 export { windowsOf, continentalDates, isInWindow, type InternationalWindow } from "./competition/seasonPlan";
 export { TeamSchedule } from "./competition/schedule";
 export { tournamentStart } from "./competition/international";
-export { teamRating } from "./match/quick";
-export { newGame, openGame, advanceDay, advanceDays, advanceSeasons, type Game } from "./engine/game";
+export * from "./config/match";
+export { teamRating, squadRating, quickMatch, updateElo } from "./match/quick";
+export * from "./match/types";
+export { INSTRUCTION_KEYS } from "./types/tactics";
+export { applyCommand, validatePlan, type Command, type CommandResult } from "./commands";
+export { simulateMatch, type SimulateOptions } from "./match/engine";
+export {
+  buildMatchInput, pickLineup, teamSheet, coachAuthority, invalidateAbilityCache, fitnessOn, isInjured, isSuspended, skillsOf, familiarity, type Lineup,
+} from "./match/lineup";
+export {
+  FORMATIONS, FORMATION_IDS, shapePosition, toAbsolute, aiTactics, teamStyle, defaultSetPieces, resolveTactics,
+  instructionCompliance, type Slot,
+} from "./match/tactics";
+export { applyReport, resultFromReport } from "./match/apply";
+export { playMatch, engineFor, type EngineMode, type PlayedMatch } from "./match/play";
+export { migrateWorld } from "./world/migrations";
+export {
+  newGame, openGame, advanceDay, advanceDays, advanceSeasons, type Game, type AdvanceOptions,
+} from "./engine/game";
 export { playerView, clubSummary, displayName, type PlayerView, type ClubSummary } from "./views/player";

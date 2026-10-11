@@ -8,7 +8,9 @@ import {
  * Hash del mundo de referencia (seed=123). Si un cambio lo altera, debe ser intencional:
  * actualízalo en el mismo commit explicando por qué (CLAUDE.md).
  */
-const GOLDEN_HASH_123 = "33275173be3923d6";
+// Fase 2: cambia por el formato del estado (SAVE_VERSION 2: fitnessDay, suspensions,
+// career, tactics, stats). La generación no cambia: no hay tiradas nuevas de RNG.
+const GOLDEN_HASH_123 = "86ef81d9c603f326";
 
 let world: World;
 beforeAll(() => {
