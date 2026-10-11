@@ -663,9 +663,10 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 12. **CLI** (`tools/gen`): `npm run gen -- --seed=123 [--out=world.json] [--stats] [--seasons=4]`.
 13. **Tests de aceptación**
     - Determinismo: mismo seed → mismo hash, con *snapshot* del hash de `seed=123`.
-    - Sensibilidad: 50 seeds → 50 hashes distintos.
+    - Sensibilidad: 6 seeds → 6 hashes distintos (cada mundo tarda ~1,6 s).
     - Distribuciones: edades, arquetipos y correlaciones de rasgos (±0,05 de la matriz objetivo).
     - Calendario: doble vuelta completa, sin choques y con descanso mínimo; las ventanas FIFA quedan libres de partidos de liga.
     - Ningún club con nombre de la lista de bloqueo; i18n sin claves faltantes.
-    - Rendimiento: generar el mundo de referencia en < 5 s en escritorio.
+    - Rendimiento: generar el mundo de referencia en < 5 s en escritorio (medido: ~1,6 s).
+    - Determinismo en navegador: se comprueba en la Fase 2, al existir `apps/web`.
 14. **Cierre**: `docs/CHANGELOG.md` e informe de estadísticas en `docs/balance/fase1.md`.
