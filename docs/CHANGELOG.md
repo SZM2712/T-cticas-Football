@@ -15,6 +15,11 @@
 - **i18n**: catálogo es/en/fr/de/zh para posiciones, atributos, arquetipos, confederaciones, competiciones y fases; nombres de países con `Intl.DisplayNames`.
 - **Vistas** de jugador y club para la UI que nunca exponen ocultos, perfil psicológico ni techo latente.
 
+### Paquete opcional de clubes reales
+- `dataPack: "real"` (CLI: `--real`): las 10 ligas con sus clubes reales de 2025/26 (más tercera división como nivel en sombra) y los grandes de 17 ligas europeas no jugables, con colores, estadios de primera y una fuerza aproximada editable (`packages/data/src/real/clubs.ts`).
+- Los jugadores siguen siendo ficticios. El mundo por defecto no cambia (mismo hash).
+- `--top=20` muestra los clubes más fuertes por la media de su mejor once.
+
 ### Provisional (se sustituye en la Fase 2)
 - Los partidos se resuelven con un **modelo rápido de Poisson** por calidad del once (`match/quick.ts`), solo para que las competiciones avancen y poder probar calendario, clasificatorias y ascensos durante varias temporadas. No está calibrado contra los rangos de la §11.
 

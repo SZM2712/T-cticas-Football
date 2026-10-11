@@ -1,7 +1,10 @@
 // Generación del mundo (Fase 1). Cada parte usa su propio stream RNG derivado por
 // nombre, de modo que cambiar la generación de un club no altera la de los demás.
 
-import { NATION_LEAGUES, NATIONS, PLAYABLE_CITIES, nationByCode, type CityData, type NationData } from "@tf/data";
+import {
+  NATION_LEAGUES, NATIONS, PLAYABLE_CITIES, REAL_LEAGUES, REAL_SHADOW_CLUBS, nationByCode, type CityData, type NationData,
+  type RealClub,
+} from "@tf/data";
 import { SQUAD_TEMPLATE, type Position } from "../config/attributes";
 import {
   AGE_MAX, AGE_MEAN, AGE_MIN, AGE_SD, DEFAULT_START_YEAR, DEPTH_OFFSETS, ELO_BASE, ELO_STRENGTH_K, GENERATOR_VERSION,
@@ -25,6 +28,11 @@ import { generateStaff } from "./staff";
 export interface GenerateOptions {
   seed: string | number;
   startYear?: number;
+  /**
+   * "fictional" (por defecto): todo inventado. "real": clubes reales con su fuerza
+   * aproximada (paquete opcional de @tf/data); los jugadores siguen siendo ficticios.
+   */
+  dataPack?: "fictional" | "real";
 }
 
 interface Place {
@@ -74,6 +82,14 @@ function pickForeignNation(rng: Rng, host: NationData, clubQuality: number, shad
   const exponent = 2 + 3 * clamp01((clubQuality - 9) / 6);
   const { nations, base } = entry;
   return rng.weighted(nations, (n, i) => base[i]! * Math.pow(n.strength, exponent));
+}
+
+function fixedOf(r: RealClub): NonNullable<Parameters<typeof generateClub>[1]["fixed"]> {
+  const fixed: NonNullable<Parameters<typeof generateClub>[1]["fixed"]> = { name: r.n, colors: r.col };
+  if (r.s) fixed.shortName = r.s;
+  if (r.st) fixed.stadium = r.st;
+  if (r.f) fixed.founded = r.f;
+  return fixed;
 }
 
 function squadStatusFor(depth: number, prospect: boolean): SquadStatus {
@@ -172,6 +188,7 @@ function lineOf(p: Player): string {
 
 export function generateWorld(opts: GenerateOptions): World {
   const startYear = opts.startYear ?? DEFAULT_START_YEAR;
+  const real = opts.dataPack === "real";
   const root = Rng.create(opts.seed);
   const world: World = {
     meta: {
@@ -181,6 +198,7 @@ export function generateWorld(opts: GenerateOptions): World {
       today: seasonStartDay(startYear),
       season: startYear,
       generator: GENERATOR_VERSION,
+      ...(real ? { dataPack: "real" as const } : {}),
     },
     nations: {},
     nationalTeams: {},
@@ -220,10 +238,19 @@ export function generateWorld(opts: GenerateOptions): World {
     const rng = root.fork(`gen/clubs/${data.nation}`);
     const [d1, d2] = data.tiers;
     const total = d1.teams + d2.teams + data.shadowTierClubs;
-    const places = pickPlaces(rng, PLAYABLE_CITIES[data.nation]!, total)
-      .map((p) => ({ p, score: Math.log10(p.pop) * 0.6 + rng.normal(0, 1) }))
-      .sort((a, b) => b.score - a.score)
-      .map((x) => x.p);
+    const pack = real ? REAL_LEAGUES[data.nation] : undefined;
+    const realClubs = pack ? [...pack.tier1, ...pack.tier2, ...pack.tier3] : [];
+    if (pack && (pack.tier1.length !== d1.teams || pack.tier2.length !== d2.teams)) {
+      throw new Error(`Paquete real de ${data.nation}: ${pack.tier1.length}/${pack.tier2.length} clubes, se esperaban ${d1.teams}/${d2.teams}`);
+    }
+    const places: Place[] = pack
+      ? realClubs.map((r) => ({ city: r.c, place: r.c, pop: 500 }))
+      : pickPlaces(rng, PLAYABLE_CITIES[data.nation]!, total)
+          .map((p) => ({ p, score: Math.log10(p.pop) * 0.6 + rng.normal(0, 1) }))
+          .sort((a, b) => b.score - a.score)
+          .map((x) => x.p);
+    const tier1Count = d1.teams;
+    const tier2Count = d2.teams;
     const leagues: League[] = [d1, d2].map((tier) => {
       const id = nextId<LeagueId>(world, "lg", 3);
       const league: League = { id, nation: data.nation as NationId, tier: tier.tier, clubs: [], currentCompetition: null };
@@ -231,12 +258,15 @@ export function generateWorld(opts: GenerateOptions): World {
       return league;
     });
     places.forEach((place, i) => {
-      const tierIndex = i < d1.teams ? 0 : i < d1.teams + d2.teams ? 1 : 2;
+      const tierIndex = i < tier1Count ? 0 : i < tier1Count + tier2Count ? 1 : 2;
+      const realClub = realClubs[i];
       const tier = tierIndex === 0 ? d1 : tierIndex === 1 ? d2 : null;
       const rank = tierIndex === 0 ? i : tierIndex === 1 ? i - d1.teams : i - d1.teams - d2.teams;
-      const quality = tier
-        ? leagueQuality(rng, rank, tier.teams, tier.quality, tier.spread)
-        : d2.quality + SHADOW_TIER3_OFFSET + rng.normal(0, 0.5);
+      const quality = realClub
+        ? realClub.q
+        : tier
+          ? leagueQuality(rng, rank, tier.teams, tier.quality, tier.spread)
+          : d2.quality + SHADOW_TIER3_OFFSET + rng.normal(0, 0.5);
       const id = nextId<ClubId>(world, "cl", 4);
       const club = generateClub(rng, {
         id,
@@ -248,6 +278,7 @@ export function generateWorld(opts: GenerateOptions): World {
         ...(tier ? {} : { shadowTier: 3 }),
         quality,
         leagueRevenue: tier ? tier.revenue : d2.revenue * 0.25,
+        ...(realClub ? { fixed: fixedOf(realClub) } : {}),
       }, usedNames);
       world.clubs[id] = club;
       if (tier) leagues[tierIndex]!.clubs.push(id);
@@ -259,11 +290,13 @@ export function generateWorld(opts: GenerateOptions): World {
   for (const nation of NATIONS) {
     if (playable.has(nation.code)) continue;
     const rng = root.fork(`gen/clubs/${nation.code}`);
-    const count = 1 + Math.round(SHADOW_CLUBS_A * nation.strength * nation.strength + SHADOW_CLUBS_B * nation.talent);
+    const realShadow = real ? (REAL_SHADOW_CLUBS[nation.code] ?? []) : [];
+    const count = realShadow.length || 1 + Math.round(SHADOW_CLUBS_A * nation.strength * nation.strength + SHADOW_CLUBS_B * nation.talent);
     const cities = nation.cities.length ? nation.cities : [nation.short];
     for (let i = 0; i < count; i++) {
-      const city = cities[i % cities.length]!;
-      const quality = SHADOW_QUALITY_BASE + SHADOW_QUALITY_K * nation.strength - SHADOW_QUALITY_STEP * i + rng.normal(0, 0.3);
+      const realClub = realShadow[i];
+      const city = realClub?.c ?? cities[i % cities.length]!;
+      const quality = realClub?.q ?? SHADOW_QUALITY_BASE + SHADOW_QUALITY_K * nation.strength - SHADOW_QUALITY_STEP * i + rng.normal(0, 0.3);
       const id = nextId<ClubId>(world, "cl", 4);
       const club = generateClub(rng, {
         id,
@@ -275,6 +308,7 @@ export function generateWorld(opts: GenerateOptions): World {
         shadowTier: 1,
         quality,
         leagueRevenue: 4 + 60 * Math.pow(nation.strength, 3),
+        ...(realClub ? { fixed: fixedOf(realClub) } : {}),
       }, usedNames);
       world.clubs[id] = club;
       clubNation.set(id, { nation, foreignShare: SHADOW_FOREIGN_SHARE });

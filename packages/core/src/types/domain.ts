@@ -370,6 +370,8 @@ export interface World {
     today: GameDay;
     season: number;
     generator: string;
+    /** Paquete de datos usado al generar (ausente = ficticio). */
+    dataPack?: "real";
   };
   nations: Record<string, Nation>;
   nationalTeams: Record<string, NationalTeam>;

@@ -11,7 +11,7 @@ El documento de diseño completo está en `docs/DISEÑO.md`. Este archivo resume
 4. **El LLM narra, no decide.** Resultados de partidos, fichajes, desarrollo y reacciones salen del motor. `DialogueProvider` solo redacta texto a partir de un `DialogueIntent` ya resuelto. El juego funciona 100 % offline sin LLM.
 5. **Todo tiene consecuencia recordada.** Una funcionalidad no está terminada si no deja huella en la memoria episódica, una relación, una narrativa o una promesa.
 6. **Rasgos ocultos nunca se exponen como número** en UI, logs de usuario ni tooltips. Solo como texto cualitativo derivado ("parece afectarle la presión").
-7. **Sin datos reales de clubes ni personas.** Países, idiomas y ciudades son reales; clubes, jugadores, staff y competiciones son ficticios con nombres genéricos. Todo nombre de club generado pasa por la lista de bloqueo de `packages/data`.
+7. **El mundo por defecto es ficticio.** Países, idiomas y ciudades son reales; clubes, jugadores, staff y competiciones son ficticios con nombres genéricos, y todo nombre generado pasa por las listas de bloqueo de `packages/data`. Los datos reales viven SOLO en paquetes opcionales (`dataPack: "real"`, `packages/data/src/real/`) que nunca se cargan por defecto ni alteran el hash del mundo ficticio.
 
 ## Stack
 

@@ -80,11 +80,15 @@ export interface ClubSpec {
   quality: number;
   /** Ingresos de referencia de su liga (millones). */
   leagueRevenue: number;
+  /** Datos fijos de un club real (paquete opcional `real`): sustituyen a los generados. */
+  fixed?: { name: string; shortName?: string; colors: [string, string]; stadium?: [string, number]; founded?: number };
 }
 
 export function generateClub(rng: Rng, spec: ClubSpec, usedNames: Set<string>): Club {
-  const founded = rng.int(1872, 1965);
-  const name = generateClubName(rng, spec.nation.code, spec.place, founded, usedNames);
+  const fixed = spec.fixed;
+  const founded = fixed?.founded ?? rng.int(1872, 1965);
+  const name = fixed ? fixed.name : generateClubName(rng, spec.nation.code, spec.place, founded, usedNames);
+  if (fixed) usedNames.add(normalizeClubName(name));
   const reputation = round(clamp01((spec.quality - 7) / 9.5 + rng.normal(0, 0.03)), 3);
   const lang = CLUB_PATTERN_LANG[spec.nation.code] ?? "generic";
   const surname = generateName(rng, pickCulture(rng, spec.nation.cultures)).lastName;
@@ -103,15 +107,15 @@ export function generateClub(rng: Rng, spec: ClubSpec, usedNames: Set<string>): 
   const club: Club = {
     id: spec.id,
     name,
-    shortName: shortNameOf(name, spec.place),
+    shortName: fixed ? (fixed.shortName ?? name) : shortNameOf(name, spec.place),
     founded,
     city: spec.city,
     nation: spec.nation.code as NationId,
     leagueId: spec.leagueId,
-    colors: pickColors(rng),
+    colors: fixed ? { primary: fixed.colors[0], secondary: fixed.colors[1] } : pickColors(rng),
     reputation,
     quality: round(spec.quality, 2),
-    stadium: { name: stadiumName, capacity },
+    stadium: fixed?.stadium ? { name: fixed.stadium[0], capacity: fixed.stadium[1] } : { name: stadiumName, capacity },
     facilities: {
       training: round(clamp01(reputation + rng.normal(0, 0.1)), 3),
       youth: round(clamp01(reputation * 0.8 + rng.normal(0.1, 0.15)), 3),

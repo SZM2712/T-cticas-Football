@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  REAL_LEAGUES, REAL_SHADOW_CLUBS,
   CLUB_PATTERNS, CULTURES, NATIONS, NATION_LEAGUES, PLAYABLE_CITIES, isFamousPersonName, isRealClubName, normalizeClubName,
 } from "../src";
 
@@ -56,5 +57,21 @@ describe("listas de bloqueo", () => {
 
   it("todos los patrones contienen {city}", () => {
     for (const list of Object.values(CLUB_PATTERNS)) for (const p of list) expect(p).toContain("{city}");
+  });
+});
+
+describe("paquete real", () => {
+  it("cada división tiene el número de clubes de la liga y sin duplicados", () => {
+    const all: string[] = [];
+    for (const data of NATION_LEAGUES) {
+      const pack = REAL_LEAGUES[data.nation]!;
+      expect(pack.tier1.length).toBe(data.tiers[0].teams);
+      expect(pack.tier2.length).toBe(data.tiers[1].teams);
+      expect(pack.tier3.length).toBeGreaterThanOrEqual(data.tiers[1].relegation.auto + 1);
+      all.push(...[...pack.tier1, ...pack.tier2, ...pack.tier3].map((c) => c.n));
+    }
+    for (const list of Object.values(REAL_SHADOW_CLUBS)) all.push(...list.map((c) => c.n));
+    const names = all.map((x) => (typeof x === "string" ? x : (x as { n: string }).n));
+    expect(new Set(names).size).toBe(names.length);
   });
 });

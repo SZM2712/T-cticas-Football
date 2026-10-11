@@ -22,5 +22,6 @@ export { groupTable, type TableRow } from "./competition/standings";
 export { windowsOf, continentalDates, isInWindow, type InternationalWindow } from "./competition/seasonPlan";
 export { TeamSchedule } from "./competition/schedule";
 export { tournamentStart } from "./competition/international";
+export { teamRating } from "./match/quick";
 export { newGame, openGame, advanceDay, advanceDays, advanceSeasons, type Game } from "./engine/game";
 export { playerView, clubSummary, displayName, type PlayerView, type ClubSummary } from "./views/player";

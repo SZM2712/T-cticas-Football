@@ -614,7 +614,7 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 
 | # | Tema | Decisión |
 |---|---|---|
-| 1 | Naciones | Reales, con clubes y jugadores ficticios y nombres genéricos con lista de bloqueo |
+| 1 | Naciones | Reales, con clubes y jugadores ficticios y nombres genéricos con lista de bloqueo **por defecto**. Paquete opcional `real` con clubes reales (2025/26) y su fuerza aproximada: `npm run gen -- --real` |
 | 2 | Tamaño | 5 grandes ligas + sus segundas, Mundial, Ligas de Naciones, torneos continentales y clasificatorias (§8) |
 | 3 | UI | React + Vite |
 | 4 | Partido | Simulación por zonas + visor 2D con jugadores, alimentado por fotogramas del motor (§8.3) |

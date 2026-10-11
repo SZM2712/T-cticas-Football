@@ -1,10 +1,10 @@
-// npm run gen -- --seed=123 [--seasons=4] [--stats] [--out=world.json]
+// npm run gen -- --seed=123 [--real] [--seasons=4] [--stats] [--top=20] [--out=world.json]
 // Genera un mundo, imprime su hash y, opcionalmente, estadísticas y simulación de temporadas
 // (con el modelo rápido provisional de la Fase 1).
 
 import { writeFileSync } from "node:fs";
 import {
-  advanceSeasons, ageOn, classifyArchetype, currentAbility, hashValue, newGame, quantile, type World,
+  advanceSeasons, ageOn, classifyArchetype, currentAbility, hashValue, newGame, quantile, teamRating, type World,
 } from "@tf/core";
 import { competitionName, nationName } from "@tf/i18n";
 
@@ -39,6 +39,19 @@ function stats(world: World): void {
   }
 }
 
+/** Clubes más fuertes del mundo según la media de su mejor once. */
+function top(world: World, n: number): void {
+  const rows = Object.values(world.clubs)
+    .map((c) => ({ c, r: teamRating(world, c.id) }))
+    .sort((a, b) => b.r - a.r)
+    .slice(0, n);
+  console.log(`\nLos ${n} clubes más fuertes (media del mejor once):`);
+  rows.forEach(({ c, r }, i) => {
+    const league = c.leagueId ? `${nationName("es", c.nation)} ${world.leagues[c.leagueId]!.tier}` : nationName("es", c.nation);
+    console.log(`${String(i + 1).padStart(3)}. ${c.name.padEnd(28)} ${r.toFixed(2)}  (${league})`);
+  });
+}
+
 function history(world: World): void {
   for (const record of world.history) {
     console.log(`\nTemporada ${record.season}/${String(record.season + 1).slice(2)}`);
@@ -52,10 +65,11 @@ function history(world: World): void {
 const opts = args();
 const seed = opts.seed ?? "123";
 const t0 = performance.now();
-const game = newGame({ seed });
+const game = newGame({ seed, ...(opts.real ? { dataPack: "real" as const } : {}) });
 const genMs = performance.now() - t0;
-console.log(`Semilla ${seed} · mundo generado en ${genMs.toFixed(0)} ms · hash ${hashValue(game.world)}`);
+console.log(`${opts.real ? "Clubes reales · " : ""}Semilla ${seed} · mundo generado en ${genMs.toFixed(0)} ms · hash ${hashValue(game.world)}`);
 if (opts.stats) stats(game.world);
+if (opts.top) top(game.world, Number(opts.top) || 20);
 const seasons = Number(opts.seasons ?? 0);
 if (seasons > 0) {
   const t1 = performance.now();
