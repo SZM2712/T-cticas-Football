@@ -20,6 +20,8 @@ export interface RealPlayerRecord {
   nation: string;
   /** Nivel estimado en la escala del juego (1–20). */
   rating: number;
+  /** Nivel calculado automáticamente (jugador nuevo sin valoración): conviene revisarlo. */
+  estimated?: boolean;
 }
 
 function parse(map: Record<string, string>): RealPlayerRecord[] {
@@ -53,7 +55,8 @@ export const REAL_PLAYERS: readonly RealPlayerRecord[] = [
   ...parse(OTHER_PLAYERS),
 ];
 
-const CSV_HEADER = ["club", "name", "known_as", "position", "birth_year", "nation", "rating"] as const;
+const CSV_HEADER = ["club", "name", "known_as", "position", "birth_year", "nation", "rating", "estimated"] as const;
+const OPTIONAL_COLUMNS = new Set(["known_as", "estimated"]);
 
 function csvField(value: string): string {
   return /[",\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
@@ -62,7 +65,9 @@ function csvField(value: string): string {
 /** Exporta a CSV (para editar en una hoja de cálculo). */
 export function realPlayersToCsv(records: readonly RealPlayerRecord[]): string {
   const rows = records.map((r) =>
-    [r.club, r.name, r.knownAs ?? "", r.position, String(r.birthYear), r.nation, String(r.rating)].map(csvField).join(","),
+    [r.club, r.name, r.knownAs ?? "", r.position, String(r.birthYear), r.nation, String(r.rating), r.estimated ? "1" : ""]
+      .map(csvField)
+      .join(","),
   );
   return [CSV_HEADER.join(","), ...rows].join("\n") + "\n";
 }
@@ -98,7 +103,7 @@ export function realPlayersFromCsv(text: string): { records: RealPlayerRecord[];
   const header = splitCsvLine(lines[0] ?? "").map((h) => h.toLowerCase());
   const col = (name: string) => header.indexOf(name);
   const errors: string[] = [];
-  for (const name of CSV_HEADER) if (name !== "known_as" && col(name) < 0) errors.push(`Falta la columna "${name}"`);
+  for (const name of CSV_HEADER) if (!OPTIONAL_COLUMNS.has(name) && col(name) < 0) errors.push(`Falta la columna "${name}"`);
   if (errors.length) return { records: [], errors };
   const records: RealPlayerRecord[] = [];
   lines.slice(1).forEach((line, i) => {
@@ -113,6 +118,7 @@ export function realPlayersFromCsv(text: string): { records: RealPlayerRecord[];
       rating: Number(get("rating").replace(",", ".")),
     };
     if (get("known_as")) record.knownAs = get("known_as");
+    if (get("estimated") === "1") record.estimated = true;
     if (!record.club || !record.name || !Number.isFinite(record.birthYear) || !Number.isFinite(record.rating)) {
       errors.push(`Línea ${i + 2}: datos incompletos`);
       return;

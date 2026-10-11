@@ -1,7 +1,7 @@
 // Validación y preparación de jugadores reales (paquete opcional). El núcleo no lee
 // archivos: recibe los registros ya cargados (pack embebido o CSV importado por la CLI).
 
-import { NATIONS, REAL_LEAGUES, REAL_SHADOW_CLUBS, type RealPlayerRecord } from "@tf/data";
+import { NATIONS, REAL_LEAGUES, REAL_SHADOW_CLUBS, type RealLeaguePack, type RealPlayerRecord } from "@tf/data";
 import { POSITIONS, type Position } from "../config/attributes";
 
 /** Equivalencias habituales de posición en otros juegos y hojas de datos. */
@@ -16,16 +16,16 @@ export function normalizePosition(raw: string): Position | null {
   return POSITION_ALIASES[p] ?? null;
 }
 
-export function realClubNames(): Set<string> {
+export function realClubNames(leagues: Record<string, RealLeaguePack> = REAL_LEAGUES): Set<string> {
   const names = new Set<string>();
-  for (const pack of Object.values(REAL_LEAGUES)) for (const c of [...pack.tier1, ...pack.tier2, ...pack.tier3]) names.add(c.n);
+  for (const pack of Object.values(leagues)) for (const c of [...pack.tier1, ...pack.tier2, ...pack.tier3]) names.add(c.n);
   for (const list of Object.values(REAL_SHADOW_CLUBS)) for (const c of list) names.add(c.n);
   return names;
 }
 
 /** Errores legibles (club inexistente, nación desconocida, posición inválida, nivel fuera de rango). */
-export function validateRealPlayers(records: readonly RealPlayerRecord[]): string[] {
-  const clubs = realClubNames();
+export function validateRealPlayers(records: readonly RealPlayerRecord[], leagues?: Record<string, RealLeaguePack>): string[] {
+  const clubs = realClubNames(leagues);
   const nations = new Set(NATIONS.map((n) => n.code));
   const errors: string[] = [];
   records.forEach((r, i) => {

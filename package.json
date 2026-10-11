@@ -10,10 +10,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "typecheck": "tsc -p packages/core && tsc -p packages/data && tsc -p packages/i18n && tsc -p tools/gen",
+    "typecheck": "tsc -p packages/core && tsc -p packages/data && tsc -p packages/i18n && tsc -p tools/gen && tsc -p tools/import",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "gen": "tsx tools/gen/src/cli.ts"
+    "gen": "tsx tools/gen/src/cli.ts",
+    "import:football-data": "tsx tools/import/src/footballData.ts"
   },
   "engines": {
     "node": ">=22.12"

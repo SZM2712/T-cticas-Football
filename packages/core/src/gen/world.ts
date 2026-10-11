@@ -3,7 +3,7 @@
 
 import {
   NATION_LEAGUES, NATIONS, PLAYABLE_CITIES, REAL_LEAGUES, REAL_SHADOW_CLUBS, nationByCode, type CityData, type NationData,
-  REAL_PLAYERS, type RealClub, type RealPlayerRecord,
+  REAL_PLAYERS, mergeLeagues, type RealClub, type RealDataUpdate, type RealPlayerRecord,
 } from "@tf/data";
 import { SQUAD_TEMPLATE, type Position } from "../config/attributes";
 import {
@@ -40,6 +40,8 @@ export interface GenerateOptions {
    * completan con jugadores ficticios.
    */
   players?: readonly RealPlayerRecord[];
+  /** Composición actual de las ligas (importada); sin ella se usan las de 2025/26. */
+  leagues?: RealDataUpdate;
 }
 
 interface Place {
@@ -284,9 +286,10 @@ export function generateWorld(opts: GenerateOptions): World {
     world.nations[n.code] = nation;
   }
 
+  const realLeagues = real ? mergeLeagues(opts.leagues).leagues : REAL_LEAGUES;
   const realPlayers = real ? (opts.players ?? REAL_PLAYERS) : [];
   if (realPlayers.length) {
-    const errors = validateRealPlayers(realPlayers);
+    const errors = validateRealPlayers(realPlayers, realLeagues);
     if (errors.length) throw new Error(`Jugadores reales con errores:\n${errors.slice(0, 20).join("\n")}`);
   }
   const realByClub = new Map<string, RealPlayerRecord[]>();
@@ -301,7 +304,7 @@ export function generateWorld(opts: GenerateOptions): World {
     const rng = root.fork(`gen/clubs/${data.nation}`);
     const [d1, d2] = data.tiers;
     const total = d1.teams + d2.teams + data.shadowTierClubs;
-    const pack = real ? REAL_LEAGUES[data.nation] : undefined;
+    const pack = real ? realLeagues[data.nation] : undefined;
     const realClubs = pack ? [...pack.tier1, ...pack.tier2, ...pack.tier3] : [];
     if (pack && (pack.tier1.length !== d1.teams || pack.tier2.length !== d2.teams)) {
       throw new Error(`Paquete real de ${data.nation}: ${pack.tier1.length}/${pack.tier2.length} clubes, se esperaban ${d1.teams}/${d2.teams}`);

@@ -1,9 +1,9 @@
-// npm run gen -- --seed=123 [--real] [--players=jugadores.csv] [--export-players=jugadores.csv]
+// npm run gen -- --seed=123 [--real] [--current] [--players=jugadores.csv] [--leagues=ligas.json] [--export-players=jugadores.csv]
 //                 [--seasons=4] [--stats] [--top=20] [--squad="Real Madrid" | --squad=ES] [--out=world.json]
 // Genera un mundo, imprime su hash y, opcionalmente, estadísticas y simulación de temporadas
 // (con el modelo rápido provisional de la Fase 1).
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import {
   advanceSeasons, ageOn, classifyArchetype, currentAbility, displayName, hashValue, newGame, quantile, teamRating,
   type GenerateOptions, type World,
@@ -92,7 +92,18 @@ if (opts["export-players"]) {
   console.log(`${REAL_PLAYERS.length} jugadores reales exportados a ${opts["export-players"]}`);
 }
 const genOpts: GenerateOptions = { seed };
-if (opts.real || opts.players) genOpts.dataPack = "real";
+// --current: datos importados con `npm run import:football-data` (packages/data/current).
+if (opts.current) {
+  const dir = "packages/data/current";
+  if (!existsSync(`${dir}/players.csv`)) {
+    console.error(`No hay importación en ${dir}. Ejecuta antes: npm run import:football-data`);
+    process.exit(1);
+  }
+  opts.players ??= `${dir}/players.csv`;
+  opts.leagues ??= `${dir}/leagues.json`;
+}
+if (opts.real || opts.players || opts.leagues) genOpts.dataPack = "real";
+if (opts.leagues && existsSync(opts.leagues)) genOpts.leagues = JSON.parse(readFileSync(opts.leagues, "utf8"));
 if (opts.players) {
   const { records, errors } = realPlayersFromCsv(readFileSync(opts.players, "utf8"));
   if (errors.length) {
