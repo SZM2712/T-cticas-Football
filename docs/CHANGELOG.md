@@ -49,6 +49,10 @@
 - **Determinismo en navegador** (pendiente de la Fase 1): verificado a mano con Playwright. El mismo mundo tras 60 días tiene el mismo hash en Chromium (Web Worker) que en Node. Firefox y Safari no se han probado; si difieren, se añadiría un módulo de matemática determinista.
 - **Test de temporadas**: usa el modelo rápido para no tardar minutos en CI (prueba calendario y competiciones, no el motor). El motor completo tiene su propio test (`match.test.ts`) y la CI ejecuta una temporada de `sim`.
 - **Hash del mundo de referencia actualizado** por el formato v2 (campos nuevos; la generación no cambia).
+- **Ideas registradas** (DISEÑO §11.3 y §11.4):
+  - Multijugador asíncrono para 2–10 humanos con servidor propio, avance por días que solo espera a quien juega y anti-repetición con sal secreta por día. Pasa a ser la **Fase 8**.
+  - Redes sociales ficticias, polémica arbitral con evidencia y comité de disciplina, dentro de la **Fase 5**.
+  - El roadmap se renumera: 9 Assets e IA, 10 Pulido, 11 Director deportivo y presidente.
 - **Pendiente para fases posteriores**:
   - Elegir el once a mano desde la UI: el plan ya lo admite, falta el control visual (Fase 7).
   - Cambios tácticos durante el partido (Fase 4/7).
