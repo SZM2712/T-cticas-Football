@@ -38,3 +38,24 @@ describe("i18n", () => {
     expect(t("de", "pos.ST")).toBe("Mittelstürmer");
   });
 });
+
+describe("i18n del motor de partido", () => {
+  it("todo tipo de evento, instrucción y rutina de balón parado tiene texto", async () => {
+    const { INSTRUCTION_KEYS } = await import("@tf/core");
+    const events = [
+      "kickoff", "goal", "ownGoal", "shotSaved", "shotOff", "shotBlocked", "woodwork", "foul", "penaltyAwarded", "yellow",
+      "red", "corner", "sub", "injury", "halfTime", "fullTime", "extraTime", "shootout", "penaltyScored", "penaltyMissed",
+    ];
+    const keys = [
+      ...events.map((e) => `event.${e}`),
+      ...INSTRUCTION_KEYS.map((k) => `instruction.${k}`),
+      ...["nearPost", "farPost", "short", "edgeOfBox"].map((k) => `corners.${k}`),
+      ...["stay", "some", "all"].map((k) => `crowd.${k}`),
+      ...["shoot", "cross", "short"].map((k) => `freeKicks.${k}`),
+      ...["short", "long"].map((k) => `throwIns.${k}`),
+      ...["buildUp", "long"].map((k) => `kickoff.${k}`),
+      ...["unknownTeam", "formation", "lineup", "range", "setPiece", "taker", "instruction"].map((k) => `error.${k}`),
+    ];
+    for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
+  });
+});

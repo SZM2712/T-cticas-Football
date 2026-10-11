@@ -4,18 +4,21 @@
   "type": "module",
   "workspaces": [
     "packages/*",
+    "apps/*",
     "tools/*"
   ],
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "typecheck": "tsc -p packages/core && tsc -p packages/data && tsc -p packages/i18n && tsc -p tools/gen && tsc -p tools/import && tsc -p tools/sim",
+    "typecheck": "tsc -p packages/core && tsc -p packages/data && tsc -p packages/i18n && tsc -p tools/gen && tsc -p tools/import && tsc -p tools/sim && tsc -p apps/web",
     "lint": "eslint .",
     "format": "prettier --write .",
     "gen": "tsx tools/gen/src/cli.ts",
     "import:football-data": "tsx tools/import/src/footballData.ts",
-    "sim": "tsx tools/sim/src/cli.ts"
+    "sim": "tsx tools/sim/src/cli.ts",
+    "dev": "npm run dev -w @tf/web",
+    "build:web": "npm run build -w @tf/web"
   },
   "engines": {
     "node": ">=22.12"

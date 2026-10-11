@@ -179,6 +179,10 @@ export interface Frames {
   owner: Side[];
   /** Índice del evento que ocurre en ese fotograma, o −1. */
   event: number[];
+  /** Eventos ya ocurridos al llegar a ese fotograma (para el registro del visor). */
+  evCount: number[];
+  /** Reloj del partido (s) en ese fotograma: la 2.ª parte empieza en 2700. */
+  clock: number[];
 }
 
 /** Si el jugador siguió cada instrucción (consecuencia que se recuerda en el mundo). */

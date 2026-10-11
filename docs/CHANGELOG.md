@@ -1,5 +1,50 @@
 # Cambios por fase
 
+## Fase 2 — Motor de partido (rama `claude/fase-2-motor-partido`)
+
+### Qué hay
+- **Motor de partido por zonas** (`core/match/engine.ts`):
+  - Cadenas de posesión y duelos logísticos contra el defensor más cercano según la forma táctica rival.
+  - Tiros con xG por tipo de ocasión.
+  - Faltas (también tácticas), tarjetas con árbitros de rigor distinto, lesiones, cansancio minuto a minuto, cambios de la IA y gestión del marcador.
+  - Prórroga y penaltis teniendo en cuenta la ida.
+  - Fotogramas clave para el visor 2D que no consumen RNG: verlo o no, el partido es el mismo.
+- **Tácticas** (`types/tactics.ts`):
+  - Seis sistemas y diales de mentalidad, presión, ritmo, amplitud y juego directo.
+  - **Balón parado** completo: córners (primer palo, segundo palo, en corto, al borde del área y cuántos suben), faltas (tirar, centrar o en corto), saques de banda (cortos o largos al área), saque inicial al empezar y tras el descanso (elaborar o en largo) y lanzadores designados de penaltis, faltas, córners y saques largos.
+  - **Instrucciones individuales** (13): el jugador decide en cada partido si las cumple según su profesionalidad, su ego, el choque con su forma de ser y la autoridad del técnico. Ignorarlas queda registrado en el mundo (`player.ignoredInstruction`) para la Fase 4.
+- **Comandos** `setTactics` y `clearTactics`, validados (jugadores de la plantilla, rangos y rutinas válidas). La UI nunca toca el estado.
+- **Consecuencias**:
+  - Goleadores, asistentes y tarjetas en cada resultado.
+  - Estadísticas por competición que pasan a la trayectoria al cerrar la temporada, más el máximo goleador en el historial.
+  - Forma física que se recupera por días.
+  - Lesiones con fecha de alta.
+  - Sanciones por competición: roja directa 2 partidos, doble amarilla 1, cada 5 amarillas 1.
+  - Internacionalidades.
+  - Eventos de roja, lesión larga e instrucción ignorada.
+- **Modelo rápido** recalibrado contra el motor completo; es el motor del LOD ligero (partidos entre clubes en sombra).
+- **Estado v2** (`SAVE_VERSION = 2`) con migración v1→v2 y test.
+- **`npm run sim`** (`tools/sim`): métricas de balance frente a los criterios de la fase y comparación motor completo frente a rápido sobre los mismos emparejamientos.
+- **UI de depuración** (`apps/web`, `npm run dev`):
+  - React + Vite y el juego en un Web Worker.
+  - Pestañas: clasificación, resultados, plantilla (forma, lesiones, sanciones y estadísticas), goleadores, táctica completa y partido en directo con visor 2D, registro de eventos, estadísticas e instrucciones cumplidas o ignoradas.
+  - En los 5 idiomas. Los datos reales se cargan solo si se piden.
+- `npm run gen -- --seasons=N` muestra también los máximos goleadores y acepta `--engine=auto|full|quick`.
+
+### Balance (criterios de DISEÑO §7)
+Ver `docs/balance/fase2.md` (20 temporadas, semilla 123, motor completo).
+
+### Decisiones y desviaciones
+- **Motor completo para todos los partidos con clubes jugables o selecciones** (`auto`). Los partidos entre clubes en sombra usan el modelo rápido. Una temporada mundial completa tarda ~20–25 s (~2,5 ms por partido), menos de 100 ms por día de juego.
+- **Determinismo en navegador** (pendiente de la Fase 1): verificado a mano con Playwright. El mismo mundo tras 60 días tiene el mismo hash en Chromium (Web Worker) que en Node. Firefox y Safari no se han probado; si difieren, se añadiría un módulo de matemática determinista.
+- **Test de temporadas**: usa el modelo rápido para no tardar minutos en CI (prueba calendario y competiciones, no el motor). El motor completo tiene su propio test (`match.test.ts`) y la CI ejecuta una temporada de `sim`.
+- **Hash del mundo de referencia actualizado** por el formato v2 (campos nuevos; la generación no cambia).
+- **Pendiente para fases posteriores**:
+  - Elegir el once a mano desde la UI: el plan ya lo admite, falta el control visual (Fase 7).
+  - Cambios tácticos durante el partido (Fase 4/7).
+  - Conectar las instrucciones ignoradas con relaciones y tensiones de ego (Fase 4).
+  - Controversias arbitrales con evidencia (Fase 5).
+
 ## Fase 1 — Núcleo (rama `claude/fase-1-nucleo`)
 
 ### Qué hay

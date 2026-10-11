@@ -141,7 +141,7 @@ class Sim {
   ) {
     this.teams = [this.makeTeam(0, input.home), this.makeTeam(1, input.away)];
     this.openness = clamp(1 + this.rng.normal(0, OPENNESS_SD), 0.5, 1.6);
-    if (withFrames) this.frames = { t: [], ball: [], pos: [], owner: [], event: [] };
+    if (withFrames) this.frames = { t: [], ball: [], pos: [], owner: [], event: [], evCount: [], clock: [] };
   }
 
   private makeTeam(side: Side, sheet: TeamSheet): Team {
@@ -1027,6 +1027,8 @@ class Sim {
     f.ball.push(round3(this.bx), round3(this.by));
     f.owner.push(this.poss);
     f.event.push(event);
+    f.evCount.push(this.events.length);
+    f.clock.push(Math.round(this.clock));
     const n = f.t.length;
     for (const team of this.teams) {
       this.computeShape(team);

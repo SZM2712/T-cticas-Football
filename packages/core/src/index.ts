@@ -42,3 +42,4 @@ export {
   newGame, openGame, advanceDay, advanceDays, advanceSeasons, type Game, type AdvanceOptions,
 } from "./engine/game";
 export { playerView, clubSummary, displayName, type PlayerView, type ClubSummary } from "./views/player";
+export * from "./views/game";

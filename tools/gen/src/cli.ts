@@ -1,12 +1,12 @@
 // npm run gen -- --seed=123 [--real] [--current] [--players=jugadores.csv] [--leagues=ligas.json] [--export-players=jugadores.csv]
-//                 [--seasons=4] [--stats] [--top=20] [--squad="Real Madrid" | --squad=ES] [--out=world.json]
+//                 [--seasons=4] [--engine=auto|full|quick] [--stats] [--top=20] [--squad="Real Madrid" | --squad=ES] [--out=world.json]
 // Genera un mundo, imprime su hash y, opcionalmente, estadísticas y simulación de temporadas
-// (con el modelo rápido provisional de la Fase 1).
+// (con el motor de partido; `--engine=quick` usa el modelo rápido).
 
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import {
   advanceSeasons, ageOn, classifyArchetype, currentAbility, displayName, hashValue, newGame, quantile, teamRating,
-  type GenerateOptions, type World,
+  type EngineMode, type GenerateOptions, type World,
 } from "@tf/core";
 import { REAL_PLAYERS, realPlayersFromCsv, realPlayersToCsv } from "@tf/data";
 import { competitionName, nationName } from "@tf/i18n";
@@ -81,6 +81,11 @@ function history(world: World): void {
       const name = world.clubs[winner]?.name ?? nationName("es", winner.slice(3));
       if (!key.startsWith("comp.qualifier") && !key.startsWith("comp.nationsLeague.")) console.log(`  ${competitionName("es", key)}: ${name}`);
     }
+    for (const [key, top] of Object.entries(record.topScorers ?? {})) {
+      if (!key.startsWith("comp.league.")) continue;
+      const p = world.players[top.player];
+      if (p) console.log(`  Máximo goleador · ${competitionName("es", key)}: ${displayName(p)} (${top.goals})`);
+    }
   }
 }
 
@@ -92,6 +97,7 @@ if (opts["export-players"]) {
   console.log(`${REAL_PLAYERS.length} jugadores reales exportados a ${opts["export-players"]}`);
 }
 const genOpts: GenerateOptions = { seed };
+const engine = (opts.engine ?? "auto") as EngineMode;
 // --current: datos importados con `npm run import:football-data` (packages/data/current).
 if (opts.current) {
   const dir = "packages/data/current";
@@ -115,7 +121,7 @@ if (opts.players) {
 }
 let game: ReturnType<typeof newGame>;
 try {
-  game = newGame(genOpts);
+  game = newGame(genOpts, engine);
 } catch (e) {
   console.error((e as Error).message);
   process.exit(1);

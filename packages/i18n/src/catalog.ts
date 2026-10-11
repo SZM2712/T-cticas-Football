@@ -1,12 +1,15 @@
 // Catálogo de textos en los 5 idiomas de la UI. Cada entrada: [es, en, fr, de, zh].
 // Los nombres de competición son genéricos (sin marcas registradas).
 
+import { UI_ENTRIES } from "./catalogUi";
+
 export const LOCALES = ["es", "en", "fr", "de", "zh"] as const;
 export type Locale = (typeof LOCALES)[number];
 
 type Row = readonly [es: string, en: string, fr: string, de: string, zh: string];
 
 export const ENTRIES: Record<string, Row> = {
+  ...UI_ENTRIES,
   // ── Posiciones ──
   "pos.GK": ["Portero", "Goalkeeper", "Gardien", "Torwart", "门将"],
   "pos.CB": ["Defensa central", "Centre-back", "Défenseur central", "Innenverteidiger", "中后卫"],

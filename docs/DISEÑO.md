@@ -674,6 +674,63 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 
 ---
 
+## 10b. Fase 2 — motor de partido (implementado)
+
+### Motor por zonas (`core/match/engine.ts`)
+- **Entrada**: `MatchInput` es una instantánea completa: once, banquillo, habilidades combinadas (1–20), forma física, ocultos relevantes, táctica, rigor del árbitro e importancia. Con la misma entrada y el mismo `seedPath` (`match/<id>`), el partido es idéntico.
+- **Cadenas de posesión**: el poseedor elige entre pase de seguridad, pase hacia delante, balón largo, pase al hueco, regate, centro o tiro. Pesa la zona (campo continuo 0..1, rejilla 6×5 a efectos de diales), su puesto, sus atributos, la táctica y sus instrucciones.
+- **Duelos logísticos** contra el defensor más cercano según la forma táctica del rival. Modificadores: calidad × forma del día × condición × encaje en el puesto × moral, campo, inferioridad numérica, presión alta, último tercio y mentalidad.
+- **Tiros con xG** por tipo de ocasión (área, área cercana, banda, lejano, cabezazo, mano a mano, penalti, falta directa, cabezazo de córner, rechace) y calidad de rematador y portero. Pueden ir bloqueados, parados (córner o rechace), fuera o al palo.
+- **Faltas y tarjetas**: el árbitro tiene rigor propio. Hay faltas tácticas para cortar contras, el amonestado se cuida y hay amarillas por protestas según el temperamento.
+- **Lesiones** por minuto (propensión × cansancio) y por faltas.
+- **Cansancio** minuto a minuto. Cambios de la IA en 3 ventanas (cansados, amonestados en riesgo, atacante si pierde, defensa si gana por la mínima al final).
+- **Gestión del marcador**: quien gana se repliega y quien pierde arriesga, más cuanto más tarde.
+- **Prórroga y penaltis** en partidos decisivos, teniendo en cuenta la ida.
+- **Fotogramas para el visor 2D**: posición de los 22 puestos y del balón en cada acción, derivada de la forma táctica. Se calculan sin tocar el RNG, así que pedirlos no cambia el partido.
+- **LOD**: modo `auto` usa el motor completo salvo entre dos clubes en sombra, que usan el modelo rápido (`quick.ts`) calibrado contra el completo.
+- **Rendimiento**: ~2,5 ms por partido (~25 s por temporada mundial completa en escritorio, < 100 ms por día de juego).
+
+### Tácticas (`types/tactics.ts`, `match/tactics.ts`)
+- **Sistema y estilo**:
+  - Formaciones: 4-4-2, 4-3-3, 4-2-3-1, 3-5-2, 5-3-2 y 4-1-4-1.
+  - Mentalidad, presión, ritmo, amplitud y juego directo.
+  - La IA tiene un estilo estable por club (hash del id) y ajusta la mentalidad según el rival y el campo.
+- **Balón parado**:
+
+| Situación | Opciones | Efecto en el motor |
+|---|---|---|
+| Córner | primer palo, segundo palo, en corto, al borde del área | Probabilidad y calidad del remate; en corto se conserva el balón; al borde busca al mejor tirador lejano |
+| Suben al córner | pocos, los centrales, todos | Más remate a cambio de más contras rivales tras el despeje |
+| Falta en zona de disparo | tirar, centrar, en corto | Probabilidad de tiro directo, centro o conservar |
+| Saque de banda | corto o largo | El largo en campo rival es un centro al área del lanzador |
+| Saque inicial (inicio y descanso) | elaborar o balón largo | Primera acción de la jugada |
+| Lanzadores | penaltis (orden), faltas, córners y saques largos | Si el designado no está en el campo, tira el mejor disponible |
+
+- **Instrucciones individuales**: tirar más/menos, regatear más/menos, centrar más, pase corto/largo, incorporarse, quedarse atrás, presionar más/menos, entrar fuerte, no ir al suelo. Cada una modifica pesos de acción, posición, cansancio o faltas.
+- **Aceptación (ego y carácter)**:
+  - Antes de cada partido, cada jugador decide si cumple cada instrucción.
+  - La probabilidad sube con su profesionalidad y con la autoridad del técnico sobre él (reputación relativa y mano con la gente). Baja con su ego y con el choque entre la orden y su forma de ser: un goleador con ego no quiere tirar menos; un jugador temperamental no sabe no ir al suelo.
+  - Ignorar una instrucción deja un `WorldEvent` `player.ignoredInstruction`. En la Fase 4 alimentará la relación técnico–jugador y las dinámicas de ego.
+  - La UI solo muestra si la cumplió, nunca la probabilidad (regla 6).
+- **Plan del usuario**: `World.tactics[teamId]` (`TacticsPlan`) se fija con el comando `setTactics` validado; lo que no fija lo decide la IA. Admite once propio por puestos.
+
+### Consecuencias en el mundo (`match/apply.ts`)
+- Resultado con goleadores, asistentes, tarjetas, estadísticas y mejor jugador.
+- Estadísticas por competición (`World.stats`): al cerrar temporada pasan a la trayectoria del jugador (`Player.career`) y al máximo goleador del historial.
+- Forma física con recuperación perezosa por días (`fitness` + `fitnessDay`).
+- Lesiones con fecha de alta.
+- Sanciones por competición: roja directa 2 partidos, doble amarilla 1, cada 5 amarillas 1.
+- Internacionalidades y goles con la selección.
+- Eventos `match.redCard`, `player.injured` (≥ 21 días) y `player.ignoredInstruction`.
+
+### Estado v2
+`SAVE_VERSION = 2`, con migración v1→v2 (`world/migrations.ts`) y su test.
+
+### UI de depuración (`apps/web`)
+- React + Vite. El juego vive en un Web Worker y la UI solo envía `Command`s y pide vistas (`core/views/game.ts`).
+- Pestañas: clasificación, resultados, plantilla, goleadores, táctica y partido en directo con visor 2D (canvas que interpola los fotogramas), registro de eventos, estadísticas e instrucciones cumplidas o ignoradas.
+- El paquete de datos reales se carga solo si se marca (import dinámico).
+
 ## 11. Ideas incorporadas (pendientes de su fase)
 
 ### 11.1 Contratos avanzados (Fase 6 — economía y mercado)
@@ -707,4 +764,4 @@ Los cargos del club son puestos que ocupa **un actor** (el jugador humano o una 
   - En clubes de propietario, el presidente llega por compra o nombramiento.
   - Se puede perder el cargo: moción de censura, elecciones, despido o venta del club.
 - **El resto de cargos los ocupa la IA** y reacciona según su personalidad y memoria. Un presidente impaciente despide al entrenador; si tú eres el presidente y despides a un entrenador querido, el vestuario y la afición lo recuerdan.
-- **Arquitectura (decisión temprana para no rehacer)**: cada `Command` del usuario se valida contra los **permisos del cargo** que ocupa en su club (matriz de autoridad). Pertenece a la Fase 4 (comandos) y la Fase 6 (directiva). Los modos de director deportivo y presidente jugables completos llegan como **Fase 10** tras el juego base.
+- **Arquitectura (decisión temprana para no rehacer)**: cada `Command` del usuario se valida contra los **permisos del cargo** que ocupa en su club (matriz de autoridad). Pertenece a la Fase 4 (comandos) y la Fase 6 (directiva). Los modos de director deportivo y presidente jugables completos llegan como **Fase 10** tras el juego base. *(Orden confirmado por el usuario al empezar la Fase 2.)*
