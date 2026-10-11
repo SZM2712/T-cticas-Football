@@ -1,8 +1,8 @@
-# Vestuario — Documento de diseño técnico
+# Tactical Football — Documento de diseño técnico
 
 > Versión 0.1 · Plan inicial previo a escribir código.
 > Fuente: el documento de visión original (secciones 1–14). Aquí se convierte en arquitectura, modelo de datos, algoritmos y plan de fases.
-> Las decisiones marcadas **[PENDIENTE]** dependen de las dudas de la §9.
+> Decisiones de producto: §9. Alcance del mundo v1: §8.
 
 ---
 
@@ -546,7 +546,7 @@ Escenarios guionizados de test (Fase 4): para cada dinámica, ≥ 3 escenarios c
 
 | Fase | Contenido | Criterios de aceptación (verificables) |
 |---|---|---|
-| **1. Núcleo** | Monorepo, RNG, tipos, tiempo/calendario, generación de mundo, fixtures, serialización, CLI `gen` | Mismo seed → mismo hash del mundo (en Node y en navegador); seeds distintos → mundos distintos; ≥ 90 % cobertura en `rng`, `gen`, `competition`; generación de mundo de referencia < 3 s en escritorio; distribuciones de rasgos/atributos dentro de rangos objetivo |
+| **1. Núcleo** | Monorepo, RNG, tipos, tiempo/calendario, datos de ~100 naciones, i18n, generación de mundo, motor de formatos de competición (ligas, copas, continentales, selecciones), serialización, CLI `gen` | Mismo seed → mismo hash; seeds distintos → mundos distintos; calendario de 4 temporadas sin choques; generación < 5 s; distribuciones en rango (§10) |
 | **2. Motor de partido** | Motor por eventos, tácticas básicas, cambios, tarjetas, lesiones, modelo rápido, CLI `sim` | 20 temporadas: goles/partido 2,5–2,9; local 42–47 %; empates 24–28 %; rojas 0,1–0,2; goleadores con cola larga; partido reproducible por `seedPath`; motor rápido dentro de ±3 % del completo en esas métricas |
 | **3. Desarrollo** | Techo latente, crecimiento, entrenamiento, mentoría (atributos), ojeadores | 20 temporadas sin inflación (±8 % en P50/P95/P99 y nº de élite); dos ojeadores discrepan en ≥ 30 % de jóvenes; informe "por qué" presente en todo cambio de CA ≥ 0.3 |
 | **4. Vestuario y ego** | Grafo, camarillas, jerarquía, estado emocional, memoria episódica, 3 dinámicas, `Commitment`s, encaje, conversaciones | Escenarios guionizados dentro de rango en ≥ 200 semillas; cada promesa de prensa/conversación crea `Commitment` con acción enlazada; avance de día < 200 ms (perfil móvil simulado con CPU ×4 throttling) |
@@ -560,55 +560,112 @@ Escenarios guionizados de test (Fase 4): para cada dinámica, ≥ 3 escenarios c
 
 ---
 
-## 8. Plan detallado de la Fase 1
+## 8. Alcance del mundo v1
 
-### Tareas
+### 8.1 Naciones, ligas y clubes
+- **Países e idiomas reales**; **clubes, jugadores, entrenadores, árbitros y periodistas ficticios**.
+- **Ligas jugables (5 naciones × 2 divisiones = 198 clubes)**, con tamaños reales:
 
-1. **Andamiaje**
-   - npm workspaces, `tsconfig.base.json` estricto, ESLint (regla que prohíbe `Math.random`/`Date` en `packages/core`), Prettier, Vitest con cobertura, scripts raíz (`test`, `typecheck`, `lint`, `gen`).
-   - CI de GitHub Actions: typecheck + lint + test + test de determinismo.
-2. **RNG** (`core/rng`)
-   - `splitmix32`, `xoshiro128**`, `fork(path)` por hash FNV-1a/murmur del path, serializar/restaurar estado.
-   - Distribuciones (§2.4) incluida normal multivariante por Cholesky.
-   - Tests: vectores conocidos, independencia de streams (añadir tiradas en A no altera B), propiedades estadísticas básicas (media/varianza en 1e6 muestras).
-3. **Tipos del dominio** (`core/types`) según §3, con los campos de fases futuras como opcionales o stubs mínimos para no migrar pronto.
-4. **Tiempo** (`core/time`)
-   - `GameDay`, conversión a fecha de calendario ficticia (año/mes/día, semanas con jornadas en fin de semana y entre semana), definición de temporada, ventanas de fichajes, parón de selecciones.
-5. **Datos ficticios** (`packages/data`)
-   - Naciones e idiomas **[PENDIENTE: reales o ficticias]**, generadores de nombres por cultura (sílabas + listas), ciudades ficticias, climas, plantillas de nombres de club ("Atlético {Ciudad}", "{Ciudad} FC", "Real Unión {Ciudad}"...).
-6. **Generación de mundo** (`core/gen`)
-   - Naciones → pirámides de ligas (tamaños reales: 18–20 equipos por división) → clubes (reputación con distribución de cola larga, colores, identidad, finanzas iniciales, instalaciones, estadio) → plantillas (25–30 por club, por necesidades posicionales) → staff (entrenadores, ojeadores, árbitros).
-   - Jugador: posición → plantilla de atributos por rol + ruido + `shape`; edad por distribución realista por división; `PsychProfile` correlacionado (§3.1); ocultos derivados; `DevelopmentState` inicial (§4.2); idiomas; contrato; apariencia canónica (para §10).
-   - Arquetipos semilla garantizados por club/liga.
-7. **Competiciones** (`core/competition`)
-   - Fixtures liga ida/vuelta (método de Berger, equilibrio local/visitante), copa nacional por eliminatorias con sorteo, tabla y desempates, reglas de ascenso/descenso (aplicación al final de temporada; sin partidos aún).
-8. **Mundo y serialización** (`core/world`)
-   - IDs deterministas, `World`, `WorldEvent` base + reductor, serialización estable (claves ordenadas) + **hash** (xxhash/FNV-64) del mundo.
-9. **Motor de ticks mínimo** (`core/engine`)
-   - Avanzar día: procesar calendario (marcar partidos como "pendientes de motor" en Fase 1), cumpleaños, fin de temporada (ascensos, rollover, nuevo calendario). Permite avanzar temporadas vacías → base para la Fase 2.
-10. **Views mínimas** (`core/views`) — arquetipo legible, edad, CA derivada, resumen de club: valida que la separación núcleo/UI funciona.
-11. **CLI** (`tools/gen`): `npm run gen -- --seed=123 [--out=world.json] [--stats]` imprime hash y estadísticas (distribución de CA, edades, arquetipos, reputaciones).
-12. **Tests de aceptación de la Fase 1**
-    - Determinismo: 2 ejecuciones del mismo seed → hash idéntico; snapshot del hash de `seed=123`; mismo hash en Node y en un test de navegador (Vitest browser mode o Playwright).
-    - Sensibilidad: 100 seeds → 100 hashes distintos.
-    - Distribuciones: edad media por división, % de cada arquetipo, correlaciones empíricas de rasgos dentro de ±0.05 de la matriz objetivo.
-    - Calendario: cada equipo juega 2× contra cada rival, ningún equipo juega 2 veces el mismo día, alternancia local/visitante equilibrada.
-    - Rendimiento: generar mundo de referencia < 3 s.
-13. **Cierre**: `docs/CHANGELOG.md` con resumen de la fase e informe de estadísticas en `docs/balance/fase1.md`.
+| Nación | 1.ª división | 2.ª división | Copa nacional |
+|---|---|---|---|
+| Inglaterra | 20 | 24 | sí |
+| España | 20 | 22 | sí |
+| Italia | 20 | 20 | sí |
+| Alemania | 18 | 18 | sí |
+| Francia | 18 | 18 | sí |
 
-### Mundo de referencia propuesto para v1 **[PENDIENTE]**
-4 naciones jugables × 2 divisiones (≈ 150 clubes, ≈ 4.200 jugadores) + copa nacional en cada una. Las competiciones continentales y selecciones llegan en la Fase 6.
+- **Resto del mundo (~100 naciones) como "reserva en sombra"**: cada nación no jugable tiene unos pocos clubes "en sombra" (con reputación, finanzas y plantilla, pero sin calendario propio; LOD ligero). Sirven para tres cosas: convocatorias de las selecciones, mercado de fichajes y clubes de otras ligas en las competiciones continentales. Una nación en sombra puede pasar a jugable en futuras versiones sin cambiar el modelo.
+- **Nombres de club genéricos al estilo de FM sin licencias**: ciudades reales + patrones culturales ("Atlético {ciudad}", "{ciudad} United", "Sportverein {ciudad} 1904", "AS {ciudad}") + **lista de bloqueo** de nombres reales de clubes, que se comprueba en los tests. Escudos y uniformes procedurales.
+- **Nombres de competiciones genéricos** ("Primera División de Inglaterra", "Copa de Campeones de Europa", "Campeonato Mundial de Selecciones"), traducibles y editables. Nada de marcas registradas.
+- Mundo esperado: ≈ 200 clubes jugables + ≈ 300 en sombra, ≈ 12.000 jugadores. El LOD (§2.2) hace viable este tamaño.
+
+### 8.2 Competiciones
+| Tipo | Competiciones (nombres ficticios) | Formato |
+|---|---|---|
+| Ligas | 10 ligas, con ascensos y descensos entre las dos divisiones (incluidos *playoffs* donde existan en la realidad) | Liga a doble vuelta (Berger) |
+| Copas nacionales | 5 | Eliminatorias, a partido único o con ida y vuelta según la ronda |
+| Continentales de clubes (Europa) | 1.ª, 2.ª y 3.ª competición europea | Fase de liga de 36 equipos con sorteo por bombos (8 partidos), *playoff* y eliminatorias |
+| Mundial de selecciones | Cada 4 años, 48 selecciones | 12 grupos de 4 + dieciseisavos |
+| Torneos continentales de selecciones | Europa (24), América del Sur (16), África (24), Asia (24), Norte/Centroamérica (16) | Grupos + eliminatorias |
+| Ligas de Naciones | Europa (Ligas A–D, con ascensos y descensos y *final four*) y Norte/Centroamérica | Grupos a doble vuelta + finales |
+| Clasificatorias | Mundial y torneos continentales, por confederación | Grupos a doble vuelta (+ repesca) |
+| Amistosos | En las ventanas internacionales que queden libres | — |
+
+- El **ciclo internacional de 4 años** vive en configuración: qué competición ocupa cada ventana FIFA (septiembre, octubre, noviembre, marzo, junio) y cada verano.
+- Las clasificaciones se resuelven con resultados reales. Si aún no hay resultados (la temporada 1 de la Fase 1), se usa un **ranking de selecciones tipo Elo**, inicializado desde la fuerza de cada nación.
+- Las competiciones continentales de clubes de otras confederaciones quedan fuera de la v1. Se pueden añadir con el mismo motor de formatos.
+
+### 8.3 Motor de partido y visor 2D (decisión para la Fase 2)
+Simulación **por zonas** (rejilla 6×5, cadenas de posesión). El motor emite además **fotogramas clave posicionales**: posición de cada jugador derivada de la forma táctica, la zona del balón y el rol en la acción. El **visor 2D** de la UI los interpola. Así el visor no decide nada: dibuja lo que el motor ya resolvió, y el mismo `seedPath` reproduce el mismo partido animado.
+
+### 8.4 Idiomas
+- Código en inglés; comentarios y documentación en español.
+- **UI en español (por defecto), inglés, francés, alemán y chino simplificado** desde el principio. Paquete `packages/i18n` con catálogos ICU MessageFormat y prueba de que no falta ninguna clave en ningún idioma.
+- Nombres de países localizados con `Intl.DisplayNames`, más excepciones propias (Inglaterra, Escocia, Gales e Irlanda del Norte no son países ISO).
+- El núcleo nunca guarda texto traducido: guarda claves y códigos.
+- Los nombres de personas no se traducen. En chino se muestran en su forma original, con transliteración opcional en una fase posterior.
+
+### 8.5 Plataformas
+PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El núcleo no cambia: Tauri solo empaqueta la misma web y puede guardar en disco además de en IndexedDB.
 
 ---
 
-## 9. Dudas abiertas
+## 9. Decisiones tomadas
 
-1. **Naciones**: ¿países e idiomas reales (con clubes, ciudades y jugadores ficticios) o mundo totalmente ficticio? *Recomendación*: reales. El sistema de idiomas/cultura/saudade gana mucho con referencias reconocibles y no hay problema de licencias con nombres de países.
-2. **Tamaño del mundo de la v1**: ¿4 naciones × 2 divisiones te parece bien como base, o quieres empezar más pequeño (1 nación, 3 divisiones, inicio en juveniles incluido)?
-3. **UI**: React + Vite confirmado salvo que prefieras Svelte. *Recomendación*: React (ecosistema de accesibilidad, gráficas y testing más maduro).
-4. **Motor de partido**: ¿basta con simulación por zonas + texto/estadísticas + una vista 2D esquemática simple, o quieres desde el principio un visor 2D con jugadores moviéndose? Lo segundo multiplica el coste de la Fase 2.
-5. **Idioma**: código en inglés, comentarios y docs en español, UI en español con i18n preparado. ¿De acuerdo? ¿Qué otros idiomas de UI te interesan?
-6. **Plataforma**: ¿solo PWA (navegador/móvil) o también empaquetado de escritorio (Tauri) más adelante?
-7. **Nombre**: el repo se llama `T-cticas-Football`; ¿mantenemos "Vestuario" como nombre de trabajo en código y UI?
-8. **Rasgos ocultos en el save**: propongo MessagePack + compresión (no legible a simple vista, pero no cifrado). ¿Suficiente, o quieres ofuscación más fuerte?
-9. **Ritmo de entrega**: ¿cierro cada fase con un PR para que lo revises, o trabajo en una rama larga y te aviso al cerrar cada fase?
+| # | Tema | Decisión |
+|---|---|---|
+| 1 | Naciones | Reales, con clubes y jugadores ficticios y nombres genéricos con lista de bloqueo |
+| 2 | Tamaño | 5 grandes ligas + sus segundas, Mundial, Ligas de Naciones, torneos continentales y clasificatorias (§8) |
+| 3 | UI | React + Vite |
+| 4 | Partido | Simulación por zonas + visor 2D con jugadores, alimentado por fotogramas del motor (§8.3) |
+| 5 | Idiomas | Código en inglés, documentación en español; UI en es/en/fr/de/zh |
+| 6 | Plataformas | PWA + escritorio (Tauri) |
+| 7 | Nombre | **Tactical Football** |
+| 8 | Ocultos en el guardado | MessagePack + compresión + **suma de integridad**. No se cifra: la clave viviría en el cliente y sería teatro. La protección real del misterio es de diseño: el techo latente es un proceso estocástico (§4), así que leer el guardado no revela el futuro. Un guardado editado se marca como "modificado" (sin logros) en lugar de rechazarse |
+| 9 | Entrega | **Un PR por fase**, revisado antes de empezar la siguiente |
+
+---
+
+## 10. Plan detallado de la Fase 1
+
+### Tareas
+1. **Andamiaje**
+   - npm workspaces, `tsconfig.base.json` estricto, ESLint (con una regla que prohíbe `Math.random` y `Date` en `packages/core`), Prettier, Vitest con cobertura y scripts raíz (`test`, `typecheck`, `lint`, `gen`).
+   - CI en GitHub Actions: typecheck, lint, tests y test de determinismo.
+2. **RNG** (`core/rng`)
+   - `splitmix32`, `xoshiro128**` y `fork(path)` derivado por hash de la ruta; serialización y restauración del estado.
+   - Distribuciones (§2.4), incluida la normal multivariante por Cholesky.
+   - Tests: independencia de *streams*, reproducibilidad y propiedades estadísticas básicas.
+3. **Tipos del dominio** (`core/types`) según §3. Los campos de fases futuras quedan como opcionales o *stubs* mínimos.
+4. **Tiempo** (`core/time`)
+   - `GameDay` ↔ fecha civil con aritmética entera (sin `Date`), días de la semana, temporadas que empiezan el 1 de julio.
+   - Ventanas FIFA, ventanas de fichajes, parón invernal (Alemania) y verano internacional.
+5. **Datos** (`packages/data`)
+   - ~100 naciones: código, confederación, idiomas, cultura de nombres, fuerza futbolística, tamaño de la cantera y clima.
+   - Nombres y apellidos por cultura, ciudades reales de las 5 naciones jugables y patrones de nombre de club por cultura.
+   - Lista de bloqueo de nombres reales de clubes.
+6. **i18n** (`packages/i18n`): catálogos es/en/fr/de/zh para posiciones, atributos, arquetipos, competiciones y naciones con excepciones.
+7. **Generación del mundo** (`core/gen`)
+   - Naciones → ligas → clubes jugables y en sombra (reputación de cola larga, colores, identidad, finanzas, instalaciones, estadio) → plantillas (25–30 por club, según necesidades posicionales) → staff (entrenadores, ojeadores, árbitros).
+   - Cada jugador: posición → plantilla de atributos por rol con ruido y `shape`; edad según la división; `PsychProfile` correlacionado (§3.1); ocultos derivados; `DevelopmentState` inicial; idiomas; contrato; apariencia canónica.
+   - Arquetipos semilla garantizados.
+   - Selecciones nacionales: convocatoria inicial de los mejores elegibles y ranking Elo inicial.
+8. **Competiciones** (`core/competition`)
+   - Motor de formatos genérico: liga (Berger), grupos, eliminatorias (partido único o ida y vuelta), fase de liga con sorteo por bombos y restricciones, y Liga de Naciones (divisiones con ascenso y descenso).
+   - Tablas con desempates; reglas de ascenso y descenso y de clasificación; rondas cuyos emparejamientos dependen de resultados ("pendiente de sorteo").
+   - Planificador que coloca cada jornada en el calendario sin choques: ningún equipo juega dos veces con menos de 2 días de descanso y las ligas respetan las ventanas FIFA.
+9. **Mundo y serialización** (`core/world`): IDs deterministas, `World`, `WorldEvent` base con reductor, serialización estable y **hash** del mundo.
+10. **Motor de ticks mínimo** (`core/engine`)
+    - Avance de días: procesa el calendario. En la Fase 1 los partidos quedan "pendientes de motor".
+    - Cumpleaños y fin de temporada: ascensos, renovación de temporada y nuevo calendario, con un ciclo internacional que avanza.
+    - Permite avanzar 4+ temporadas vacías.
+11. **Vistas mínimas** (`core/views`): arquetipo legible, edad, CA derivada y resumen de club.
+12. **CLI** (`tools/gen`): `npm run gen -- --seed=123 [--out=world.json] [--stats] [--seasons=4]`.
+13. **Tests de aceptación**
+    - Determinismo: mismo seed → mismo hash, con *snapshot* del hash de `seed=123`.
+    - Sensibilidad: 50 seeds → 50 hashes distintos.
+    - Distribuciones: edades, arquetipos y correlaciones de rasgos (±0,05 de la matriz objetivo).
+    - Calendario: doble vuelta completa, sin choques y con descanso mínimo; las ventanas FIFA quedan libres de partidos de liga.
+    - Ningún club con nombre de la lista de bloqueo; i18n sin claves faltantes.
+    - Rendimiento: generar el mundo de referencia en < 5 s en escritorio.
+14. **Cierre**: `docs/CHANGELOG.md` e informe de estadísticas en `docs/balance/fase1.md`.

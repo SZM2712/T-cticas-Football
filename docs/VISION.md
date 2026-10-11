@@ -1,4 +1,4 @@
-# Vestuario — Documento de visión (original)
+# Tactical Football — Documento de visión (original)
 
 > Texto original del encargo, conservado como referencia. Las decisiones técnicas derivadas están en `docs/DISEÑO.md`.
 
