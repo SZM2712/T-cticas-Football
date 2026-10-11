@@ -141,6 +141,12 @@ export const NATIONS: readonly NationData[] = [
   n("BJ", "BEN", "AFR", ["fr"], { westAfricaFr: 1 }, 0.45, 0.2, "tropical", ["Cotonou", "Porto-Novo"]),
   n("KE", "KEN", "AFR", ["en", "sw"], { eastAfrica: 1 }, 0.4, 0.35, "highland", ["Nairobi", "Mombasa", "Kisumu"]),
   n("TZ", "TAN", "AFR", ["sw", "en"], { eastAfrica: 1 }, 0.38, 0.3, "tropical", ["Dar es Salaam", "Dodoma", "Arusha"]),
+  n("GM", "GAM", "AFR", ["en"], { westAfricaEn: 1 }, 0.42, 0.12, "tropical", ["Banjul", "Serekunda"]),
+  n("GW", "GNB", "AFR", ["pt"], { lusophoneAfrica: 1 }, 0.38, 0.08, "tropical", ["Bissau"]),
+  n("ZW", "ZIM", "AFR", ["en"], { southernAfrica: 1 }, 0.4, 0.25, "highland", ["Harare", "Bulawayo"]),
+  n("MZ", "MOZ", "AFR", ["pt"], { lusophoneAfrica: 1 }, 0.38, 0.25, "tropical", ["Maputo", "Beira"]),
+  n("TG", "TOG", "AFR", ["fr"], { westAfricaFr: 1 }, 0.38, 0.12, "tropical", ["Lomé"]),
+  n("GQ", "EQG", "AFR", ["es", "fr"], { westAfricaFr: 1 }, 0.4, 0.05, "tropical", ["Malabo", "Bata"]),
   // ── Asia ─────────────────────────────────────────────────────────────────
   n("JP", "JPN", "ASI", ["ja"], { japanese: 1 }, 0.82, 0.8, "oceanic", ["Tōkyō", "Ōsaka", "Yokohama", "Nagoya", "Kashima", "Urawa", "Kawasaki"]),
   n("KR", "KOR", "ASI", ["ko"], { korean: 1 }, 0.78, 0.65, "continental", ["Seoul", "Busan", "Ulsan", "Jeonju", "Pohang", "Incheon"]),

@@ -15,7 +15,10 @@ npm test                                  # tests (Vitest)
 npm run typecheck && npm run lint
 npm run gen -- --seed=123 --stats         # genera el mundo e imprime hash y estadísticas
 npm run gen -- --seed=123 --seasons=4     # simula 4 temporadas (modelo rápido provisional)
-npm run gen -- --real --top=20 --seasons=1  # clubes reales: los 20 más fuertes y una temporada
+npm run gen -- --real --top=20 --seasons=1  # clubes y jugadores reales: los 20 más fuertes y una temporada
+npm run gen -- --real --squad=ES            # convocatoria de España (o --squad="Real Madrid")
+npm run gen -- --export-players=jugadores.csv  # exporta los jugadores reales para editarlos
+npm run gen -- --players=jugadores.csv         # usa tu CSV editado
 ```
 
 ## Estructura

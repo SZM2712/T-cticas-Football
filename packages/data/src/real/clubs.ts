@@ -420,4 +420,35 @@ export const REAL_SHADOW_CLUBS: Record<string, RealClub[]> = {
     { n: "Legia Warszawa", s: "Legia", c: "Warszawa", q: 12.0, col: [W, "#00843D"] },
     { n: "Jagiellonia Białystok", s: "Jagiellonia", c: "Białystok", q: 11.6, col: ["#FFE500", "#E30613"] },
   ],
+  SA: [
+    { n: "Al-Hilal", c: "Ar-Riyāḍ", q: 13.8, col: ["#0049A6", W] },
+    { n: "Al-Nassr", c: "Ar-Riyāḍ", q: 13.6, col: ["#FFE500", "#0049A6"] },
+    { n: "Al-Ittihad", c: "Jiddah", q: 13.5, col: ["#FFE500", B] },
+    { n: "Al-Ahli", c: "Jiddah", q: 13.4, col: ["#00843D", W] },
+    { n: "Al-Qadsiah", c: "Al-Khubar", q: 12.8, col: ["#E30613", "#FFE500"] },
+  ],
+  US: [
+    { n: "Inter Miami", c: "Miami", q: 12.6, col: ["#F7B5CD", B] },
+    { n: "LAFC", c: "Los Angeles", q: 12.5, col: [B, "#C39E6D"] },
+    { n: "LA Galaxy", c: "Los Angeles", q: 11.9, col: [W, "#00245D"] },
+  ],
+  BR: [
+    { n: "Flamengo", c: "Rio de Janeiro", q: 13.4, col: ["#E30613", B] },
+    { n: "Palmeiras", c: "São Paulo", q: 13.3, col: ["#006437", W] },
+    { n: "Botafogo", c: "Rio de Janeiro", q: 12.8, col: [B, W] },
+    { n: "Fluminense", c: "Rio de Janeiro", q: 12.6, col: ["#8B1E3F", "#00843D"] },
+    { n: "Corinthians", c: "São Paulo", q: 12.4, col: [W, B] },
+    { n: "São Paulo", c: "São Paulo", q: 12.4, col: [W, "#E30613"] },
+  ],
+  AR: [
+    { n: "River Plate", c: "Buenos Aires", q: 12.8, col: [W, "#E30613"] },
+    { n: "Boca Juniors", c: "Buenos Aires", q: 12.6, col: ["#003E8A", "#FFE500"] },
+    { n: "Racing Club", c: "Avellaneda", q: 12.2, col: ["#5BC2E7", W] },
+  ],
+  MX: [
+    { n: "Club América", c: "Ciudad de México", q: 12.4, col: ["#FFE500", "#00205B"] },
+    { n: "Monterrey", c: "Monterrey", q: 12.3, col: ["#00205B", W] },
+    { n: "Tigres UANL", c: "Monterrey", q: 12.2, col: ["#FDB913", "#00205B"] },
+    { n: "Cruz Azul", c: "Ciudad de México", q: 12.0, col: ["#0047BB", W] },
+  ],
 };

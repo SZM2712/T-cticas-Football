@@ -33,6 +33,10 @@ export interface PlayerSpec {
   homegrown: boolean;
   /** Calidad de la cantera del club (0..1): sube el techo latente de los jóvenes. */
   youthQuality: number;
+  /** Jugador real (paquete opcional): nombre fijo, fecha de nacimiento y sin doble nacionalidad inventada. */
+  fixed?: { firstName: string; lastName: string; knownAs?: string; birthDay: GameDay };
+  /** Permite sembrar arquetipos extremos (no se usa con jugadores reales). */
+  allowSeed?: boolean;
 }
 
 /** Naciones cuya cultura dominante es `culture` (para dobles nacionalidades). */
@@ -234,10 +238,12 @@ function languagesFor(rng: Rng, nation: NationData): Player["languages"] {
 export function generatePlayer(rng: Rng, root: Rng, spec: PlayerSpec): Player {
   const { nation, position, age, today } = spec;
   const culture = pickCulture(rng, nation.cultures);
-  const name = generateName(rng, culture);
+  const name = spec.fixed
+    ? { firstName: spec.fixed.firstName, lastName: spec.fixed.lastName, ...(spec.fixed.knownAs ? { knownAs: spec.fixed.knownAs } : {}) }
+    : generateName(rng, culture);
   const heightCm = heightFor(rng, position);
   const weightKg = Math.round(clamp(heightCm - 100 - 7 + rng.normal(0, 4.5), 55, 105));
-  const { psych, seeded } = generatePsych(rng, age);
+  const { psych, seeded } = generatePsych(rng, age, spec.allowSeed ?? true);
   const hidden = deriveHidden(rng, psych);
   const shape = attributeShape(root, spec.id);
   const attrs = generateAttributes(rng, shape, position, spec.targetCA, age, heightCm);
@@ -251,7 +257,7 @@ export function generatePlayer(rng: Rng, root: Rng, spec: PlayerSpec): Player {
   // Solo para jugadores de origen inmigrante: su cultura no es la mayoritaria en su país.
   const immigrant = (nation.cultures[culture] ?? 0) < 0.5;
   const homes = immigrant ? (CULTURE_HOMES[culture] ?? []).filter((c) => c !== nation.code) : [];
-  if (homes.length && rng.chance(DUAL_NATIONALITY_CHANCE)) secondNationality = rng.pick(homes) as NationId;
+  if (!spec.fixed && homes.length && rng.chance(DUAL_NATIONALITY_CHANCE)) secondNationality = rng.pick(homes) as NationId;
   let internationalNation = nation.code as NationId;
   if (secondNationality) {
     const second = NATIONS.find((n) => n.code === secondNationality)!;
@@ -277,7 +283,7 @@ export function generatePlayer(rng: Rng, root: Rng, spec: PlayerSpec): Player {
     id: spec.id,
     firstName: name.firstName,
     lastName: name.lastName,
-    birthDay: birthDayFor(rng, today, age),
+    birthDay: spec.fixed?.birthDay ?? birthDayFor(rng, today, age),
     nationality: nation.code as NationId,
     internationalNation,
     languages: languagesFor(rng, nation),

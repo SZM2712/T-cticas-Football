@@ -1,0 +1,421 @@
+// Plantillas reales aproximadas (temporada 2025/26). Formato por línea:
+// Nombre|Posición|Año de nacimiento|Nacionalidad (código de nación)|Nivel 1–20|Apodo opcional
+// El nivel es una estimación del juego, no un dato oficial. Editable.
+
+export const ENG_PLAYERS: Record<string, string> = {
+  Liverpool: `
+Alisson Becker|GK|1992|BR|17.0|Alisson
+Giorgi Mamardashvili|GK|2000|GE|15.8
+Virgil van Dijk|CB|1991|NL|17.2
+Ibrahima Konaté|CB|1999|FR|16.6
+Joe Gomez|CB|1997|GB-ENG|15.0
+Giovanni Leoni|CB|2006|IT|14.0
+Milos Kerkez|LB|2003|HU|16.0
+Andy Robertson|LB|1994|GB-SCT|15.6
+Jeremie Frimpong|RB|2000|NL|16.5
+Conor Bradley|RB|2003|GB-NIR|15.4
+Ryan Gravenberch|DM|2002|NL|16.9
+Alexis Mac Allister|CM|1998|AR|17.0
+Dominik Szoboszlai|CM|2000|HU|16.8
+Curtis Jones|CM|2001|GB-ENG|15.6
+Wataru Endo|DM|1993|JP|14.8
+Florian Wirtz|AM|2003|DE|17.6
+Mohamed Salah|RW|1992|EG|18.0
+Cody Gakpo|LW|1999|NL|16.4
+Federico Chiesa|LW|1997|IT|15.2
+Alexander Isak|ST|1999|SE|17.4
+Hugo Ekitike|ST|2002|FR|16.5
+Rio Ngumoha|LW|2008|GB-ENG|13.5`,
+  Arsenal: `
+David Raya|GK|1995|ES|16.9
+Kepa Arrizabalaga|GK|1994|ES|15.4
+William Saliba|CB|2001|FR|17.3
+Gabriel Magalhães|CB|1997|BR|17.0|Gabriel
+Cristhian Mosquera|CB|2004|ES|15.2
+Jurriën Timber|RB|2001|NL|16.3
+Ben White|RB|1997|GB-ENG|15.8
+Riccardo Calafiori|LB|2002|IT|15.9
+Piero Hincapié|LB|2002|EC|16.0
+Myles Lewis-Skelly|LB|2006|GB-ENG|15.2
+Declan Rice|CM|1999|GB-ENG|17.5
+Martín Zubimendi|DM|1999|ES|17.0
+Martin Ødegaard|AM|1998|NO|17.0
+Mikel Merino|CM|1996|ES|16.2
+Christian Nørgaard|DM|1994|DK|15.0
+Eberechi Eze|AM|1998|GB-ENG|16.6
+Ethan Nwaneri|AM|2007|GB-ENG|15.0
+Bukayo Saka|RW|2001|GB-ENG|17.6
+Noni Madueke|RW|2002|GB-ENG|15.8
+Gabriel Martinelli|LW|2001|BR|16.0
+Leandro Trossard|LW|1994|BE|15.8
+Viktor Gyökeres|ST|1998|SE|17.0
+Kai Havertz|ST|1999|DE|16.4
+Gabriel Jesus|ST|1997|BR|15.4`,
+  "Manchester City": `
+Gianluigi Donnarumma|GK|1999|IT|17.2
+James Trafford|GK|2002|GB-ENG|15.2
+Rúben Dias|CB|1997|PT|17.0
+Joško Gvardiol|CB|2002|HR|16.8
+John Stones|CB|1994|GB-ENG|15.8
+Abdukodir Khusanov|CB|2004|UZ|15.0
+Nathan Aké|CB|1995|NL|15.4
+Rayan Aït-Nouri|LB|2001|DZ|16.0
+Matheus Nunes|RB|1998|PT|15.6
+Rico Lewis|RB|2004|GB-ENG|15.4
+Rodrigo Hernández|DM|1996|ES|17.8|Rodri
+Tijjani Reijnders|CM|1998|NL|16.9
+Bernardo Silva|CM|1994|PT|16.6
+Mateo Kovačić|CM|1994|HR|15.8
+Nico González|DM|2002|ES|15.6
+Phil Foden|AM|2000|GB-ENG|17.0
+Rayan Cherki|AM|2003|FR|16.5
+Jérémy Doku|LW|2002|BE|16.4
+Sávio Moreira|RW|2004|BR|15.9|Savinho
+Oscar Bobb|RW|2003|NO|15.0
+Omar Marmoush|ST|1999|EG|16.4
+Erling Haaland|ST|2000|NO|18.6`,
+  Chelsea: `
+Robert Sánchez|GK|1997|ES|15.4
+Filip Jørgensen|GK|2002|DK|14.8
+Levi Colwill|CB|2003|GB-ENG|16.2
+Wesley Fofana|CB|2000|FR|15.8
+Trevoh Chalobah|CB|1999|GB-ENG|15.6
+Tosin Adarabioyo|CB|1997|GB-ENG|15.0
+Benoît Badiashile|CB|2001|FR|15.0
+Marc Cucurella|LB|1998|ES|16.4
+Jorrel Hato|LB|2006|NL|15.6
+Reece James|RB|1999|GB-ENG|16.6
+Malo Gusto|RB|2003|FR|15.8
+Moisés Caicedo|DM|2001|EC|17.2
+Enzo Fernández|CM|2001|AR|16.9
+Roméo Lavia|DM|2004|BE|15.6
+Andrey Santos|CM|2004|BR|15.2
+Cole Palmer|AM|2002|GB-ENG|17.3
+Pedro Neto|RW|2000|PT|16.2
+Estêvão Willian|RW|2007|BR|16.0|Estêvão
+Alejandro Garnacho|LW|2004|AR|15.8
+Jamie Gittens|LW|2004|GB-ENG|15.6
+João Pedro|ST|2001|BR|16.4
+Liam Delap|ST|2003|GB-ENG|15.6`,
+  "Newcastle United": `
+Nick Pope|GK|1992|GB-ENG|15.8
+Aaron Ramsdale|GK|1998|GB-ENG|15.2
+Sven Botman|CB|2000|NL|15.9
+Fabian Schär|CB|1991|CH|15.4
+Dan Burn|CB|1992|GB-ENG|15.2
+Malick Thiaw|CB|2001|DE|15.6
+Lewis Hall|LB|2004|GB-ENG|15.6
+Tino Livramento|RB|2002|GB-ENG|15.8
+Kieran Trippier|RB|1990|GB-ENG|15.0
+Bruno Guimarães|CM|1997|BR|17.0
+Sandro Tonali|CM|2000|IT|16.6
+Joelinton Cássio|CM|1996|BR|16.0|Joelinton
+Jacob Ramsey|CM|2001|GB-ENG|15.2
+Joe Willock|CM|1999|GB-ENG|14.8
+Anthony Gordon|LW|2001|GB-ENG|16.4
+Harvey Barnes|LW|1997|GB-ENG|15.4
+Anthony Elanga|RW|2002|SE|15.6
+Jacob Murphy|RW|1995|GB-ENG|15.2
+Nick Woltemade|ST|2002|DE|16.0
+Yoane Wissa|ST|1996|CD|15.6`,
+  "Tottenham Hotspur": `
+Guglielmo Vicario|GK|1996|IT|15.9
+Antonín Kinský|GK|2003|CZ|14.4
+Cristian Romero|CB|1998|AR|16.6
+Micky van de Ven|CB|2001|NL|16.6
+Kevin Danso|CB|1998|AT|15.0
+Radu Drăgușin|CB|2002|RO|14.8
+Destiny Udogie|LB|2002|IT|15.6
+Djed Spence|LB|2000|GB-ENG|15.0
+Pedro Porro|RB|1999|ES|16.0
+João Palhinha|DM|1995|PT|15.8
+Rodrigo Bentancur|CM|1997|UY|15.6
+Pape Matar Sarr|CM|2002|SN|15.6
+Lucas Bergvall|CM|2006|SE|15.4
+Archie Gray|CM|2006|GB-ENG|14.8
+James Maddison|AM|1996|GB-ENG|16.0
+Xavi Simons|AM|2003|NL|16.6
+Mohammed Kudus|RW|2000|GH|16.4
+Dejan Kulusevski|RW|2000|SE|16.2
+Brennan Johnson|RW|2001|GB-WLS|15.6
+Mathys Tel|LW|2005|FR|15.2
+Wilson Odobert|LW|2004|FR|14.8
+Dominic Solanke|ST|1997|GB-ENG|15.8
+Randal Kolo Muani|ST|1998|FR|15.8
+Richarlison de Andrade|ST|1997|BR|15.4|Richarlison`,
+  "Aston Villa": `
+Emiliano Martínez|GK|1992|AR|16.6
+Marco Bizot|GK|1991|NL|14.4
+Ezri Konsa|CB|1997|GB-ENG|16.0
+Pau Torres|CB|1997|ES|16.0
+Tyrone Mings|CB|1993|GB-ENG|14.8
+Lucas Digne|LB|1993|FR|15.0
+Ian Maatsen|LB|2002|NL|15.2
+Matty Cash|RB|1997|PL|15.4
+Boubacar Kamara|DM|1999|FR|16.0
+Amadou Onana|DM|2001|BE|16.0
+Youri Tielemans|CM|1997|BE|16.2
+John McGinn|CM|1994|GB-SCT|15.6
+Lamare Bogarde|DM|2004|NL|14.4
+Morgan Rogers|AM|2002|GB-ENG|16.4
+Harvey Elliott|AM|2003|GB-ENG|15.4
+Emiliano Buendía|AM|1996|AR|15.2
+Jadon Sancho|LW|2000|GB-ENG|15.4
+Evann Guessand|RW|2001|CI|15.2
+Ollie Watkins|ST|1995|GB-ENG|16.4
+Donyell Malen|ST|1999|NL|15.6`,
+  "Manchester United": `
+Senne Lammens|GK|2002|BE|15.0
+Altay Bayındır|GK|1998|TR|14.4
+Matthijs de Ligt|CB|1999|NL|16.0
+Lisandro Martínez|CB|1998|AR|16.2
+Leny Yoro|CB|2005|FR|15.6
+Harry Maguire|CB|1993|GB-ENG|15.0
+Ayden Heaven|CB|2006|GB-ENG|14.0
+Luke Shaw|LB|1995|GB-ENG|15.2
+Patrick Dorgu|LB|2004|DK|15.2
+Diogo Dalot|RB|1999|PT|15.6
+Noussair Mazraoui|RB|1997|MA|15.6
+Carlos Henrique Casimiro|DM|1992|BR|15.6|Casemiro
+Manuel Ugarte|DM|2001|UY|15.4
+Kobbie Mainoo|CM|2005|GB-ENG|15.6
+Mason Mount|AM|1999|GB-ENG|15.4
+Bruno Fernandes|AM|1994|PT|16.9
+Matheus Cunha|AM|1999|BR|16.4
+Bryan Mbeumo|RW|1999|CM|16.4
+Amad Diallo|RW|2002|CI|15.8
+Benjamin Šeško|ST|2003|SI|16.2
+Joshua Zirkzee|ST|2001|NL|15.0`,
+  "Brighton & Hove Albion": `
+Bart Verbruggen|GK|2002|NL|15.6
+Jan Paul van Hecke|CB|2000|NL|15.8
+Lewis Dunk|CB|1991|GB-ENG|15.4
+Olivier Boscagli|CB|1997|FR|15.0
+Igor Julio|CB|1998|BR|15.0
+Maxim De Cuyper|LB|2000|BE|15.4
+Ferdi Kadıoğlu|LB|1999|TR|15.6
+Joël Veltman|RB|1992|NL|14.6
+Mats Wieffer|CM|1999|NL|15.6
+Carlos Baleba|DM|2004|CM|16.0
+Yasin Ayari|CM|2003|SE|15.2
+Jack Hinshelwood|CM|2005|GB-ENG|15.0
+James Milner|CM|1986|GB-ENG|14.0
+Georginio Rutter|AM|2002|FR|15.6
+Diego Gómez|AM|2003|PY|15.0
+Kaoru Mitoma|LW|1997|JP|16.0
+Yankuba Minteh|RW|2004|GM|15.2
+Brajan Gruda|RW|2004|DE|15.0
+Danny Welbeck|ST|1990|GB-ENG|15.0
+Stefanos Tzimas|ST|2005|GR|14.4`,
+  "Nottingham Forest": `
+Matz Sels|GK|1992|BE|15.8
+John Victor|GK|1996|BR|14.4
+Murillo Santiago Costa dos Santos|CB|2002|BR|16.0|Murillo
+Nikola Milenković|CB|1997|RS|16.0
+Felipe Rodrigues da Silva|CB|2001|BR|14.8|Morato
+Oleksandr Zinchenko|LB|1996|UA|15.0
+Neco Williams|RB|2001|GB-WLS|15.4
+Ola Aina|RB|1996|NG|15.4
+Nicolò Savona|RB|2003|IT|14.6
+Elliot Anderson|CM|2002|GB-ENG|16.4
+Ibrahim Sangaré|DM|1997|CI|15.4
+Douglas Luiz|CM|1998|BR|15.4
+Nicolás Domínguez|CM|1998|AR|15.0
+Morgan Gibbs-White|AM|1999|GB-ENG|16.2
+Callum Hudson-Odoi|LW|2000|GB-ENG|15.2
+Dan Ndoye|RW|2000|CH|15.6
+Omari Hutchinson|RW|2003|JM|15.0
+Dilane Bakwa|RW|2002|FR|14.6
+Chris Wood|ST|1991|NZ|15.6
+Igor Jesus|ST|2001|BR|15.2
+Arnaud Kalimuendo|ST|2002|FR|15.2`,
+  "Crystal Palace": `
+Dean Henderson|GK|1997|GB-ENG|15.8
+Walter Benítez|GK|1993|AR|14.6
+Marc Guéhi|CB|2000|GB-ENG|16.4
+Maxence Lacroix|CB|2000|FR|15.8
+Chris Richards|CB|2000|US|15.2
+Jaydee Canvot|CB|2006|FR|14.2
+Tyrick Mitchell|LB|1999|GB-ENG|15.0
+Borna Sosa|LB|1998|HR|14.6
+Daniel Muñoz|RB|1996|CO|15.8
+Adam Wharton|CM|2004|GB-ENG|16.0
+Jefferson Lerma|DM|1994|CO|15.2
+Will Hughes|CM|1995|GB-ENG|14.6
+Daichi Kamada|AM|1996|JP|15.2
+Ismaïla Sarr|RW|1998|SN|15.8
+Yeremy Pino|RW|2002|ES|15.6
+Jean-Philippe Mateta|ST|1997|FR|15.8
+Eddie Nketiah|ST|1999|GB-ENG|14.8`,
+  Bournemouth: `
+Đorđe Petrović|GK|1999|RS|15.2
+Marcos Senesi|CB|1997|AR|15.6
+Bafodé Diakité|CB|2001|FR|15.2
+James Hill|CB|2002|GB-ENG|14.4
+Adrien Truffert|LB|2001|FR|15.2
+Adam Smith|RB|1991|GB-ENG|14.2
+Álex Jiménez|RB|2005|ES|14.6
+Tyler Adams|DM|1999|US|15.4
+Lewis Cook|CM|1997|GB-ENG|15.0
+Alex Scott|CM|2003|GB-ENG|15.0
+Ryan Christie|CM|1995|GB-SCT|14.8
+Marcus Tavernier|AM|1999|GB-ENG|15.2
+Antoine Semenyo|RW|2000|GH|16.2
+Justin Kluivert|LW|1999|NL|15.6
+David Brooks|RW|1997|GB-WLS|14.8
+Amine Adli|LW|2000|MA|15.0
+Francisco Evanilson de Lima|ST|1999|BR|15.4|Evanilson
+Eli Junior Kroupi|ST|2006|FR|14.6`,
+  Brentford: `
+Caoimhín Kelleher|GK|1998|IE|15.6
+Nathan Collins|CB|2001|IE|15.4
+Kristoffer Ajer|CB|1998|NO|14.8
+Sepp van den Berg|CB|2001|NL|15.0
+Ethan Pinnock|CB|1993|JM|14.6
+Rico Henry|LB|1997|GB-ENG|14.6
+Aaron Hickey|RB|2002|GB-SCT|14.8
+Michael Kayode|RB|2004|IT|14.8
+Jordan Henderson|CM|1990|GB-ENG|15.0
+Vitaly Janelt|CM|1998|DE|14.8
+Mathias Jensen|CM|1996|DK|14.8
+Yehor Yarmoliuk|CM|2004|UA|14.6
+Mikkel Damsgaard|AM|2000|DK|15.2
+Fábio Carvalho|AM|2002|PT|14.6
+Kevin Schade|LW|2001|DE|15.2
+Keane Lewis-Potter|LW|2001|GB-ENG|14.8
+Dango Ouattara|RW|2002|BF|15.2
+Igor Thiago|ST|2001|BR|15.2`,
+  Fulham: `
+Bernd Leno|GK|1992|DE|15.6
+Joachim Andersen|CB|1996|DK|15.4
+Calvin Bassey|CB|1999|NG|15.2
+Issa Diop|CB|1997|FR|14.8
+Antonee Robinson|LB|1997|US|15.6
+Kenny Tete|RB|1995|NL|14.8
+Timothy Castagne|RB|1995|BE|15.0
+Sander Berge|DM|1998|NO|15.4
+Saša Lukić|CM|1996|RS|15.0
+Harrison Reed|CM|1995|GB-ENG|14.4
+Tom Cairney|CM|1991|GB-SCT|14.2
+Emile Smith Rowe|AM|2000|GB-ENG|15.2
+Alex Iwobi|RW|1996|NG|15.6
+Samuel Chukwueze|RW|1999|NG|15.0
+Harry Wilson|RW|1997|GB-WLS|15.0
+Kevin Santos Lopes de Macedo|LW|2003|BR|14.8|Kevin
+Raúl Jiménez|ST|1991|MX|15.2
+Rodrigo Muniz|ST|2001|BR|14.8`,
+  "West Ham United": `
+Alphonse Areola|GK|1993|FR|15.0
+Mads Hermansen|GK|2000|DK|14.8
+Max Kilman|CB|1997|GB-ENG|15.2
+Jean-Clair Todibo|CB|1999|FR|15.0
+Konstantinos Mavropanos|CB|1997|GR|14.8
+El Hadji Malick Diouf|LB|2004|SN|15.0
+Aaron Wan-Bissaka|RB|1997|CD|15.2
+Tomáš Souček|CM|1995|CZ|15.0
+Mateus Fernandes|CM|2004|PT|15.0
+Guido Rodríguez|DM|1994|AR|14.8
+Soungoutou Magassa|DM|2003|FR|14.4
+Lucas Paquetá|AM|1997|BR|16.0
+Jarrod Bowen|RW|1996|GB-ENG|16.2
+Crysencio Summerville|LW|2001|NL|15.2
+Callum Wilson|ST|1992|GB-ENG|14.6
+Niclas Füllkrug|ST|1993|DE|14.8`,
+  Everton: `
+Jordan Pickford|GK|1994|GB-ENG|16.2
+Mark Travers|GK|1999|IE|14.4
+James Tarkowski|CB|1992|GB-ENG|15.4
+Jarrad Branthwaite|CB|2002|GB-ENG|15.8
+Michael Keane|CB|1993|GB-ENG|14.6
+Jake O'Brien|CB|2001|IE|14.8
+Vitalii Mykolenko|LB|1999|UA|15.0
+Seamus Coleman|RB|1988|IE|13.8
+Idrissa Gueye|DM|1989|SN|15.0
+James Garner|CM|2001|GB-ENG|15.2
+Tim Iroegbunam|CM|2003|GB-ENG|14.4
+Kiernan Dewsbury-Hall|CM|1998|GB-ENG|15.4
+Carlos Alcaraz|CM|2002|AR|14.6
+Jack Grealish|LW|1995|GB-ENG|16.0
+Iliman Ndiaye|LW|2000|SN|15.8
+Dwight McNeil|LW|1999|GB-ENG|15.0
+Tyler Dibling|RW|2006|GB-ENG|14.8
+Thierno Barry|ST|2002|FR|15.0
+Norberto Bercique Gomes Betuncal|ST|1998|GW|14.6|Beto`,
+  "Wolverhampton Wanderers": `
+José Sá|GK|1993|PT|15.0
+Sam Johnstone|GK|1993|GB-ENG|14.4
+Emmanuel Agbadou|CB|1997|CI|15.0
+Toti Gomes|CB|1999|PT|14.8
+Santiago Bueno|CB|1998|UY|14.6
+Yerson Mosquera|CB|2001|CO|14.6
+Hugo Bueno|LB|2002|ES|14.4
+Matt Doherty|RB|1992|IE|14.2
+Jackson Tchatchoua|RB|2001|CM|14.6
+André Trindade da Costa Neto|DM|2001|BR|15.4|André
+João Gomes|CM|2001|BR|15.6
+Marshall Munetsi|CM|1996|ZW|14.6
+Jean-Ricner Bellegarde|AM|1998|HT|14.8
+Fer López|AM|2004|ES|14.4
+Hee-chan Hwang|RW|1996|KR|14.8|Hwang Hee-chan
+Rodrigo Gomes|LW|2003|PT|14.4
+Jørgen Strand Larsen|ST|2000|NO|15.4
+Tolu Arokodare|ST|2000|NG|14.6`,
+  "Leeds United": `
+Lucas Perri|GK|1997|BR|14.8
+Illan Meslier|GK|2000|FR|14.6
+Pascal Struijk|CB|1999|NL|14.8
+Joe Rodon|CB|1997|GB-WLS|15.0
+Jaka Bijol|CB|1999|SI|15.2
+Sebastiaan Bornauw|CB|1999|BE|14.4
+Gabriel Gudmundsson|LB|1999|SE|14.6
+Jayden Bogle|RB|2000|GB-ENG|14.6
+Ethan Ampadu|DM|2000|GB-WLS|15.0
+Anton Stach|CM|1998|DE|15.0
+Ilia Gruev|DM|2000|BG|14.4
+Sean Longstaff|CM|1997|GB-ENG|14.6
+Brenden Aaronson|AM|2000|US|14.8
+Daniel James|RW|1997|GB-WLS|14.8
+Wilfried Gnonto|LW|2003|IT|14.8
+Noah Okafor|LW|2000|CH|15.0
+Dominic Calvert-Lewin|ST|1997|GB-ENG|15.0
+Lukas Nmecha|ST|1998|DE|14.4
+Joël Piroe|ST|1999|NL|14.6`,
+  Sunderland: `
+Robin Roefs|GK|2003|NL|14.6
+Omar Alderete|CB|1996|PY|14.8
+Dan Ballard|CB|1999|GB-NIR|14.6
+Nordi Mukiele|RB|1997|FR|15.0
+Trai Hume|RB|2002|GB-NIR|14.4
+Reinildo Mandava|LB|1994|MZ|14.8
+Granit Xhaka|CM|1992|CH|16.0
+Noah Sadiki|DM|2004|BE|14.6
+Habib Diarra|CM|2004|SN|14.8
+Enzo Le Fée|CM|2000|FR|15.0
+Dan Neil|CM|2001|GB-ENG|14.2
+Chris Rigg|CM|2007|GB-ENG|14.0
+Simon Adingra|LW|2002|CI|15.0
+Bertrand Traoré|RW|1995|BF|14.6
+Chemsdine Talbi|RW|2005|MA|14.4
+Wilson Isidor|ST|2000|FR|14.8
+Brian Brobbey|ST|2002|NL|14.8
+Eliezer Mayenda|ST|2005|ES|14.0`,
+  Burnley: `
+Martin Dúbravka|GK|1989|SK|14.8
+Maxime Estève|CB|2002|FR|14.8
+Hjalmar Ekdal|CB|1998|SE|14.4
+Axel Tuanzebe|CB|1997|CD|14.2
+Kyle Walker|RB|1990|GB-ENG|15.2
+Quilindschy Hartman|LB|2001|NL|14.6
+Lucas Pires|LB|2001|BR|14.4
+Josh Cullen|DM|1996|IE|14.6
+Josh Laurent|CM|1995|GB-ENG|14.2
+Lesley Ugochukwu|DM|2004|FR|14.4
+Florentino Luís|DM|1999|PT|14.6
+Hannibal Mejbri|AM|2003|TN|14.4
+Jaidon Anthony|LW|2000|GB-ENG|14.6
+Loum Tchaouna|RW|2003|FR|14.4
+Marcus Edwards|RW|1998|GB-ENG|14.4
+Zian Flemming|ST|1998|NL|14.4
+Lyle Foster|ST|2000|ZA|14.4
+Armando Broja|ST|2001|AL|14.6`,
+};

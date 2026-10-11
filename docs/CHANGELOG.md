@@ -17,8 +17,14 @@
 
 ### Paquete opcional de clubes reales
 - `dataPack: "real"` (CLI: `--real`): las 10 ligas con sus clubes reales de 2025/26 (más tercera división como nivel en sombra) y los grandes de 17 ligas europeas no jugables, con colores, estadios de primera y una fuerza aproximada editable (`packages/data/src/real/clubs.ts`).
-- Los jugadores siguen siendo ficticios. El mundo por defecto no cambia (mismo hash).
-- `--top=20` muestra los clubes más fuertes por la media de su mejor once.
+- **Jugadores reales**: ~1.800 jugadores (plantillas 2025/26 de los 98 clubes de primera división y los internacionales que juegan en Portugal, Países Bajos, Bélgica, Escocia, Turquía, Arabia Saudí, MLS, Brasil, Argentina y México). Las selecciones convocan a sus estrellas reales. Los huecos de plantilla se completan con suplentes ficticios.
+- Los niveles son estimaciones del juego y la personalidad se genera al azar sin arquetipos extremos sembrados.
+- **CSV**: `--export-players=jugadores.csv` exporta el pack; `--players=jugadores.csv` carga uno editado (con validación de club, nación, posición y nivel).
+- `--top=20` (clubes más fuertes) y `--squad="Real Madrid"` / `--squad=ES` (plantilla o convocatoria).
+- Hash del mundo de referencia actualizado: se añadieron 6 naciones africanas (Gambia, Guinea-Bisáu, Zimbabue, Mozambique, Togo, Guinea Ecuatorial) necesarias para nacionalidades reales.
+
+### Ideas registradas para fases futuras
+- Cláusulas de contrato (recompra por años, pagos a plazos, etc.) y roles jugables de director deportivo y presidente: `DISEÑO.md` §11.
 
 ### Provisional (se sustituye en la Fase 2)
 - Los partidos se resuelven con un **modelo rápido de Poisson** por calidad del once (`match/quick.ts`), solo para que las competiciones avancen y poder probar calendario, clasificatorias y ascensos durante varias temporadas. No está calibrado contra los rangos de la §11.

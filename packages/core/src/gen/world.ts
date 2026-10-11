@@ -3,7 +3,7 @@
 
 import {
   NATION_LEAGUES, NATIONS, PLAYABLE_CITIES, REAL_LEAGUES, REAL_SHADOW_CLUBS, nationByCode, type CityData, type NationData,
-  type RealClub,
+  REAL_PLAYERS, type RealClub, type RealPlayerRecord,
 } from "@tf/data";
 import { SQUAD_TEMPLATE, type Position } from "../config/attributes";
 import {
@@ -14,7 +14,7 @@ import {
 } from "../config/generation";
 import { currentAbility } from "../player/ability";
 import { Rng } from "../rng/rng";
-import { dayOf, seasonStartDay } from "../time/calendar";
+import { ageOn, dayOf, seasonStartDay } from "../time/calendar";
 import type { Club, League, Nation, NationalTeam, Player, SquadStatus, World } from "../types/domain";
 import {
   nationalTeamIdOf, type ClubId, type GameDay, type LeagueId, type NationId, type PlayerId, type StaffId,
@@ -23,6 +23,7 @@ import { clamp, clamp01, round } from "../util/math";
 import { nextId } from "../world/ids";
 import { generateClub } from "./clubs";
 import { generatePlayer } from "./player";
+import { normalizePosition, splitName, validateRealPlayers } from "./realPlayers";
 import { generateStaff } from "./staff";
 
 export interface GenerateOptions {
@@ -33,6 +34,12 @@ export interface GenerateOptions {
    * aproximada (paquete opcional de @tf/data); los jugadores siguen siendo ficticios.
    */
   dataPack?: "fictional" | "real";
+  /**
+   * Jugadores reales (solo con dataPack "real"). Si no se pasan, se usa el pack embebido
+   * de @tf/data; la CLI puede cargarlos de un CSV. Los huecos de cada plantilla se
+   * completan con jugadores ficticios.
+   */
+  players?: readonly RealPlayerRecord[];
 }
 
 interface Place {
@@ -102,22 +109,70 @@ function wageFor(ca: number, club: Club): number {
   return Math.max(250, Math.round((900 * Math.exp((ca - 8) * 0.5) * factor) / 50) * 50);
 }
 
-function generateSquad(world: World, root: Rng, club: Club, nation: NationData, foreignShare: number, size: "full" | "shadow"): void {
+function generateSquad(
+  world: World,
+  root: Rng,
+  club: Club,
+  nation: NationData,
+  foreignShare: number,
+  size: "full" | "shadow",
+  real: readonly RealPlayerRecord[] = [],
+): void {
   const rng = root.fork(`gen/squad/${club.id}`);
   const today = world.meta.today;
+  const contractEnd = (years: number) => dayOf(world.meta.startYear + years, 6, 30);
+  const realByPosition = new Map<Position, number>();
+
+  // Jugadores reales primero (titulares y rotación); luego se rellenan los huecos.
+  for (const record of real) {
+    const position = normalizePosition(record.position)!;
+    realByPosition.set(position, (realByPosition.get(position) ?? 0) + 1);
+    const birthDay = (dayOf(record.birthYear, 1, 1) + rng.int(0, 364)) as GameDay;
+    const id = nextId<PlayerId>(world, "pl");
+    const player = generatePlayer(rng, root, {
+      id,
+      nation: nationByCode(record.nation),
+      position,
+      targetCA: record.rating,
+      age: Math.max(15, ageOn(birthDay, today)),
+      today,
+      clubId: club.id,
+      homegrown: false,
+      youthQuality: club.facilities.youth,
+      allowSeed: false,
+      fixed: { ...splitName(record.name), ...(record.knownAs ? { knownAs: record.knownAs } : {}), birthDay },
+    });
+    const ca = currentAbility(player);
+    player.contract = {
+      clubId: club.id,
+      wage: wageFor(ca, club),
+      expires: contractEnd(rng.int(1, 5)),
+      signed: (today - rng.int(30, 1500)) as GameDay,
+      squadStatus: record.rating >= club.quality + 0.8 ? "keyPlayer" : record.rating >= club.quality - 0.3 ? "firstTeam" : "rotation",
+    };
+    player.reputation = round(clamp01(0.7 * player.reputation + 0.3 * club.reputation), 3);
+    world.players[id] = player;
+    club.squad.push(id);
+  }
+
   const slots: { position: Position; depth: number; prospect: boolean }[] = [];
   for (const [pos, count] of Object.entries(SQUAD_TEMPLATE) as [Position, number][]) {
     const n = size === "full" ? count : Math.max(1, Math.round((count * SHADOW_SQUAD_SIZE) / 29));
-    for (let d = 0; d < n; d++) slots.push({ position: pos, depth: d, prospect: false });
+    // Con jugadores reales, los ficticios solo cubren los huecos (como suplentes).
+    // Con una plantilla real ya amplia (≥ 20), solo se completan porteros.
+    if (real.length >= 20 && pos !== "GK") continue;
+    for (let d = realByPosition.get(pos) ?? 0; d < n; d++) slots.push({ position: pos, depth: real.length ? Math.max(d, 2) + 1 : d, prospect: false });
   }
   if (size === "full") {
     const positions = Object.keys(SQUAD_TEMPLATE) as Position[];
     for (let i = 0; i < PROSPECTS_PER_SQUAD; i++) slots.push({ position: rng.pick(positions), depth: 9, prospect: true });
   }
-  const contractEnd = (years: number) => dayOf(world.meta.startYear + years, 6, 30);
   for (const slot of slots) {
     const age = slot.prospect ? rng.int(17, 19) : Math.round(clamp(rng.normal(AGE_MEAN, AGE_SD), AGE_MIN, AGE_MAX));
-    const offset = slot.prospect ? PROSPECT_OFFSET : DEPTH_OFFSETS[Math.min(slot.depth, DEPTH_OFFSETS.length - 1)]!;
+    const extraDepth = Math.max(0, slot.depth - (DEPTH_OFFSETS.length - 1));
+    const offset = slot.prospect
+      ? PROSPECT_OFFSET
+      : DEPTH_OFFSETS[Math.min(slot.depth, DEPTH_OFFSETS.length - 1)]! - 0.8 * extraDepth;
     const agePenalty = Math.max(0, 22 - age) * YOUTH_CA_PENALTY + Math.max(0, age - 32) * VETERAN_CA_PENALTY;
     const targetCA = clamp(club.quality + offset - agePenalty + rng.normal(0, 0.45), 3, 19.5);
     const foreign = !slot.prospect && rng.chance(foreignShare * (0.7 + 0.6 * club.reputation));
@@ -229,6 +284,14 @@ export function generateWorld(opts: GenerateOptions): World {
     world.nations[n.code] = nation;
   }
 
+  const realPlayers = real ? (opts.players ?? REAL_PLAYERS) : [];
+  if (realPlayers.length) {
+    const errors = validateRealPlayers(realPlayers);
+    if (errors.length) throw new Error(`Jugadores reales con errores:\n${errors.slice(0, 20).join("\n")}`);
+  }
+  const realByClub = new Map<string, RealPlayerRecord[]>();
+  for (const r of realPlayers) (realByClub.get(r.club) ?? realByClub.set(r.club, []).get(r.club)!).push(r);
+
   const usedNames = new Set<string>();
   const clubNation = new Map<ClubId, { nation: NationData; foreignShare: number }>();
 
@@ -319,7 +382,7 @@ export function generateWorld(opts: GenerateOptions): World {
   for (const club of Object.values(world.clubs)) {
     const { nation, foreignShare } = clubNation.get(club.id)!;
     const full = club.leagueId !== null;
-    generateSquad(world, root, club, nation, foreignShare, full ? "full" : "shadow");
+    generateSquad(world, root, club, nation, foreignShare, full ? "full" : "shadow", realByClub.get(club.name) ?? []);
     const level = clamp(club.quality * 0.85 + 1.5, 4, 19);
     if (full) {
       for (const [role, n] of Object.entries(STAFF_PER_CLUB) as [keyof typeof STAFF_PER_CLUB, number][]) {

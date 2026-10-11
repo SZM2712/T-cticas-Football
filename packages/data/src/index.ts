@@ -5,3 +5,4 @@ export * from "./clubNames";
 export * from "./blocklist";
 export * from "./leagues";
 export * from "./real/clubs";
+export * from "./real/players";

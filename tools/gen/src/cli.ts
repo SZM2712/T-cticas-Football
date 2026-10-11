@@ -1,11 +1,14 @@
-// npm run gen -- --seed=123 [--real] [--seasons=4] [--stats] [--top=20] [--out=world.json]
+// npm run gen -- --seed=123 [--real] [--players=jugadores.csv] [--export-players=jugadores.csv]
+//                 [--seasons=4] [--stats] [--top=20] [--squad="Real Madrid" | --squad=ES] [--out=world.json]
 // Genera un mundo, imprime su hash y, opcionalmente, estadísticas y simulación de temporadas
 // (con el modelo rápido provisional de la Fase 1).
 
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import {
-  advanceSeasons, ageOn, classifyArchetype, currentAbility, hashValue, newGame, quantile, teamRating, type World,
+  advanceSeasons, ageOn, classifyArchetype, currentAbility, displayName, hashValue, newGame, quantile, teamRating,
+  type GenerateOptions, type World,
 } from "@tf/core";
+import { REAL_PLAYERS, realPlayersFromCsv, realPlayersToCsv } from "@tf/data";
 import { competitionName, nationName } from "@tf/i18n";
 
 function args(): Record<string, string> {
@@ -52,6 +55,25 @@ function top(world: World, n: number): void {
   });
 }
 
+/** Plantilla de un club (por nombre) o convocatoria de una selección (por código: ES, GB-ENG…). */
+function squad(world: World, query: string): void {
+  const team = world.nationalTeams[`nt_${query}`];
+  const club = Object.values(world.clubs).find((c) => c.name.toLowerCase() === query.toLowerCase());
+  const ids = team ? team.squad : club?.squad;
+  if (!ids) {
+    console.log(`\nNo encuentro "${query}" (usa el nombre exacto del club o el código de la selección).`);
+    return;
+  }
+  console.log(`\n${team ? nationName("es", query) : club!.name}:`);
+  ids
+    .map((id) => world.players[id]!)
+    .sort((a, b) => currentAbility(b) - currentAbility(a))
+    .forEach((p) => {
+      const age = ageOn(p.birthDay, world.meta.today);
+      console.log(`  ${p.position.padEnd(3)} ${displayName(p).padEnd(28)} ${String(age).padStart(2)} años  ${p.internationalNation.padEnd(6)} ${currentAbility(p).toFixed(1)}`);
+    });
+}
+
 function history(world: World): void {
   for (const record of world.history) {
     console.log(`\nTemporada ${record.season}/${String(record.season + 1).slice(2)}`);
@@ -65,11 +87,33 @@ function history(world: World): void {
 const opts = args();
 const seed = opts.seed ?? "123";
 const t0 = performance.now();
-const game = newGame({ seed, ...(opts.real ? { dataPack: "real" as const } : {}) });
+if (opts["export-players"]) {
+  writeFileSync(opts["export-players"], realPlayersToCsv(REAL_PLAYERS));
+  console.log(`${REAL_PLAYERS.length} jugadores reales exportados a ${opts["export-players"]}`);
+}
+const genOpts: GenerateOptions = { seed };
+if (opts.real || opts.players) genOpts.dataPack = "real";
+if (opts.players) {
+  const { records, errors } = realPlayersFromCsv(readFileSync(opts.players, "utf8"));
+  if (errors.length) {
+    console.error(`Errores en ${opts.players}:\n${errors.join("\n")}`);
+    process.exit(1);
+  }
+  genOpts.players = records;
+  console.log(`${records.length} jugadores cargados de ${opts.players}`);
+}
+let game: ReturnType<typeof newGame>;
+try {
+  game = newGame(genOpts);
+} catch (e) {
+  console.error((e as Error).message);
+  process.exit(1);
+}
 const genMs = performance.now() - t0;
-console.log(`${opts.real ? "Clubes reales · " : ""}Semilla ${seed} · mundo generado en ${genMs.toFixed(0)} ms · hash ${hashValue(game.world)}`);
+console.log(`${genOpts.dataPack ? "Datos reales · " : ""}Semilla ${seed} · mundo generado en ${genMs.toFixed(0)} ms · hash ${hashValue(game.world)}`);
 if (opts.stats) stats(game.world);
 if (opts.top) top(game.world, Number(opts.top) || 20);
+if (opts.squad) squad(game.world, opts.squad);
 const seasons = Number(opts.seasons ?? 0);
 if (seasons > 0) {
   const t1 = performance.now();

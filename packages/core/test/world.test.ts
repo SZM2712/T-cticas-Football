@@ -8,7 +8,7 @@ import {
  * Hash del mundo de referencia (seed=123). Si un cambio lo altera, debe ser intencional:
  * actualízalo en el mismo commit explicando por qué (CLAUDE.md).
  */
-const GOLDEN_HASH_123 = "76ea21775a98da0c";
+const GOLDEN_HASH_123 = "33275173be3923d6";
 
 let world: World;
 beforeAll(() => {

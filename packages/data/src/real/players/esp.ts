@@ -1,0 +1,383 @@
+// Plantillas reales aproximadas de LaLiga (2025/26). Formato: ver eng.ts.
+
+export const ESP_PLAYERS: Record<string, string> = {
+  "Real Madrid": `
+Thibaut Courtois|GK|1992|BE|17.4
+Andriy Lunin|GK|1999|UA|15.2
+Antonio Rüdiger|CB|1993|DE|16.4
+Éder Militão|CB|1998|BR|16.4
+Dean Huijsen|CB|2005|ES|16.2
+Raúl Asencio|CB|2003|ES|15.2
+David Alaba|CB|1992|AT|15.4
+Álvaro Carreras|LB|2003|ES|16.0
+Ferland Mendy|LB|1995|FR|15.6
+Fran García|LB|1999|ES|15.0
+Trent Alexander-Arnold|RB|1998|GB-ENG|16.8
+Dani Carvajal|RB|1992|ES|16.0
+Aurélien Tchouaméni|DM|2000|FR|16.6
+Eduardo Camavinga|CM|2002|FR|16.3
+Federico Valverde|CM|1998|UY|17.3
+Dani Ceballos|CM|1996|ES|15.2
+Jude Bellingham|AM|2003|GB-ENG|18.0
+Arda Güler|AM|2005|TR|16.6
+Franco Mastantuono|RW|2007|AR|15.6
+Brahim Díaz|RW|1999|MA|15.6
+Rodrygo Goes|RW|2001|BR|16.6|Rodrygo
+Vinícius José de Oliveira Júnior|LW|2000|BR|18.2|Vinícius Júnior
+Kylian Mbappé|ST|1998|FR|18.8
+Gonzalo García|ST|2004|ES|14.8
+Endrick Felipe Moreira de Sousa|ST|2006|BR|15.2|Endrick`,
+  "FC Barcelona": `
+Joan García|GK|2001|ES|16.2
+Marc-André ter Stegen|GK|1992|DE|16.0
+Wojciech Szczęsny|GK|1990|PL|15.2
+Pau Cubarsí|CB|2007|ES|16.6
+Ronald Araújo|CB|1999|UY|16.0
+Eric García|CB|2001|ES|15.6
+Andreas Christensen|CB|1996|DK|15.4
+Alejandro Balde|LB|2003|ES|16.0
+Gerard Martín|LB|2002|ES|14.8
+Jules Koundé|RB|1998|FR|16.6
+Frenkie de Jong|CM|1997|NL|16.8
+Pedro González|CM|2002|ES|17.8|Pedri
+Pablo Páez Gavira|CM|2004|ES|16.2|Gavi
+Marc Casadó|DM|2003|ES|15.4
+Marc Bernal|DM|2007|ES|14.8
+Dani Olmo|AM|1998|ES|16.4
+Fermín López|AM|2003|ES|16.0
+Lamine Yamal|RW|2007|ES|18.4
+Roony Bardghji|RW|2005|SE|14.6
+Raphael Dias Belloli|LW|1996|BR|17.6|Raphinha
+Marcus Rashford|LW|1997|GB-ENG|16.0
+Ferran Torres|ST|2000|ES|15.6
+Robert Lewandowski|ST|1988|PL|16.8`,
+  "Atlético de Madrid": `
+Jan Oblak|GK|1993|SI|16.6
+Juan Musso|GK|1994|AR|14.8
+José María Giménez|CB|1995|UY|15.8
+Robin Le Normand|CB|1996|ES|15.6
+Dávid Hancko|CB|1997|SK|15.8
+Clément Lenglet|CB|1995|FR|15.0
+Matteo Ruggeri|LB|2002|IT|15.0
+Javi Galán|LB|1994|ES|14.6
+Marc Pubill|RB|2003|ES|15.0
+Nahuel Molina|RB|1998|AR|15.2
+Jorge Resurrección|CM|1992|ES|15.4|Koke
+Pablo Barrios|CM|2003|ES|15.8
+Johnny Cardoso|DM|2001|US|15.2
+Conor Gallagher|CM|2000|GB-ENG|15.8
+Thiago Almada|AM|2001|AR|15.8
+Àlex Baena|LW|2001|ES|16.2
+Giuliano Simeone|RW|2002|AR|15.4
+Nicolás González|RW|1998|AR|15.4
+Antoine Griezmann|ST|1991|FR|16.2
+Julián Álvarez|ST|2000|AR|17.2
+Alexander Sørloth|ST|1995|NO|15.8
+Giacomo Raspadori|ST|2000|IT|15.2`,
+  "Athletic Club": `
+Unai Simón|GK|1997|ES|16.2
+Dani Vivian|CB|1999|ES|15.6
+Yeray Álvarez|CB|1995|ES|15.0
+Aitor Paredes|CB|2000|ES|15.0
+Yuri Berchiche|LB|1990|ES|14.6
+Adama Boiro|LB|2002|ES|14.4
+Jesús Areso|RB|1999|ES|14.8
+Andoni Gorosabel|RB|1996|ES|14.6
+Mikel Jauregizar|DM|2003|ES|15.2
+Mikel Vesga|CM|1993|ES|14.6
+Iñigo Ruiz de Galarreta|CM|1993|ES|15.0
+Beñat Prados|CM|2001|ES|14.8
+Oihan Sancet|AM|2000|ES|15.8
+Unai Gómez|AM|2003|ES|14.6
+Nico Williams|LW|2002|ES|16.8
+Iñaki Williams|RW|1994|GH|15.6
+Álex Berenguer|LW|1995|ES|15.0
+Robert Navarro|LW|2002|ES|14.8
+Gorka Guruzeta|ST|1996|ES|15.0
+Maroan Sannadi|ST|2001|MA|14.4`,
+  Villarreal: `
+Luiz Júnior|GK|2001|BR|15.0
+Arnau Tenas|GK|2001|ES|14.6
+Renato Veiga|CB|2003|PT|15.4
+Juan Foyth|CB|1998|AR|15.0
+Logan Costa|CB|2001|CV|15.0
+Rafa Marín|CB|2002|ES|15.0
+Sergi Cardona|LB|1999|ES|14.8
+Santiago Mouriño|RB|2002|UY|14.8
+Pape Gueye|DM|1999|SN|15.4
+Thomas Partey|DM|1993|GH|15.6
+Dani Parejo|CM|1989|ES|15.2
+Santi Comesaña|CM|1996|ES|15.0
+Alberto Moleiro|AM|2003|ES|15.6
+Tajon Buchanan|RW|1999|CA|15.0
+Nicolas Pépé|RW|1995|CI|15.4
+Ilias Akhomach|RW|2004|MA|14.8
+Gerard Moreno|ST|1992|ES|15.6
+Ayoze Pérez|ST|1993|ES|15.6
+Georges Mikautadze|ST|2000|GE|15.6
+Tani Oluwaseyi|ST|2000|CA|14.6`,
+  "Real Betis": `
+Álvaro Valles|GK|1997|ES|14.8
+Pau López|GK|1994|ES|14.8
+Diego Llorente|CB|1993|ES|14.8
+Natan Bernardo de Souza|CB|2001|BR|15.0|Natan
+Marc Bartra|CB|1991|ES|14.6
+Valentín Gómez|CB|2003|AR|14.8
+Ricardo Rodríguez|LB|1992|CH|14.8
+Héctor Bellerín|RB|1995|ES|14.8
+Aitor Ruibal|RB|1996|ES|14.6
+Sofyan Amrabat|DM|1996|MA|15.4
+Marc Roca|DM|1996|ES|15.0
+Sergi Altimira|CM|2001|ES|14.8
+Francisco Román Alarcón|AM|1992|ES|16.0|Isco
+Giovani Lo Celso|AM|1996|AR|15.6
+Pablo Fornals|AM|1996|ES|15.0
+Antony Matheus dos Santos|RW|2000|BR|15.8|Antony
+Abde Ezzalzouli|LW|2001|MA|15.4
+Rodrigo Riquelme|LW|2000|ES|14.8
+Cucho Hernández|ST|1999|CO|15.2
+Chimy Ávila|ST|1994|AR|14.6`,
+  "Real Sociedad": `
+Álex Remiro|GK|1995|ES|15.6
+Igor Zubeldia|CB|1997|ES|15.2
+Jon Martín|CB|2006|ES|14.4
+Duje Ćaleta-Car|CB|1996|HR|14.8
+Aritz Elustondo|CB|1994|ES|14.4
+Sergio Gómez|LB|2000|ES|14.8
+Aihen Muñoz|LB|1997|ES|14.4
+Jon Aramburu|RB|2002|VE|14.8
+Álvaro Odriozola|RB|1995|ES|14.4
+Jon Gorrotxategi|DM|2003|ES|14.6
+Brais Méndez|AM|1997|ES|15.4
+Carlos Soler|CM|1997|ES|15.0
+Pablo Marín|CM|2003|ES|14.6
+Takefusa Kubo|RW|2001|JP|16.0
+Ander Barrenetxea|LW|2001|ES|15.0
+Arsen Zakharyan|AM|2003|RU|14.8
+Gonçalo Guedes|RW|1996|PT|15.0
+Mikel Oyarzabal|ST|1997|ES|16.0
+Orri Óskarsson|ST|2004|IS|14.8`,
+  "Celta de Vigo": `
+Iván Villar|GK|1997|ES|14.6
+Ionuț Radu|GK|1997|RO|14.6
+Carl Starfelt|CB|1995|SE|14.8
+Marcos Alonso|CB|1990|ES|14.8
+Javi Rodríguez|CB|2003|ES|14.6
+Joseph Aidoo|CB|1995|GH|14.4
+Óscar Mingueza|RB|1999|ES|15.2
+Javi Rueda|RB|2002|ES|14.4
+Sergio Carreira|LB|2000|ES|14.4
+Ilaix Moriba|CM|2003|GN|15.0
+Fran Beltrán|CM|1999|ES|14.8
+Hugo Sotelo|CM|2003|ES|14.4
+Matías Vecino|CM|1991|UY|14.6
+Williot Swedberg|AM|2004|SE|14.6
+Hugo Álvarez|LW|2003|ES|14.6
+Bryan Zaragoza|LW|2001|ES|15.0
+Pablo Durán|ST|2001|ES|14.4
+Iago Aspas|ST|1987|ES|15.0
+Borja Iglesias|ST|1993|ES|15.0
+Ferran Jutglà|ST|1999|ES|14.6`,
+  Valencia: `
+Julen Agirrezabala|GK|2000|ES|14.6
+Stole Dimitrievski|GK|1993|MK|14.6
+José Copete|CB|1999|ES|14.6
+Mouctar Diakhaby|CB|1996|GN|14.8
+César Tárrega|CB|2002|ES|14.8
+Eray Cömert|CB|1998|CH|14.4
+José Gayà|LB|1995|ES|15.0
+Jesús Vázquez|LB|2003|ES|14.4
+Dimitri Foulquier|RB|1993|FR|14.4
+Thierry Correia|RB|1999|PT|14.4
+José Luis García Vayá|DM|1998|ES|15.0|Pepelu
+Javi Guerra|CM|2003|ES|15.2
+André Almeida|AM|2000|PT|14.8
+Filip Ugrinić|CM|1999|CH|14.4
+Luis Rioja|LW|1993|ES|14.8
+Diego López|LW|2002|ES|15.0
+Dani Raba|AM|1995|ES|14.4
+Arnaut Danjuma|LW|1997|NL|15.0
+Hugo Duro|ST|1999|ES|15.0
+Lucas Beltrán|ST|2001|AR|14.8`,
+  Sevilla: `
+Ørjan Nyland|GK|1990|NO|14.6
+Odysseas Vlachodimos|GK|1994|GR|14.6
+Kike Salas|CB|2002|ES|14.6
+Tanguy Nianzou|CB|2002|FR|14.6
+Marcos do Nascimento Teixeira|CB|1996|BR|14.8|Marcão
+Andrés Castrín|CB|2004|ES|14.0
+Gabriel Suazo|LB|1997|CL|14.6
+José Ángel Carmona|RB|2002|ES|14.6
+Juanlu Sánchez|RB|2003|ES|14.6
+Nemanja Gudelj|DM|1991|RS|14.8
+Lucien Agoumé|DM|2002|FR|14.8
+Djibril Sow|CM|1997|CH|15.0
+Batista Mendy|DM|2000|FR|14.6
+Alfon González|LW|1999|ES|14.6
+Rubén Vargas|LW|1998|CH|15.0
+Chidera Ejuke|LW|1998|NG|14.8
+Adnan Januzaj|RW|1995|BE|14.4
+Isaac Romero|ST|2000|ES|14.8
+Akor Adams|ST|2000|NG|14.8
+Alexis Sánchez|ST|1988|CL|14.8`,
+  Girona: `
+Paulo Gazzaniga|GK|1992|AR|15.0
+Dominik Livaković|GK|1995|HR|15.0
+Daley Blind|CB|1990|NL|14.8
+David López|CB|1989|ES|14.4
+Alejandro Francés|CB|2002|ES|14.4
+Vitor Reis|CB|2006|BR|14.6
+Arnau Martínez|RB|2003|ES|14.8
+Hugo Rincón|RB|2003|ES|14.2
+Álex Moreno|LB|1993|ES|14.6
+Axel Witsel|DM|1989|BE|14.6
+Yangel Herrera|DM|1998|VE|15.0
+Iván Martín|CM|1999|ES|15.0
+Thomas Lemar|CM|1995|FR|14.8
+Donny van de Beek|CM|1997|NL|14.6
+Azzedine Ounahi|CM|2000|MA|15.0
+Viktor Tsygankov|RW|1997|UA|15.6
+Bryan Gil|LW|2001|ES|14.8
+Joel Roca|LW|2005|ES|14.4
+Cristhian Stuani|ST|1986|UY|14.4
+Abel Ruiz|ST|2000|ES|14.8
+Vladyslav Vanat|ST|2002|UA|15.0`,
+  Osasuna: `
+Sergio Herrera|GK|1993|ES|15.0
+Aitor Fernández|GK|1991|ES|14.4
+Alejandro Catena|CB|1994|ES|14.8
+Jorge Herrando|CB|2001|ES|14.4
+Flavien Boyomo|CB|2002|CM|14.4
+Juan Cruz|CB|1992|ES|14.0
+Abel Bretones|LB|2000|ES|14.6
+Valentin Rosier|RB|1996|FR|14.6
+Jon Moncayola|CM|1998|ES|14.8
+Lucas Torró|DM|1994|ES|14.8
+Iker Muñoz|CM|2002|ES|14.4
+Aimar Oroz|AM|2001|ES|15.0
+Rubén García|LW|1993|ES|14.6
+Moi Gómez|LW|1994|ES|14.6
+Víctor Muñoz|LW|2003|ES|14.6
+Ante Budimir|ST|1991|HR|15.2
+Raúl García de Haro|ST|2000|ES|14.4`,
+  "Rayo Vallecano": `
+Augusto Batalla|GK|1996|AR|14.8
+Dani Cárdenas|GK|1997|ES|14.2
+Florian Lejeune|CB|1991|FR|14.8
+Luiz Felipe|CB|1997|IT|14.6
+Pep Chavarría|LB|1998|ES|14.6
+Andrei Rațiu|RB|1998|RO|15.0
+Iván Balliu|RB|1992|AL|14.2
+Pathé Ciss|DM|1994|SN|14.8
+Óscar Valentín|DM|1994|ES|14.6
+Unai López|CM|1995|ES|14.6
+Isi Palazón|AM|1994|ES|15.2
+Óscar Trejo|AM|1988|AR|14.4
+Jorge de Frutos|RW|1997|ES|15.0
+Álvaro García|LW|1992|ES|14.8
+Sergio Camello|ST|2001|ES|14.6
+Randy Nteka|ST|1997|AO|14.2`,
+  Mallorca: `
+Leo Román|GK|2000|ES|14.6
+Martin Valjent|CB|1995|SK|14.8
+Antonio Raíllo|CB|1991|ES|14.6
+Johan Mojica|LB|1992|CO|14.6
+Pablo Maffeo|RB|1997|AR|14.8
+Samú Costa|DM|2000|PT|15.0
+Manu Morlanes|CM|1999|ES|14.6
+Omar Mascarell|DM|1993|ES|14.2
+Sergi Darder|AM|1993|ES|14.8
+Dani Rodríguez|AM|1988|ES|14.4
+Takuma Asano|RW|1994|JP|14.6
+Jan Virgili|LW|2006|ES|14.4
+Vedat Muriqi|ST|1994|XK|15.0
+Abdón Prats|ST|1992|ES|14.2
+Mateo Joseph|ST|2003|ES|14.4`,
+  Espanyol: `
+Marko Dmitrović|GK|1992|RS|14.8
+Leandro Cabrera|CB|1991|UY|14.6
+Fernando Calero|CB|1995|ES|14.4
+Clemens Riedel|CB|2003|DE|14.2
+Carlos Romero|LB|2001|ES|14.6
+Omar El Hilali|RB|2003|MA|14.6
+Rubén Sánchez|RB|2001|ES|14.2
+Pol Lozano|DM|1999|ES|14.6
+Edu Expósito|CM|1996|ES|14.8
+Urko González|CM|2001|ES|14.4
+Ramon Terrats|CM|2000|ES|14.4
+Pere Milla|AM|1992|ES|14.4
+Tyrhys Dolan|LW|2001|GB-ENG|14.6
+Javi Puado|ST|1998|ES|15.0
+Roberto Fernández|ST|2002|ES|14.6
+Kike García|ST|1989|ES|14.2`,
+  Getafe: `
+David Soria|GK|1993|ES|15.0
+Djené Dakonam|CB|1991|TG|14.8
+Domingos Duarte|CB|1995|PT|14.4
+Abdel Abqar|CB|1999|MA|14.2
+Diego Rico|LB|1993|ES|14.4
+Juan Iglesias|RB|1998|ES|14.4
+Allan Nyom|RB|1988|CM|13.8
+Mauro Arambarri|DM|1995|UY|15.0
+Luis Milla|CM|1994|ES|15.0
+Mario Martín|CM|2004|ES|14.4
+Christantus Uche|AM|2003|NG|14.4
+Adrián Liso|LW|2005|ES|14.2
+Borja Mayoral|ST|1997|ES|14.8`,
+  "Deportivo Alavés": `
+Antonio Sivera|GK|1996|ES|14.8
+Facundo Garcés|CB|1999|AR|14.6
+Víctor Parada|CB|2002|ES|14.2
+Nahuel Tenaglia|CB|1996|AR|14.4
+Jonny Otto|RB|1994|ES|14.4
+Manu Sánchez|LB|2000|ES|14.4
+Antonio Blanco|DM|2000|ES|14.8
+Jon Guridi|CM|1995|ES|14.4
+Pablo Ibáñez|CM|1998|ES|14.4
+Carles Aleñá|CM|1998|ES|14.4
+Carlos Vicente|RW|1999|ES|14.6
+Abde Rebbach|LW|1998|DZ|14.2
+Toni Martínez|ST|1997|ES|14.6
+Lucas Boyé|ST|1996|AR|14.6`,
+  Levante: `
+Mathew Ryan|GK|1992|AU|14.4
+Unai Elgezabal|CB|1993|ES|14.0
+Adrián de la Fuente|CB|1999|ES|14.0
+Jeremy Toljan|RB|1994|DE|14.0
+Diego Pampín|LB|2000|ES|13.8
+Oriol Rey|DM|1998|ES|14.0
+Pablo Martínez|CM|1998|ES|14.0
+Unai Vencedor|CM|2000|ES|14.0
+Carlos Álvarez|AM|2003|ES|14.4
+Roger Brugué|RW|1996|ES|14.0
+Iván Romero|ST|2001|ES|14.2
+Etta Eyong|ST|2003|CM|14.4
+José Luis Morales|ST|1987|ES|13.8`,
+  Elche: `
+Iñaki Peña|GK|1999|ES|14.4
+Matías Dituro|GK|1987|AR|14.0
+Pedro Bigas|CB|1990|ES|13.8
+David Affengruber|CB|2001|AT|14.2
+Héctor Fort|RB|2006|ES|14.4
+Álvaro Núñez|RB|2000|ES|14.0
+Marc Aguado|DM|2000|ES|14.2
+Aleix Febas|CM|1995|ES|14.2
+Martim Neto|CM|2003|PT|14.2
+Germán Valera|RW|2002|ES|14.2
+Rafa Mir|ST|1997|ES|14.4
+André Silva|ST|1995|PT|14.6`,
+  "Real Oviedo": `
+Aarón Escandell|GK|1995|ES|14.2
+David Costas|CB|1995|ES|13.8
+Dani Calvo|CB|1994|ES|13.8
+Rahim Alhassane|LB|2002|GH|13.8
+Santiago Colombatto|CM|1997|AR|14.2
+Kwasi Sibo|DM|1998|GH|14.0
+Alberto Reina|CM|1997|ES|13.8
+Santi Cazorla|AM|1984|ES|14.0
+Luka Ilić|AM|1999|RS|14.2
+Ilyas Chaira|LW|2001|MA|14.2
+Haissem Hassan|RW|2002|FR|14.0
+Salomón Rondón|ST|1989|VE|14.4
+Federico Viñas|ST|1998|UY|14.0`,
+};
