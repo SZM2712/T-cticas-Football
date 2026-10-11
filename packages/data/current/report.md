@@ -2790,3 +2790,10 @@
 - Emmanuel Ayaosi (Slavia Praha): posición "null"
 - Pavel Kačor (Slavia Praha): posición "null"
 - Oskar Kubiak (Slavia Praha): posición "null"
+
+## Revisión posterior (Claude, octubre de 2026)
+- Corregidas fechas de nacimiento erróneas de la fuente (29 jugadores recuperados por nombre y nacionalidad; 8 descartados).
+- Recuperados 29 jugadores conocidos escritos de otra forma (N'Dicka, Thuram-Ulien, Jasari, "Raúl", "Johnny"…).
+- Niveles revisados a mano para 68 jugadores (fichajes del verano de 2026 y profesionales conocidos): `tools/import/src/reviewed.ts`.
+- Segundas divisiones de España, Italia, Alemania y Francia 2026/27 verificadas por búsqueda web (la API gratuita no las incluye). Sus plantillas siguen siendo ficticias.
+- Fórmula de estimación más prudente: un fichaje desconocido se asume de rotación, no titular.

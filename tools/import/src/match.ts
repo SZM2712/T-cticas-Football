@@ -5,6 +5,7 @@ import {
   NATIONS, REAL_LEAGUES, REAL_PLAYERS, REAL_SHADOW_CLUBS, normalizeClubName, normalizePersonName,
   type RealClub, type RealDataUpdate, type RealPlayerRecord,
 } from "@tf/data";
+import { REVIEWED_RATINGS } from "./reviewed";
 
 /** Forma mínima de la respuesta de /v4/competitions/{code}/teams. */
 export interface FdTeam {
@@ -138,9 +139,15 @@ const playerKey = (name: string, year: number) => `${normalizePersonName(name)}|
 function indexKnownPlayers(known: readonly RealPlayerRecord[]) {
   const byName = new Map<string, RealPlayerRecord>();
   const byLast = new Map<string, RealPlayerRecord[]>();
+  const byNameNation = new Map<string, RealPlayerRecord[]>();
   for (const r of known) {
     byName.set(playerKey(r.name, r.birthYear), r);
     if (r.knownAs) byName.set(playerKey(r.knownAs, r.birthYear), r);
+    for (const n of [r.name, r.knownAs]) {
+      if (!n) continue;
+      const k = `${normalizePersonName(n)}|${r.nation}`;
+      byNameNation.set(k, [...(byNameNation.get(k) ?? []), r]);
+    }
     const last = normalizePersonName(r.name).split(" ").pop()!;
     const k = `${last}|${r.birthYear}|${r.nation}`;
     byLast.set(k, [...(byLast.get(k) ?? []), r]);
@@ -148,16 +155,56 @@ function indexKnownPlayers(known: readonly RealPlayerRecord[]) {
   return (name: string, year: number, nation: string): RealPlayerRecord | undefined => {
     const exact = byName.get(playerKey(name, year));
     if (exact) return exact;
+    // La fuente a veces trae la fecha de nacimiento mal: nombre + nacionalidad, si es único.
+    const sameName = byNameNation.get(`${normalizePersonName(name)}|${nation}`) ?? [];
+    if (sameName.length === 1) return sameName[0];
     const last = normalizePersonName(name).split(" ").pop()!;
     const candidates = byLast.get(`${last}|${year}|${nation}`) ?? [];
-    return candidates.length === 1 ? candidates[0] : undefined;
+    if (candidates.length === 1) return candidates[0];
+    // Último recurso: mismo año y nación con nombre parecido (guiones, apóstrofos, apellidos
+    // compuestos, nombres de una palabra como "Raúl" o "Johnny").
+    const fuzzy = known.filter((r) => r.birthYear === year && r.nation === nation && namesLookAlike(name, r));
+    return fuzzy.length === 1 ? fuzzy[0] : undefined;
   };
+}
+
+/** Similitud de Levenshtein normalizada (0..1). */
+function similarity(a: string, b: string): number {
+  if (a === b) return 1;
+  const m = a.length;
+  const n = b.length;
+  let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j]! + 1, cur[j - 1]! + 1, prev[j - 1]! + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return 1 - prev[n]! / Math.max(m, n, 1);
+}
+
+const compact = (s: string) => normalizePersonName(s).replace(/[^a-z ]/g, "");
+
+export function namesLookAlike(apiName: string, r: RealPlayerRecord): boolean {
+  const api = compact(apiName);
+  const apiTokens = api.split(" ").filter(Boolean);
+  for (const candidate of [r.name, r.knownAs]) {
+    if (!candidate) continue;
+    const k = compact(candidate);
+    const kTokens = k.split(" ").filter(Boolean);
+    if (similarity(api.replace(/ /g, ""), k.replace(/ /g, "")) >= 0.82) return true;
+    // "Aitor Paredes Casamichana" ⊇ "Aitor Paredes"; "Raúl" ∈ "Raúl Asencio".
+    const [small, big] = apiTokens.length <= kTokens.length ? [apiTokens, kTokens] : [kTokens, apiTokens];
+    if (small.length && small.every((t) => big.some((b) => similarity(t, b) >= 0.8))) return true;
+  }
+  return false;
 }
 
 /** Nivel provisional para un jugador nuevo: según la fuerza del club, la edad y la posición. */
 export function estimateRating(clubQuality: number, age: number, position: string): number {
-  let r = clubQuality + 0.6;
-  if (age < 20) r -= 1.8;
+  // Sin datos de rendimiento, un fichaje desconocido se asume de rotación, no titular.
+  let r = clubQuality - 0.2;
+  if (age < 19) r -= 2.6;
+  else if (age < 21) r -= 1.6;
   else if (age < 23) r -= 0.8;
   else if (age > 33) r -= 1.0;
   else if (age > 30) r -= 0.4;
@@ -230,10 +277,20 @@ export function buildImport(
           continue;
         }
         const old = findKnown(p.name, year, nation);
+        const plausible = (y: number) => today.getUTCFullYear() - y >= 15 && today.getUTCFullYear() - y <= 45;
+        if (!plausible(year) && !old) {
+          report.skipped.push(`${p.name} (${club.n}): fecha de nacimiento errónea en la fuente (${p.dateOfBirth})`);
+          continue;
+        }
         const age = today.getUTCFullYear() - year;
         const record: RealPlayerRecord = old
           ? { ...old, club: club.n, position: old.position || position }
           : { club: club.n, name: p.name, position, birthYear: year, nation, rating: estimateRating(club.q, age, position), estimated: true };
+        const reviewed = REVIEWED_RATINGS[`${p.name}|${year}`] ?? (old ? REVIEWED_RATINGS[`${old.name}|${old.birthYear}`] : undefined);
+        if (reviewed !== undefined) {
+          record.rating = reviewed;
+          delete record.estimated;
+        }
         if (old) {
           report.playersKept++;
           seen.add(old);

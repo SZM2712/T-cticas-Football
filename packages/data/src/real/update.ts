@@ -18,6 +18,8 @@ export interface RealDataUpdate {
   importedAt: string;
   season: string;
   leagues: RealLeagueUpdate[];
+  /** Procedencia de cada parte de los datos. */
+  notes?: string[];
 }
 
 /**

@@ -1732,6 +1732,849 @@
           "f": 1969
         }
       ]
+    },
+    {
+      "nation": "ES",
+      "tier": 2,
+      "clubs": [
+        {
+          "n": "UD Las Palmas",
+          "s": "Las Palmas",
+          "c": "Las Palmas",
+          "q": 11.8,
+          "col": [
+            "#FFE400",
+            "#004A9F"
+          ]
+        },
+        {
+          "n": "Real Valladolid",
+          "s": "Valladolid",
+          "c": "Valladolid",
+          "q": 11.7,
+          "col": [
+            "#6B2C91",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "UD Almería",
+          "s": "Almería",
+          "c": "Almería",
+          "q": 11.7,
+          "col": [
+            "#EE1C25",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "CD Leganés",
+          "s": "Leganés",
+          "c": "Leganés",
+          "q": 11.6,
+          "col": [
+            "#0055A5",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Granada CF",
+          "s": "Granada",
+          "c": "Granada",
+          "q": 11.4,
+          "col": [
+            "#C8102E",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Cádiz CF",
+          "s": "Cádiz",
+          "c": "Cádiz",
+          "q": 11.2,
+          "col": [
+            "#FFE500",
+            "#0045A5"
+          ]
+        },
+        {
+          "n": "Sporting de Gijón",
+          "s": "Sporting",
+          "c": "Gijón",
+          "q": 11.1,
+          "col": [
+            "#E30613",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "CD Castellón",
+          "s": "Castellón",
+          "c": "Castellón",
+          "q": 11.1,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ]
+        },
+        {
+          "n": "SD Eibar",
+          "s": "Eibar",
+          "c": "Eibar",
+          "q": 11,
+          "col": [
+            "#A50044",
+            "#004D98"
+          ]
+        },
+        {
+          "n": "Burgos CF",
+          "s": "Burgos",
+          "c": "Burgos",
+          "q": 10.9,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Córdoba CF",
+          "s": "Córdoba",
+          "c": "Córdoba",
+          "q": 10.9,
+          "col": [
+            "#FFFFFF",
+            "#00843D"
+          ]
+        },
+        {
+          "n": "Albacete Balompié",
+          "s": "Albacete",
+          "c": "Albacete",
+          "q": 10.8,
+          "col": [
+            "#FFFFFF",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "FC Andorra",
+          "s": "Andorra",
+          "c": "Andorra la Vella",
+          "q": 10.6,
+          "col": [
+            "#002F87",
+            "#FCD116"
+          ]
+        },
+        {
+          "n": "AD Ceuta",
+          "s": "Ceuta",
+          "c": "Ceuta",
+          "q": 10.4,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Real Sociedad B",
+          "s": "R. Sociedad B",
+          "c": "San Sebastián",
+          "q": 10.3,
+          "col": [
+            "#0067B1",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Girona",
+          "c": "Girona",
+          "q": 13.5,
+          "col": [
+            "#CD2534",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Montilivi",
+            14624
+          ],
+          "f": 1930
+        },
+        {
+          "n": "Mallorca",
+          "c": "Palma",
+          "q": 13.3,
+          "col": [
+            "#E20613",
+            "#000000"
+          ],
+          "st": [
+            "Son Moix",
+            26020
+          ],
+          "f": 1916
+        },
+        {
+          "n": "Real Oviedo",
+          "s": "Oviedo",
+          "c": "Oviedo",
+          "q": 12.6,
+          "col": [
+            "#0047AB",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Carlos Tartiere",
+            30500
+          ],
+          "f": 1926
+        },
+        {
+          "n": "CD Tenerife",
+          "s": "Tenerife",
+          "c": "Santa Cruz de Tenerife",
+          "q": 10.2,
+          "col": [
+            "#FFFFFF",
+            "#0057B8"
+          ]
+        },
+        {
+          "n": "CD Eldense",
+          "s": "Eldense",
+          "c": "Elda",
+          "q": 9.7,
+          "col": [
+            "#002F87",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Celta Fortuna",
+          "s": "Celta B",
+          "c": "Vigo",
+          "q": 10.3,
+          "col": [
+            "#8AC3EE",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "CE Sabadell",
+          "s": "Sabadell",
+          "c": "Sabadell",
+          "q": 9.6,
+          "col": [
+            "#0057B8",
+            "#FFFFFF"
+          ]
+        }
+      ]
+    },
+    {
+      "nation": "IT",
+      "tier": 2,
+      "clubs": [
+        {
+          "n": "Empoli",
+          "c": "Empoli",
+          "q": 11.6,
+          "col": [
+            "#005BAC",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Palermo",
+          "c": "Palermo",
+          "q": 11.6,
+          "col": [
+            "#F4A5C1",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Sampdoria",
+          "c": "Genova",
+          "q": 11,
+          "col": [
+            "#0057B8",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Modena",
+          "c": "Modena",
+          "q": 11,
+          "col": [
+            "#FFE500",
+            "#0057B8"
+          ]
+        },
+        {
+          "n": "Catanzaro",
+          "c": "Catanzaro",
+          "q": 10.9,
+          "col": [
+            "#FFE500",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Cesena",
+          "c": "Cesena",
+          "q": 10.8,
+          "col": [
+            "#FFFFFF",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Südtirol",
+          "c": "Bolzano",
+          "q": 10.6,
+          "col": [
+            "#FFFFFF",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Juve Stabia",
+          "c": "Castellammare di Stabia",
+          "q": 10.6,
+          "col": [
+            "#FFE500",
+            "#0057B8"
+          ]
+        },
+        {
+          "n": "Padova",
+          "c": "Padova",
+          "q": 10.5,
+          "col": [
+            "#FFFFFF",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Carrarese",
+          "c": "Carrara",
+          "q": 10.5,
+          "col": [
+            "#FFE500",
+            "#0057B8"
+          ]
+        },
+        {
+          "n": "Mantova",
+          "c": "Mantova",
+          "q": 10.5,
+          "col": [
+            "#FFFFFF",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Avellino",
+          "c": "Avellino",
+          "q": 10.4,
+          "col": [
+            "#00843D",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Virtus Entella",
+          "s": "Entella",
+          "c": "Chiavari",
+          "q": 10.3,
+          "col": [
+            "#5BC2E7",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Cremonese",
+          "c": "Cremona",
+          "q": 12.6,
+          "col": [
+            "#B72126",
+            "#8A8D8F"
+          ],
+          "st": [
+            "Stadio Giovanni Zini",
+            16003
+          ],
+          "f": 1903
+        },
+        {
+          "n": "Pisa",
+          "c": "Pisa",
+          "q": 12.6,
+          "col": [
+            "#000000",
+            "#004D98"
+          ],
+          "st": [
+            "Arena Garibaldi",
+            10500
+          ],
+          "f": 1909
+        },
+        {
+          "n": "Hellas Verona",
+          "s": "Verona",
+          "c": "Verona",
+          "q": 12.9,
+          "col": [
+            "#FFE500",
+            "#003C82"
+          ],
+          "st": [
+            "Stadio Marcantonio Bentegodi",
+            31045
+          ],
+          "f": 1903
+        },
+        {
+          "n": "Vicenza",
+          "c": "Vicenza",
+          "q": 10,
+          "col": [
+            "#FFFFFF",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Arezzo",
+          "c": "Arezzo",
+          "q": 9.7,
+          "col": [
+            "#8B1E3F",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Benevento",
+          "c": "Benevento",
+          "q": 10.1,
+          "col": [
+            "#FFE500",
+            "#C8102E"
+          ]
+        },
+        {
+          "n": "Ascoli",
+          "c": "Ascoli Piceno",
+          "q": 10.2,
+          "col": [
+            "#000000",
+            "#FFFFFF"
+          ]
+        }
+      ]
+    },
+    {
+      "nation": "DE",
+      "tier": 2,
+      "clubs": [
+        {
+          "n": "Holstein Kiel",
+          "s": "Kiel",
+          "c": "Kiel",
+          "q": 11.8,
+          "col": [
+            "#003C8F",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "VfL Bochum",
+          "s": "Bochum",
+          "c": "Bochum",
+          "q": 11.8,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Hertha BSC",
+          "s": "Hertha",
+          "c": "Berlin",
+          "q": 11.6,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Hannover 96",
+          "s": "Hannover",
+          "c": "Hannover",
+          "q": 11.5,
+          "col": [
+            "#00A650",
+            "#000000"
+          ]
+        },
+        {
+          "n": "1. FC Kaiserslautern",
+          "s": "Kaiserslautern",
+          "c": "Kaiserslautern",
+          "q": 11.4,
+          "col": [
+            "#E30613",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "SV Darmstadt 98",
+          "s": "Darmstadt",
+          "c": "Darmstadt",
+          "q": 11.4,
+          "col": [
+            "#004E9E",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "1. FC Nürnberg",
+          "s": "Nürnberg",
+          "c": "Nürnberg",
+          "q": 11.2,
+          "col": [
+            "#9B1B30",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Karlsruher SC",
+          "s": "Karlsruhe",
+          "c": "Karlsruhe",
+          "q": 11.1,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "1. FC Magdeburg",
+          "s": "Magdeburg",
+          "c": "Magdeburg",
+          "q": 11,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Arminia Bielefeld",
+          "s": "Bielefeld",
+          "c": "Bielefeld",
+          "q": 10.9,
+          "col": [
+            "#005CA9",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Greuther Fürth",
+          "s": "Fürth",
+          "c": "Fürth",
+          "q": 10.8,
+          "col": [
+            "#00A650",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Eintracht Braunschweig",
+          "s": "Braunschweig",
+          "c": "Braunschweig",
+          "q": 10.7,
+          "col": [
+            "#FFE500",
+            "#005CA9"
+          ]
+        },
+        {
+          "n": "Dynamo Dresden",
+          "s": "Dresden",
+          "c": "Dresden",
+          "q": 10.7,
+          "col": [
+            "#FFE500",
+            "#000000"
+          ]
+        },
+        {
+          "n": "VfL Wolfsburg",
+          "s": "Wolfsburg",
+          "c": "Wolfsburg",
+          "q": 13.8,
+          "col": [
+            "#65B32E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Volkswagen Arena",
+            28917
+          ],
+          "f": 1945
+        },
+        {
+          "n": "FC St. Pauli",
+          "s": "St. Pauli",
+          "c": "Hamburg",
+          "q": 12.9,
+          "col": [
+            "#5C3B2E",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Millerntor-Stadion",
+            29546
+          ],
+          "f": 1910
+        },
+        {
+          "n": "1. FC Heidenheim",
+          "s": "Heidenheim",
+          "c": "Heidenheim",
+          "q": 12.8,
+          "col": [
+            "#E2001A",
+            "#003B79"
+          ],
+          "st": [
+            "Voith-Arena",
+            15000
+          ],
+          "f": 1846
+        },
+        {
+          "n": "VfL Osnabrück",
+          "s": "Osnabrück",
+          "c": "Osnabrück",
+          "q": 10.3,
+          "col": [
+            "#5B2C83",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Energie Cottbus",
+          "s": "Cottbus",
+          "c": "Cottbus",
+          "q": 10,
+          "col": [
+            "#C8102E",
+            "#FFFFFF"
+          ]
+        }
+      ]
+    },
+    {
+      "nation": "FR",
+      "tier": 2,
+      "clubs": [
+        {
+          "n": "AS Saint-Étienne",
+          "s": "Saint-Étienne",
+          "c": "Saint-Étienne",
+          "q": 11.6,
+          "col": [
+            "#00843D",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Stade de Reims",
+          "s": "Reims",
+          "c": "Reims",
+          "q": 11.5,
+          "col": [
+            "#E2001A",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Montpellier HSC",
+          "s": "Montpellier",
+          "c": "Montpellier",
+          "q": 11.3,
+          "col": [
+            "#F58025",
+            "#0F3E87"
+          ]
+        },
+        {
+          "n": "Red Star FC",
+          "s": "Red Star",
+          "c": "Saint-Ouen",
+          "q": 10.9,
+          "col": [
+            "#00843D",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "En Avant Guingamp",
+          "s": "Guingamp",
+          "c": "Guingamp",
+          "q": 10.9,
+          "col": [
+            "#E2001A",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Clermont Foot",
+          "s": "Clermont",
+          "c": "Clermont-Ferrand",
+          "q": 10.7,
+          "col": [
+            "#9B1B30",
+            "#005CA9"
+          ]
+        },
+        {
+          "n": "Pau FC",
+          "s": "Pau",
+          "c": "Pau",
+          "q": 10.6,
+          "col": [
+            "#FFE500",
+            "#005CA9"
+          ]
+        },
+        {
+          "n": "FC Annecy",
+          "s": "Annecy",
+          "c": "Annecy",
+          "q": 10.6,
+          "col": [
+            "#E2001A",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "USL Dunkerque",
+          "s": "Dunkerque",
+          "c": "Dunkerque",
+          "q": 10.6,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Stade Lavallois",
+          "s": "Laval",
+          "c": "Laval",
+          "q": 10.5,
+          "col": [
+            "#F58025",
+            "#000000"
+          ]
+        },
+        {
+          "n": "Grenoble Foot 38",
+          "s": "Grenoble",
+          "c": "Grenoble",
+          "q": 10.5,
+          "col": [
+            "#005CA9",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "Rodez AF",
+          "s": "Rodez",
+          "c": "Rodez",
+          "q": 10.5,
+          "col": [
+            "#E2001A",
+            "#FFE500"
+          ]
+        },
+        {
+          "n": "AS Nancy Lorraine",
+          "s": "Nancy",
+          "c": "Nancy",
+          "q": 10.4,
+          "col": [
+            "#E2001A",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "US Boulogne",
+          "s": "Boulogne",
+          "c": "Boulogne-sur-Mer",
+          "q": 10.2,
+          "col": [
+            "#E2001A",
+            "#000000"
+          ]
+        },
+        {
+          "n": "FC Nantes",
+          "s": "Nantes",
+          "c": "Nantes",
+          "q": 13,
+          "col": [
+            "#FCD405",
+            "#00843D"
+          ],
+          "st": [
+            "Stade de la Beaujoire",
+            35322
+          ],
+          "f": 1943
+        },
+        {
+          "n": "FC Metz",
+          "s": "Metz",
+          "c": "Metz",
+          "q": 12.4,
+          "col": [
+            "#8E1838",
+            "#FFFFFF"
+          ],
+          "st": [
+            "Stade Saint-Symphorien",
+            28786
+          ],
+          "f": 1932
+        },
+        {
+          "n": "Dijon FCO",
+          "s": "Dijon",
+          "c": "Dijon",
+          "q": 10.3,
+          "col": [
+            "#E30613",
+            "#FFFFFF"
+          ]
+        },
+        {
+          "n": "FC Sochaux-Montbéliard",
+          "s": "Sochaux",
+          "c": "Montbéliard",
+          "q": 9.9,
+          "col": [
+            "#FFE500",
+            "#005CA9"
+          ]
+        }
+      ]
     }
+  ],
+  "notes": [
+    "1.ª divisiones, Championship y plantillas: football-data.org.",
+    "2.ª división de España, Italia, Alemania y Francia 2026/27: búsqueda web (Wikipedia y prensa deportiva), octubre de 2026."
   ]
 }

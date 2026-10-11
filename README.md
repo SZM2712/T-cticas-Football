@@ -19,6 +19,8 @@ npm run gen -- --real --top=20 --seasons=1  # clubes y jugadores reales: los 20 
 npm run gen -- --real --squad=ES            # convocatoria de España (o --squad="Real Madrid")
 npm run gen -- --export-players=jugadores.csv  # exporta los jugadores reales para editarlos
 npm run gen -- --players=jugadores.csv         # usa tu CSV editado
+npm run import:football-data                  # descarga plantillas actuales (requiere FOOTBALL_DATA_API_KEY)
+npm run gen -- --current --top=20             # usa los datos importados
 ```
 
 ## Estructura

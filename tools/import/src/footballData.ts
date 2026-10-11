@@ -5,7 +5,7 @@
 //   leagues.json  composición actual de las ligas importadas
 //   report.md     resumen: clubes nuevos, jugadores nuevos a revisar, descartados
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { realPlayersToCsv } from "@tf/data";
 import { SOURCES, buildImport, type CompetitionSource, type FdTeam } from "./match";
@@ -38,14 +38,17 @@ async function getTeams(code: string, key: string): Promise<FdTeam[]> {
 }
 
 async function main(): Promise<void> {
-  const key = process.env.FOOTBALL_DATA_API_KEY;
-  if (!key) {
+  const key = process.env.FOOTBALL_DATA_API_KEY ?? "";
+  if (!key && !process.argv.includes("--offline")) {
     console.error("Falta la variable FOOTBALL_DATA_API_KEY (guárdala como secreto, no en el código).");
     process.exit(1);
   }
   const out = arg("out", "packages/data/current");
+  mkdirSync(out, { recursive: true });
   const responses: { source: CompetitionSource; teams: FdTeam[] }[] = [];
-  for (const [i, source] of SOURCES.entries()) {
+  const offline = process.argv.includes("--offline");
+  if (offline) responses.push(...JSON.parse(readFileSync(join(out, "raw.json"), "utf8")));
+  for (const [i, source] of (offline ? [] : SOURCES).entries()) {
     if (i > 0) await sleep(SPACING_MS);
     try {
       const teams = await getTeams(source.code, key);
@@ -55,9 +58,25 @@ async function main(): Promise<void> {
       console.warn(`  ${(e as Error).message} — se omite`);
     }
   }
+  // Respuesta original: permite reprocesar sin volver a descargar (npm run import:football-data -- --offline).
+  mkdirSync(out, { recursive: true });
+  writeFileSync(join(out, "raw.json"), JSON.stringify(responses));
   const now = new Date();
   const season = `${now.getUTCMonth() >= 6 ? now.getUTCFullYear() : now.getUTCFullYear() - 1}/${String((now.getUTCMonth() >= 6 ? now.getUTCFullYear() : now.getUTCFullYear() - 1) + 1).slice(2)}`;
   const { update, players, report } = buildImport(responses, season, now);
+  // Divisiones que la API no cubre (2.ª de ES/IT/DE/FR): se conservan de la importación anterior
+  // si eran de esta misma temporada (revisadas a mano o por búsqueda web).
+  try {
+    const previous = JSON.parse(readFileSync(join(out, "leagues.json"), "utf8")) as typeof update;
+    if (previous.season === season) {
+      for (const l of previous.leagues) {
+        if (!update.leagues.some((u) => u.nation === l.nation && u.tier === l.tier)) update.leagues.push(l);
+      }
+      if (previous.notes) update.notes = previous.notes;
+    }
+  } catch {
+    // primera importación
+  }
 
   mkdirSync(out, { recursive: true });
   writeFileSync(join(out, "players.csv"), realPlayersToCsv(players));

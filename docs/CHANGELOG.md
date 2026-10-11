@@ -23,6 +23,12 @@
 - `--top=20` (clubes más fuertes) y `--squad="Real Madrid"` / `--squad=ES` (plantilla o convocatoria).
 - Hash del mundo de referencia actualizado: se añadieron 6 naciones africanas (Gambia, Guinea-Bisáu, Zimbabue, Mozambique, Togo, Guinea Ecuatorial) necesarias para nacionalidades reales.
 
+### Datos actuales (2026/27)
+- `npm run import:football-data` descarga las plantillas actuales de football-data.org (clave en `FOOTBALL_DATA_API_KEY`) y genera `packages/data/current/` (players.csv, leagues.json, report.md, raw.json). Conserva niveles conocidos, reconoce nombres escritos de otra forma, corrige fechas erróneas de la fuente y marca como estimados a los nuevos.
+- `tools/import/src/reviewed.ts`: niveles revisados a mano que se aplican en cada importación.
+- Segundas divisiones de ES/IT/DE/FR verificadas por búsqueda web (no están en el plan gratuito de la API).
+- `npm run gen -- --current` usa estos datos.
+
 ### Ideas registradas para fases futuras
 - Cláusulas de contrato (recompra por años, pagos a plazos, etc.) y roles jugables de director deportivo y presidente: `DISEÑO.md` §11.
 
