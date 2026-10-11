@@ -32,7 +32,17 @@
 - `npm run gen -- --seasons=N` muestra también los máximos goleadores y acepta `--engine=auto|full|quick`.
 
 ### Balance (criterios de DISEÑO §7)
-Ver `docs/balance/fase2.md` (20 temporadas, semilla 123, motor completo).
+20 temporadas, semilla 123, motor completo (`docs/balance/fase2.md`), en partidos de liga:
+
+| Criterio | Objetivo | Resultado |
+|---|---|---|
+| Goles por partido | 2,5–2,9 | 2,64 ✅ |
+| Victorias locales | 42–47 % | 43,4 % ✅ |
+| Empates | 24–28 % | 24,7 % ✅ |
+| Rojas por partido | 0,1–0,2 | 0,19 ✅ |
+| Modelo rápido frente al completo | ±3 % | goles +0,6 %, locales +0,9 pp ✅ |
+| Partido reproducible por `seedPath` | sí | test ✅ |
+| Cola larga de goleadores | sí | P50 2 · P90 10 · P99 24 · récord 50 ✅ |
 
 ### Decisiones y desviaciones
 - **Motor completo para todos los partidos con clubes jugables o selecciones** (`auto`). Los partidos entre clubes en sombra usan el modelo rápido. Una temporada mundial completa tarda ~20–25 s (~2,5 ms por partido), menos de 100 ms por día de juego.
