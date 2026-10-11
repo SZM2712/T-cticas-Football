@@ -614,7 +614,7 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 
 | # | Tema | Decisión |
 |---|---|---|
-| 1 | Naciones | Reales, con clubes y jugadores ficticios y nombres genéricos con lista de bloqueo |
+| 1 | Naciones y datos reales | Mundo ficticio **por defecto** (listas de bloqueo). **Paquete opcional `real`**: clubes reales (2025/26) con su fuerza, ~1.800 jugadores reales (primera división de las 5 ligas + internacionales de otras ligas) y selecciones reales; importable/exportable en CSV. Para publicar el juego con jugadores reales haría falta licencia (FIFPro); para uso personal no |
 | 2 | Tamaño | 5 grandes ligas + sus segundas, Mundial, Ligas de Naciones, torneos continentales y clasificatorias (§8) |
 | 3 | UI | React + Vite |
 | 4 | Partido | Simulación por zonas + visor 2D con jugadores, alimentado por fotogramas del motor (§8.3) |
@@ -663,9 +663,48 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 12. **CLI** (`tools/gen`): `npm run gen -- --seed=123 [--out=world.json] [--stats] [--seasons=4]`.
 13. **Tests de aceptación**
     - Determinismo: mismo seed → mismo hash, con *snapshot* del hash de `seed=123`.
-    - Sensibilidad: 50 seeds → 50 hashes distintos.
+    - Sensibilidad: 6 seeds → 6 hashes distintos (cada mundo tarda ~1,6 s).
     - Distribuciones: edades, arquetipos y correlaciones de rasgos (±0,05 de la matriz objetivo).
     - Calendario: doble vuelta completa, sin choques y con descanso mínimo; las ventanas FIFA quedan libres de partidos de liga.
     - Ningún club con nombre de la lista de bloqueo; i18n sin claves faltantes.
-    - Rendimiento: generar el mundo de referencia en < 5 s en escritorio.
+    - Rendimiento: generar el mundo de referencia en < 5 s en escritorio (medido: ~1,6 s).
+    - Determinismo en navegador: se comprueba en la Fase 2, al existir `apps/web`.
 14. **Cierre**: `docs/CHANGELOG.md` e informe de estadísticas en `docs/balance/fase1.md`.
+
+
+---
+
+## 11. Ideas incorporadas (pendientes de su fase)
+
+### 11.1 Contratos avanzados (Fase 6 — economía y mercado)
+Todo contrato y traspaso es un objeto con cláusulas que el motor ejecuta y recuerda (igual que los `Commitment`):
+
+| Cláusula | Qué hace el motor |
+|---|---|
+| **Recompra por años** (*buy-back*) | Precio distinto por temporada (p. ej. 20 M el 1.er año, 25 M el 2.º, expira el 3.º). El club vendedor puede ejecutarla en cualquier ventana; el comprador no puede negarse |
+| **Pagos a plazos** | Calendario de pagos con fechas e importes; afecta a la caja de ambos clubes. Impago → deuda, sanción federativa, conflicto con la directiva |
+| Porcentaje de futura venta | Se liquida automáticamente en el siguiente traspaso |
+| Cláusula de rescisión | General o solo para clubes extranjeros / de liga superior |
+| Bonus por objetivos | Partidos, goles, títulos, clasificación europea, internacionalidad |
+| Cesión con opción u obligación de compra | Obligación condicionada (p. ej. si juega el 50 % de los partidos o si el club se salva) |
+| Subidas salariales anuales y por ascenso, rebaja por descenso | Se aplican al cambiar de temporada |
+| Cláusula de salida en descenso | El jugador puede marcharse por un precio fijo si su club baja |
+
+Las cláusulas también alimentan el ego (§5): un jugador sabe cuánto vale su cláusula comparada con la del compañero.
+
+### 11.2 Roles jugables: entrenador, director deportivo y presidente
+Los cargos del club son puestos que ocupa **un actor** (el jugador humano o una IA con personalidad y memoria):
+
+| Rol | Foco de su semana | Decide |
+|---|---|---|
+| **Entrenador** (actual) | Entrenamiento, alineaciones, vestuario, prensa | Táctica, minutos, conversaciones, peticiones de fichajes |
+| **Director deportivo** | Mercado, ojeadores, renovaciones, cantera, relación con el entrenador | Fichajes y ventas dentro del presupuesto, cláusulas, contratar/despedir al entrenador (si el presidente le da poder) |
+| **Presidente** | Finanzas, patrocinios, estadio, socios y afición, directiva | Presupuestos, nombrar director deportivo y entrenador, inversiones, deuda, venta del club |
+
+- **Procesos de acceso**:
+  - Entrenador → ofertas de director deportivo según reputación y conocimiento del club.
+  - En clubes de socios (modelo Real Madrid o Barcelona), el presidente se elige: campaña, avales, promesas electorales (que se convierten en `Commitment`s), votación de los socios por segmentos (§8).
+  - En clubes de propietario, el presidente llega por compra o nombramiento.
+  - Se puede perder el cargo: moción de censura, elecciones, despido o venta del club.
+- **El resto de cargos los ocupa la IA** y reacciona según su personalidad y memoria. Un presidente impaciente despide al entrenador; si tú eres el presidente y despides a un entrenador querido, el vestuario y la afición lo recuerdan.
+- **Arquitectura (decisión temprana para no rehacer)**: cada `Command` del usuario se valida contra los **permisos del cargo** que ocupa en su club (matriz de autoridad). Pertenece a la Fase 4 (comandos) y la Fase 6 (directiva). Los modos de director deportivo y presidente jugables completos llegan como **Fase 10** tras el juego base.

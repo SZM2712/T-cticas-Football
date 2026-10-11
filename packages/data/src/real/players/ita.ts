@@ -1,0 +1,344 @@
+// Plantillas reales aproximadas de la Serie A (2025/26). Formato: ver eng.ts.
+
+export const ITA_PLAYERS: Record<string, string> = {
+  Inter: `
+Yann Sommer|GK|1988|CH|16.0
+Josep Martínez|GK|1998|ES|15.0
+Alessandro Bastoni|CB|1999|IT|16.8
+Francesco Acerbi|CB|1988|IT|15.4
+Stefan de Vrij|CB|1992|NL|15.2
+Yann Bisseck|CB|2000|DE|15.4
+Manuel Akanji|CB|1995|CH|16.0
+Federico Dimarco|LB|1997|IT|16.4
+Carlos Augusto|LB|1999|BR|15.2
+Denzel Dumfries|RB|1996|NL|16.0
+Matteo Darmian|RB|1989|IT|14.6
+Hakan Çalhanoğlu|DM|1994|TR|16.6
+Nicolò Barella|CM|1997|IT|17.0
+Henrikh Mkhitaryan|CM|1989|AM|15.6
+Davide Frattesi|CM|1999|IT|15.8
+Piotr Zieliński|CM|1994|PL|15.6
+Petar Sučić|CM|2003|HR|15.2
+Luis Henrique|RW|2001|BR|15.0
+Lautaro Martínez|ST|1997|AR|17.3
+Marcus Thuram|ST|1997|FR|16.6
+Ange-Yoan Bonny|ST|2003|FR|15.2
+Francesco Pio Esposito|ST|2005|IT|15.0`,
+  Napoli: `
+Alex Meret|GK|1997|IT|15.6
+Vanja Milinković-Savić|GK|1997|RS|15.4
+Amir Rrahmani|CB|1994|XK|15.8
+Alessandro Buongiorno|CB|1999|IT|16.0
+Sam Beukema|CB|1998|NL|15.6
+Juan Jesus|CB|1991|BR|14.4
+Mathías Olivera|LB|1997|UY|15.0
+Leonardo Spinazzola|LB|1993|IT|14.8
+Giovanni Di Lorenzo|RB|1993|IT|16.0
+Stanislav Lobotka|DM|1994|SK|16.2
+Scott McTominay|CM|1996|GB-SCT|16.8
+André-Frank Zambo Anguissa|CM|1995|CM|16.2
+Billy Gilmour|CM|2001|GB-SCT|15.2
+Kevin De Bruyne|AM|1991|BE|16.8
+Matteo Politano|RW|1993|IT|15.4
+David Neres|RW|1997|BR|15.4
+Noa Lang|LW|1999|NL|15.6
+Rasmus Højlund|ST|2003|DK|16.0
+Romelu Lukaku|ST|1993|BE|15.8
+Lorenzo Lucca|ST|2000|IT|15.0`,
+  Juventus: `
+Michele Di Gregorio|GK|1997|IT|15.6
+Mattia Perin|GK|1992|IT|14.8
+Gleison Bremer|CB|1997|BR|16.4|Bremer
+Federico Gatti|CB|1998|IT|15.2
+Pierre Kalulu|CB|2000|FR|15.4
+Lloyd Kelly|CB|1998|GB-ENG|14.8
+Andrea Cambiaso|LB|2000|IT|15.8
+Juan Cabal|LB|2001|CO|14.6
+Manuel Locatelli|DM|1998|IT|15.6
+Khéphren Thuram|CM|2001|FR|15.8
+Weston McKennie|CM|1998|US|15.4
+Teun Koopmeiners|CM|1998|NL|15.6
+Kenan Yıldız|LW|2005|TR|16.4
+Filip Kostić|LW|1992|RS|14.4
+Francisco Conceição|RW|2002|PT|15.8
+Edon Zhegrova|RW|1999|XK|15.6
+Jonathan David|ST|2000|CA|16.0
+Dušan Vlahović|ST|2000|RS|16.0
+Loïs Openda|ST|2000|BE|15.6`,
+  "AC Milan": `
+Mike Maignan|GK|1995|FR|16.8
+Pietro Terracciano|GK|1990|IT|14.4
+Fikayo Tomori|CB|1997|GB-ENG|15.6
+Strahinja Pavlović|CB|2001|RS|15.4
+Matteo Gabbia|CB|1999|IT|15.0
+Koni De Winter|CB|2002|BE|14.8
+Pervis Estupiñán|LB|1998|EC|15.4
+Davide Bartesaghi|LB|2005|IT|14.4
+Alexis Saelemaekers|RB|1999|BE|15.4
+Zachary Athekame|RB|2004|CH|14.6
+Luka Modrić|CM|1985|HR|16.2
+Youssouf Fofana|DM|1999|FR|15.6
+Adrien Rabiot|CM|1995|FR|16.2
+Ruben Loftus-Cheek|CM|1996|GB-ENG|15.0
+Samuele Ricci|CM|2001|IT|15.2
+Ardon Jashari|CM|2002|CH|15.2
+Christopher Nkunku|AM|1997|FR|15.8
+Christian Pulisic|RW|1998|US|16.4
+Rafael Leão|LW|1999|PT|16.6
+Santiago Giménez|ST|2001|MX|15.4`,
+  Atalanta: `
+Marco Carnesecchi|GK|2000|IT|15.8
+Isak Hien|CB|1999|SE|15.6
+Berat Djimsiti|CB|1993|AL|15.0
+Sead Kolašinac|CB|1993|BA|14.8
+Odilon Kossounou|CB|2001|CI|15.2
+Giorgio Scalvini|CB|2003|IT|15.6
+Nicola Zalewski|LB|2002|PL|15.0
+Raoul Bellanova|RB|2000|IT|15.0
+Davide Zappacosta|RB|1992|IT|14.6
+Ederson José dos Santos Lourenço da Silva|CM|1999|BR|16.0|Ederson
+Marten de Roon|DM|1991|NL|15.2
+Mario Pašalić|CM|1995|HR|15.0
+Lazar Samardžić|AM|2002|RS|15.0
+Charles De Ketelaere|AM|2001|BE|16.0
+Ademola Lookman|LW|1997|NG|16.4
+Kamaldeen Sulemana|LW|2002|GH|14.8
+Nikola Krstović|ST|2000|ME|15.4
+Gianluca Scamacca|ST|1999|IT|15.4`,
+  "AS Roma": `
+Mile Svilar|GK|1999|RS|16.0
+Gianluca Mancini|CB|1996|IT|15.4
+Evan Ndicka|CB|1999|CI|15.6
+Mario Hermoso|CB|1995|ES|15.0
+José Ángel Esmorís Tasende|LB|1997|ES|15.0|Angeliño
+Wesley Vinícius França|RB|2003|BR|15.4|Wesley
+Zeki Çelik|RB|1997|TR|14.8
+Bryan Cristante|CM|1995|IT|15.0
+Manu Koné|CM|2001|FR|15.8
+Neil El Aynaoui|CM|2001|MA|15.2
+Lorenzo Pellegrini|AM|1996|IT|15.4
+Paulo Dybala|AM|1993|AR|16.0
+Tommaso Baldanzi|AM|2003|IT|14.6
+Matías Soulé|RW|2003|AR|15.6
+Leon Bailey|RW|1997|JM|15.2
+Stephan El Shaarawy|LW|1992|IT|14.6
+Artem Dovbyk|ST|1997|UA|15.6
+Evan Ferguson|ST|2004|IE|15.0`,
+  Como: `
+Jean Butez|GK|1995|FR|15.0
+Marc-Oliver Kempf|CB|1995|DE|14.6
+Diego Carlos|CB|1993|BR|14.8
+Jacobo Ramón|CB|2005|ES|14.6
+Alberto Moreno|LB|1992|ES|14.4
+Álex Valle|LB|2004|ES|14.4
+Ivan Smolčić|RB|2000|HR|14.4
+Maximo Perrone|DM|2003|AR|15.0
+Lucas Da Cunha|CM|2001|FR|15.0
+Sergi Roberto|CM|1992|ES|14.4
+Nico Paz|AM|2004|AR|16.2
+Jesús Rodríguez|LW|2005|ES|15.0
+Assane Diao|RW|2005|SN|15.0
+Jayden Addai|RW|2005|NL|14.4
+Álvaro Morata|ST|1992|ES|15.4
+Tasos Douvikas|ST|1999|GR|14.8`,
+  Lazio: `
+Ivan Provedel|GK|1994|IT|15.4
+Alessio Romagnoli|CB|1995|IT|15.4
+Mario Gila|CB|2000|ES|15.4
+Samuel Gigot|CB|1993|FR|14.4
+Nuno Tavares|LB|2000|PT|15.0
+Luca Pellegrini|LB|1999|IT|14.4
+Adam Marušić|RB|1992|ME|14.8
+Manuel Lazzari|RB|1993|IT|14.4
+Nicolò Rovella|DM|2001|IT|15.4
+Matteo Guendouzi|CM|1999|FR|15.4
+Toma Bašić|CM|1996|HR|14.4
+Fisayo Dele-Bashiru|CM|2001|NG|14.6
+Mattia Zaccagni|LW|1995|IT|15.6
+Gustav Isaksen|RW|2001|DK|15.0
+Pedro Rodríguez Ledesma|RW|1987|ES|14.4|Pedro
+Boulaye Dia|ST|1996|SN|15.0
+Valentín Castellanos|ST|1998|AR|15.2|Taty Castellanos
+Tijjani Noslin|ST|1999|NL|14.6`,
+  Bologna: `
+Łukasz Skorupski|GK|1991|PL|15.0
+Jhon Lucumí|CB|1998|CO|15.4
+Martin Vitík|CB|2003|CZ|14.6
+Nicolò Casale|CB|1998|IT|14.4
+Juan Miranda|LB|2000|ES|15.0
+Charalampos Lykogiannis|LB|1993|GR|14.4
+Emil Holm|RB|2000|SE|14.8
+Lorenzo De Silvestri|RB|1988|IT|14.0
+Remo Freuler|DM|1992|CH|15.0
+Lewis Ferguson|CM|1999|GB-SCT|15.2
+Tommaso Pobega|CM|1999|IT|14.6
+Nikola Moro|CM|1998|HR|14.6
+Jens Odgaard|AM|1999|DK|14.6
+Riccardo Orsolini|RW|1997|IT|15.6
+Federico Bernardeschi|RW|1994|IT|14.8
+Jonathan Rowe|LW|2003|GB-ENG|14.8
+Santiago Castro|ST|2004|AR|15.0
+Thijs Dallinga|ST|2000|NL|14.6
+Ciro Immobile|ST|1990|IT|14.6`,
+  Fiorentina: `
+David de Gea|GK|1990|ES|15.8
+Pietro Comuzzo|CB|2005|IT|14.8
+Luca Ranieri|CB|1999|IT|14.8
+Marin Pongračić|CB|1997|HR|14.6
+Robin Gosens|LB|1994|DE|15.0
+Fabiano Parisi|LB|2000|IT|14.6
+Domilson Cordeiro dos Santos|RB|1998|BR|15.2|Dodô
+Rolando Mandragora|CM|1997|IT|14.8
+Nicolò Fagioli|CM|2001|IT|15.0
+Simon Sohm|CM|2001|CH|14.6
+Hans Nicolussi Caviglia|DM|2000|IT|14.6
+Cher Ndour|CM|2004|IT|14.2
+Albert Guðmundsson|AM|1997|IS|15.4
+Jacopo Fazzini|AM|2003|IT|14.4
+Moise Kean|ST|2000|IT|16.0
+Edin Džeko|ST|1986|BA|14.6
+Roberto Piccoli|ST|2001|IT|14.6`,
+  Torino: `
+Franco Israel|GK|2000|UY|14.4
+Alberto Paleari|GK|1992|IT|14.0
+Saúl Coco|CB|1999|GQ|14.6
+Ardian Ismajli|CB|1996|AL|14.4
+Guillermo Maripán|CB|1994|CL|14.4
+Cristiano Biraghi|LB|1992|IT|14.0
+Marcus Pedersen|RB|2000|NO|14.4
+Valentino Lazaro|RB|1996|AT|14.2
+Kristjan Asllani|DM|2002|AL|14.6
+Gvidas Gineitis|CM|2004|LT|14.4
+Ivan Ilić|CM|2001|RS|14.6
+Adrien Tamèze|CM|1994|FR|14.0
+Nikola Vlašić|AM|1997|HR|15.0
+Cyril Ngonge|RW|2000|BE|14.4
+Che Adams|ST|1996|GB-SCT|14.6
+Giovanni Simeone|ST|1995|AR|14.6
+Duván Zapata|ST|1991|CO|14.6`,
+  Udinese: `
+Maduka Okoye|GK|1999|NG|14.6
+Thomas Kristensen|CB|2002|DK|14.4
+Christian Kabasele|CB|1991|BE|14.0
+Oumar Solet|CB|2000|FR|14.8
+Jordan Zemura|LB|1999|ZW|14.2
+Hassane Kamara|LB|1994|CI|14.2
+Kingsley Ehizibue|RB|1995|NG|14.0
+Jesper Karlström|CM|1995|SE|14.4
+Sandi Lovrić|CM|1998|SI|14.4
+Jurgen Ekkelenkamp|CM|2000|NL|14.6
+Arthur Atta|CM|2003|FR|14.6
+Lennon Miller|CM|2006|GB-SCT|14.2
+Nicolò Zaniolo|AM|1999|IT|14.8
+Keinan Davis|ST|1998|GB-ENG|14.4
+Iker Bravo|ST|2005|ES|14.2
+Adam Buksa|ST|1996|PL|14.2`,
+  Genoa: `
+Nicola Leali|GK|1993|IT|14.4
+Johan Vásquez|CB|1998|MX|15.0
+Leo Østigård|CB|1999|NO|14.6
+Alessandro Marcandalli|CB|2002|IT|14.0
+Aarón Martín|LB|1997|ES|14.6
+Brooke Norton-Cuffy|RB|2004|GB-ENG|14.4
+Morten Frendrup|CM|2001|DK|15.0
+Morten Thorsby|CM|1996|NO|14.4
+Patrizio Masini|CM|2001|IT|14.2
+Ruslan Malinovskyi|AM|1993|UA|14.8
+Valentín Carboni|AM|2005|AR|14.6
+Junior Messias|RW|1991|BR|14.2
+Vítor Manuel Carvalho Oliveira|ST|2000|PT|14.6|Vitinha
+Lorenzo Colombo|ST|2002|IT|14.4
+Jeff Ekhator|ST|2006|IT|14.2`,
+  Sassuolo: `
+Arijanet Muric|GK|1998|XK|14.6
+Jay Idzes|CB|2000|ID|14.6
+Tarik Muharemović|CB|2003|BA|14.4
+Sebastian Walukiewicz|CB|2000|PL|14.2
+Filippo Romagna|CB|1997|IT|13.8
+Josh Doig|LB|2002|GB-SCT|14.2
+Nemanja Matić|DM|1988|RS|14.4
+Kristian Thorstvedt|CM|1999|NO|14.6
+Daniel Boloca|CM|1998|RO|14.0
+Aster Vranckx|CM|2002|BE|14.2
+Cristian Volpato|AM|2003|IT|14.2
+Domenico Berardi|RW|1994|IT|15.2
+Armand Laurienté|LW|1998|FR|15.0
+Andrea Pinamonti|ST|1999|IT|14.6`,
+  Cagliari: `
+Elia Caprile|GK|2001|IT|14.8
+Yerry Mina|CB|1994|CO|14.4
+Sebastiano Luperto|CB|1996|IT|14.2
+Adam Obert|LB|2002|SK|14.0
+Gabriele Zappa|RB|1999|IT|14.2
+Michel Adopo|CM|2000|FR|14.4
+Matteo Prati|CM|2003|IT|14.2
+Alessandro Deiola|CM|1995|IT|13.8
+Michael Folorunsho|CM|1998|IT|14.4
+Gianluca Gaetano|AM|2000|IT|14.6
+Mattia Felici|LW|2001|IT|14.0
+Sebastiano Esposito|ST|2002|IT|14.4
+Andrea Belotti|ST|1993|IT|14.4
+Leonardo Pavoletti|ST|1988|IT|13.6`,
+  Parma: `
+Zion Suzuki|GK|2002|JP|15.0
+Alessandro Circati|CB|2003|AU|14.4
+Mariano Troilo|CB|2003|AR|14.2
+Enrico Delprato|CB|1999|IT|14.2
+Emanuele Valeri|LB|1998|IT|14.4
+Woyo Coulibaly|RB|1999|FR|14.2
+Adrián Bernabé|CM|2001|ES|15.0
+Mandela Keita|DM|2002|BE|14.6
+Nahuel Estévez|CM|1995|AR|14.2
+Jacob Ondrejka|LW|2002|SE|14.2
+Pontus Almqvist|RW|1999|SE|14.2
+Mateo Pellegrino|ST|2001|AR|14.6
+Adrian Benedyczak|ST|2000|PL|14.2`,
+  "Hellas Verona": `
+Lorenzo Montipò|GK|1996|IT|14.6
+Nicolás Valentini|CB|2001|AR|14.2
+Victor Nelsson|CB|1998|DK|14.4
+Domagoj Bradarić|LB|1999|HR|14.4
+Rafik Belghali|RB|2002|BE|14.2
+Suat Serdar|CM|1997|DE|14.4
+Abdou Harroui|CM|1998|NL|14.2
+Tomáš Suslov|AM|2002|SK|14.6
+Giovane Santana do Nascimento|ST|2003|BR|14.2|Giovane
+Amin Sarr|ST|2001|SE|14.4
+Daniel Mosquera|ST|1999|CO|14.2`,
+  Lecce: `
+Wladimiro Falcone|GK|1995|IT|15.0
+Kialonda Gaspar|CB|1997|AO|14.4
+Tiago Gabriel|CB|2004|PT|14.2
+Antonino Gallo|LB|2000|IT|14.4
+Danilo Veiga|RB|2002|PT|14.0
+Ylber Ramadani|DM|1996|AL|14.4
+Medon Berisha|CM|2003|AL|14.0
+Lameck Banda|LW|2001|ZM|14.4
+Riccardo Sottil|LW|1999|IT|14.2
+Santiago Pierotti|RW|2001|AR|14.2
+Nikola Štulić|ST|2001|RS|14.2`,
+  Cremonese: `
+Emil Audero|GK|1997|IT|14.4
+Federico Baschirotto|CB|1996|IT|14.2
+Matteo Bianchetti|CB|1993|IT|13.8
+Giuseppe Pezzella|LB|1997|IT|14.0
+Alberto Grassi|CM|1995|IT|13.8
+Warren Bondo|CM|2003|FR|14.2
+Franco Vázquez|AM|1989|AR|14.0
+Jari Vandeputte|LW|1996|BE|14.2
+Federico Bonazzoli|ST|1997|IT|14.2
+Jamie Vardy|ST|1987|GB-ENG|14.8
+Antonio Sanabria|ST|1996|PY|14.2`,
+  Pisa: `
+Adrian Šemper|GK|1998|HR|14.0
+Antonio Caracciolo|CB|1990|IT|13.8
+Arturo Calabresi|CB|1996|IT|13.8
+Simone Canestrelli|CB|2000|IT|14.0
+Idrissa Touré|LB|1998|DE|14.0
+Marius Marin|CM|1998|RO|14.0
+Michel Aebischer|CM|1997|CH|14.4
+Juan Cuadrado|RW|1988|CO|14.0
+M'Bala Nzola|ST|1996|AO|14.4
+Stefano Moreo|ST|1993|IT|14.0
+Henrik Meister|ST|2003|DK|14.0`,
+};

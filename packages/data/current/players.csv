@@ -1,0 +1,4008 @@
+club,name,known_as,position,birth_year,nation,rating,estimated
+Arsenal,Kepa Arrizabalaga,,GK,1994,ES,15.4,
+Arsenal,David Raya,,GK,1995,ES,16.9,
+Arsenal,Illan Meslier,,GK,2000,FR,14.6,
+Arsenal,Ben White,,RB,1997,GB-ENG,15.8,
+Arsenal,Ezri Konsa,,CB,1997,GB-ENG,16,
+Arsenal,Gabriel Magalhães,Gabriel,CB,1997,BR,17,
+Arsenal,William Saliba,,CB,2001,FR,17.3,
+Arsenal,Jurriën Timber,,RB,2001,NL,16.3,
+Arsenal,Piero Hincapié,,LB,2002,EC,16,
+Arsenal,Riccardo Calafiori,,LB,2002,IT,15.9,
+Arsenal,Cristhian Mosquera,,CB,2004,ES,15.2,
+Arsenal,Bruno Guimarães,,CM,1997,BR,17,
+Arsenal,Eberechi Eze,,AM,1998,GB-ENG,16.6,
+Arsenal,Martin Ødegaard,,AM,1998,NO,17,
+Arsenal,Mikel Merino,,CM,1996,ES,16.2,
+Arsenal,Declan Rice,,CM,1999,GB-ENG,17.5,
+Arsenal,Martín Zubimendi,,DM,1999,ES,17,
+Arsenal,Myles Lewis-Skelly,,LB,2006,GB-ENG,15.2,
+Arsenal,Kai Havertz,,ST,1999,DE,16.4,
+Arsenal,Viktor Gyökeres,,ST,1998,SE,17,
+Arsenal,Bukayo Saka,,RW,2001,GB-ENG,17.6,
+Arsenal,Christos Tzolis,,LW,2002,GR,15.4,
+Arsenal,Noni Madueke,,RW,2002,GB-ENG,15.8,
+Arsenal,Max Dowman,,ST,2009,GB-ENG,13.2,1
+Aston Villa,Marco Bizot,,GK,1991,NL,14.4,
+Aston Villa,Zion Suzuki,,GK,2002,JP,15,
+Aston Villa,Victor Nilsson-Lindelöf,,CB,1994,SE,14.8,
+Aston Villa,Aaron Wan-Bissaka,,RB,1997,CD,15.2,
+Aston Villa,Tyrone Mings,,CB,1993,GB-ENG,14.8,
+Aston Villa,Matty Cash,,RB,1997,PL,15.4,
+Aston Villa,Pau Torres,,CB,1997,ES,16,
+Aston Villa,Taylor Harwood-Bellis,,CB,2002,GB-ENG,15,
+Aston Villa,Ian Maatsen,,LB,2002,NL,15.2,
+Aston Villa,Matteo Ruggeri,,LB,2002,IT,15,
+Aston Villa,Modou Keba Cisse,,CB,2005,SN,13.9,1
+Aston Villa,Leon Goretzka,,CM,1995,DE,15.8,
+Aston Villa,Ross Barkley,,CM,1993,GB-ENG,14.3,1
+Aston Villa,Boubacar Kamara,,DM,1999,FR,16,
+Aston Villa,Emiliano Buendía,,AM,1996,AR,15.2,
+Aston Villa,John McGinn,,CM,1994,GB-SCT,15.6,
+Aston Villa,Amadou Onana,,DM,2001,BE,16,
+Aston Villa,João Gomes,,CM,2001,BR,15.6,
+Aston Villa,Lamare Bogarde,,DM,2004,NL,14.4,
+Aston Villa,Johan Manzambi,,CM,2005,CH,14.8,
+Aston Villa,Tammy Abraham,,ST,1997,GB-ENG,15,
+Aston Villa,Nicolas Jackson,,ST,2001,SN,15.6,
+Aston Villa,Alejandro Garnacho,,LW,2004,AR,15.8,
+Aston Villa,Alysson,,ST,2006,BR,13.1,1
+Aston Villa,Ibrahim M'Baye,,ST,2008,SN,12.1,1
+Aston Villa,Brian Madjo,,ST,2009,LU,12.1,1
+Aston Villa,George Hemmings,,ST,2007,GB-ENG,13.1,1
+Chelsea,Emiliano Martínez,,GK,1992,AR,16.6,
+Chelsea,Gabriel Slonina,,GK,2004,US,14.2,1
+Chelsea,Teddy Sharman-Lowe,,GK,2003,GB-ENG,15,1
+Chelsea,Mike Penders,,GK,2005,BE,14.6,
+Chelsea,Wesley Fofana,,CB,2000,FR,15.8,
+Chelsea,Reece James,,RB,1999,GB-ENG,16.6,
+Chelsea,Maxence Lacroix,,CB,2000,FR,15.8,
+Chelsea,Pep Chavarría,,LB,1998,ES,14.6,
+Chelsea,Malo Gusto,,RB,2003,FR,15.8,
+Chelsea,Levi Colwill,,CB,2003,GB-ENG,16.2,
+Chelsea,Jorrel Hato,,LB,2006,NL,15.6,
+Chelsea,Marco Palestra,,CB,2005,IT,14.6,
+Chelsea,Aaron Anselmino,,CB,2005,AR,14.2,
+Chelsea,Josh Acheampong,,CB,2006,GB-ENG,14,
+Chelsea,Jordan Henderson,,CM,1990,GB-ENG,15,
+Chelsea,Morgan Rogers,,AM,2002,GB-ENG,16.8,
+Chelsea,Moisés Caicedo,,DM,2001,EC,17.2,
+Chelsea,Cole Palmer,,AM,2002,GB-ENG,17.3,
+Chelsea,Valentín Barco,,LB,2004,AR,15,
+Chelsea,Roméo Lavia,,DM,2004,BE,15.6,
+Chelsea,Kendry Páez,,AM,2007,EC,14.6,
+Chelsea,Pedro Neto,,RW,2000,PT,16.2,
+Chelsea,Danny Welbeck,,ST,1990,GB-ENG,15,
+Chelsea,João Pedro,,ST,2001,BR,16.4,
+Chelsea,Emanuel Emegha,,ST,2003,NL,15,
+Chelsea,Jamie Gittens,,LW,2004,GB-ENG,15.6,
+Chelsea,Geovany Quenda,,RW,2007,PT,15.2,
+Chelsea,Estêvão Willian,Estêvão,RW,2007,BR,16,
+Everton,Jordan Pickford,,GK,1994,GB-ENG,16.2,
+Everton,Thomas King,,GK,1995,GB-WLS,12.9,1
+Everton,Mark Travers,,GK,1999,IE,14.4,
+Everton,James Tarkowski,,CB,1992,GB-ENG,15.4,
+Everton,Ainsley Maitland-Niles,,RB,1997,GB-ENG,14.4,
+Everton,Michael Keane,,CB,1993,GB-ENG,14.6,
+Everton,Vitalii Mykolenko,,LB,1999,UA,15,
+Everton,Jarrad Branthwaite,,CB,2002,GB-ENG,15.8,
+Everton,Jake O'Brien,,CB,2001,IE,14.8,
+Everton,Christian Nørgaard,,DM,1994,DK,15,
+Everton,James Garner,,CM,2001,GB-ENG,15.2,
+Everton,Hayden Hackney,,CM,2002,GB-ENG,13.7,1
+Everton,Kiernan Dewsbury-Hall,,CM,1998,GB-ENG,15.4,
+Everton,Carlos Alcaraz,,CM,2002,AR,14.6,
+Everton,Merlin Röhl,,CM,2002,DE,13.7,1
+Everton,Harrison Armstrong,,CM,2007,GB-ENG,12.1,1
+Everton,Jack Grealish,,LW,1995,GB-ENG,16,
+Everton,Brennan Johnson,,RW,2001,GB-WLS,15.6,
+Everton,Thierno Barry,,ST,2002,FR,15,
+Everton,Tyler Dibling,,RW,2006,GB-ENG,14.8,
+Everton,Tyrique George,,ST,2006,GB-ENG,12.1,1
+Fulham,Bernd Leno,,GK,1992,DE,15.6,
+Fulham,Benjamin Lecomte,,GK,1991,FR,12.4,1
+Fulham,Alex Borto,,GK,2003,US,13.4,1
+Fulham,Timothy Castagne,,RB,1995,BE,15,
+Fulham,Joachim Andersen,,CB,1996,DK,15.4,
+Fulham,Antonee Robinson,,LB,1997,US,15.6,
+Fulham,Ryan Sessegnon,,CB,2000,GB-ENG,13.8,1
+Fulham,Kenny Tete,,RB,1995,NL,14.8,
+Fulham,Jorge Cuenca,,CB,1999,ES,13.8,1
+Fulham,David Affengruber,,CB,2001,AT,14.2,
+Fulham,Calvin Bassey,,CB,1999,NG,15.2,
+Fulham,Luc De Fougerolles,,CB,2005,CA,13,1
+Fulham,Tom Cairney,,CM,1991,GB-SCT,14.2,
+Fulham,Harrison Reed,,CM,1995,GB-ENG,14.4,
+Fulham,Sander Berge,,DM,1998,NO,15.4,
+Fulham,Emile Smith Rowe,,AM,2000,GB-ENG,15.2,
+Fulham,Hugo Larsson,,CM,2004,SE,15.6,
+Fulham,Shea Charles,,CM,2003,GB-NIR,13.8,1
+Fulham,Joshua King,,CM,2007,GB-ENG,12.2,1
+Fulham,César Palacios,,CM,2004,ES,13,1
+Fulham,Manuel Angel,,CM,2004,ES,13,1
+Fulham,Alex Iwobi,,RW,1996,NG,15.6,
+Fulham,Rodrigo Muniz,,ST,2001,BR,14.8,
+Fulham,Kauã Santos,,GK,2003,BR,14.6,
+Fulham,Oscar Bobb,,RW,2003,NO,15,
+Fulham,Jonah Kusi-Asare,,ST,2007,SE,12.2,1
+Fulham,Gonzalo García,,ST,2004,ES,14.8,
+Liverpool,Alisson Becker,Alisson,GK,1992,BR,17,
+Liverpool,Freddie Woodman,,GK,1997,GB-ENG,15.4,1
+Liverpool,Giorgi Mamardashvili,,GK,2000,GE,15.8,
+Liverpool,Vítězslav Jaroš,,GK,2001,CZ,15.4,1
+Liverpool,Harvey Davies,,GK,2003,GB-ENG,15.4,1
+Liverpool,Kostas Tsimikas,,CB,1996,GR,14.6,
+Liverpool,Joe Gomez,,CB,1997,GB-ENG,15,
+Liverpool,Virgil van Dijk,,CB,1991,NL,17.2,
+Liverpool,Ronald Araújo,,CB,1999,UY,16,
+Liverpool,Jeremie Frimpong,,RB,2000,NL,16.5,
+Liverpool,Milos Kerkez,,LB,2003,HU,16,
+Liverpool,Conor Bradley,,RB,2003,GB-NIR,15.4,
+Liverpool,Giovanni Leoni,,CB,2006,IT,14,
+Liverpool,Jérémy Jacquet,,CB,2005,FR,14.6,
+Liverpool,Wataru Endo,,DM,1993,JP,14.8,
+Liverpool,Dominik Szoboszlai,,CM,2000,HU,16.8,
+Liverpool,Florian Wirtz,,AM,2003,DE,17.6,
+Liverpool,Alexis Mac Allister,,CM,1998,AR,17,
+Liverpool,Ryan Gravenberch,,DM,2002,NL,16.9,
+Liverpool,Trey Nyoni,,CM,2007,GB-ENG,14.2,1
+Liverpool,Federico Chiesa,,LW,1997,IT,15.2,
+Liverpool,Alexander Isak,,ST,1999,SE,17.4,
+Liverpool,Cody Gakpo,,LW,1999,NL,16.4,
+Liverpool,Hugo Ekitike,,ST,2002,FR,16.5,
+Liverpool,Bradley Barcola,,LW,2002,FR,16.4,
+Liverpool,Víctor Muñoz,,LW,2003,ES,14.6,
+Liverpool,Rio Ngumoha,,LW,2008,GB-ENG,13.5,
+Manchester City,Gerónimo Rulli,,GK,1992,AR,15.6,
+Manchester City,Gianluigi Donnarumma,,GK,1999,IT,17.2,
+Manchester City,Marcus Bettinelli,,GK,1992,GB-ENG,14.3,1
+Manchester City,Rayan Aït-Nouri,,LB,2001,DZ,16,
+Manchester City,Rúben Dias,,CB,1997,PT,17,
+Manchester City,Matheus Nunes,,RB,1998,PT,15.6,
+Manchester City,Marc Guéhi,,CB,2000,GB-ENG,16.4,
+Manchester City,Joško Gvardiol,,CB,2002,HR,16.8,
+Manchester City,Josh Wilson-Esbrand,,CB,2002,GB-ENG,15.7,1
+Manchester City,Rico Lewis,,RB,2004,GB-ENG,15.4,
+Manchester City,Nico O'Reilly,,CB,2005,GB-ENG,15,
+Manchester City,Abdukodir Khusanov,,CB,2004,UZ,15,
+Manchester City,Vitor Reis,,CB,2006,BR,14.6,
+Manchester City,Mateo Kovačić,,CM,1994,HR,15.8,
+Manchester City,Phil Foden,,AM,2000,GB-ENG,17,
+Manchester City,Enzo Fernández,,CM,2001,AR,16.9,
+Manchester City,Elliot Anderson,,CM,2002,GB-ENG,16.8,
+Manchester City,Rayan Cherki,,AM,2003,FR,16.5,
+Manchester City,Ayyoub Bouaddi,,CM,2007,FR,15,
+Manchester City,Antoine Semenyo,,RW,2000,GH,16.2,
+Manchester City,Erling Haaland,,ST,2000,NO,18.6,
+Manchester City,Iliman Ndiaye,,LW,2000,SN,15.8,
+Manchester City,Jérémy Doku,,LW,2002,BE,16.4,
+Manchester City,Allan,,ST,2004,BR,14.9,1
+Manchester City,Ryan McAidoo,,ST,2008,GB-ENG,13.1,1
+Manchester United,Karl Darlow,,GK,1990,GB-WLS,13.3,1
+Manchester United,Tom Heaton,,GK,1986,GB-ENG,13.3,1
+Manchester United,Senne Lammens,,GK,2002,BE,15,
+Manchester United,Dermot Mee,,GK,2002,GB-NIR,14.3,1
+Manchester United,Harry Maguire,,CB,1993,GB-ENG,15,
+Manchester United,Matthijs de Ligt,,CB,1999,NL,16,
+Manchester United,Noussair Mazraoui,,RB,1997,MA,15.6,
+Manchester United,Luke Shaw,,LB,1995,GB-ENG,15.2,
+Manchester United,Diogo Dalot,,RB,1999,PT,15.6,
+Manchester United,Lisandro Martínez,,CB,1998,AR,16.2,
+Manchester United,Leny Yoro,,CB,2005,FR,15.6,
+Manchester United,Harry Amass,,CB,2007,GB-ENG,13.1,1
+Manchester United,Ayden Heaven,,CB,2006,GB-ENG,14,
+Manchester United,Bruno Fernandes,,AM,1994,PT,16.9,
+Manchester United,Youri Tielemans,,CM,1997,BE,16.2,
+Manchester United,Mason Mount,,AM,1999,GB-ENG,15.4,
+Manchester United,Manuel Ugarte,,DM,2001,UY,15.4,
+Manchester United,Andrey Santos,,CM,2004,BR,15.2,
+Manchester United,Carlos Baleba,,DM,2004,CM,16,
+Manchester United,Kobbie Mainoo,,CM,2005,GB-ENG,15.6,
+Manchester United,Jack Fletcher,,CM,2007,GB-ENG,13.1,1
+Manchester United,Tyler Fletcher,,CM,2007,GB-ENG,13.1,1
+Manchester United,Marcus Rashford,,LW,1997,GB-ENG,16,
+Manchester United,Bryan Mbeumo,,RW,1999,CM,16.4,
+Manchester United,Matheus Cunha,,AM,1999,BR,16.4,
+Manchester United,Joshua Zirkzee,,ST,2001,NL,15,
+Manchester United,Benjamin Šeško,,ST,2003,SI,16.2,
+Manchester United,Amad Diallo,,RW,2002,CI,15.8,
+Manchester United,Patrick Dorgu,,LB,2004,DK,15.2,
+Manchester United,Shea Lacey,,ST,2007,GB-ENG,13.1,1
+Newcastle United,Nick Pope,,GK,1992,GB-ENG,15.8,
+Newcastle United,Mark Gillespie,,GK,1992,GB-ENG,13.5,1
+Newcastle United,Lukáš Horníček,,GK,2002,CZ,14.5,1
+Newcastle United,Ewen Jaouen,,GK,2005,FR,13.7,1
+Newcastle United,Fabian Schär,,CB,1991,CH,15.4,
+Newcastle United,Dan Burn,,CB,1992,GB-ENG,15.2,
+Newcastle United,Sven Botman,,CB,2000,NL,15.9,
+Newcastle United,Amar Dedić,,RB,2002,BA,15,
+Newcastle United,Malick Thiaw,,CB,2001,DE,15.6,
+Newcastle United,Tino Livramento,,RB,2002,GB-ENG,15.8,
+Newcastle United,Lewis Hall,,LB,2004,GB-ENG,15.6,
+Newcastle United,Leo Shahar,,CB,2007,GB-ENG,13.3,1
+Newcastle United,Joe Willock,,CM,1999,GB-ENG,14.8,
+Newcastle United,Joelinton Cássio,Joelinton,CM,1996,BR,16,
+Newcastle United,Jacob Ramsey,,CM,2001,GB-ENG,15.2,
+Newcastle United,Nico González,,DM,2002,ES,15.6,
+Newcastle United,Lewis Miley,,CM,2006,GB-ENG,14.6,
+Newcastle United,Sean Steur,,CM,2008,NL,12.3,1
+Newcastle United,Aladji Bamba,,CM,2006,FR,13.3,1
+Newcastle United,Yoane Wissa,,ST,1996,CD,15.6,
+Newcastle United,Jacob Murphy,,RW,1995,GB-ENG,15.2,
+Newcastle United,Harvey Barnes,,LW,1997,GB-ENG,15.4,
+Newcastle United,Anthony Elanga,,RW,2002,SE,15.6,
+Newcastle United,William Osula,,ST,2003,DK,14.2,
+Newcastle United,Matías Fernández-Pardo,,LW,2005,BE,14.6,
+Newcastle United,Bazoumana Touré,,LW,2006,CI,14.8,
+Sunderland,Simon Moore,,GK,1990,GB-ENG,11.7,1
+Sunderland,Robin Roefs,,GK,2003,NL,14.6,
+Sunderland,Melker Ellborg,,GK,2003,SE,12.7,1
+Sunderland,Thomas Meunier,,RB,1991,BE,14.6,
+Sunderland,Luke O'Nien,,CB,1994,GB-ENG,12.7,1
+Sunderland,Kevin Danso,,CB,1998,AT,15,
+Sunderland,Nordi Mukiele,,RB,1997,FR,15,
+Sunderland,Reinildo Mandava,,LB,1994,MZ,14.8,
+Sunderland,Omar Alderete,,CB,1996,PY,14.8,
+Sunderland,Trai Hume,,RB,2002,GB-NIR,14.4,
+Sunderland,Dan Ballard,,CB,1999,GB-NIR,14.6,
+Sunderland,Aji Alese,,CB,2001,GB-ENG,13.1,1
+Sunderland,Dayann Methalie,,CB,2006,FR,11.5,1
+Sunderland,Granit Xhaka,,CM,1992,CH,16,
+Sunderland,Alan Browne,,CM,1995,IE,12.7,1
+Sunderland,Enzo Le Fée,,CM,2000,FR,15,
+Sunderland,Abdoullah Ba,,CM,2003,FR,13.1,1
+Sunderland,Habib Diarra,,CM,2004,SN,14.8,
+Sunderland,Noah Sadiki,,DM,2004,BE,14.6,
+Sunderland,Chris Rigg,,CM,2007,GB-ENG,14,
+Sunderland,Jules Ahoka,,CM,2005,CD,12.3,1
+Sunderland,Wilson Isidor,,ST,2000,FR,14.8,
+Sunderland,Brian Brobbey,,ST,2002,NL,14.8,
+Sunderland,Romaine Mundle,,ST,2003,GB-ENG,13.1,1
+Sunderland,Malick Fofana,,LW,2005,BE,15.6,
+Sunderland,Nilson Angulo,,ST,2003,EC,13.1,1
+Sunderland,Chemsdine Talbi,,RW,2005,MA,14.4,
+Sunderland,Juan Angulo,,ST,2008,EC,10.5,1
+Sunderland,Jocelin Bi,,ST,2005,CI,12.3,1
+Tottenham Hotspur,Martin Dúbravka,,GK,1989,SK,14.8,
+Tottenham Hotspur,Brandon Austin,,GK,1999,GB-ENG,14.4,1
+Tottenham Hotspur,Antonín Kinský,,GK,2003,CZ,14.4,
+Tottenham Hotspur,Andy Robertson,,LB,1994,GB-SCT,15.6,
+Tottenham Hotspur,Tosin Adarabioyo,,CB,1997,GB-ENG,15,
+Tottenham Hotspur,Ben Davies,,CB,1993,GB-WLS,14.4,1
+Tottenham Hotspur,Marcos Senesi,,CB,1997,AR,15.6,
+Tottenham Hotspur,Pedro Porro,,RB,1999,ES,16,
+Tottenham Hotspur,Jan Paul van Hecke,,CB,2000,NL,15.8,
+Tottenham Hotspur,Micky van de Ven,,CB,2001,NL,16.6,
+Tottenham Hotspur,Destiny Udogie,,LB,2002,IT,15.6,
+Tottenham Hotspur,Archie Gray,,CM,2006,GB-ENG,14.8,
+Tottenham Hotspur,Dejan Kulusevski,,RW,2000,SE,16.2,
+Tottenham Hotspur,Rodrigo Bentancur,,CM,1997,UY,15.6,
+Tottenham Hotspur,Sandro Tonali,,CM,2000,IT,16.6,
+Tottenham Hotspur,James Maddison,,AM,1996,GB-ENG,16,
+Tottenham Hotspur,Conor Gallagher,,CM,2000,GB-ENG,15.8,
+Tottenham Hotspur,Xavi Simons,,AM,2003,NL,16.6,
+Tottenham Hotspur,Mateus Fernandes,,CM,2004,PT,15.8,
+Tottenham Hotspur,Lucas Bergvall,,CM,2006,SE,15.4,
+Tottenham Hotspur,Dominic Solanke,,ST,1997,GB-ENG,15.8,
+Tottenham Hotspur,Richarlison de Andrade,Richarlison,ST,1997,BR,15.4,
+Tottenham Hotspur,Omar Marmoush,,ST,1999,EG,16.4,
+Tottenham Hotspur,Mohammed Kudus,,RW,2000,GH,16.4,
+Tottenham Hotspur,Mykhailo Mudryk,,ST,2001,UA,14.6,
+Tottenham Hotspur,Sávio,,ST,2004,BR,14,1
+Tottenham Hotspur,Mathys Tel,,LW,2005,FR,15.2,
+Tottenham Hotspur,Wilson Odobert,,LW,2004,FR,14.8,
+Hull City,Jack Butland,,GK,1993,GB-ENG,14.6,
+Hull City,Dillon Phillips,,GK,1995,GB-ENG,10.3,1
+Hull City,Konstantinos Tzolakis,,GK,2002,GR,10.7,1
+Hull City,Matt Targett,,CB,1995,GB-ENG,10.7,1
+Hull City,Paddy McNair,,CB,1995,GB-NIR,10.7,1
+Hull City,John Egan,,CB,1992,IE,10.1,1
+Hull City,Lewie Coyle,,CB,1995,GB-ENG,10.7,1
+Hull City,Semi Ajayi,,CB,1993,NG,10.7,1
+Hull City,Ryan John Giles,,CB,2000,GB-ENG,11.1,1
+Hull City,Brooke Norton-Cuffy,,RB,2004,GB-ENG,14.4,
+Hull City,Charlie Hughes,,CB,2003,GB-ENG,11.1,1
+Hull City,Nobel Mendy,,CB,2004,SN,10.3,1
+Hull City,Lucas Herrington,,CB,2007,AU,9.5,1
+Hull City,Regan Slater,,CM,1999,GB-ENG,11.1,1
+Hull City,Matty Crooks,,CM,1994,GB-ENG,10.7,1
+Hull City,Kieran Dowell,,CM,1997,GB-ENG,11.1,1
+Hull City,Abdülkadir Ömür,,CM,1999,TR,11.1,1
+Hull City,Hidemasa Morita,,CM,1995,JP,15,
+Hull City,Eliot Matazo,,CM,2002,BE,11.1,1
+Hull City,Tim Iroegbunam,,CM,2003,GB-ENG,14.4,
+Hull City,Lucas Gourna-Douath,,CM,2003,FR,11.1,1
+Hull City,Darko Gyabi,,CM,2004,GB-ENG,10.3,1
+Hull City,Jens Hjertö-Dahl,,CM,2005,NO,10.3,1
+Hull City,Óscar Zambrano,,CM,2004,EC,10.3,1
+Hull City,Christos Mouzakitis,,CM,2006,GR,9.5,1
+Hull City,Oliver McBurnie,,ST,1996,GB-SCT,11.1,1
+Hull City,Sorba Thomas,,ST,1999,GB-WLS,11.1,1
+Hull City,Joe Gelhardt,,ST,2002,GB-ENG,11.1,1
+Hull City,Mohamed-Ali Cho,,LW,2004,FR,14.6,
+Hull City,David Akintola,,ST,1996,NG,11.1,1
+Hull City,Elliot Stroud,,ST,2002,SE,11.1,1
+Hull City,Ilyas Ansah,,ST,2004,DE,14.4,
+Hull City,Robinio Vaz,,ST,2007,FR,9.5,1
+Hull City,Mohamed Belloumi,,ST,2002,DZ,11.1,1
+Leeds United,Alex Cairns,,GK,1993,GB-ENG,12.5,1
+Leeds United,Michael Zetterer,,GK,1995,DE,14.6,
+Leeds United,James Trafford,,GK,2002,GB-ENG,15.2,
+Leeds United,Nico Elvedi,,CB,1996,CH,15,
+Leeds United,Jayden Bogle,,RB,2000,GB-ENG,14.6,
+Leeds United,James Justin,,CB,1998,GB-ENG,13.3,1
+Leeds United,Joe Rodon,,CB,1997,GB-WLS,15,
+Leeds United,Gabriel Gudmundsson,,LB,1999,SE,14.6,
+Leeds United,Jaka Bijol,,CB,1999,SI,15.2,
+Leeds United,Melvin Bard,,LB,2000,FR,14.8,
+Leeds United,Tarik Muharemović,,CB,2003,BA,14.4,
+Leeds United,Sean Longstaff,,CM,1997,GB-ENG,14.6,
+Leeds United,Ethan Ampadu,,DM,2000,GB-WLS,15,
+Leeds United,Ao Tanaka,,CM,1998,JP,13.3,1
+Leeds United,Anton Stach,,CM,1998,DE,15,
+Leeds United,Ilia Gruev,,DM,2000,BG,14.4,
+Leeds United,Brenden Aaronson,,AM,2000,US,14.8,
+Leeds United,Dominic Calvert-Lewin,,ST,1997,GB-ENG,15,
+Leeds United,Lukas Nmecha,,ST,1998,DE,14.4,
+Leeds United,Daniel James,,RW,1997,GB-WLS,14.8,
+Leeds United,Harry Wilson,,RW,1997,GB-WLS,15,
+Leeds United,Noah Okafor,,LW,2000,CH,15,
+Leeds United,Mateo Fernandez,,ST,2003,ES,13.3,1
+Leeds United,Jean-Mattéo Bahoya,,LW,2005,FR,14.6,
+Ipswich Town,David Button,,GK,1989,GB-ENG,10.6,1
+Ipswich Town,Christian Walton,,GK,1995,GB-ENG,11.2,1
+Ipswich Town,Alex Palmer,,GK,1996,GB-ENG,11.6,1
+Ipswich Town,Kjell Scherpen,,GK,2000,NL,11.6,1
+Ipswich Town,Darnell Furlong,,CB,1995,GB-ENG,11.6,1
+Ipswich Town,Issa Diop,,CB,1997,FR,14.8,
+Ipswich Town,Dara O'Shea,,CB,1999,IE,12,1
+Ipswich Town,Cédric Kipré,,CB,1996,CI,12,1
+Ipswich Town,Leif Davis,,CB,1999,GB-ENG,12,1
+Ipswich Town,Jacob Greaves,,CB,2000,GB-ENG,12,1
+Ipswich Town,Abdoul Ouattara,,CB,2005,CI,11.2,1
+Ipswich Town,Jack Taylor,,CM,1998,IE,12,1
+Ipswich Town,Azor Matusiwa,,CM,1998,NL,12,1
+Ipswich Town,Exequiel Palacios,,CM,1998,AR,15.4,
+Ipswich Town,Saša Lukić,,CM,1996,RS,15,
+Ipswich Town,Florentino Luís,,DM,1999,PT,14.6,
+Ipswich Town,Marcelino Núñez,,CM,2000,CL,12,1
+Ipswich Town,Anis Mehmeti,,CM,2001,AL,12,1
+Ipswich Town,Julio Enciso,,AM,2004,PY,15,
+Ipswich Town,Kasey McAteer,,CM,2001,IE,12,1
+Ipswich Town,Jack Clarke,,ST,2000,GB-ENG,12,1
+Ipswich Town,Chuba Akpom,,ST,1995,GB-ENG,11.6,1
+Ipswich Town,Daizen Maeda,,LW,1997,JP,15.2,
+Ipswich Town,Zian Flemming,,ST,1998,NL,14.4,
+Ipswich Town,Jaden Philogene-Bidace,,ST,2002,GB-ENG,12,1
+Ipswich Town,Emersonn,,ST,2004,BR,11.2,1
+Ipswich Town,Abdul Issahaku,,ST,2004,GH,11.2,1
+Ipswich Town,Sindre Egeli,,ST,2006,NO,10.4,1
+Nottingham Forest,John Victor,,GK,1996,BR,14.4,
+Nottingham Forest,Matz Sels,,GK,1992,BE,15.8,
+Nottingham Forest,Steven Benda,,GK,1998,DE,13.8,1
+Nottingham Forest,Nikola Milenković,,CB,1997,RS,16,
+Nottingham Forest,Ola Aina,,RB,1996,NG,15.4,
+Nottingham Forest,Daniel Muñoz,,RB,1996,CO,15.8,
+Nottingham Forest,Neco Williams,,RB,2001,GB-WLS,15.4,
+Nottingham Forest,Luca Netz,,LB,2003,DE,14.6,
+Nottingham Forest,Jair Paula,,CB,2005,BR,13.4,1
+Nottingham Forest,Ousmane Diomande,,CB,2003,CI,15.6,
+Nottingham Forest,Nicolò Savona,,RB,2003,IT,14.6,
+Nottingham Forest,Murillo Santiago Costa dos Santos,Murillo,CB,2002,BR,16,
+Nottingham Forest,Morgan Gibbs-White,,AM,1999,GB-ENG,16.2,
+Nottingham Forest,Ryan Yates,,CM,1997,GB-ENG,14.4,
+Nottingham Forest,Ibrahim Sangaré,,DM,1997,CI,15.4,
+Nottingham Forest,Xaver Schlager,,CM,1997,AT,15.6,
+Nottingham Forest,Nicolás Domínguez,,CM,1998,AR,15,
+Nottingham Forest,James McAtee,,CM,2002,GB-ENG,14.8,
+Nottingham Forest,Callum Hudson-Odoi,,LW,2000,GB-ENG,15.2,
+Nottingham Forest,Chris Wood,,ST,1991,NZ,15.6,
+Nottingham Forest,Dan Ndoye,,RW,2000,CH,15.6,
+Nottingham Forest,Arnaud Kalimuendo,,ST,2002,FR,15.2,
+Nottingham Forest,Liam Delap,,ST,2003,GB-ENG,15.6,
+Nottingham Forest,Igor Jesus,,ST,2001,BR,15.2,
+Crystal Palace,Dean Henderson,,GK,1997,GB-ENG,15.8,
+Crystal Palace,Remi Matthews,,GK,1994,GB-ENG,13.3,1
+Crystal Palace,Walter Benítez,,GK,1993,AR,14.6,
+Crystal Palace,Axel Disasi,,CB,1998,FR,14.8,
+Crystal Palace,Ben Chilwell,,LB,1996,GB-ENG,14.8,
+Crystal Palace,Takehiro Tomiyasu,,CB,1998,JP,14.6,
+Crystal Palace,Chris Richards,,CB,2000,US,15.2,
+Crystal Palace,Tyrick Mitchell,,LB,1999,GB-ENG,15,
+Crystal Palace,Óscar Mingueza,,RB,1999,ES,15.2,
+Crystal Palace,Chadi Riad,,CB,2003,MA,14.2,
+Crystal Palace,Jaydee Canvot,,CB,2006,FR,14.2,
+Crystal Palace,Honest Ahanor,,CB,2008,IT,11.5,1
+Crystal Palace,Jefferson Lerma,,DM,1994,CO,15.2,
+Crystal Palace,Daichi Kamada,,AM,1996,JP,15.2,
+Crystal Palace,Will Hughes,,CM,1995,GB-ENG,14.6,
+Crystal Palace,Cheick Doucouré,,CM,2000,ML,14.8,
+Crystal Palace,Quinten Timber,,CM,2001,NL,15,
+Crystal Palace,Adam Wharton,,CM,2004,GB-ENG,16,
+Crystal Palace,Anan Khalaili,,CM,2004,IL,13.3,1
+Crystal Palace,Jean-Philippe Mateta,,ST,1997,FR,15.8,
+Crystal Palace,Ismaïla Sarr,,RW,1998,SN,15.8,
+Crystal Palace,Eddie Nketiah,,ST,1999,GB-ENG,14.8,
+Crystal Palace,Dwight McNeil,,LW,1999,GB-ENG,15,
+Crystal Palace,Evann Guessand,,RW,2001,CI,15.2,
+Crystal Palace,Yeremy Pino,,RW,2002,ES,15.6,
+Crystal Palace,Matheus Franca,,ST,2004,BR,13.3,1
+Crystal Palace,Darío Osorio,,ST,2004,CL,14.2,
+Crystal Palace,Jesurun Rak-Sakyi,,ST,2002,GB-ENG,14.1,1
+Crystal Palace,Jørgen Strand Larsen,,ST,2000,NO,15.4,
+Crystal Palace,Zavier Gozo,,ST,2007,US,12.5,1
+Brighton & Hove Albion,Jason Steele,,GK,1990,GB-ENG,12.9,1
+Brighton & Hove Albion,Bart Verbruggen,,GK,2002,NL,15.6,
+Brighton & Hove Albion,Thomas McGill,,GK,2000,GB-ENG,13.9,1
+Brighton & Hove Albion,Olivier Boscagli,,CB,1997,FR,15,
+Brighton & Hove Albion,Pascal Struijk,,CB,1999,NL,14.8,
+Brighton & Hove Albion,Lewis Dunk,,CB,1991,GB-ENG,15.4,
+Brighton & Hove Albion,Ferdi Kadıoğlu,,LB,1999,TR,15.6,
+Brighton & Hove Albion,Michael Svoboda,,CB,1998,AT,14.3,1
+Brighton & Hove Albion,Mats Wieffer,,CM,1999,NL,15.6,
+Brighton & Hove Albion,Maxim De Cuyper,,LB,2000,BE,15.4,
+Brighton & Hove Albion,Jaouen Hadjam,,CB,2003,DZ,14.2,
+Brighton & Hove Albion,Costinha,,CB,2000,PT,14.3,1
+Brighton & Hove Albion,Luka Vušković,,CB,2007,HR,14.8,
+Brighton & Hove Albion,Matt O'Riley,,CM,2000,DK,15,
+Brighton & Hove Albion,Pascal Groß,,CM,1991,DE,15,
+Brighton & Hove Albion,Femi Azeez,,CM,2001,GB-ENG,14.3,1
+Brighton & Hove Albion,Yasin Ayari,,CM,2003,SE,15.2,
+Brighton & Hove Albion,Diego Gómez,,AM,2003,PY,15,
+Brighton & Hove Albion,Jack Hinshelwood,,CM,2005,GB-ENG,15,
+Brighton & Hove Albion,Malick Yalcouyé,,CM,2005,ML,14,
+Brighton & Hove Albion,Chema Andrés,,CM,2005,ES,14.6,
+Brighton & Hove Albion,Georginio Rutter,,AM,2002,FR,15.6,
+Brighton & Hove Albion,Evan Ferguson,,ST,2004,IE,15,
+Brighton & Hove Albion,Kaoru Mitoma,,LW,1997,JP,16,
+Brighton & Hove Albion,Yankuba Minteh,,RW,2004,GM,15.2,
+Brighton & Hove Albion,Ibrahim Osman,,ST,2004,GH,14,
+Brighton & Hove Albion,Stefanos Tzimas,,ST,2005,GR,14.4,
+Brighton & Hove Albion,Promise Akinpelu,,ST,2001,CA,14.3,1
+Brighton & Hove Albion,Charalampos Kostoulas,,ST,2007,GR,12.7,1
+Brighton & Hove Albion,Zadok Yohanna,,ST,2007,NG,12.7,1
+Brentford,Ellery Balcombe,,GK,1999,GB-ENG,13.5,1
+Brentford,Caoimhín Kelleher,,GK,1998,IE,15.6,
+Brentford,Hákon Rafn Valdimarsson,,GK,2001,IS,13.5,1
+Brentford,Rico Henry,,LB,1997,GB-ENG,14.6,
+Brentford,Sepp van den Berg,,CB,2001,NL,15,
+Brentford,Kristoffer Ajer,,CB,1998,NO,14.8,
+Brentford,Aaron Hickey,,RB,2002,GB-SCT,14.8,
+Brentford,Nathan Collins,,CB,2001,IE,15.4,
+Brentford,El Hadji Malick Diouf,,LB,2004,SN,15,
+Brentford,Michael Kayode,,RB,2004,IT,14.8,
+Brentford,Ji-soo Kim,,CB,2004,KR,13.1,1
+Brentford,Jannik Schuster,,CB,2006,AT,12.3,1
+Brentford,Benjamin Fredrick,,CB,2005,NG,13.1,1
+Brentford,Josh Dasilva,,CM,1998,GB-ENG,13.9,1
+Brentford,Vitaly Janelt,,CM,1998,DE,14.8,
+Brentford,Mathias Jensen,,CM,1996,DK,14.8,
+Brentford,Mikkel Damsgaard,,AM,2000,DK,15.2,
+Brentford,Keane Lewis-Potter,,LW,2001,GB-ENG,14.8,
+Brentford,Mamadou Sangaré,,CM,2002,ML,14.8,
+Brentford,Fábio Carvalho,,AM,2002,PT,14.6,
+Brentford,Antoni Milambo,,CM,2005,NL,13.1,1
+Brentford,Yehor Yarmoliuk,,CM,2004,UA,14.6,
+Brentford,Callum Wilson,,ST,1992,GB-ENG,14.6,
+Brentford,Kevin Schade,,LW,2001,DE,15.2,
+Brentford,Igor Thiago,,ST,2001,BR,15.2,
+Brentford,Jaidon Anthony,,LW,2000,GB-ENG,14.6,
+Brentford,Dango Ouattara,,RW,2002,BF,15.2,
+Brentford,Gustavo Gomes,,ST,2005,BR,13.1,1
+Brentford,Kaye Furo,,ST,2007,BE,12.3,1
+Bournemouth,Fraser Forster,,GK,1988,GB-ENG,12.6,1
+Bournemouth,Michele Di Gregorio,,GK,1997,IT,15.6,
+Bournemouth,Đorđe Petrović,,GK,1999,RS,15.2,
+Bournemouth,Adam Smith,,RB,1991,GB-ENG,14.2,
+Bournemouth,Max Aarons,,CB,2000,GB-ENG,14,
+Bournemouth,James Hill,,CB,2002,GB-ENG,14.4,
+Bournemouth,Bafodé Diakité,,CB,2001,FR,15.2,
+Bournemouth,Julian Araujo,,CB,2001,US,14.2,
+Bournemouth,Adrien Truffert,,LB,2001,FR,15.2,
+Bournemouth,Juanlu Sánchez,,RB,2003,ES,14.6,
+Bournemouth,Julio Soler,,CB,2005,AR,14.2,
+Bournemouth,António Silva,,CB,2003,PT,15.6,
+Bournemouth,Veljko Milosavljević,,CB,2007,RS,12.4,1
+Bournemouth,Lewis Cook,,CM,1997,GB-ENG,15,
+Bournemouth,Marcus Tavernier,,AM,1999,GB-ENG,15.2,
+Bournemouth,Justin Kluivert,,LW,1999,NL,15.6,
+Bournemouth,Ryan Christie,,CM,1995,GB-SCT,14.8,
+Bournemouth,Tyler Adams,,DM,1999,US,15.4,
+Bournemouth,Alex Scott,,CM,2003,GB-ENG,15,
+Bournemouth,Alex Toth,,CM,2005,HU,13.2,1
+Bournemouth,Ben Winterburn,,CM,2004,GB-ENG,13.2,1
+Bournemouth,David Brooks,,RW,1997,GB-WLS,14.8,
+Bournemouth,Francisco Evanilson de Lima,Evanilson,ST,1999,BR,15.4,
+Bournemouth,Amine Adli,,LW,2000,MA,15,
+Bournemouth,Daniel Jebbison,,ST,2003,CA,14,1
+Bournemouth,Ben Doak,,ST,2005,GB-SCT,14.8,
+Bournemouth,Alvaro Rodriguez,,ST,2004,ES,13.2,1
+Bournemouth,Rayan,,ST,2006,BR,12.4,1
+Bournemouth,Eli Junior Kroupi,,ST,2006,FR,14.6,
+Coventry City,Daniel Bentley,,GK,1993,GB-ENG,10.8,1
+Coventry City,Callum Wilson,,ST,1992,GB-ENG,14.6,
+Coventry City,Carl Rushworth,,GK,2001,GB-ENG,11.2,1
+Coventry City,Jake Bidwell,,CB,1993,GB-ENG,11.2,1
+Coventry City,Luke Woolfenden,,CB,1998,GB-ENG,11.6,1
+Coventry City,Ethan Pinnock,,CB,1993,JM,14.6,
+Coventry City,Jay Dasilva,,CB,1998,GB-WLS,11.6,1
+Coventry City,Milan van Ewijk,,CB,2000,NL,11.6,1
+Coventry City,Joel Latibeaudiere,,CB,2000,JM,11.6,1
+Coventry City,Bobby Thomas,,CB,2001,GB-ENG,11.6,1
+Coventry City,Aurèle Amenda,,CB,2003,CH,14.4,
+Coventry City,Kaine Kesler,,CB,2002,GB-ENG,11.6,1
+Coventry City,Stephen Mfuni,,CB,2008,GB-ENG,9,1
+Coventry City,Matt Grimes,,CM,1995,GB-ENG,11.2,1
+Coventry City,Gustavo Hamer,,CM,1997,NL,11.6,1
+Coventry City,Victor Torp,,CM,1999,DK,11.6,1
+Coventry City,Frank Onyeka,,CM,1998,NG,11.6,1
+Coventry City,Josh Eccles,,CM,2000,GB-ENG,11.6,1
+Coventry City,Jack Rudoni,,CM,2001,GB-ENG,11.6,1
+Coventry City,Caleb Yirenkyi,,CM,2006,GH,10,1
+Coventry City,Ephron Mason-Clark,,ST,1999,GB-ENG,11.6,1
+Coventry City,Brandon Thomas-Asante,,ST,1998,GH,11.6,1
+Coventry City,Taiwo Awoniyi,,ST,1997,NG,11.6,1
+Coventry City,Haji Wright,,ST,1998,US,11.6,1
+Coventry City,Tatsuhiro Sakamoto,,ST,1996,JP,11.6,1
+Coventry City,Ellis Simms,,ST,2001,GB-ENG,11.6,1
+Coventry City,Loum Tchaouna,,RW,2003,FR,14.4,
+Coventry City,Sidiki Chérif,,ST,2006,FR,14.4,
+Blackburn Rovers,Aynsley Pears,,GK,1998,GB-ENG,10.5,1
+Blackburn Rovers,Balázs Tóth,,GK,1997,HU,10.5,1
+Blackburn Rovers,Harry Pickering,,CB,1998,GB-ENG,10.9,1
+Blackburn Rovers,Scott Wharton,,CB,1997,GB-ENG,10.9,1
+Blackburn Rovers,Sean McLoughlin,,CB,1996,IE,10.9,1
+Blackburn Rovers,Yuri Ribeiro,,CB,1997,PT,10.9,1
+Blackburn Rovers,Lewis Miller,,CB,2000,AU,10.9,1
+Blackburn Rovers,Hayden Carter,,CB,1999,GB-ENG,10.9,1
+Blackburn Rovers,Ryan Alebiosu,,CB,2001,NG,10.9,1
+Blackburn Rovers,Tom Atcheson,,CB,2006,GB-NIR,9.3,1
+Blackburn Rovers,Gady Beyuku,,CB,2005,FR,10.1,1
+Blackburn Rovers,Sam Morsy,,CM,1991,EG,9.9,1
+Blackburn Rovers,Adam Forshaw,,CM,1991,GB-ENG,9.9,1
+Blackburn Rovers,Todd Cantwell,,CM,1998,GB-ENG,10.9,1
+Blackburn Rovers,Ryoya Morishita,,CM,1997,JP,10.9,1
+Blackburn Rovers,Dion De Neve,,CM,2001,BE,10.9,1
+Blackburn Rovers,Jake Garrett,,CM,2003,GB-ENG,10.9,1
+Blackburn Rovers,Kristi Montgomery,,CM,2004,GB-SCT,10.1,1
+Blackburn Rovers,Oladapo Afolayan,,ST,1998,GB-ENG,10.9,1
+Blackburn Rovers,Mathias Jørgensen,,ST,2000,DK,10.9,1
+Blackburn Rovers,Yuki Ohashi,,ST,1996,JP,10.9,1
+Blackburn Rovers,Jayden Fevrier,,ST,2003,GB-ENG,10.9,1
+Blackburn Rovers,Andri Guðjohnsen,,ST,2002,IS,10.9,1
+Bolton Wanderers,Jack Bonham,,GK,1993,IE,9.3,1
+Bolton Wanderers,Gavin Bazunu,,GK,2002,IE,9.7,1
+Bolton Wanderers,David Harrington,,GK,2000,IE,9.7,1
+Bolton Wanderers,Luke Hutchinson,,GK,2002,GB-ENG,9.7,1
+Bolton Wanderers,Nathan Broome,,GK,2002,GB-ENG,9.7,1
+Bolton Wanderers,Akin Famewo,,CB,1998,GB-ENG,10.1,1
+Bolton Wanderers,Ben Davies,,CB,1995,GB-ENG,9.7,1
+Bolton Wanderers,Eoin Toal,,CB,1999,GB-NIR,10.1,1
+Bolton Wanderers,Larra,,CB,1997,ES,10.1,1
+Bolton Wanderers,Lewis Brunt,,CB,2000,GB-ENG,10.1,1
+Bolton Wanderers,Max Conway,,CB,2003,GB-ENG,10.1,1
+Bolton Wanderers,Luca Stephenson,,CB,2003,GB-ENG,10.1,1
+Bolton Wanderers,Joel Randall,,CM,1999,GB-ENG,10.1,1
+Bolton Wanderers,Josh Sheehan,,CM,1995,GB-WLS,9.7,1
+Bolton Wanderers,Ethan Erhahon,,CM,2001,GB-SCT,10.1,1
+Bolton Wanderers,Ruben Rodrigues,,CM,1996,PT,10.1,1
+Bolton Wanderers,Atsuki Ito,,CM,1998,JP,10.1,1
+Bolton Wanderers,Xavier Simons,,CM,2003,GB-ENG,10.1,1
+Bolton Wanderers,David Watson,,CM,2005,GB-SCT,9.3,1
+Bolton Wanderers,John McAtee,,ST,1999,GB-ENG,10.1,1
+Bolton Wanderers,Ryan Hardie,,ST,1997,GB-SCT,10.1,1
+Bolton Wanderers,Theo Bair,,ST,1999,CA,10.1,1
+Bolton Wanderers,Jayden Nelson,,ST,2002,CA,10.1,1
+Bolton Wanderers,Kyliane Dong,,ST,2004,FR,9.3,1
+Bolton Wanderers,Sam Dalby,,ST,1999,GB-ENG,10.1,1
+Norwich City,Daniel Grimshaw,,GK,1998,GB-ENG,10.9,1
+Norwich City,Vladan Kovacevic,,GK,1998,BA,10.9,1
+Norwich City,Vicente Reyes,,GK,2003,CL,10.9,1
+Norwich City,Jack Stacey,,CB,1996,GB-ENG,11.3,1
+Norwich City,Harry Darling,,CB,1999,GB-ENG,11.3,1
+Norwich City,José Cordoba,,CB,2001,PA,11.3,1
+Norwich City,Benjamin Chrisene,,CB,2004,GB-ENG,10.5,1
+Norwich City,Darlin Yongwa,,LB,2000,CM,14,
+Norwich City,Lucien Mahovo,,CB,2005,GB-ENG,10.5,1
+Norwich City,Kellen Fisher,,CB,2001,GB-ENG,11.3,1
+Norwich City,Ruairi McConville,,CB,2005,GB-NIR,10.5,1
+Norwich City,Sam Field,,CM,1998,GB-ENG,11.3,1
+Norwich City,Kenny McLean,,CM,1992,GB-SCT,10.3,1
+Norwich City,Pelle Mattsson,,CM,2001,DK,11.3,1
+Norwich City,Edmond-Paris Maghoma,,CM,2001,GB-ENG,11.3,1
+Norwich City,Anis Ben Slimane,,CM,2001,TN,11.3,1
+Norwich City,Mirko Topić,,CM,2001,RS,11.3,1
+Norwich City,Amankwah Forson,,CM,2002,GH,11.3,1
+Norwich City,Ali Ahmed,,CM,2000,CA,11.3,1
+Norwich City,Oscar Schwartau,,CM,2006,DK,9.7,1
+Norwich City,Andre Brooks,,CM,2003,GB-ENG,11.3,1
+Norwich City,Jacob Wright,,CM,2005,GB-ENG,10.5,1
+Norwich City,Elliot Myles,,CM,2007,GB-ENG,9.7,1
+Norwich City,Gabriel Forsyth,,CM,2006,GB-SCT,9.7,1
+Norwich City,Anthony Musaba,,ST,2000,NL,11.3,1
+Norwich City,Mohamed Toure,,ST,2004,AU,10.5,1
+Norwich City,Mathias Kvistgaarden,,ST,2002,DK,11.3,1
+Norwich City,Jovon Makama,,ST,2004,GB-ENG,10.5,1
+Norwich City,Pape Diallo,,ST,2004,SN,10.5,1
+Norwich City,Ante Crnac,,ST,2003,HR,11.3,1
+Norwich City,Errol Mundle-Smith,,ST,2006,GB-ENG,9.7,1
+Queens Park Rangers,Calum Ward,,GK,2000,GB-ENG,10.4,1
+Queens Park Rangers,Pierce Charles,,GK,2005,GB-NIR,9.6,1
+Queens Park Rangers,Matteo Salamon,,GK,2004,GB-ENG,9.6,1
+Queens Park Rangers,Jake Clarke-Salter,,CB,1997,GB-ENG,10.8,1
+Queens Park Rangers,Jimmy Dunne,,CB,1997,IE,10.8,1
+Queens Park Rangers,Boy Kemper,,CB,1999,NL,10.8,1
+Queens Park Rangers,Tariq Lamptey,,CB,2000,GH,10.8,1
+Queens Park Rangers,Ronnie Edwards,,CB,2003,GB-ENG,10.8,1
+Queens Park Rangers,Dennis Cirkin,,CB,2002,LV,10.8,1
+Queens Park Rangers,Amadou Salif Mbengue,,CB,2002,SN,10.8,1
+Queens Park Rangers,Liam Morrison,,CB,2003,GB-SCT,10.8,1
+Queens Park Rangers,Kealey Adamson,,CB,2003,AU,10.8,1
+Queens Park Rangers,Ilias Chair,,CM,1997,MA,10.8,1
+Queens Park Rangers,Nicolas Madsen,,CM,2000,DK,10.8,1
+Queens Park Rangers,Glen Kamara,,CM,1995,FI,10.4,1
+Queens Park Rangers,Karamoko Dembélé,,CM,2003,GB-ENG,10.8,1
+Queens Park Rangers,Jonathan Varane,,CM,2001,FR,10.8,1
+Queens Park Rangers,Harvey Vale,,CM,2003,IE,10.8,1
+Queens Park Rangers,Isak Alemayehu Mulugeta,,CM,2006,SE,9.2,1
+Queens Park Rangers,Paul Smyth,,ST,1997,GB-NIR,10.8,1
+Queens Park Rangers,Koki Saito,,ST,2001,JP,10.8,1
+Queens Park Rangers,Rumarn Burrell,,ST,2000,JM,10.8,1
+Queens Park Rangers,Kwame Poku,,ST,2001,GH,10.8,1
+Queens Park Rangers,Alfie Lloyd,,ST,2003,GB-ENG,10.8,1
+Queens Park Rangers,Rayan Kolli,,ST,2005,DZ,10,1
+Queens Park Rangers,Richard Kone,,ST,2003,CI,10.8,1
+Stoke City,Frankie Fielding,,GK,1988,GB-ENG,9.6,1
+Stoke City,Joshua Griffiths,,GK,2001,GB-ENG,10.6,1
+Stoke City,Viktor Johansson,,GK,1998,SE,10.6,1
+Stoke City,Ben Gibson,,CB,1993,GB-ENG,10.6,1
+Stoke City,Ben Wilmot,,CB,1999,GB-ENG,11,1
+Stoke City,Aaron Cresswell,,CB,1989,GB-ENG,10,1
+Stoke City,Ben Johnson,,CB,2000,GB-ENG,11,1
+Stoke City,Luke Graham,,CB,1986,GB-SCT,10,1
+Stoke City,Junior Tchamadeu,,CB,2003,CM,11,1
+Stoke City,Bosun Lawal,,CB,2003,IE,11,1
+Stoke City,Maksym Taloverov,,CB,2000,UA,11,1
+Stoke City,Eric Junior Bocat,,CB,1999,FR,11,1
+Stoke City,Luca Bombino,,CB,2006,US,9.4,1
+Stoke City,Svante Ingelsson,,CM,1998,SE,11,1
+Stoke City,Ben Pearson,,CM,1995,GB-ENG,10.6,1
+Stoke City,Ethan Galbraith,,CM,2001,GB-NIR,11,1
+Stoke City,Justin Devenny,,CM,2003,GB-NIR,11,1
+Stoke City,Tomas Rigo,,CM,2002,SK,11,1
+Stoke City,Jack McGlynn,,CM,2003,US,11,1
+Stoke City,Joon-ho Bae,,CM,2003,KR,11,1
+Stoke City,Sam Gallagher,,ST,1995,GB-ENG,10.6,1
+Stoke City,George Hirst,,ST,1999,GB-SCT,11,1
+Stoke City,Róbert Boženík,,ST,1999,SK,11,1
+Stoke City,Million Manhoef,,ST,2002,NL,11,1
+Stoke City,Lamine Cissé,,ST,2003,FR,11,1
+Stoke City,Ato Ampah,,ST,2006,GB-ENG,9.4,1
+Swansea City,Andy Fisher,,GK,1998,GB-ENG,10.4,1
+Swansea City,Paul Farman,,GK,1989,GB-ENG,9.4,1
+Swansea City,Lawrence Vigouroux,,GK,1993,CL,10,1
+Swansea City,Cameron Burgess,,CB,1995,AU,10.4,1
+Swansea City,Josh Key,,CB,1999,GB-ENG,10.8,1
+Swansea City,Josh Tymon,,CB,1999,GB-ENG,10.8,1
+Swansea City,Benjamin Cabango,,CB,2000,GB-WLS,10.8,1
+Swansea City,Stephen Welsh,,CB,2000,GB-SCT,10.8,1
+Swansea City,Jenson Seelt,,CB,2003,NL,10.8,1
+Swansea City,Filip Lissah,,CB,2004,GB-ENG,10,1
+Swansea City,Tiago Parente,,CB,2006,PT,9.2,1
+Swansea City,Jay Fulton,,CM,1994,GB-SCT,10.4,1
+Swansea City,Stephen Eustáquio,,CM,1996,CA,10.8,1
+Swansea City,Gonçalo Franco,,CM,2000,PT,10.8,1
+Swansea City,Elijah Just,,CM,2000,NZ,10.8,1
+Swansea City,Marko Stamenic,,CM,2002,NZ,10.8,1
+Swansea City,Ben Lloyd,,CM,2005,GB-WLS,10,1
+Swansea City,Melker Widell,,CM,2002,SE,10.8,1
+Swansea City,Tom Iorpenda,,CM,2005,GB-ENG,10,1
+Swansea City,Ross Stewart,,ST,1996,GB-SCT,10.8,1
+Swansea City,Adam Idah,,ST,2001,IE,10.8,1
+Swansea City,Zeidane Inoussa,,ST,2002,SE,10.8,1
+Swansea City,Ronald,,ST,2001,BR,10.8,1
+Swansea City,Zan Vipotnik,,ST,2002,SI,10.8,1
+Swansea City,Moussa Kounfolo Yeo,,ST,2004,ML,10,1
+Swansea City,Ji-sung Eom,,ST,2002,KR,10.8,1
+Swansea City,Joseph Opoku,,ST,2005,GH,10,1
+Swansea City,Jeremy Monga,,ST,2009,GB-ENG,8.2,1
+West Bromwich Albion,Matt Ingram,,GK,1993,GB-ENG,10.6,1
+West Bromwich Albion,Max O’Leary,,GK,1996,IE,11,1
+West Bromwich Albion,Chris Mepham,,CB,1997,GB-WLS,11.4,1
+West Bromwich Albion,Callum Styles,,CB,2000,HU,11.4,1
+West Bromwich Albion,Conor Townsend,,CB,1993,GB-ENG,11,1
+West Bromwich Albion,Nathaniel Phillips,,CB,1997,GB-ENG,11.4,1
+West Bromwich Albion,George Campbell,,CB,2001,US,11.4,1
+West Bromwich Albion,Brayann Pereira,,CB,2003,FR,11.4,1
+West Bromwich Albion,Nolan Galves,,CB,2003,FR,11.4,1
+West Bromwich Albion,Alex Williams,,CB,2005,GB-WLS,10.6,1
+West Bromwich Albion,Jayson Molumby,,CM,1999,IE,11.4,1
+West Bromwich Albion,Felix Myhre,,CM,1999,NO,11.4,1
+West Bromwich Albion,Ousmane Diakité,,CM,2000,ML,11.4,1
+West Bromwich Albion,Isaac Price,,CM,2003,GB-NIR,11.4,1
+West Bromwich Albion,Harry Whitwell,,CM,2005,GB-ENG,10.6,1
+West Bromwich Albion,Rabby Nzingoula,,CM,2005,FR,10.6,1
+West Bromwich Albion,Toby Collyer,,CM,2004,GB-ENG,10.6,1
+West Bromwich Albion,Mikey Johnston,,ST,1999,IE,11.4,1
+West Bromwich Albion,Aune Selland Heggebö,,ST,2001,NO,11.4,1
+West Bromwich Albion,Tammer Bany,,ST,2003,DK,11.4,1
+West Bromwich Albion,Oliver Bostock,,ST,2007,GB-WLS,9.8,1
+West Bromwich Albion,Jimmy Morgan,,ST,2006,GB-ENG,9.8,1
+West Bromwich Albion,Barney Stewart,,ST,2004,GB-SCT,10.6,1
+West Bromwich Albion,Kareem Tunde,,ST,2005,ES,10.6,1
+Wolverhampton Wanderers,John Ruddy,,GK,1986,GB-ENG,12,1
+Wolverhampton Wanderers,José Sá,,GK,1993,PT,15,
+Wolverhampton Wanderers,João Virgínia,,GK,1999,PT,13,1
+Wolverhampton Wanderers,Kieran Trippier,,RB,1990,GB-ENG,15,
+Wolverhampton Wanderers,Santiago Bueno,,CB,1998,UY,14.6,
+Wolverhampton Wanderers,Toti Gomes,,CB,1999,PT,14.8,
+Wolverhampton Wanderers,Yerson Mosquera,,CB,2001,CO,14.6,
+Wolverhampton Wanderers,Hugo Bueno,,LB,2002,ES,14.4,
+Wolverhampton Wanderers,Nasser Djiga,,CB,2002,BF,13.4,1
+Wolverhampton Wanderers,Jackson Tchatchoua,,RB,2001,CM,14.6,
+Wolverhampton Wanderers,Pedro Lima,,CB,2006,BR,11.8,1
+Wolverhampton Wanderers,Jean-Ricner Bellegarde,,AM,1998,HT,14.8,
+Wolverhampton Wanderers,Marshall Munetsi,,CM,1996,ZW,14.6,
+Wolverhampton Wanderers,Boubacar Traoré,,CM,2001,ML,13.4,1
+Wolverhampton Wanderers,Tawanda Chirewa,,CM,2003,ZW,13.4,1
+Wolverhampton Wanderers,André Trindade da Costa Neto,André,DM,2001,BR,15.4,
+Wolverhampton Wanderers,Tommy Doyle,,CM,2001,GB-ENG,13.4,1
+Wolverhampton Wanderers,Jordan James,,CM,2004,GB-WLS,12.6,1
+Wolverhampton Wanderers,Fer López,,AM,2004,ES,14.4,
+Wolverhampton Wanderers,Mateus Mané,,CM,2007,PT,11.8,1
+Wolverhampton Wanderers,Raúl Jiménez,,ST,1991,MX,15.2,
+Wolverhampton Wanderers,Adam Armstrong,,ST,1997,GB-ENG,13.4,1
+Wolverhampton Wanderers,Rodrigo Gomes,,LW,2003,PT,14.4,
+Wolverhampton Wanderers,Nathan Fraser,,ST,2005,GB-ENG,12.6,1
+Wolverhampton Wanderers,Enso Gonzalez,,ST,2005,PY,12.6,1
+Portsmouth,Ben Killip,,GK,1995,GB-ENG,9.9,1
+Portsmouth,Nicolas Schmid,,GK,1997,AT,10.3,1
+Portsmouth,Daniel Bielica,,GK,1999,PL,10.3,1
+Portsmouth,Conor Shaughnessy,,CB,1996,IE,10.7,1
+Portsmouth,Connor Ogilvie,,CB,1996,GB-ENG,10.7,1
+Portsmouth,Regan Poole,,CB,1998,GB-WLS,10.7,1
+Portsmouth,Terry Devlin,,CB,2003,GB-NIR,10.7,1
+Portsmouth,Zak Swanson,,CB,2000,GB-ENG,10.7,1
+Portsmouth,Jacob Farrell,,CB,2002,AU,10.7,1
+Portsmouth,Jayden Meghoma,,CB,2006,GB-ENG,9.1,1
+Portsmouth,Madiodio Dia,,CB,2004,SN,9.9,1
+Portsmouth,Benjamin Arthur,,CB,2005,GB-ENG,9.9,1
+Portsmouth,Michael Ani,,CB,2007,GB-ENG,9.1,1
+Portsmouth,Chinedu Agu,,CB,2007,GB-ENG,9.1,1
+Portsmouth,Odin Bailey,,CM,1999,GB-ENG,10.7,1
+Portsmouth,John Swift,,CM,1995,GB-ENG,10.3,1
+Portsmouth,Marlon Pack,,CM,1991,GB-ENG,9.7,1
+Portsmouth,Ebou Adams,,CM,1996,GM,10.7,1
+Portsmouth,Luke le Roux,,CM,2000,ZA,10.7,1
+Portsmouth,Márk Kosznovszky,,CM,2002,HU,10.7,1
+Portsmouth,Rocco Robert Shein,,CM,2003,EE,10.7,1
+Portsmouth,Jacob Murphy,,RW,1995,GB-ENG,15.2,
+Portsmouth,Keshi Anderson,,ST,1995,GB-ENG,10.3,1
+Portsmouth,Colby Bishop,,ST,1990,GB-ENG,9.7,1
+Portsmouth,Marko Milovanovic,,ST,2003,RS,10.7,1
+Portsmouth,Harvey Blair,,ST,2003,GB-ENG,10.7,1
+Portsmouth,Adrian Segecic,,ST,2004,AU,9.9,1
+Portsmouth,Abu Kamara,,ST,2003,GB-ENG,10.7,1
+Portsmouth,Thomas Waddingham,,ST,2005,AU,9.9,1
+Portsmouth,Franco Umeh-Chibueze,,ST,2005,IE,9.9,1
+Portsmouth,Luke Brooke-Smith,,ST,2008,NZ,8.1,1
+Portsmouth,Ryan Kavuma-McQueen,,ST,2009,GB-ENG,8.1,1
+Portsmouth,Eoin Kenny,,ST,2005,GB-NIR,9.9,1
+Burnley,Grégoire Coudert,,GK,1999,FR,14.4,
+Burnley,Ben Amos,,GK,1990,GB-ENG,11.5,1
+Burnley,Max Weiss,,GK,2004,DE,11.7,1
+Burnley,Kyle Walker,,RB,1990,GB-ENG,15.2,
+Burnley,Louis Beyer,,CB,2000,DE,12.9,1
+Burnley,Connor Roberts,,CB,1995,GB-WLS,12.5,1
+Burnley,Igor Julio,,CB,1998,BR,15,
+Burnley,Anel Ahmedhodzic,,CB,1999,BA,12.9,1
+Burnley,Hjalmar Ekdal,,CB,1998,SE,14.4,
+Burnley,Oliver Sonne,,CB,2000,PE,12.9,1
+Burnley,Shurandy Sambo,,CB,2001,CW,12.9,1
+Burnley,Lucas Pires,,LB,2001,BR,14.4,
+Burnley,Bashir Humphreys,,CB,2003,GB-ENG,12.9,1
+Burnley,Max Alleyne,,CB,2005,GB-ENG,12.1,1
+Burnley,Josh Laurent,,CM,1995,GB-ENG,14.2,
+Burnley,Josh Cullen,,DM,1996,IE,14.6,
+Burnley,Mike Ndayishimye,,CM,1999,BE,12.9,1
+Burnley,Reo Hatate,,CM,1997,JP,14.8,
+Burnley,Hannibal Mejbri,,AM,2003,TN,14.4,
+Burnley,Aaron Ramsey,,CM,2003,GB-ENG,12.9,1
+Burnley,Ugo Raghouber,,CM,2003,FR,12.9,1
+Burnley,Marcus Edwards,,RW,1998,GB-ENG,14.4,
+Burnley,Ashley Barnes,,ST,1989,GB-ENG,11.9,1
+Burnley,Michael Obafemi,,ST,2000,IE,12.9,1
+Burnley,Jacob Bruun Larsen,,ST,1998,DK,12.9,1
+Burnley,Lyle Foster,,ST,2000,ZA,14.4,
+Burnley,Zeki Amdouni,,ST,2000,CH,12.9,1
+Burnley,Andréas Hountondji,,ST,2002,BJ,14.4,
+Burnley,Largie Ramazani,,ST,2001,BE,12.9,1
+Burnley,Armando Broja,,ST,2001,AL,14.6,
+Burnley,Jaydon Banel,,ST,2004,NL,12.1,1
+Burnley,Dastan Satpayev,,ST,2008,KZ,10.3,1
+Burnley,Lluc Castell,,ST,2006,ES,11.3,1
+Birmingham City,Ryan Allsop,,GK,1992,GB-ENG,10,1
+Birmingham City,James Beadle,,GK,2004,GB-ENG,10.2,1
+Birmingham City,Brad Mayo,,GK,2004,GB-ENG,10.2,1
+Birmingham City,Bright Osayi-Samuel,,CB,1997,NG,11.4,1
+Birmingham City,Dael Fry,,CB,1997,GB-ENG,11.4,1
+Birmingham City,Phil Neumann,,CB,1997,DE,11.4,1
+Birmingham City,Lee Buchanan,,CB,2001,GB-ENG,11.4,1
+Birmingham City,Alex Cochrane,,CB,2000,GB-ENG,11.4,1
+Birmingham City,Ethan Laird,,CB,2001,GB-ENG,11.4,1
+Birmingham City,Christoph Klarer,,CB,2000,AT,11.4,1
+Birmingham City,Kristoffer Lund,,LB,2002,US,14.4,
+Birmingham City,Max Bird,,CM,2000,GB-ENG,11.4,1
+Birmingham City,Kanya Fujimoto,,CM,1999,JP,11.4,1
+Birmingham City,Tomoki Iwata,,CM,1997,JP,11.4,1
+Birmingham City,Taylor Gardner-Hickman,,CM,2001,GB-ENG,11.4,1
+Birmingham City,Marc Leonard,,CM,2001,GB-SCT,11.4,1
+Birmingham City,Jhon Solis,,CM,2004,CO,10.6,1
+Birmingham City,Seung-Ho Paik,,CM,1997,KR,11.4,1
+Birmingham City,Marvin Ducksch,,ST,1994,DE,11,1
+Birmingham City,Demarai Gray,,ST,1996,JM,11.4,1
+Birmingham City,Patrick Roberts,,ST,1997,GB-ENG,11.4,1
+Birmingham City,Scott Wright,,ST,1997,GB-SCT,11.4,1
+Birmingham City,Liam Millar,,ST,1999,CA,11.4,1
+Birmingham City,Jay Stansfield,,ST,2002,GB-ENG,11.4,1
+Birmingham City,Luis Vázquez,,ST,2001,AR,11.4,1
+Birmingham City,August Priske,,ST,2004,DK,10.6,1
+Birmingham City,Carlos Vicente,,RW,1999,ES,14.6,
+Southampton,Jamie Jones,,GK,1989,GB-ENG,10.5,1
+Southampton,George Long,,GK,1993,GB-ENG,11.1,1
+Southampton,Aaron Ramsdale,,GK,1998,GB-ENG,15.2,
+Southampton,Daniel Peretz,,GK,2000,IL,11.5,1
+Southampton,James Bree,,CB,1997,GB-ENG,11.9,1
+Southampton,Ryan Manning,,CB,1996,IE,11.9,1
+Southampton,Jack Stephens,,CB,1994,GB-ENG,11.5,1
+Southampton,Mads Roerslev,,CB,1999,DK,11.9,1
+Southampton,Keven Schlotterbeck,,CB,1997,DE,14.4,
+Southampton,Nathan Wood-Gordon,,CB,2002,GB-ENG,11.9,1
+Southampton,Welington,,CB,2001,BR,11.9,1
+Southampton,Zach Abbott,,CB,2006,GB-ENG,10.3,1
+Southampton,Joachim Kayi Sanda,,CB,2006,FR,10.3,1
+Southampton,Flynn Downes,,CM,1999,GB-ENG,11.9,1
+Southampton,James Ward-Prowse,,CM,1994,GB-ENG,11.5,1
+Southampton,Finn Azaz,,CM,2000,IE,11.9,1
+Southampton,Léo Scienza,,CM,1998,BR,11.9,1
+Southampton,Tom Fellows,,CM,2003,GB-ENG,11.9,1
+Southampton,Caspar Jander,,CM,2003,DE,11.9,1
+Southampton,Kuryu Matsuki,,CM,2003,JP,11.9,1
+Southampton,Cameron Bragg,,CM,2005,GB-SCT,11.1,1
+Southampton,Romeo Akachukwu,,CM,2006,IE,10.3,1
+Southampton,Cyle Larin,,ST,1995,CA,11.5,1
+Southampton,Lewis Dobbin,,ST,2003,GB-ENG,11.9,1
+Southampton,Samuel Edozie,,ST,2003,GB-ENG,11.9,1
+Southampton,Damion Downs,,ST,2004,US,11.1,1
+Southampton,Divin Mubama,,ST,2004,GB-ENG,11.1,1
+Derby County,Josh Vickers,,GK,1995,GB-ENG,10.1,1
+Derby County,Richard O'Donnell,,GK,1988,GB-ENG,9.5,1
+Derby County,Jacob Widell Zetterström,,GK,1998,SE,10.5,1
+Derby County,Craig Forsyth,,CB,1989,GB-SCT,9.9,1
+Derby County,Matt Clarke,,CB,1996,GB-ENG,10.9,1
+Derby County,Charlie Taylor,,CB,1993,GB-ENG,10.5,1
+Derby County,Derry Murkin,,CB,1999,GB-ENG,10.9,1
+Derby County,Dion Sanderson,,CB,1999,GB-ENG,10.9,1
+Derby County,Sondre Langås,,CB,2001,NO,10.9,1
+Derby County,Max Johnston,,CB,2003,GB-SCT,10.9,1
+Derby County,Eiran Cashin,,CB,2001,IE,10.9,1
+Derby County,Lewis Travis,,CM,1997,GB-ENG,10.9,1
+Derby County,Joe Ward,,CM,1995,GB-ENG,10.5,1
+Derby County,Alex Mowatt,,CM,1995,GB-ENG,10.5,1
+Derby County,Samuel Szmodics,,CM,1995,IE,10.5,1
+Derby County,Kenzo Goudmijn,,CM,2001,NL,10.9,1
+Derby County,Oscar Fraulo,,CM,2003,DK,10.9,1
+Derby County,Bobby Clark,,CM,2005,GB-ENG,10.1,1
+Derby County,David Ozoh,,CM,2002,GB-ENG,10.9,1
+Derby County,Owen Eames,,CM,2006,GB-ENG,9.3,1
+Derby County,Corey Blackett-Taylor,,ST,1997,GB-ENG,10.9,1
+Derby County,Ryan Hedges,,ST,1995,GB-WLS,10.5,1
+Derby County,Carlton Morris,,ST,1995,GB-ENG,10.5,1
+Derby County,Rhian Brewster,,ST,2000,GB-ENG,10.9,1
+Derby County,Filip Bilbija,,ST,2000,DE,10.9,1
+Derby County,Mohammed Fuseini,,ST,2002,GH,10.9,1
+Derby County,Patrick Agyemang,,ST,2000,US,10.9,1
+Derby County,Henrik Meister,,ST,2003,DK,14,
+Middlesbrough,Jon McLaughlin,,GK,1987,GB-SCT,10.2,1
+Middlesbrough,Solomon Brynn,,GK,2000,GB-ENG,11.2,1
+Middlesbrough,Radek Vitek,,GK,2003,CZ,11.2,1
+Middlesbrough,Luke Ayling,,CB,1991,GB-ENG,10.6,1
+Middlesbrough,George Edmundson,,CB,1997,GB-ENG,11.6,1
+Middlesbrough,Callum Brittain,,CB,1997,GB-ENG,11.6,1
+Middlesbrough,Sam Byram,,CB,1993,GB-ENG,11.2,1
+Middlesbrough,Neto Borges,,CB,1996,BR,11.6,1
+Middlesbrough,Alfie Jones,,CB,1997,CA,11.6,1
+Middlesbrough,Adilson Malanda,,CB,2001,FR,11.6,1
+Middlesbrough,Ashley Phillips,,CB,2005,GB-ENG,10.8,1
+Middlesbrough,Riley McGree,,CM,1998,AU,11.6,1
+Middlesbrough,Connor Barron,,CM,2002,GB-SCT,11.6,1
+Middlesbrough,Sebastian Berhalter,,CM,2001,US,11.6,1
+Middlesbrough,Aidan Morris,,CM,2001,US,11.6,1
+Middlesbrough,Myles Peart-Harris,,CM,2002,GB-ENG,11.6,1
+Middlesbrough,Rokas Pukštas,,CM,2004,US,10.8,1
+Middlesbrough,Law McCabe,,CM,2006,GB-ENG,10,1
+Middlesbrough,Leo Castledine,,CM,2005,GB-ENG,10.8,1
+Middlesbrough,Dávid Strelec,,ST,2001,SK,11.6,1
+Middlesbrough,Morgan Whittaker,,ST,2001,GB-ENG,11.6,1
+Middlesbrough,Kyle Joseph,,ST,2001,GB-SCT,11.6,1
+Middlesbrough,Tommy Conway,,ST,2002,GB-SCT,11.6,1
+Middlesbrough,Jeremy Sarmiento,,ST,2002,EC,11.6,1
+Middlesbrough,Max Arfsten,,ST,2001,US,11.6,1
+Middlesbrough,Amario Cozier-Duberry,,ST,2005,GB-ENG,10.8,1
+Middlesbrough,Micah Hamilton,,ST,2003,GB-ENG,11.6,1
+Middlesbrough,William Lankshear,,ST,2005,GB-ENG,10.8,1
+Watford,Federico Ravaglia,,GK,1999,IT,10.7,1
+Watford,Sam Walker,,GK,1991,GB-ENG,9.7,1
+Watford,Daniel Bachmann,,GK,1994,AT,10.3,1
+Watford,Marc Bola,,CB,1997,GB-ENG,11.1,1
+Watford,Omar Traoré,,RB,1998,DE,14,
+Watford,Matthew Pollock,,CB,2001,GB-ENG,11.1,1
+Watford,Jordan Zemura,,LB,1999,ZW,14.2,
+Watford,Jeremy Ngakia,,CB,2000,GB-ENG,11.1,1
+Watford,Kévin Keben Biakolo,,CB,2004,CM,10.3,1
+Watford,Soumaïla Coulibaly,,CB,2003,FR,14.4,
+Watford,Albert Eames,,CB,2005,GB-ENG,10.3,1
+Watford,Branimir Mlacic,,CB,2007,HR,9.5,1
+Watford,Edo Kayembe,,CM,1998,CD,11.1,1
+Watford,Martín Payero,,CM,1998,AR,11.1,1
+Watford,Hector Matthew Kyprianou,,CM,2001,CY,11.1,1
+Watford,Edoardo Bove,,CM,2002,IT,11.1,1
+Watford,Jack Grieves,,CM,2004,GB-ENG,10.3,1
+Watford,Stephy Mavididi,,ST,1998,GB-ENG,11.1,1
+Watford,Myron Boadu,,ST,2001,NL,11.1,1
+Watford,Kwadwo Baah,,ST,2003,DE,11.1,1
+Watford,Iker Bravo,,ST,2005,ES,14.2,
+Watford,Luca Kjerrumgaard,,ST,2003,DK,11.1,1
+Watford,Rocco Vata,,ST,2005,IE,10.3,1
+Watford,Othmane Maamma,,ST,2005,MA,10.3,1
+Watford,Mamadou Doumbia,,ST,2006,ML,9.5,1
+Watford,Nikoloz Chikovani,,ST,2007,GE,9.5,1
+Charlton Athletic,Tiernan Brooks,,GK,2003,IE,10.2,1
+Charlton Athletic,Arthur Okonkwo,,GK,2001,GB-ENG,10.2,1
+Charlton Athletic,Will Mannion,,GK,1998,GB-ENG,10.2,1
+Charlton Athletic,Reece Burke,,CB,1996,GB-ENG,10.6,1
+Charlton Athletic,Amari'i Bell,,CB,1994,JM,10.2,1
+Charlton Athletic,Joe Rankin-Costello,,CB,1999,GB-ENG,10.6,1
+Charlton Athletic,Lloyd Jones,,CB,1995,GB-ENG,10.2,1
+Charlton Athletic,Kayne Ramsey,,CB,2000,GB-ENG,10.6,1
+Charlton Athletic,Dan McNamara,,CB,1998,IE,10.6,1
+Charlton Athletic,Ivan Mesík,,CB,2001,SK,10.6,1
+Charlton Athletic,Billy Koumetio,,CB,2002,FR,10.6,1
+Charlton Athletic,Sichenje Collins,,CB,2003,KE,10.6,1
+Charlton Athletic,Tyler Bindon,,CB,2005,NZ,9.8,1
+Charlton Athletic,Josh Edwards,,CB,2000,GB-SCT,10.6,1
+Charlton Athletic,Nathaniel Chalobah,,CM,1994,GB-ENG,10.2,1
+Charlton Athletic,Greg Docherty,,CM,1996,GB-SCT,10.6,1
+Charlton Athletic,Conor Coventry,,CM,2000,IE,10.6,1
+Charlton Athletic,Harvey Knibbs,,CM,1999,GB-ENG,10.6,1
+Charlton Athletic,Sonny Carey,,CM,2001,GB-ENG,10.6,1
+Charlton Athletic,Timothy Noor Ouma,,CM,2004,KE,9.8,1
+Charlton Athletic,Alan Mwamba,,CM,2006,GB-ENG,9,1
+Charlton Athletic,Karlan Ahearne-Grant,,ST,1997,GB-ENG,10.6,1
+Charlton Athletic,Matt Godden,,ST,1991,GB-ENG,9.6,1
+Charlton Athletic,Charlie Kelman,,ST,2001,US,10.6,1
+Charlton Athletic,Robert Apter,,ST,2003,GB-SCT,10.6,1
+Charlton Athletic,Tyreece Campbell,,ST,2003,JM,10.6,1
+Charlton Athletic,Miles Leaburn,,ST,2003,GB-ENG,10.6,1
+Charlton Athletic,Millenic Alli,,ST,2000,IE,10.6,1
+Charlton Athletic,Micah Mbick,,ST,2006,GB-ENG,9,1
+Charlton Athletic,Robert Nkeng,,ST,2007,ES,9,1
+Sheffield United,Adam Davies,,GK,1992,GB-WLS,10.2,1
+Sheffield United,Michael Cooper,,GK,1999,GB-ENG,11.2,1
+Sheffield United,Matt Doherty,,RB,1992,IE,14.2,
+Sheffield United,Rhys Norrington-Davies,,CB,1999,GB-WLS,11.6,1
+Sheffield United,Harrison Burrows,,CB,2002,GB-ENG,11.6,1
+Sheffield United,Liam Kitching,,CB,1999,GB-ENG,11.6,1
+Sheffield United,Jamie Shackleton,,CB,1999,GB-ENG,11.6,1
+Sheffield United,Sam McCallum,,CB,2000,GB-ENG,11.6,1
+Sheffield United,Femi Seriki,,CB,2002,GB-ENG,11.6,1
+Sheffield United,Japhet Tanganga,,CB,1999,GB-ENG,11.6,1
+Sheffield United,Mark McGuinness,,CB,2001,IE,11.6,1
+Sheffield United,Jamal Baptiste,,CB,2003,GB-ENG,11.6,1
+Sheffield United,Nils Zätterström,,CB,2005,SE,10.8,1
+Sheffield United,Kalvin Phillips,,CM,1995,GB-ENG,11.2,1
+Sheffield United,Joe Rothwell,,CM,1995,GB-ENG,11.2,1
+Sheffield United,Jaïro Riedewald,,CM,1996,NL,11.6,1
+Sheffield United,Tahith Chong,,CM,1999,CW,11.6,1
+Sheffield United,Ollie Arblaster,,CM,2004,GB-ENG,10.8,1
+Sheffield United,Sydie Peck,,CM,2004,GB-ENG,10.8,1
+Sheffield United,Patrick Bamford,,ST,1993,GB-ENG,11.2,1
+Sheffield United,Tyrese Campbell,,ST,1999,GB-ENG,11.6,1
+Sheffield United,Ben Brereton,,ST,1999,CL,11.6,1
+Sheffield United,Thomas Cannon,,ST,2002,IE,11.6,1
+Sheffield United,Ryan Oné,,ST,2006,GB-SCT,10,1
+Sheffield United,Ehije Ukaki,,ST,2004,NG,10.8,1
+Millwall,Joel Coleman,,GK,1995,GB-ENG,10.2,1
+Millwall,Lukas Jensen,,GK,1999,DK,10.6,1
+Millwall,Max Crocombe,,GK,1993,NZ,10.2,1
+Millwall,Filip Marshall,,GK,2003,GB-ENG,10.6,1
+Millwall,George Evans,,GK,2005,GB-ENG,9.8,1
+Millwall,Danny Batth,,CB,1990,GB-ENG,10,1
+Millwall,Ryan Leonard,,CB,1992,GB-ENG,10,1
+Millwall,Jake Cooper,,CB,1995,GB-ENG,10.6,1
+Millwall,Jordi Osei-Tutu,,CB,1998,GB-ENG,11,1
+Millwall,Tristan Crama,,CB,2001,FR,11,1
+Millwall,Elkan Baggott,,CB,2002,ID,11,1
+Millwall,Caleb Taylor,,CB,2003,GB-ENG,11,1
+Millwall,Zak Sturge,,CB,2004,GB-ENG,10.2,1
+Millwall,Massimo Luongo,,CM,1992,AU,10,1
+Millwall,Casper De Norre,,CM,1997,BE,11,1
+Millwall,Mark Sykes,,CM,1997,IE,11,1
+Millwall,Alfie Doughty,,CM,1999,GB-ENG,11,1
+Millwall,Luke Cundle,,CM,2002,GB-ENG,11,1
+Millwall,Mathis Servais,,CM,2004,BE,10.2,1
+Millwall,Derek Mazou-Sacko,,CM,2004,FR,10.2,1
+Millwall,Jenson Metcalfe,,CM,2004,GB-ENG,10.2,1
+Millwall,Daniel Kelly,,CM,2005,GB-SCT,10.2,1
+Millwall,Lyndon Dykes,,ST,1995,GB-SCT,10.6,1
+Millwall,Camiel Neghli,,ST,2001,DZ,11,1
+Millwall,Josh Coburn,,ST,2002,GB-ENG,11,1
+Millwall,Zak Lovelace,,ST,2006,GB-ENG,9.4,1
+Millwall,Romain Esse,,ST,1999,GB-ENG,11,1
+Millwall,Mihailo Ivanovic,,ST,2004,RS,10.2,1
+Millwall,Kyrell Lisbie,,ST,2003,GB-ENG,11,1
+Millwall,Benicio Baker-Boaitey,,ST,2004,GB-ENG,10.2,1
+Bristol City,Bradley Collins,,GK,1997,GB-ENG,10.8,1
+Bristol City,Lewis Thomas,,GK,1997,GB-WLS,10.8,1
+Bristol City,Sam Tickle,,GK,2002,GB-ENG,10.8,1
+Bristol City,Rob Dickie,,CB,1996,GB-ENG,11.2,1
+Bristol City,Cameron Pring,,CB,1998,GB-ENG,11.2,1
+Bristol City,Robert Atkinson,,CB,1998,GB-ENG,11.2,1
+Bristol City,George Tanner,,CB,1999,GB-ENG,11.2,1
+Bristol City,Luke McNally,,CB,1999,IE,11.2,1
+Bristol City,Noah Eile,,CB,2002,SE,11.2,1
+Bristol City,Elijah Morrison,,CB,2006,GB-ENG,9.6,1
+Bristol City,Lisav Eissat,,CB,2005,IL,10.4,1
+Bristol City,Rio Cardines,,CB,2006,TT,9.6,1
+Bristol City,Seb Naylor,,CB,2005,GB-ENG,10.4,1
+Bristol City,Joe Williams,,CM,1996,GB-ENG,11.2,1
+Bristol City,Scott Twine,,CM,1999,GB-ENG,11.2,1
+Bristol City,Adam Randell,,CM,2000,GB-ENG,11.2,1
+Bristol City,Brian De Keersmaecker,,CM,2000,BE,11.2,1
+Bristol City,Jason Knight,,CM,2001,IE,11.2,1
+Bristol City,Tomi Horvat,,CM,1999,SI,11.2,1
+Bristol City,Gibson Yah,,CM,2003,NL,11.2,1
+Bristol City,Sam Greenwood,,CM,2002,GB-ENG,11.2,1
+Bristol City,Jed Wallace,,ST,1994,GB-ENG,10.8,1
+Bristol City,Elijah Adebayo,,ST,1998,GB-ENG,11.2,1
+Bristol City,Sam Bell,,ST,2002,GB-ENG,11.2,1
+Bristol City,Lorent Tolaj,,ST,2001,CH,11.2,1
+Bristol City,Yu Hirakawa,,ST,2001,JP,11.2,1
+Bristol City,Dom Ballard,,ST,2005,GB-ENG,10.4,1
+Wrexham,Danny Ward,,GK,1993,GB-WLS,10.2,1
+Wrexham,Callum Burton,,GK,1996,GB-ENG,10.6,1
+Wrexham,Anthony Patterson,,GK,2000,GB-ENG,10.6,1
+Wrexham,Liberato Cacace,,CB,2000,NZ,11,1
+Wrexham,Dominic Hyam,,CB,1995,GB-SCT,10.6,1
+Wrexham,Zak Vyner,,CB,1997,GB-ENG,11,1
+Wrexham,Joe Worrall,,CB,1997,GB-ENG,11,1
+Wrexham,Issa Kaboré,,CB,2001,BF,11,1
+Wrexham,Max Cleworth,,CB,2002,GB-WLS,11,1
+Wrexham,Callum Doyle,,CB,2003,GB-ENG,11,1
+Wrexham,Jacques Ekomie,,CB,2003,GA,11,1
+Wrexham,Sebastian Revan,,CB,2003,GB-ENG,11,1
+Wrexham,Aaron James,,CB,2005,GB-ENG,10.2,1
+Wrexham,Danny Imray,,CB,2003,GB-ENG,11,1
+Wrexham,Callum O'Hare,,CM,1998,GB-ENG,11,1
+Wrexham,Oliver Rathbone,,CM,1996,GB-ENG,11,1
+Wrexham,George Dobson,,CM,1997,GB-ENG,11,1
+Wrexham,Ben Whiteman,,CM,1996,GB-ENG,11,1
+Wrexham,Ben Sheaf,,CM,1998,GB-ENG,11,1
+Wrexham,Matty James,,CM,1991,GB-ENG,10,1
+Wrexham,Lewis O'Brien,,CM,1998,GB-ENG,11,1
+Wrexham,Josh Windass,,CM,1994,GB-ENG,10.6,1
+Wrexham,Ryan Longman,,CM,2000,GB-ENG,11,1
+Wrexham,George Thomason,,CM,2002,GB-ENG,11,1
+Wrexham,Joe Rees,,CM,2008,GB-WLS,8.4,1
+Wrexham,Sam Smith,,ST,1998,GB-ENG,11,1
+Wrexham,Kieffer Moore,,ST,1992,GB-WLS,10,1
+Wrexham,Nathan Broadhead,,ST,1998,GB-WLS,11,1
+Wrexham,Davis Keillor-Dunn,,ST,1997,GB-ENG,11,1
+Wrexham,Bailey Cadamarteri,,ST,2005,JM,10.2,1
+West Ham United,Alphonse Areola,,GK,1993,FR,15,
+West Ham United,Mads Hermansen,,GK,2000,DK,14.8,
+West Ham United,Finlay Herrick,,GK,2006,GB-ENG,11.8,1
+West Ham United,Joël Veltman,,RB,1992,NL,14.6,
+West Ham United,Konstantinos Mavropanos,,CB,1997,GR,14.8,
+West Ham United,Kyle Walker-Peters,,CB,1997,GB-ENG,13.8,1
+West Ham United,Max Kilman,,CB,1997,GB-ENG,15.2,
+West Ham United,Felipe Rodrigues da Silva,Morato,CB,2001,BR,14.8,
+West Ham United,Oliver Scarles,,CB,2005,GB-ENG,13,1
+West Ham United,Adama Boiro,,LB,2002,ES,14.4,
+West Ham United,Ezra Mayers,,CB,2007,GB-ENG,12.2,1
+West Ham United,Edson Álvarez,,DM,1997,MX,15.2,
+West Ham United,Tomáš Souček,,CM,1995,CZ,15,
+West Ham United,Arne Engels,,CM,2003,BE,14.8,
+West Ham United,Soungoutou Magassa,,DM,2003,FR,14.4,
+West Ham United,Lewis Orford,,CM,2006,GB-ENG,12.2,1
+West Ham United,Mohamadou Kante,,CM,2005,FR,13,1
+West Ham United,Divine Mukasa,,CM,2007,GB-ENG,12.2,1
+West Ham United,Maxwel Cornet,,ST,1996,CI,13.8,1
+West Ham United,Jarrod Bowen,,RW,1996,GB-ENG,16.2,
+West Ham United,Valentín Castellanos,Taty Castellanos,ST,1998,AR,15.2,
+West Ham United,Manor Solomon,,ST,1999,IL,13.8,1
+West Ham United,Joël Piroe,,ST,1999,NL,14.6,
+West Ham United,Pablo,,ST,2004,BR,13,1
+West Ham United,Edvin Austbø,,ST,2005,NO,13,1
+West Ham United,Keiber Lamadrid,,ST,2003,VE,13.8,1
+Cardiff City,Nathan Trott,,GK,1998,GB-ENG,10.2,1
+Cardiff City,Matthew Turner,,GK,2002,GB-WLS,10.2,1
+Cardiff City,Harry Tyrer,,GK,2001,GB-ENG,10.2,1
+Cardiff City,Krystian Bielik,,CB,1998,PL,10.6,1
+Cardiff City,Perry Ng,,CB,1996,GB-ENG,10.6,1
+Cardiff City,Calum Chambers,,CB,1995,GB-ENG,10.2,1
+Cardiff City,Gabriel Osho,,CB,1998,NG,10.6,1
+Cardiff City,Joel Bagan,,CB,2001,IE,10.6,1
+Cardiff City,Will Fish,,CB,2003,GB-ENG,10.6,1
+Cardiff City,Calum Scanlon,,CB,2005,GB-ENG,9.8,1
+Cardiff City,Dylan Lawlor,,CB,2006,GB-WLS,9,1
+Cardiff City,Ronan Kpakio,,CB,2007,GB-WLS,9,1
+Cardiff City,David Turnbull,,CM,1999,GB-SCT,10.6,1
+Cardiff City,Jack Moylan,,CM,2001,IE,10.6,1
+Cardiff City,Rubin Colwill,,CM,2002,GB-WLS,10.6,1
+Cardiff City,Alex Robertson,,CM,2003,AU,10.6,1
+Cardiff City,Joel Colwill,,CM,2004,GB-WLS,9.8,1
+Cardiff City,Dakarai Mafico,,CM,2006,GB-WLS,9,1
+Cardiff City,Callum Robinson,,ST,1995,IE,10.2,1
+Cardiff City,Chris Willock,,ST,1998,GB-ENG,10.6,1
+Cardiff City,Ollie Tanner,,ST,2002,GB-ENG,10.6,1
+Cardiff City,Isaak Davies,,ST,2001,GB-WLS,10.6,1
+Cardiff City,Yousef Salech,,ST,2002,DK,10.6,1
+Cardiff City,Cian Ashford,,ST,2004,GB-WLS,9.8,1
+Preston North End,Lee Nicholls,,GK,1992,GB-ENG,9.5,1
+Preston North End,Daniel Iversen,,GK,1997,DK,10.5,1
+Preston North End,Liam Lindsay,,CB,1995,GB-SCT,10.5,1
+Preston North End,Brad Potts,,CB,1994,GB-ENG,10.5,1
+Preston North End,Andrew Hughes,,CB,1992,GB-WLS,9.9,1
+Preston North End,Jordan Storey,,CB,1997,GB-ENG,10.9,1
+Preston North End,Pol Valentín Sancho,,CB,1997,ES,10.9,1
+Preston North End,Andrija Vukčević,,CB,1996,ME,10.9,1
+Preston North End,Lewis Gibson,,CB,2000,GB-ENG,10.9,1
+Preston North End,Thierry Small,,CB,2004,GB-ENG,10.1,1
+Preston North End,Odel Offiah,,CB,2002,GB-ENG,10.9,1
+Preston North End,Caleb Wiley,,CB,2004,US,10.1,1
+Preston North End,Harry Clarke,,CB,2001,GB-ENG,10.9,1
+Preston North End,Kacper Pasiek,,CB,2005,PL,10.1,1
+Preston North End,Alistair McCann,,CM,1999,GB-NIR,10.9,1
+Preston North End,Jordan Thompson,,CM,1997,GB-NIR,10.9,1
+Preston North End,Léo Leroy,,CM,2000,FR,10.9,1
+Preston North End,Liam Gibbs,,CM,2002,GB-ENG,10.9,1
+Preston North End,Alfie Devine,,CM,2004,GB-ENG,10.1,1
+Preston North End,Andrew Moran,,CM,2003,IE,10.9,1
+Preston North End,Kaedyn Kamara,,CM,2005,GB-ENG,10.1,1
+Preston North End,Theo Carroll,,CM,2007,GB-ENG,9.3,1
+Preston North End,Callum Lang,,ST,1998,GB-ENG,10.9,1
+Preston North End,Delano Burgzorg,,ST,1998,NL,10.9,1
+Preston North End,Jusef Erabi,,ST,2003,SE,10.9,1
+Preston North End,Johnny Kenny,,ST,2003,IE,10.9,1
+Preston North End,Stanley Mills,,ST,2003,GB-ENG,10.9,1
+Preston North End,Max Wilson,,ST,2007,GB-NIR,9.3,1
+Lincoln City,Joe Gauci,,GK,2000,AU,10.2,1
+Lincoln City,James Pardington,,GK,2000,GB-ENG,10.2,1
+Lincoln City,George Wickens,,GK,2001,GB-ENG,10.2,1
+Lincoln City,Adam Jackson,,CB,1994,GB-ENG,10.2,1
+Lincoln City,Callum Elder,,CB,1995,AU,10.2,1
+Lincoln City,Tom Hamer,,CB,1999,GB-ENG,10.6,1
+Lincoln City,Sonny Bradley,,CB,1992,GB-ENG,9.6,1
+Lincoln City,Tendayi Darikwa,,CB,1991,ZW,9.6,1
+Lincoln City,Adam Reach,,CB,1993,GB-ENG,10.2,1
+Lincoln City,Ryley Towler,,CB,2002,GB-ENG,10.6,1
+Lincoln City,Daniel Oyegoke,,CB,2003,GB-ENG,10.6,1
+Lincoln City,Andrei Coubis,,CB,2003,RO,10.6,1
+Lincoln City,Deji Elerewe,,CB,2003,GB-ENG,10.6,1
+Lincoln City,Josh Honohan,,CB,2001,IE,10.6,1
+Lincoln City,Charlie Parks,,CB,2007,GB-ENG,9,1
+Lincoln City,Tom Bayliss,,CM,1999,GB-ENG,10.6,1
+Lincoln City,Conor McGrandles,,CM,1995,GB-SCT,10.2,1
+Lincoln City,Ivan Varfolomeev,,CM,2004,UA,9.8,1
+Lincoln City,Dom Jefferies,,CM,2002,GB-WLS,10.6,1
+Lincoln City,Chiedozie Ogbene,,ST,1997,IE,10.6,1
+Lincoln City,Ben House,,ST,1999,GB-SCT,10.6,1
+Lincoln City,Isaac Olaofe,,ST,1999,GB-ENG,10.6,1
+Lincoln City,Robert Street,,ST,2001,GB-ENG,10.6,1
+Lincoln City,Freddie Draper,,ST,2004,GB-ENG,9.8,1
+Lincoln City,Ethan Wheatley,,ST,2006,GB-ENG,9,1
+Lincoln City,Mikkel Ladefoged,,ST,2003,DK,10.6,1
+Lincoln City,Mason Melia,,ST,2007,IE,9,1
+Athletic Club,Unai Simón,,GK,1997,ES,16.2,
+Athletic Club,Álex Padilla,,GK,2003,ES,14.4,
+Athletic Club,Aymeric Laporte,,CB,1994,ES,15.2,
+Athletic Club,Yuri Berchiche,,LB,1990,ES,14.6,
+Athletic Club,Yeray Álvarez,,CB,1995,ES,15,
+Athletic Club,Dani Vivian,,CB,1999,ES,15.6,
+Athletic Club,Jesús Areso,,RB,1999,ES,14.8,
+Athletic Club,Aitor Paredes,,CB,2000,ES,15,
+Athletic Club,Hugo Rincón,,RB,2003,ES,14.2,
+Athletic Club,Unai Egiluz,,CB,2002,ES,14.3,1
+Athletic Club,Iñigo Ruiz de Galarreta,,CM,1993,ES,15,
+Athletic Club,Oihan Sancet,,AM,2000,ES,15.8,
+Athletic Club,Beñat Prados,,CM,2001,ES,14.8,
+Athletic Club,Mikel Jauregizar,,DM,2003,ES,15.2,
+Athletic Club,Peio Canales,,CM,2005,ES,13.5,1
+Athletic Club,Alejandro Rego,,CM,2003,ES,14.3,1
+Athletic Club,Beñat Gerenabarrena,,CM,2003,ES,14.3,1
+Athletic Club,Álex Berenguer,,LW,1995,ES,15,
+Athletic Club,Iñaki Williams,,RW,1994,GH,15.6,
+Athletic Club,Gorka Guruzeta,,ST,1996,ES,15,
+Athletic Club,Robert Navarro,,LW,2002,ES,14.8,
+Athletic Club,Nico Williams,,LW,2002,ES,16.8,
+Athletic Club,Nico Serrano,,ST,2003,ES,14.3,1
+Athletic Club,Álvaro Djaló,,ST,1999,ES,14.4,
+Athletic Club,Sannadi,,ST,2001,ES,14.3,1
+Atlético de Madrid,Jan Oblak,,GK,1993,SI,16.6,
+Atlético de Madrid,Juan Musso,,GK,1994,AR,14.8,
+Atlético de Madrid,Salvi Esquivel,,GK,2005,ES,13.9,1
+Atlético de Madrid,Marcos Llorente,,CB,1995,ES,15.6,
+Atlético de Madrid,Dávid Hancko,,CB,1997,SK,15.8,
+Atlético de Madrid,Alejandro Grimaldo,,LB,1995,ES,16.2,
+Atlético de Madrid,Cristian Romero,,CB,1998,AR,16.6,
+Atlético de Madrid,Robin Le Normand,,CB,1996,ES,15.6,
+Atlético de Madrid,Marc Pubill,,RB,2003,ES,15,
+Atlético de Madrid,Daniel Martínez,,CB,2004,ES,14.3,1
+Atlético de Madrid,Jorge Domínguez,,CB,2009,ES,12.5,1
+Atlético de Madrid,Jorge Resurrección,Koke,CM,1992,ES,15.4,
+Atlético de Madrid,Morten Hjulmand,,DM,1999,DK,15.6,
+Atlético de Madrid,Johnny Cardoso,,DM,2001,US,15.2,
+Atlético de Madrid,Obed Vargas,,CM,2005,US,14.2,
+Atlético de Madrid,Rodrigo Mendoza,,CM,2005,ES,14.3,1
+Atlético de Madrid,Pablo Barrios,,CM,2003,ES,15.8,
+Atlético de Madrid,Kang-in Lee,Lee Kang-in,AM,2001,KR,15.6,
+Atlético de Madrid,Alexander Sørloth,,ST,1995,NO,15.8,
+Atlético de Madrid,Jonathan David,,ST,2000,CA,16,
+Atlético de Madrid,Ademola Lookman,,LW,1997,NG,16.4,
+Atlético de Madrid,Julián Álvarez,,ST,2000,AR,17.2,
+Atlético de Madrid,Àlex Baena,,LW,2001,ES,16.2,
+Atlético de Madrid,Giuliano Simeone,,RW,2002,AR,15.4,
+Atlético de Madrid,Arnau Ortiz,,ST,2001,ES,15.1,1
+Atlético de Madrid,Gerard Martín,,LB,2002,ES,14.8,
+Osasuna,Sergio Herrera,,GK,1993,ES,15,
+Osasuna,Aitor Fernández,,GK,1991,ES,14.4,
+Osasuna,Diego Rico,,LB,1993,ES,14.4,
+Osasuna,Valentin Rosier,,RB,1996,FR,14.6,
+Osasuna,Alejandro Catena,,CB,1994,ES,14.8,
+Osasuna,Flavien Boyomo,,CB,2002,CM,14.4,
+Osasuna,Jorge Herrando,,CB,2001,ES,14.4,
+Osasuna,Abel Bretones,,LB,2000,ES,14.6,
+Osasuna,Rockson Yeboah,,CB,2004,GH,12.4,1
+Osasuna,Iñigo Arguibide,,CB,2005,ES,12.4,1
+Osasuna,Lucas Torró,,DM,1994,ES,14.8,
+Osasuna,Moi Gómez,,LW,1994,ES,14.6,
+Osasuna,Jon Moncayola,,CM,1998,ES,14.8,
+Osasuna,Aimar Oroz,,AM,2001,ES,15,
+Osasuna,Iker Muñoz,,CM,2002,ES,14.4,
+Osasuna,Asier Osambela,,CM,2004,ES,12.4,1
+Osasuna,Romain Del Castillo,,RW,1996,FR,14.6,
+Osasuna,Ante Budimir,,ST,1991,HR,15.2,
+Osasuna,Kike Barja,,ST,1997,ES,13.2,1
+Osasuna,Rubén García,,LW,1993,ES,14.6,
+Osasuna,Raúl García de Haro,,ST,2000,ES,14.4,
+Osasuna,Raúl Moro,,ST,2002,ES,13.2,1
+Osasuna,Jonathan Dubasin,,ST,2000,ES,13.2,1
+Espanyol,Marko Dmitrović,,GK,1992,RS,14.8,
+Espanyol,Ángel Fortuño Viñas,,GK,2001,ES,12.7,1
+Espanyol,Leandro Cabrera,,CB,1991,UY,14.6,
+Espanyol,Unai Núñez,,CB,1997,ES,13.1,1
+Espanyol,Andoni Gorosabel,,RB,1996,ES,14.6,
+Espanyol,Vanja Drkušič,,CB,1999,SI,13.1,1
+Espanyol,Clemens Riedel,,CB,2003,DE,14.2,
+Espanyol,Quilindschy Hartman,,LB,2001,NL,14.6,
+Espanyol,Omar El Hilali,,RB,2003,MA,14.6,
+Espanyol,Roger Hinojo,,CB,2005,ES,12.3,1
+Espanyol,Edu Expósito,,CM,1996,ES,14.8,
+Espanyol,Pol Lozano,,DM,1999,ES,14.6,
+Espanyol,Urko González,,CM,2001,ES,14.4,
+Espanyol,Moscardo,,CM,2005,BR,12.3,1
+Espanyol,Álex Calatrava,,CM,2000,ES,13.1,1
+Espanyol,Javier Hernández,,CM,2004,ES,12.3,1
+Espanyol,Rafel Bauzà,,CM,2005,ES,12.3,1
+Espanyol,Pere Milla,,AM,1992,ES,14.4,
+Espanyol,Kike García,,ST,1989,ES,14.2,
+Espanyol,Javi Puado,,ST,1998,ES,15,
+Espanyol,Tyrhys Dolan,,LW,2001,GB-ENG,14.6,
+Espanyol,Jofre Carreras Pagès,,ST,2001,ES,13.1,1
+Espanyol,Roberto Fernández,,ST,2002,ES,14.6,
+Espanyol,Bryan Zaragoza,,LW,2001,ES,15,
+Espanyol,Marcos Fernández,,ST,2003,ES,13.1,1
+FC Barcelona,Wojciech Szczęsny,,GK,1990,PL,15.2,
+FC Barcelona,Dominik Livaković,,GK,1995,HR,15,
+FC Barcelona,Joan García,,GK,2001,ES,16.2,
+FC Barcelona,João Cancelo,,RB,1994,PT,15.6,
+FC Barcelona,Andreas Christensen,,CB,1996,DK,15.4,
+FC Barcelona,Jules Koundé,,RB,1998,FR,16.6,
+FC Barcelona,Eric García,,CB,2001,ES,15.6,
+FC Barcelona,Alejandro Balde,,LB,2003,ES,16,
+FC Barcelona,Pau Cubarsí,,CB,2007,ES,16.6,
+FC Barcelona,Gerard Martín,,LB,2002,ES,14.8,
+FC Barcelona,Xavi Espart,,CB,2007,ES,14.2,1
+FC Barcelona,Rodrigo Hernández,Rodri,DM,1996,ES,17.8,
+FC Barcelona,Frenkie de Jong,,CM,1997,NL,16.8,
+FC Barcelona,Dani Olmo,,AM,1998,ES,16.4,
+FC Barcelona,Pedro González,Pedri,CM,2002,ES,17.8,
+FC Barcelona,Pablo Páez Gavira,Gavi,CM,2004,ES,16.2,
+FC Barcelona,Fermín López,,AM,2003,ES,16,
+FC Barcelona,Marc Bernal,,DM,2007,ES,14.8,
+FC Barcelona,Brian Fariñas,,CM,2006,ES,14.2,1
+FC Barcelona,Gabriel Jesus,,ST,1997,BR,15.4,
+FC Barcelona,Anthony Gordon,,LW,2001,GB-ENG,16.4,
+FC Barcelona,Raphael Dias Belloli,Raphinha,LW,1996,BR,17.6,
+FC Barcelona,Karim Adeyemi,,LW,2002,DE,15.8,
+FC Barcelona,Roony Bardghji,,RW,2005,SE,14.6,
+FC Barcelona,Lamine Yamal,,RW,2007,ES,18.4,
+FC Barcelona,Hamza Abdelkarim,,ST,2008,EG,13.2,1
+FC Barcelona,Jesse Bisiwu,,ST,2008,BE,13.2,1
+Getafe,David Soria,,GK,1993,ES,15,
+Getafe,Jiří Letáček,,GK,1999,CZ,12.6,1
+Getafe,Djené Dakonam,,CB,1991,TG,14.8,
+Getafe,Johan Mojica,,LB,1992,CO,14.6,
+Getafe,Femenía Far,,CB,1991,ES,12,1
+Getafe,Abdel Abqar,,CB,1999,MA,14.2,
+Getafe,Saba Sazonov,,CB,2002,GE,13,1
+Getafe,Zaid Romero,,CB,1999,AR,13,1
+Getafe,Andrés Garcia,,CB,2003,ES,13,1
+Getafe,Sebastián Boselli,,CB,2003,UY,13,1
+Getafe,Valou,,CB,2005,CI,12.2,1
+Getafe,Orel Mangala,,DM,1998,BE,14.8,
+Getafe,Nemanja Gudelj,,DM,1991,RS,14.8,
+Getafe,Yvan Neyou,,CM,1997,CM,13,1
+Getafe,Francho Serrano,,CM,2001,ES,13,1
+Getafe,RamónTerrats Espacio,,CM,2000,ES,13,1
+Getafe,Mario Martín,,CM,2004,ES,14.4,
+Getafe,Juanmi,,ST,1993,ES,12.6,1
+Getafe,Borja Mayoral,,ST,1997,ES,14.8,
+Getafe,Enes Ünal,,ST,1997,TR,13,1
+Getafe,Martín Satriano,,ST,2001,UY,14.6,
+Getafe,Ivan Azón,,ST,2002,ES,13,1
+Getafe,Christantus Uche,,AM,2003,NG,14.4,
+Málaga CF,Alfonso Herrero,,GK,1994,ES,10.1,1
+Málaga CF,Lopez Nogueras,,GK,2004,ES,9.7,1
+Málaga CF,Fernando Calero,,CB,1995,ES,14.4,
+Málaga CF,Juan Berrocal,,CB,1999,ES,10.9,1
+Málaga CF,Alex Pastor Carayol,,CB,1999,ES,10.9,1
+Málaga CF,José Salinas,,CB,2000,ES,10.9,1
+Málaga CF,Diego Murillo,,CB,2001,ES,10.9,1
+Málaga CF,Einar Galilea,,CB,1994,ES,10.5,1
+Málaga CF,Rafa Garrido,,CB,2004,ES,10.1,1
+Málaga CF,Adam Aznou,,CB,2006,MA,9.3,1
+Málaga CF,Puga,,CB,2000,ES,10.9,1
+Málaga CF,Jens Cajuste,,CM,1999,SE,10.9,1
+Málaga CF,Pablo Martínez,,CM,1998,ES,14,
+Málaga CF,Ramón Enríquez Rodríguez,,CM,2001,ES,10.9,1
+Málaga CF,Dani Lorenzo,,CM,2003,ES,10.9,1
+Málaga CF,Carlos Dotor,,CM,2001,ES,10.9,1
+Málaga CF,Javi Rodríguez,,CB,2003,ES,14.6,
+Málaga CF,Izan Merino,,CM,2006,ES,9.3,1
+Málaga CF,Aarón Ochoa,,CM,2007,IE,9.3,1
+Málaga CF,Eneko Jauregi Escobar,,ST,1996,ES,10.9,1
+Málaga CF,Juan Cruz,,CB,1992,ES,14,
+Málaga CF,Joaquín Muñoz,,ST,1999,ES,10.9,1
+Málaga CF,Julen Lobete,,ST,2000,ES,10.9,1
+Málaga CF,David Larrubia,,ST,2002,ES,10.9,1
+Málaga CF,Haitam Abaida,,ST,2002,MA,10.9,1
+Málaga CF,Adrián Niño,,ST,2004,ES,10.1,1
+Málaga CF,Chupete,,ST,2004,ES,10.1,1
+Real Madrid,Thibaut Courtois,,GK,1992,BE,17.4,
+Real Madrid,Andriy Lunin,,GK,1999,UA,15.2,
+Real Madrid,Éder Militão,,CB,1998,BR,16.4,
+Real Madrid,Antonio Rüdiger,,CB,1993,DE,16.4,
+Real Madrid,Denzel Dumfries,,RB,1996,NL,16,
+Real Madrid,Trent Alexander-Arnold,,RB,1998,GB-ENG,16.8,
+Real Madrid,Ferland Mendy,,LB,1995,FR,15.6,
+Real Madrid,Ibrahima Konaté,,CB,1999,FR,16.6,
+Real Madrid,Marc Cucurella,,LB,1998,ES,16.4,
+Real Madrid,Álvaro Carreras,,LB,2003,ES,16,
+Real Madrid,Dean Huijsen,,CB,2005,ES,16.2,
+Real Madrid,Raúl Asencio,,CB,2003,ES,15.2,
+Real Madrid,Federico Valverde,,CM,1998,UY,17.3,
+Real Madrid,Bernardo Silva,,CM,1994,PT,16.6,
+Real Madrid,Aurélien Tchouaméni,,DM,2000,FR,16.6,
+Real Madrid,Eduardo Camavinga,,CM,2002,FR,16.3,
+Real Madrid,Jude Bellingham,,AM,2003,GB-ENG,18,
+Real Madrid,Arda Güler,,AM,2005,TR,16.6,
+Real Madrid,Thiago Pitarch,,CM,2007,ES,14.3,1
+Real Madrid,Jorge Cestero,,CM,2006,ES,14.3,1
+Real Madrid,Rodrygo Goes,Rodrygo,RW,2001,BR,16.6,
+Real Madrid,Vinícius José de Oliveira Júnior,Vinícius Júnior,LW,2000,BR,18.2,
+Real Madrid,Kylian Mbappé,,ST,1998,FR,18.8,
+Real Madrid,Brahim Díaz,,RW,1999,MA,15.6,
+Real Madrid,Endrick Felipe Moreira de Sousa,Endrick,ST,2006,BR,15.2,
+Real Madrid,Carlos Espí,,ST,2005,ES,15.1,1
+Real Madrid,Yan Diomande,,RW,2006,CI,16.4,
+Rayo Vallecano,Emil Audero,,GK,1997,IT,14.4,
+Rayo Vallecano,Augusto Batalla,,GK,1996,AR,14.8,
+Rayo Vallecano,Morro,,GK,2000,ES,12.8,1
+Rayo Vallecano,Dani Cárdenas,,GK,1997,ES,14.2,
+Rayo Vallecano,Luiz Felipe,,CB,1997,IT,14.6,
+Rayo Vallecano,Marash Kumbulla,,CB,2000,IT,13.2,1
+Rayo Vallecano,Florian Lejeune,,CB,1991,FR,14.8,
+Rayo Vallecano,Iván Balliu,,RB,1992,AL,14.2,
+Rayo Vallecano,Mujaid Sadick,,CB,2000,ES,13.2,1
+Rayo Vallecano,Pedrosa,,CB,1998,ES,13.2,1
+Rayo Vallecano,Andrei Rațiu,,RB,1998,RO,15,
+Rayo Vallecano,Jozhua Vertrouwd,,CB,2004,NL,12.4,1
+Rayo Vallecano,Pelayo Fernández,,CB,2003,ES,13.2,1
+Rayo Vallecano,Óscar Valentín,,DM,1994,ES,14.6,
+Rayo Vallecano,Unai López,,CM,1995,ES,14.6,
+Rayo Vallecano,Pedro Díaz,,CM,1998,ES,13.2,1
+Rayo Vallecano,Pathé Ciss,,DM,1994,SN,14.8,
+Rayo Vallecano,Randy Nteka,,ST,1997,AO,14.2,
+Rayo Vallecano,Gnangoro Bouare,,CM,2004,ES,12.4,1
+Rayo Vallecano,Raúl de Tomás,,ST,1994,ES,12.8,1
+Rayo Vallecano,Álvaro García,,LW,1992,ES,14.8,
+Rayo Vallecano,Isi Palazón,,AM,1994,ES,15.2,
+Rayo Vallecano,Alexandre Alemão,,ST,1998,BR,13.2,1
+Rayo Vallecano,Sergio Camello,,ST,2001,ES,14.6,
+Rayo Vallecano,Jorge de Frutos,,RW,1997,ES,15,
+Rayo Vallecano,Fran Perez,,ST,2002,ES,13.2,1
+Rayo Vallecano,Georgiy Tsitaishvili,,ST,2000,GE,13.2,1
+Levante,Mathew Ryan,,GK,1992,AU,14.4,
+Levante,Pablo Cuñat,,GK,2002,ES,12.2,1
+Levante,Álex Primo,,GK,2004,ES,11.4,1
+Levante,Aïssa Mandi,,CB,1991,DZ,14.4,
+Levante,Jeremy Toljan,,RB,1994,DE,14,
+Levante,Adrián de la Fuente,,CB,1999,ES,14,
+Levante,Manu Sánchez,,LB,2000,ES,14.4,
+Levante,Xavi Grande,,CB,2005,ES,11.8,1
+Levante,Jorge Cabello,,CB,2004,ES,11.8,1
+Levante,Axel Tape,,CB,2007,FR,11,1
+Levante,Ifeanyi Ndukwe,,CB,2008,AT,10,1
+Levante,Nacho Pérez,,CB,2008,ES,10,1
+Levante,Marc Santos,,CB,2010,ES,10,1
+Levante,Oriol Rey,,DM,1998,ES,14,
+Levante,Carlos Álvarez,,AM,2003,ES,14.4,
+Levante,Jon Olasagasti,,CM,2000,ES,12.6,1
+Levante,Hugo Sotelo,,CM,2003,ES,14.4,
+Levante,Enzo Bardeli,,CM,2001,FR,12.6,1
+Levante,Dani Requena,,CM,2004,ES,11.8,1
+Levante,Roger Brugué,,RW,1996,ES,14,
+Levante,Aleix García,,CM,1997,ES,15.4,
+Levante,Iván Romero,,ST,2001,ES,14.2,
+Levante,Thiago Fernandez,,ST,2004,AR,11.8,1
+Levante,Etta Eyong,,ST,2003,CM,14.4,
+Levante,Petar Ratkov,,ST,2003,RS,12.6,1
+Levante,Paco Cortés,,ST,2007,ES,11,1
+Levante,Yanis Musuayi,,ST,2007,BE,11,1
+Real Betis,Álvaro Valles,,GK,1997,ES,14.8,
+Real Betis,Diego Conde,,GK,1998,ES,13.7,1
+Real Betis,Diego Llorente,,CB,1993,ES,14.8,
+Real Betis,Héctor Bellerín,,RB,1995,ES,14.8,
+Real Betis,Marc Bartra,,CB,1991,ES,14.6,
+Real Betis,Fran García,,LB,1999,ES,15,
+Real Betis,Natan Bernardo de Souza,Natan,CB,2001,BR,15,
+Real Betis,Valentín Gómez,,CB,2003,AR,14.8,
+Real Betis,Ángel Ortiz,,CB,2004,ES,13.3,1
+Real Betis,Francisco Román Alarcón,Isco,AM,1992,ES,16,
+Real Betis,Dani Ceballos,,CM,1996,ES,15.2,
+Real Betis,Giovani Lo Celso,,AM,1996,AR,15.6,
+Real Betis,Marc Roca,,DM,1996,ES,15,
+Real Betis,Pablo Fornals,,AM,1996,ES,15,
+Real Betis,Álvaro Fidalgo,,CM,1997,ES,14.6,
+Real Betis,Nelson Deossa,,CM,2000,CO,14.6,
+Real Betis,Facundo Bernal,,CM,2003,UY,14.1,1
+Real Betis,Cucho Hernández,,ST,1999,CO,15.2,
+Real Betis,Aitor Ruibal,,RB,1996,ES,14.6,
+Real Betis,Antony Matheus dos Santos,Antony,RW,2000,BR,15.8,
+Real Betis,Iker Losada,,ST,2001,ES,14.1,1
+Real Betis,Rodrigo Riquelme,,LW,2000,ES,14.8,
+Real Betis,Troy Parrott,,ST,2002,IE,14.6,
+Real Betis,Abde Ezzalzouli,,LW,2001,MA,15.4,
+Real Sociedad,Álex Remiro,,GK,1995,ES,15.6,
+Real Sociedad,Unai Marrero,,GK,2001,ES,13.5,1
+Real Sociedad,Álvaro Odriozola,,RB,1995,ES,14.4,
+Real Sociedad,Igor Zubeldia,,CB,1997,ES,15.2,
+Real Sociedad,Sergio Gómez,,LB,2000,ES,14.8,
+Real Sociedad,Aihen Muñoz,,LB,1997,ES,14.4,
+Real Sociedad,Jon Aramburu,,RB,2002,VE,14.8,
+Real Sociedad,Jon Pacheco,,CB,2001,ES,13.9,1
+Real Sociedad,Mamadou Sarr,,CB,2005,FR,14.8,
+Real Sociedad,Héctor Fort,,RB,2006,ES,14.4,
+Real Sociedad,Jon Martín,,CB,2006,ES,14.4,
+Real Sociedad,Carlos Soler,,CM,1997,ES,15,
+Real Sociedad,Yangel Herrera,,DM,1998,VE,15,
+Real Sociedad,Luka Sučić,,CM,2002,HR,13.9,1
+Real Sociedad,Beñat Turrientes,,CM,2002,ES,13.9,1
+Real Sociedad,Arsen Zakharyan,,AM,2003,RU,14.8,
+Real Sociedad,Pablo Marín,,CM,2003,ES,14.6,
+Real Sociedad,Jon Gorrotxategi,,DM,2003,ES,14.6,
+Real Sociedad,Gonçalo Guedes,,RW,1996,PT,15,
+Real Sociedad,Takefusa Kubo,,RW,2001,JP,16,
+Real Sociedad,Ander Barrenetxea,,LW,2001,ES,15,
+Real Sociedad,Mikel Oyarzabal,,ST,1997,ES,16,
+Real Sociedad,Orri Óskarsson,,ST,2004,IS,14.8,
+Real Sociedad,Ochieng,,ST,2003,KE,13.9,1
+Villarreal,Péter Gulácsi,,GK,1990,HU,15,
+Villarreal,Luiz Júnior,,GK,2001,BR,15,
+Villarreal,Ruben Gomez,,GK,2002,ES,13.9,1
+Villarreal,Logan Costa,,CB,2001,CV,15,
+Villarreal,Juan Foyth,,CB,1998,AR,15,
+Villarreal,Alex Freeman,,CB,2004,US,14.2,
+Villarreal,Renato Veiga,,CB,2003,PT,15.4,
+Villarreal,Sergi Cardona,,LB,1999,ES,14.8,
+Villarreal,Carlos Romero,,LB,2001,ES,14.6,
+Villarreal,Santiago Mouriño,,RB,2002,UY,14.8,
+Villarreal,Pau Navarro,,CB,2005,ES,13.5,1
+Villarreal,Pape Gueye,,DM,1999,SN,15.4,
+Villarreal,Santi Comesaña,,CM,1996,ES,15,
+Villarreal,Nathan-Dylan Saliba,,CM,2004,CA,13.5,1
+Villarreal,Alassane Diatta,,CM,2005,SN,13.5,1
+Villarreal,Carlos Macià,,CM,2008,ES,11.7,1
+Villarreal,Ayoze Pérez,,ST,1993,ES,15.6,
+Villarreal,Nicolas Pépé,,RW,1995,CI,15.4,
+Villarreal,Gerard Moreno,,ST,1992,ES,15.6,
+Villarreal,Tajon Buchanan,,RW,1999,CA,15,
+Villarreal,Georges Mikautadze,,ST,2000,GE,15.6,
+Villarreal,Alberto Moleiro,,AM,2003,ES,15.6,
+Villarreal,Ilias Akhomach,,RW,2004,MA,14.8,
+Villarreal,Tani Oluwaseyi,,ST,2000,CA,14.6,
+Valencia,Cristian,,GK,1998,ES,13,1
+Valencia,Stole Dimitrievski,,GK,1993,MK,14.6,
+Valencia,Kayne van Oevelen,,GK,2003,NL,13,1
+Valencia,Mouctar Diakhaby,,CB,1996,GN,14.8,
+Valencia,José Gayà,,LB,1995,ES,15,
+Valencia,Pablo Maffeo,,RB,1997,AR,14.8,
+Valencia,Justin de Haas,,CB,2000,NL,13.4,1
+Valencia,Arnau Martínez,,RB,2003,ES,14.8,
+Valencia,Jesús Vázquez,,LB,2003,ES,14.4,
+Valencia,José Copete,,CB,1999,ES,14.6,
+Valencia,César Tárrega,,CB,2002,ES,14.8,
+Valencia,Iker Córdoba,,CB,2005,ES,12.6,1
+Valencia,Filip Ugrinić,,CM,1999,CH,14.4,
+Valencia,José Luis García Vayá,Pepelu,DM,1998,ES,15,
+Valencia,Guido Rodríguez,,DM,1994,AR,14.8,
+Valencia,Harvey Elliott,,AM,2003,GB-ENG,15.4,
+Valencia,Javi Guerra,,CM,2003,ES,15.2,
+Valencia,Aliou Dieng,,CM,1997,ML,13.4,1
+Valencia,Sergi Canós,,ST,1997,ES,13.4,1
+Valencia,Umar Sadiq,,ST,1997,NG,13.4,1
+Valencia,Arnaut Danjuma,,LW,1997,NL,15,
+Valencia,Hugo Duro,,ST,1999,ES,15,
+Valencia,Dani Raba,,AM,1995,ES,14.4,
+Valencia,Luis Rioja,,LW,1993,ES,14.8,
+Valencia,Diego López,,LW,2002,ES,15,
+Valencia,Ryunosuke Sato,,ST,2006,JP,11.8,1
+Deportivo Alavés,Antonio Sivera,,GK,1996,ES,14.8,
+Deportivo Alavés,Adrian Rodriguez,,GK,2000,AR,12.5,1
+Deportivo Alavés,Jonny Otto,,RB,1994,ES,14.4,
+Deportivo Alavés,Nahuel Tenaglia,,CB,1996,AR,14.4,
+Deportivo Alavés,Ville Koski,,CB,2002,FI,12.9,1
+Deportivo Alavés,Hugo Novoa,,CB,2003,ES,12.9,1
+Deportivo Alavés,Nicolás Valentini,,CB,2001,AR,14.2,
+Deportivo Alavés,Yusi,,CB,2005,ES,12.1,1
+Deportivo Alavés,Carles Aleñá,,CM,1998,ES,14.4,
+Deportivo Alavés,Denís Suárez,,CM,1994,ES,12.5,1
+Deportivo Alavés,Carlos Benavidez,,CM,1998,UY,12.9,1
+Deportivo Alavés,Ander Guevara,,CM,1997,ES,12.9,1
+Deportivo Alavés,Antonio Blanco,,DM,2000,ES,14.8,
+Deportivo Alavés,Pablo Ibáñez,,CM,1998,ES,14.4,
+Deportivo Alavés,Tomas Mendes,,CM,2004,ES,12.1,1
+Deportivo Alavés,Selu Diallo,,CM,2003,ES,12.9,1
+Deportivo Alavés,Mikel Rodríguez,,CM,2002,ES,12.9,1
+Deportivo Alavés,Lucas Boyé,,ST,1996,AR,14.6,
+Deportivo Alavés,Toni Martínez,,ST,1997,ES,14.6,
+Deportivo Alavés,Javi Rodríguez,,CB,2003,ES,14.6,
+Deportivo Alavés,Abde Rebbach,,LW,1998,DZ,14.2,
+Deportivo Alavés,Aitor Mañas,,ST,2003,ES,12.9,1
+Deportivo Alavés,Ángel Pérez,,ST,2002,ES,12.9,1
+Elche,Matías Dituro,,GK,1987,AR,14,
+Elche,Alejandro Iturbe,,GK,2003,ES,12.2,1
+Elche,Pedro Bigas,,CB,1990,ES,13.8,
+Elche,Bambo Diaby,,CB,1997,ES,12.6,1
+Elche,Víctor Chust,,CB,2000,ES,12.6,1
+Elche,Kevin Lomónaco,,CB,2002,AR,12.6,1
+Elche,Roy Revivo,,CB,2003,IL,12.6,1
+Elche,Rubén Sánchez,,RB,2001,ES,14.2,
+Elche,Buba,,CB,2007,ES,11,1
+Elche,Matia Barzic,,CB,2004,HR,11.8,1
+Elche,Gonzalo Villar,,CM,1998,ES,12.6,1
+Elche,Marc Aguado,,DM,2000,ES,14.2,
+Elche,Martim Neto,,CM,2003,PT,14.2,
+Elche,Federico Redondo,,CM,2003,AR,12.6,1
+Elche,Facundo Buonanotte,,CM,2004,AR,11.8,1
+Elche,Javi Morcillo,,CM,2006,ES,11,1
+Elche,Grady Diangana,,ST,1998,CD,12.6,1
+Elche,Ezequiel Ponce,,ST,1997,AR,12.6,1
+Elche,Josán Fernández,,ST,1989,ES,11.6,1
+Elche,Tete Morente,,ST,1996,ES,12.6,1
+Elche,Germán Valera,,RW,2002,ES,14.2,
+Elche,Fernando Niño,,ST,2000,ES,12.6,1
+Elche,Lucas Cepeda,,ST,2002,CL,12.6,1
+Elche,Abiel Osorio,,ST,2002,AR,12.6,1
+Elche,Yago Santiago,,ST,2003,ES,12.6,1
+Elche,Ali Houary,,ST,2005,ES,11.8,1
+Elche,Adam,,ST,2005,ES,11.8,1
+Celta de Vigo,Ionuț Radu,,GK,1997,RO,14.6,
+Celta de Vigo,Altay Bayındır,,GK,1998,TR,14.4,
+Celta de Vigo,Iván Villar,,GK,1997,ES,14.6,
+Celta de Vigo,Marcos Alonso,,CB,1990,ES,14.8,
+Celta de Vigo,Sebastían Cáceres,,CB,1999,UY,13.5,1
+Celta de Vigo,Carl Starfelt,,CB,1995,SE,14.8,
+Celta de Vigo,Javi Galán,,LB,1994,ES,14.6,
+Celta de Vigo,Sergio Carreira,,LB,2000,ES,14.4,
+Celta de Vigo,Álvaro Núñez,,RB,2000,ES,14,
+Celta de Vigo,Javi Rodríguez,,CB,2003,ES,14.6,
+Celta de Vigo,Yoel Lago,,CB,2004,ES,12.7,1
+Celta de Vigo,Javi Rueda,,RB,2002,ES,14.4,
+Celta de Vigo,Aleix Febas,,CM,1995,ES,14.2,
+Celta de Vigo,Ilaix Moriba,,CM,2003,GN,15,
+Celta de Vigo,Miguel Román,,CM,2002,ES,13.5,1
+Celta de Vigo,Iago Aspas,,ST,1987,ES,15,
+Celta de Vigo,Borja Iglesias,,ST,1993,ES,15,
+Celta de Vigo,Ferran Jutglà,,ST,1999,ES,14.6,
+Celta de Vigo,Couhaib Driouech,,ST,2002,MA,13.5,1
+Celta de Vigo,Williot Swedberg,,AM,2004,SE,14.6,
+Celta de Vigo,Hugo Álvarez,,LW,2003,ES,14.6,
+Celta de Vigo,Hugo Gonzalez,,ST,2003,ES,13.5,1
+Celta de Vigo,Jones El-Abdellaoui,,ST,2006,NO,11.9,1
+Celta de Vigo,Pablo Durán,,ST,2001,ES,14.4,
+Sevilla,Odysseas Vlachodimos,,GK,1994,GR,14.6,
+Sevilla,Fran Gonzalez,,GK,2005,ES,12.2,1
+Sevilla,Gabriel Suazo,,LB,1997,CL,14.6,
+Sevilla,Fábio Cardoso,,CB,1994,PT,13,1
+Sevilla,Marcos do Nascimento Teixeira,Marcão,CB,1996,BR,14.8,
+Sevilla,Juan Iglesias,,RB,1998,ES,14.4,
+Sevilla,Arouna Sangante,,CB,2002,SN,13.4,1
+Sevilla,José Ángel Carmona,,RB,2002,ES,14.6,
+Sevilla,Kike Salas,,CB,2002,ES,14.6,
+Sevilla,Castrin,,CB,2003,ES,13.4,1
+Sevilla,Julio Díaz,,CB,2005,ES,12.6,1
+Sevilla,Jon Guridi,,CM,1995,ES,14.4,
+Sevilla,Youssouf Fofana,,DM,1999,FR,15.6,
+Sevilla,Lucien Agoumé,,DM,2002,FR,14.8,
+Sevilla,Giorgi Kochorashvili,,CM,1999,GE,13.4,1
+Sevilla,Manu Bueno,,CM,2004,ES,12.6,1
+Sevilla,Nicolás Guillén,,CM,2008,ES,10.8,1
+Sevilla,Rubén Vargas,,LW,1998,CH,15,
+Sevilla,Alfon González,,LW,1999,ES,14.6,
+Sevilla,Chidera Ejuke,,LW,1998,NG,14.8,
+Sevilla,Félix Correia,,LW,2001,PT,14.6,
+Sevilla,Peque,,ST,2002,ES,13.4,1
+Sevilla,Robbie Ure,,ST,2004,GB-SCT,12.6,1
+Sevilla,Lucas Stassin,,ST,2004,BE,12.6,1
+Sevilla,Isaac Romero,,ST,2000,ES,14.8,
+Sevilla,Miguel Ángel Sierra,,ST,2004,ES,12.6,1
+Deportivo de La Coruña,Álvaro Fernández,,GK,1998,ES,10.9,1
+Deportivo de La Coruña,German Parreno,,GK,1993,ES,10.5,1
+Deportivo de La Coruña,Leo Román,,GK,2000,ES,14.6,
+Deportivo de La Coruña,Ximo Navarro,,CB,1990,ES,10.3,1
+Deportivo de La Coruña,José Ángel Esmorís Tasende,Angeliño,LB,1997,ES,15,
+Deportivo de La Coruña,Giacomo Quagliata,,CB,2000,IT,11.3,1
+Deportivo de La Coruña,Arnau Comas,,CB,2000,ES,11.3,1
+Deportivo de La Coruña,Lucas Noubi,,CB,2005,BE,10.5,1
+Deportivo de La Coruña,Sergi Altimira,,CM,2001,ES,14.8,
+Deportivo de La Coruña,Miguel Loureiro,,CB,1996,ES,11.3,1
+Deportivo de La Coruña,José María Giménez,,CB,1995,UY,15.8,
+Deportivo de La Coruña,Dani Barcia,,CB,2003,ES,11.3,1
+Deportivo de La Coruña,Ede Bright,,CB,2007,PL,9.7,1
+Deportivo de La Coruña,Mario Soriano,,CM,2002,ES,11.3,1
+Deportivo de La Coruña,Riki Rodríguez,,CM,1997,ES,11.3,1
+Deportivo de La Coruña,Marc Casadó,,DM,2003,ES,15.4,
+Deportivo de La Coruña,Lorenzo Amatucci,,CM,2004,IT,10.5,1
+Deportivo de La Coruña,Diego Villares,,CM,1996,ES,11.3,1
+Deportivo de La Coruña,Teun Gijselhart,,CM,2005,NL,10.5,1
+Deportivo de La Coruña,Jonathan Asp-Jensen,,CM,2006,DK,9.7,1
+Deportivo de La Coruña,Noé Carrillo,,CM,2006,ES,9.7,1
+Deportivo de La Coruña,Adama Traoré,,ST,1996,ES,11.3,1
+Deportivo de La Coruña,Pierre-Emerick Aubameyang,,ST,1989,GA,15.2,
+Deportivo de La Coruña,Zakaria Eddahchouri,,ST,2000,NL,11.3,1
+Deportivo de La Coruña,Luismi Cruz,,ST,2001,ES,11.3,1
+Deportivo de La Coruña,David Mella,,ST,2005,ES,10.5,1
+Deportivo de La Coruña,Peke,,ST,2002,ES,11.3,1
+Deportivo de La Coruña,Nsongo Tonfack,,ST,2004,CM,10.5,1
+Racing de Santander,Julen Agirrezabala,,GK,2000,ES,14.6,
+Racing de Santander,Simon Eriksson,,GK,2006,SE,9.2,1
+Racing de Santander,José Manuel,,CB,1998,ES,11.2,1
+Racing de Santander,Aarón Martín,,LB,1997,ES,14.6,
+Racing de Santander,Pablo Ramon,,CB,2001,ES,11.2,1
+Racing de Santander,Álvaro Mantilla,,CB,2000,ES,11.2,1
+Racing de Santander,Jeanuel Belocian,,CB,2005,FR,10.4,1
+Racing de Santander,Facundo González,,CB,2003,UY,11.2,1
+Racing de Santander,Pedro Felipe,,CB,2004,BR,10.4,1
+Racing de Santander,Salinas,,CB,2007,ES,9.6,1
+Racing de Santander,Sergio Canales,,AM,1991,ES,14.6,
+Racing de Santander,André Almeida,,AM,2000,PT,14.8,
+Racing de Santander,Iván Martín,,CM,1999,ES,15,
+Racing de Santander,Íñigo Sainz Maza,,CM,1998,ES,11.2,1
+Racing de Santander,Matteo Prati,,CM,2003,IT,14.2,
+Racing de Santander,Maguette Gueye,,CM,2002,SN,11.2,1
+Racing de Santander,Iván Martín,,CM,1999,ES,15,
+Racing de Santander,Asier Villalibre,,ST,1997,ES,11.2,1
+Racing de Santander,Iñigo Vicente,,ST,1998,ES,11.2,1
+Racing de Santander,Giorgi Guliashvili,,ST,2001,GE,11.2,1
+Racing de Santander,Pablo García,,ST,2000,ES,11.2,1
+Racing de Santander,Arana,,ST,2000,ES,11.2,1
+Racing de Santander,Yassir Zabiri,,ST,2005,MA,10.4,1
+Racing de Santander,Iker Luque,,ST,2005,ES,10.4,1
+AC Milan,Pietro Terracciano,,GK,1990,IT,14.4,
+AC Milan,Mike Maignan,,GK,1995,FR,16.8,
+AC Milan,Lorenzo Torriani,,GK,2005,IT,13.7,1
+AC Milan,Matteo Gabbia,,CB,1999,IT,15,
+AC Milan,Fikayo Tomori,,CB,1997,GB-ENG,15.6,
+AC Milan,Pervis Estupiñán,,LB,1998,EC,15.4,
+AC Milan,Strahinja Pavlović,,CB,2001,RS,15.4,
+AC Milan,Filippo Terracciano,,CB,2003,IT,14.9,1
+AC Milan,Koni De Winter,,CB,2002,BE,14.8,
+AC Milan,Mario Gila,,CB,2000,ES,15.4,
+AC Milan,Davide Bartesaghi,,LB,2005,IT,14.4,
+AC Milan,Sankhoun Diawara,,CB,2006,FR,13.3,1
+AC Milan,Luka Modrić,,CM,1985,HR,16.2,
+AC Milan,Adrien Rabiot,,CM,1995,FR,16.2,
+AC Milan,Ruben Loftus-Cheek,,CM,1996,GB-ENG,15,
+AC Milan,Alexis Saelemaekers,,RB,1999,BE,15.4,
+AC Milan,Ardon Jashari,,CM,2002,CH,15.2,
+AC Milan,Yunus Musah,,CM,2002,US,14.8,
+AC Milan,Warren Bondo,,CM,2003,FR,14.2,
+AC Milan,Diego Moreira,,CM,2004,BE,14.4,
+AC Milan,Alphadjo Cisse,,CM,2006,IT,13.3,1
+AC Milan,Christian Comotto,,CM,2008,IT,12.3,1
+AC Milan,Christian Pulisic,,RW,1998,US,16.4,
+AC Milan,Samuel Chukwueze,,RW,1999,NG,15,
+AC Milan,Gonçalo Ramos,,ST,2001,PT,15.8,
+AC Milan,Omari Hutchinson,,RW,2003,JM,15,
+AC Milan,Francesco Camarda,,ST,2008,IT,12.3,1
+Fiorentina,Luca Lezzerini,,GK,1995,IT,13.1,1
+Fiorentina,David de Gea,,GK,1990,ES,15.8,
+Fiorentina,Oliver Christensen,,GK,1999,DK,13.5,1
+Fiorentina,Luca Ranieri,,CB,1999,IT,14.8,
+Fiorentina,Marin Pongračić,,CB,1997,HR,14.6,
+Fiorentina,Domilson Cordeiro dos Santos,Dodô,RB,1998,BR,15.2,
+Fiorentina,João Mário Lopes,,CB,2000,PT,13.9,1
+Fiorentina,Fabiano Parisi,,LB,2000,IT,14.6,
+Fiorentina,Radu Drăgușin,,CB,2002,RO,14.8,
+Fiorentina,Viery,,CB,2005,BR,13.1,1
+Fiorentina,Álex Jiménez,,RB,2005,ES,14.6,
+Fiorentina,Víctor Valdepeñas,,CB,2006,ES,12.3,1
+Fiorentina,Antonín Barák,,CM,1994,CZ,13.5,1
+Fiorentina,Nicolò Fagioli,,CM,2001,IT,15,
+Fiorentina,Marco Brescianini,,CM,2000,IT,13.9,1
+Fiorentina,Arthur Atta,,CM,2003,FR,14.6,
+Fiorentina,Cher Ndour,,CM,2004,IT,14.2,
+Fiorentina,Christ Ravynel Inao Oulaï,,CM,2006,CI,12.3,1
+Fiorentina,Riccardo Sottil,,LW,1999,IT,14.2,
+Fiorentina,Pedro Gonçalves,,AM,1998,PT,15.6,
+Fiorentina,Norberto Bercique Gomes Betuncal,Beto,ST,1998,GW,14.6,
+Fiorentina,Mateo Pellegrino,,ST,2001,AR,14.6,
+Fiorentina,Wilfried Gnonto,,LW,2003,IT,14.8,
+Fiorentina,Alieu Njie,,ST,2005,SE,13.1,1
+Fiorentina,Franco Mastantuono,,RW,2007,AR,15.6,
+AS Roma,Pierluigi Gollini,,GK,1995,IT,13.8,1
+AS Roma,Mile Svilar,,GK,1999,RS,16,
+AS Roma,Giorgio De Marzi,,GK,2007,US,12.6,1
+AS Roma,Evan Ndicka,,CB,1999,CI,15.6,
+AS Roma,Gianluca Mancini,,CB,1996,IT,15.4,
+AS Roma,Mario Hermoso,,CB,1995,ES,15,
+AS Roma,Nahuel Molina,,RB,1998,AR,15.2,
+AS Roma,Leonardo Balerdi,,CB,1999,AR,15.6,
+AS Roma,Anass Salah-Eddine,,CB,2002,MA,14.6,1
+AS Roma,Devyne Rensch,,CB,2003,NL,14.2,
+AS Roma,Konstantinos Koulierakis,,CB,2003,GR,14.8,
+AS Roma,Wesley Vinícius França,Wesley,RB,2003,BR,15.4,
+AS Roma,Daniele Ghilardi,,CB,2003,IT,14.2,
+AS Roma,Emanuele Lulli,,CB,2007,IT,13,1
+AS Roma,Lorenzo Pellegrini,,AM,1996,IT,15.4,
+AS Roma,Bryan Cristante,,CM,1995,IT,15,
+AS Roma,Marten de Roon,,DM,1991,NL,15.2,
+AS Roma,Manu Koné,,CM,2001,FR,15.8,
+AS Roma,Niccolo Pisilli,,CM,2004,IT,14.4,
+AS Roma,Rodrigo Mora,,AM,2007,PT,15.4,
+AS Roma,Paulo Dybala,,AM,1993,AR,16,
+AS Roma,Donyell Malen,,ST,1999,NL,15.6,
+AS Roma,Santiago Castro,,ST,2004,AR,15,
+AS Roma,Matías Soulé,,RW,2003,AR,15.6,
+Atalanta,Marco Sportiello,,GK,1992,IT,13.3,1
+Atalanta,Marco Carnesecchi,,GK,2000,IT,15.8,
+Atalanta,Thomas Pompei,,GK,2006,IT,12.7,1
+Atalanta,Sead Kolašinac,,CB,1993,BA,14.8,
+Atalanta,Thomas Kristensen,,CB,2002,DK,14.4,
+Atalanta,Giorgio Scalvini,,CB,2003,IT,15.6,
+Atalanta,Isak Hien,,CB,1999,SE,15.6,
+Atalanta,Odilon Kossounou,,CB,2001,CI,15.2,
+Atalanta,Éderson,,CM,1989,BR,13.7,1
+Atalanta,Franck Kessié,,CM,1996,CI,15.2,
+Atalanta,Raoul Bellanova,,RB,2000,IT,15,
+Atalanta,Mario Pašalić,,CM,1995,HR,15,
+Atalanta,Davide Zappacosta,,RB,1992,IT,14.6,
+Atalanta,Eljif Elmas,,CM,1999,MK,14.8,
+Atalanta,Gianluca Gaetano,,AM,2000,IT,14.6,
+Atalanta,Charles De Ketelaere,,AM,2001,BE,16,
+Atalanta,Lazar Samardžić,,AM,2002,RS,15,
+Atalanta,Lorenzo Bernasconi,,CM,2003,IT,14.7,1
+Atalanta,Nicola Zalewski,,LB,2002,PL,15,
+Atalanta,Gianluca Scamacca,,ST,1999,IT,15.4,
+Atalanta,Giacomo Raspadori,,ST,2000,IT,15.2,
+Atalanta,Nikola Krstović,,ST,2000,ME,15.4,
+Atalanta,Kamaldeen Sulemana,,LW,2002,GH,14.8,
+Atalanta,Jonathan Rowe,,LW,2003,GB-ENG,14.8,
+Bologna,Łukasz Skorupski,,GK,1991,PL,15,
+Bologna,Massimo Pessina,,GK,2007,IT,12.1,1
+Bologna,Ukko Happonen,,GK,2007,FI,12.1,1
+Bologna,Lorenzo De Silvestri,,RB,1988,IT,14,
+Bologna,Torbjørn Heggem,,CB,1999,NO,14.2,
+Bologna,Juan Miranda,,LB,2000,ES,15,
+Bologna,Nicolò Casale,,CB,1998,IT,14.4,
+Bologna,Emil Holm,,RB,2000,SE,14.8,
+Bologna,Nadir Zortea,,CB,1999,IT,14.4,
+Bologna,Arthur Theate,,CB,2000,BE,15.2,
+Bologna,Martin Vitík,,CB,2003,CZ,14.6,
+Bologna,Eivind Helland,,CB,2005,NO,13.3,1
+Bologna,Jens Odgaard,,AM,1999,DK,14.6,
+Bologna,Nikola Moro,,CM,1998,HR,14.6,
+Bologna,Lewis Ferguson,,CM,1999,GB-SCT,15.2,
+Bologna,Tommaso Pobega,,CM,1999,IT,14.6,
+Bologna,Oussama El Azzouzi,,CM,2001,MA,14.1,1
+Bologna,Mikel Amondarain,,CM,2005,AR,13.3,1
+Bologna,Riccardo Orsolini,,RW,1997,IT,15.6,
+Bologna,Federico Bernardeschi,,RW,1994,IT,14.8,
+Bologna,Artem Dovbyk,,ST,1997,UA,15.6,
+Bologna,Jesper Karlsson,,ST,1998,SE,14.2,
+Bologna,Roberto Piccoli,,ST,2001,IT,14.6,
+Bologna,Jay Enem,,ST,2003,NL,14.1,1
+Bologna,Samuel Mbangula,,LW,2004,BE,14.4,
+Cagliari,Boris Radunović,,GK,1996,RS,12.4,1
+Cagliari,Elia Caprile,,GK,2001,IT,14.8,
+Cagliari,Alen Sherri,,GK,1997,AL,12.4,1
+Cagliari,Yerry Mina,,CB,1994,CO,14.4,
+Cagliari,Yukinari Sugawara,,CB,2000,JP,12.8,1
+Cagliari,Zé Pedro Figueiredo,,CB,1997,PT,12.8,1
+Cagliari,Giuseppe Aurelio,,CB,2000,IT,12.8,1
+Cagliari,Adam Obert,,LB,2002,SK,14,
+Cagliari,Raphael Kofler,,CB,2005,IT,12,1
+Cagliari,Juan Martín Rodriguez,,CB,2005,UY,12,1
+Cagliari,Riyad Idrissi,,CB,2005,IT,12,1
+Cagliari,Alessandro Deiola,,CM,1995,IT,13.8,
+Cagliari,Roberto Gagliardini,,CM,1994,IT,12.4,1
+Cagliari,Harry Winks,,CM,1996,GB-ENG,12.8,1
+Cagliari,Daniel Maldini,,CM,2001,IT,12.8,1
+Cagliari,Jacopo Fazzini,,AM,2003,IT,14.4,
+Cagliari,Yanis Massolin,,CM,2002,FR,12.8,1
+Cagliari,Michel Adopo,,CM,2000,FR,14.4,
+Cagliari,Alessandro Romano,,CM,2006,CH,11.2,1
+Cagliari,Joseph Liteta,,CM,2006,ZM,11.2,1
+Cagliari,Nicola Grandu,,CM,2006,IT,11.2,1
+Cagliari,Ivan Sulev,,CM,2006,BG,11.2,1
+Cagliari,Mbala N'Zola,,ST,1996,AO,12.8,1
+Cagliari,Mattia Felici,,LW,2001,IT,14,
+Cagliari,Gennaro Borrelli,,ST,2000,IT,12.8,1
+Cagliari,Riccardo Ciervo,,ST,2002,IT,12.8,1
+Cagliari,Kevin Carlos,,ST,2001,ES,12.8,1
+Cagliari,Alieu Fadera,,ST,2001,GM,12.8,1
+Cagliari,Kingstone Mutandwa,,ST,2003,ZM,12.8,1
+Cagliari,Yael Trepy,,ST,2006,FR,11.2,1
+Cagliari,Paul Mendy,,ST,2007,SN,11.2,1
+Genoa,Justin Bijlow,,GK,1998,NL,12.6,1
+Genoa,Daniele Sommariva,,GK,1997,IT,12.6,1
+Genoa,Franz Stolz,,GK,2001,AT,12.6,1
+Genoa,Stefano Sabelli,,CB,1993,IT,12.6,1
+Genoa,Johan Vásquez,,CB,1998,MX,15,
+Genoa,Leo Østigård,,CB,1999,NO,14.6,
+Genoa,Cody Drameh,,CB,2001,GB-ENG,13,1
+Genoa,Mario Mitaj,,CB,2003,AL,13,1
+Genoa,Sebastian Otoa,,CB,2004,DK,12.2,1
+Genoa,Alessandro Marcandalli,,CB,2002,IT,14,
+Genoa,David Puczka,,CB,2005,AT,12.2,1
+Genoa,Mamedi Doucouré,,CB,2007,FR,11.4,1
+Genoa,Marcelo Vaz,,CB,2007,GW,11.4,1
+Genoa,Djibril Sow,,CM,1997,CH,15,
+Genoa,Morten Frendrup,,CM,2001,DK,15,
+Genoa,Tommaso Baldanzi,,AM,2003,IT,14.6,
+Genoa,Mikael Egill Ellertsson,,CM,2002,IS,13,1
+Genoa,Alexsandro Amorim,,CM,2005,BR,12.2,1
+Genoa,Ethan Meichtry,,CM,2005,CH,12.2,1
+Genoa,Samuel Wiafe,,CM,2008,IT,10.4,1
+Genoa,Hamed Junior Traorè,,AM,2000,CI,14.6,
+Genoa,Milutin Osmajić,,ST,1999,ME,13,1
+Genoa,Junior Messias,,RW,1991,BR,14.2,
+Genoa,Lorenzo Colombo,,ST,2002,IT,14.4,
+Genoa,Vítor Manuel Carvalho Oliveira,Vitinha,ST,2000,PT,14.6,
+Genoa,Elias Havel,,ST,2003,AT,13,1
+Genoa,Lorenzo Venturino,,ST,2006,IT,11.4,1
+Inter,Ivan Provedel,,GK,1994,IT,15.4,
+Inter,Raffaele Di Gennaro,,GK,1993,IT,14.6,1
+Inter,Josep Martínez,,GK,1998,ES,15,
+Inter,Manuel Akanji,,CB,1995,CH,16,
+Inter,Yann Bisseck,,CB,2000,DE,15.4,
+Inter,Alessandro Bastoni,,CB,1999,IT,16.8,
+Inter,John Stones,,CB,1994,GB-ENG,15.8,
+Inter,Benjamin Pavard,,CB,1996,FR,15.4,
+Inter,Carlos Augusto,,LB,1999,BR,15.2,
+Inter,Federico Dimarco,,LB,1997,IT,16.4,
+Inter,Djed Spence,,LB,2000,GB-ENG,15,
+Inter,Hakan Çalhanoğlu,,DM,1994,TR,16.6,
+Inter,Nicolò Barella,,CM,1997,IT,17,
+Inter,Piotr Zieliński,,CM,1994,PL,15.6,
+Inter,Henrikh Mkhitaryan,,CM,1989,AM,15.6,
+Inter,Curtis Jones,,CM,2001,GB-ENG,15.6,
+Inter,Luis Henrique,,RW,2001,BR,15,
+Inter,Petar Sučić,,CM,2003,HR,15.2,
+Inter,Andy Diouf,,CM,2003,FR,14.4,
+Inter,Aleksandar Stankovic,,CM,2005,RS,14.2,
+Inter,Lautaro Martínez,,ST,1997,AR,17.3,
+Inter,Marcus Thuram,,ST,1997,FR,16.6,
+Inter,Ange-Yoan Bonny,,ST,2003,FR,15.2,
+Inter,Francesco Pio Esposito,,ST,2005,IT,15,
+Juventus,Carlo Pinsoglio,,GK,1990,IT,13.5,1
+Juventus,Guglielmo Vicario,,GK,1996,IT,15.9,
+Juventus,Kamil Grabara,,GK,1999,PL,15.2,
+Juventus,Gleison Bremer,Bremer,CB,1997,BR,16.4,
+Juventus,Daniele Rugani,,CB,1994,IT,13.8,
+Juventus,Lloyd Kelly,,CB,1998,GB-ENG,14.8,
+Juventus,Jhon Lucumí,,CB,1998,CO,15.4,
+Juventus,Zeki Çelik,,RB,1997,TR,14.8,
+Juventus,Juan Cabal,,LB,2001,CO,14.6,
+Juventus,Andrea Cambiaso,,LB,2000,IT,15.8,
+Juventus,Pierre Kalulu,,CB,2000,FR,15.4,
+Juventus,Federico Gatti,,CB,1998,IT,15.2,
+Juventus,Manuel Locatelli,,DM,1998,IT,15.6,
+Juventus,Weston McKennie,,CM,1998,US,15.4,
+Juventus,Teun Koopmeiners,,CM,1998,NL,15.6,
+Juventus,Douglas Luiz,,CM,1998,BR,15.4,
+Juventus,Khéphren Thuram,,CM,2001,FR,15.8,
+Juventus,Pape Matar Sarr,,CM,2002,SN,15.6,
+Juventus,Arkadiusz Milik,,ST,1994,PL,14.4,
+Juventus,Jérémie Boga,,LW,1997,CI,15,
+Juventus,Randal Kolo Muani,,ST,1998,FR,15.8,
+Juventus,Edon Zhegrova,,RW,1999,XK,15.6,
+Juventus,Nicolás González,,RW,1998,AR,15.4,
+Juventus,Nick Woltemade,,ST,2002,DE,16,
+Juventus,Francisco Conceição,,RW,2002,PT,15.8,
+Juventus,Kenan Yıldız,,LW,2005,TR,16.4,
+Juventus,Jeff Ekhator,,ST,2006,IT,14.2,
+Juventus,Kerim Alajbegović,,ST,2007,BA,13.3,1
+Lazio,Christos Mandas,,GK,2001,GR,14.4,
+Lazio,Alessio Furlanetto,,GK,2002,IT,13.7,1
+Lazio,Davide Renzetti,,GK,2006,IT,12.1,1
+Lazio,Edoardo Motta,,GK,2005,IT,12.9,1
+Lazio,Alfonso Pedraza,,CB,1996,ES,14,
+Lazio,Alessio Romagnoli,,CB,1995,IT,15.4,
+Lazio,Luca Pellegrini,,LB,1999,IT,14.4,
+Lazio,Patric,,CB,1993,ES,13.7,1
+Lazio,Adam Marušić,,RB,1992,ME,14.8,
+Lazio,Mohamed Salim Fares,,CB,1996,DZ,14.1,1
+Lazio,Manuel Lazzari,,RB,1993,IT,14.4,
+Lazio,Danilho Doekhi,,CB,1998,NL,15,
+Lazio,Nuno Tavares,,LB,2000,PT,15,
+Lazio,Josip Šutalo,,CB,2000,HR,15,
+Lazio,Romano Floriani,,CB,2003,IT,14.1,1
+Lazio,Oliver Nielsen,,CB,2003,DK,14.1,1
+Lazio,Filipe,,CB,2005,BR,13.3,1
+Lazio,Davide Frattesi,,CM,1999,IT,15.8,
+Lazio,Danilo Cataldi,,CM,1994,IT,14,
+Lazio,Kenneth Taylor,,CM,2002,NL,15,
+Lazio,Nicolò Rovella,,DM,2001,IT,15.4,
+Lazio,Fisayo Dele-Bashiru,,CM,2001,NG,14.6,
+Lazio,Reda Belahyane,,CM,2004,MA,13.3,1
+Lazio,Adrian Przyborek,,CM,2007,PL,12.5,1
+Lazio,Valerio Farcomeni,,CM,2006,IT,12.5,1
+Lazio,Bruno Galassi,,CM,2007,ES,12.5,1
+Lazio,Andrea Pinamonti,,ST,1999,IT,14.6,
+Lazio,Mattia Zaccagni,,LW,1995,IT,15.6,
+Lazio,Albert Guðmundsson,,AM,1997,IS,15.4,
+Lazio,Gustav Isaksen,,RW,2001,DK,15,
+Lazio,Matteo Cancellieri,,ST,2002,IT,14.1,1
+Lazio,Tijjani Noslin,,ST,1999,NL,14.6,
+Lazio,Federico Serra,,ST,2006,IT,12.5,1
+Parma,Simone Ghidotti,,GK,2000,IT,12.4,1
+Parma,Edoardo Corvi,,GK,2001,IT,12.4,1
+Parma,Giovanni Daffara,,GK,2004,IT,11.6,1
+Parma,Enrico Delprato,,CB,1999,IT,14.2,
+Parma,Diego Carlos,,CB,1993,BR,14.8,
+Parma,Emanuele Valeri,,LB,1998,IT,14.4,
+Parma,Lautaro Valenti,,CB,1999,AR,12.8,1
+Parma,Franco Carboni,,CB,2003,AR,12.8,1
+Parma,Abdoulaye N'Diaye,,CB,2002,SN,12.8,1
+Parma,Mariano Troilo,,CB,2003,AR,14.2,
+Parma,Ousmane Diallo,,CB,2007,ES,11.2,1
+Parma,Sascha Britschgi,,CB,2006,CH,11.2,1
+Parma,Dominik Drobnič,,CB,2007,SI,11.2,1
+Parma,Adrián Bernabé,,CM,2001,ES,15,
+Parma,Hans Nicolussi Caviglia,,DM,2000,IT,14.6,
+Parma,Mandela Keita,,DM,2002,BE,14.6,
+Parma,Giovanni Fabbian,,CM,2003,IT,12.8,1
+Parma,Christian Ordonez,,CM,2004,AR,12,1
+Parma,Abdou-Salam Konate,,CM,2006,FR,11.2,1
+Parma,Pontus Almqvist,,RW,1999,SE,14.2,
+Parma,El Bilal Touré,,ST,2001,ML,12.8,1
+Parma,José Romero,,ST,2003,AR,12.8,1
+Parma,Matija Frigan,,ST,2003,HR,12.8,1
+Parma,Nesta Elphege,,ST,2001,FR,12.8,1
+Parma,Thomas de Martis,,ST,2008,AR,10.2,1
+Parma,Simone Lontani,,ST,2008,IT,10.2,1
+Napoli,Vanja Milinković-Savić,,GK,1997,RS,15.4,
+Napoli,Alex Meret,,GK,1997,IT,15.6,
+Napoli,Nikita Contini Baranovsky,,GK,1996,IT,14.7,1
+Napoli,Leonardo Spinazzola,,LB,1993,IT,14.8,
+Napoli,Alessandro Buongiorno,,CB,1999,IT,16,
+Napoli,Giovanni Di Lorenzo,,RB,1993,IT,16,
+Napoli,Amir Rrahmani,,CB,1994,XK,15.8,
+Napoli,Mathías Olivera,,LB,1997,UY,15,
+Napoli,Sam Beukema,,CB,1998,NL,15.6,
+Napoli,Benoît Badiashile,,CB,2001,FR,15,
+Napoli,Rafa Marín,,CB,2002,ES,15,
+Napoli,Costantino Favasuli,,CB,2004,IT,14.3,1
+Napoli,Luca Marianucci,,CB,2004,IT,14.3,1
+Napoli,Kevin De Bruyne,,AM,1991,BE,16.8,
+Napoli,Scott McTominay,,CM,1996,GB-SCT,16.8,
+Napoli,André-Frank Zambo Anguissa,,CM,1995,CM,16.2,
+Napoli,Stanislav Lobotka,,DM,1994,SK,16.2,
+Napoli,Billy Gilmour,,CM,2001,GB-SCT,15.2,
+Napoli,Antonio Vergara,,CM,2003,IT,15.1,1
+Napoli,Matteo Politano,,RW,1993,IT,15.4,
+Napoli,Noa Lang,,LW,1999,NL,15.6,
+Napoli,David Neres,,RW,1997,BR,15.4,
+Napoli,Lorenzo Lucca,,ST,2000,IT,15,
+Napoli,Rasmus Højlund,,ST,2003,DK,16,
+Napoli,Giovane Santana do Nascimento,Giovane,ST,2003,BR,14.2,
+Napoli,Murillo Santiago Costa dos Santos,Murillo,CB,2002,BR,16,
+Napoli,Dinis Rodrigues,,ST,2005,PT,14.3,1
+Udinese,Daniele Padelli,,GK,1985,IT,11.7,1
+Udinese,Maduka Okoye,,GK,1999,NG,14.6,
+Udinese,Bartosz Mrozek,,GK,2000,PL,12.7,1
+Udinese,Edoardo Piana,,GK,2003,IT,12.7,1
+Udinese,Enzo Ebosse,,CB,1999,CM,13.1,1
+Udinese,Hassane Kamara,,LB,1994,CI,14.2,
+Udinese,Alessandro Zanoli,,CB,2000,IT,13.1,1
+Udinese,Christian Kabasele,,CB,1991,BE,14,
+Udinese,Oumar Solet,,CB,2000,FR,14.8,
+Udinese,Mërgim Vojvoda,,CB,1995,XK,12.7,1
+Udinese,Nicolo Bertola,,CB,2003,IT,13.1,1
+Udinese,James Abankwah,,CB,2004,IE,12.3,1
+Udinese,Matteo Palma,,CB,2008,DE,10.5,1
+Udinese,Jurgen Ekkelenkamp,,CM,2000,NL,14.6,
+Udinese,Giorgi Chakvetadze,,CM,1999,GE,13.1,1
+Udinese,Sandi Lovrić,,CM,1998,SI,14.4,
+Udinese,Jesper Karlström,,CM,1995,SE,14.4,
+Udinese,Jakub Piotrowski,,CM,1997,PL,13.1,1
+Udinese,Oier Zarraga,,CM,1999,ES,13.1,1
+Udinese,Lennon Miller,,CM,2006,GB-SCT,14.2,
+Udinese,Unai Gómez,,AM,2003,ES,14.6,
+Udinese,Juan Arizala,,CM,2005,CO,12.3,1
+Udinese,David Pejičić,,CM,2007,SI,11.5,1
+Udinese,Nicolò Zaniolo,,AM,1999,IT,14.8,
+Udinese,Keinan Davis,,ST,1998,GB-ENG,14.4,
+Udinese,Vakoun Issouf Bayo,,ST,1997,CI,13.1,1
+Udinese,Lazar Jovanovic,,ST,2006,RS,11.5,1
+Udinese,Idrissa Gueye,,DM,1989,SN,15,
+Udinese,Giulio Vinciati,,ST,2007,IT,11.5,1
+Venezia,Alessio Pozzi,,GK,2000,IT,11.2,1
+Venezia,Lorenzo Montipò,,GK,1996,IT,14.6,
+Venezia,Matteo Grandi,,GK,1992,IT,10.2,1
+Venezia,Filip Stankovic,,GK,2002,RS,11.2,1
+Venezia,Pasquale Mazzocchi,,CB,1995,IT,11.2,1
+Venezia,Marin Šverko,,CB,1998,HR,11.6,1
+Venezia,Ridgeciano Haps,,CB,1993,SR,11.2,1
+Venezia,Thierry Correia,,RB,1999,PT,14.4,
+Venezia,Armel Bella Kotchap,,CB,2001,DE,11.6,1
+Venezia,Bartol Franjić,,CB,2000,HR,11.6,1
+Venezia,Juan Jesus,,CB,1991,BR,14.4,
+Venezia,Redouane Halhal,,CB,2003,MA,11.6,1
+Venezia,Richie Sagrado,,CB,2004,BE,10.8,1
+Venezia,Antoine Hainaut,,CB,2002,FR,11.6,1
+Venezia,Joel Schingtienne,,CB,2002,BE,11.6,1
+Venezia,Calixte Ligue,,CB,2005,CH,10.8,1
+Venezia,Matias Moreno,,CB,2003,AR,11.6,1
+Venezia,Rufai Mohammed,,CB,2006,GH,10,1
+Venezia,Ale Gomes,,CB,2008,ES,9,1
+Venezia,Alfred Duncan,,CM,1993,GH,11.2,1
+Venezia,Þórir Jóhann Helgason,,CM,2000,IS,11.6,1
+Venezia,Toma Bašić,,CM,1996,HR,14.4,
+Venezia,Kike Pérez,,CM,1997,ES,11.6,1
+Venezia,Gianluca Busio,,CM,2002,US,11.6,1
+Venezia,Simon Sohm,,CM,2001,CH,14.6,
+Venezia,Simone Panada,,CM,2002,IT,11.6,1
+Venezia,Matteo Dagasso,,CM,2004,IT,10.8,1
+Venezia,Lamine Dabo,,CM,2004,ES,10.8,1
+Venezia,Saad El Haddad,,CM,2005,MA,10.8,1
+Venezia,Toni Fernández,,CM,2008,ES,9,1
+Venezia,Lorenzo Berardi,,CM,2006,IT,10,1
+Venezia,Lion Lauberbach,,ST,1998,DE,11.6,1
+Venezia,Akor Adams,,ST,2000,NG,14.8,
+Venezia,John Yeboah,,ST,2000,EC,11.6,1
+Venezia,Andrea Adorante,,ST,2000,IT,11.6,1
+Venezia,Albion Rrahmani,,ST,2000,XK,11.6,1
+Venezia,Kornel Lisman,,ST,2006,PL,10,1
+Venezia,Mohamed Malang Touré,,ST,2006,SN,10,1
+Frosinone,Matteo Pisseri,,GK,1991,IT,9.4,1
+Frosinone,Sebastiano Desplanches,,GK,2003,IT,10.4,1
+Frosinone,Lorenzo Palmisani,,GK,2004,IT,9.6,1
+Frosinone,Eldin Lolic,,GK,2004,BA,9.6,1
+Frosinone,Kevin Akpoguma,,CB,1995,NG,14.4,
+Frosinone,Aleksa Terzić,,CB,1999,RS,10.8,1
+Frosinone,Ilario Monterisi,,CB,2001,IT,10.8,1
+Frosinone,Anthony Oyono,,CB,2001,GA,10.8,1
+Frosinone,Wisdom Amey,,CB,2005,IT,10,1
+Frosinone,Giorgio Cittadini,,CB,2002,IT,10.8,1
+Frosinone,Enzo Tchato,,CB,2002,CM,10.8,1
+Frosinone,Gabriele Bracaglia,,CB,2003,IT,10.8,1
+Frosinone,Gabriele Calvani,,CB,2004,IT,10,1
+Frosinone,Omar Fayed,,CB,2003,EG,10.8,1
+Frosinone,Florian Grillitsch,,CM,1995,AT,10.4,1
+Frosinone,Alessio Zerbin,,CM,1999,IT,10.8,1
+Frosinone,Ben Lhassine Kone,,CM,2000,CI,10.8,1
+Frosinone,Romano Schmid,,AM,2000,AT,15.2,
+Frosinone,Francesco Gelli,,CM,1996,IT,10.8,1
+Frosinone,Giacomo Calò,,CM,1997,IT,10.8,1
+Frosinone,Ilias Koutsoupias,,CM,2001,GR,10.8,1
+Frosinone,Patrizio Masini,,CM,2001,IT,14.2,
+Frosinone,Anouar El Azzouzi,,CM,2001,MA,10.8,1
+Frosinone,Luis Hasa,,CM,2004,AL,10,1
+Frosinone,Matteo Cichella,,CM,2005,IT,10,1
+Frosinone,Tomáš Bobček,,ST,2001,SK,10.8,1
+Frosinone,Daniel Birligea,,ST,2000,RO,10.8,1
+Frosinone,Antonio Raimondo,,ST,2004,IT,10,1
+Frosinone,Seydou Fini,,ST,2006,IT,9.2,1
+Frosinone,Giorgi Kvernadze,,ST,2003,GE,10.8,1
+Frosinone,Farés Ghedjemis,,ST,2002,DZ,10.8,1
+Frosinone,Alejandro Cichero,,ST,2006,VE,9.2,1
+Sassuolo,Giacomo Satalino,,GK,1999,IT,12.5,1
+Sassuolo,Stefano Turati,,GK,2001,IT,12.5,1
+Sassuolo,Arijanet Muric,,GK,1998,XK,14.6,
+Sassuolo,Lorenzo Nyarko,,GK,2007,IT,10.9,1
+Sassuolo,Duje Ćaleta-Car,,CB,1996,HR,14.8,
+Sassuolo,Jay Idzes,,CB,2000,ID,14.6,
+Sassuolo,Sebastian Walukiewicz,,CB,2000,PL,14.2,
+Sassuolo,Fali Candé,,CB,1998,GW,12.9,1
+Sassuolo,Josh Doig,,LB,2002,GB-SCT,14.2,
+Sassuolo,Cas Odenthal,,CB,2000,NL,12.9,1
+Sassuolo,Ignace Van Der Brempt,,CB,2002,BE,12.9,1
+Sassuolo,Fedde Leysen,,CB,2003,BE,12.9,1
+Sassuolo,Edoardo Pieragnolo,,CB,2003,IT,12.9,1
+Sassuolo,Yeferson Paz,,CB,2002,CO,12.9,1
+Sassuolo,Rafa Obrador,,CB,2004,ES,12.1,1
+Sassuolo,Giorgio Vezzosi,,CB,2007,IT,11.3,1
+Sassuolo,Nemanja Matić,,DM,1988,RS,14.4,
+Sassuolo,Kristian Thorstvedt,,CM,1999,NO,14.6,
+Sassuolo,Andrea Ghion,,CM,2000,IT,12.9,1
+Sassuolo,Daniel Boloca,,CM,1998,RO,14,
+Sassuolo,Ismaël Koné,,CM,2002,CA,12.9,1
+Sassuolo,Vasilije Adzic,,CM,2006,ME,11.3,1
+Sassuolo,Ibrahim Sulemana,,CM,2003,GH,12.9,1
+Sassuolo,Luca Lipani,,CM,2005,IT,12.1,1
+Sassuolo,Cristian Volpato,,AM,2003,IT,14.2,
+Sassuolo,Darryl Bakola,,CM,2007,FR,11.3,1
+Sassuolo,Simone Cinquegrano,,CM,2004,IT,12.1,1
+Sassuolo,Domenico Berardi,,RW,1994,IT,15.2,
+Sassuolo,Nicholas Pierini,,ST,1998,IT,12.9,1
+Sassuolo,Armand Laurienté,,LW,1998,FR,15,
+Sassuolo,Kieron Bowie,,ST,2002,GB-SCT,12.9,1
+Sassuolo,Sebastiano Esposito,,ST,2002,IT,14.4,
+Sassuolo,Benjamín Domínguez,,ST,2003,AR,12.9,1
+Sassuolo,Laurs Skjellerup,,ST,2002,DK,12.9,1
+Torino,Lucas Perri,,GK,1997,BR,14.8,
+Torino,Alberto Paleari,,GK,1992,IT,14,
+Torino,Franco Israel,,GK,2000,UY,14.4,
+Torino,Lapo Siviero,,GK,2006,IT,11.3,1
+Torino,Diego Mascardi,,GK,2006,IT,11.3,1
+Torino,Cristiano Biraghi,,LB,1992,IT,14,
+Torino,Ardian Ismajli,,CB,1996,AL,14.4,
+Torino,Eray Cömert,,CB,1998,CH,14.4,
+Torino,Saúl Coco,,CB,1999,GQ,14.6,
+Torino,Nathan Patterson,,CB,2001,GB-SCT,13.3,1
+Torino,Rafik Belghali,,RB,2002,BE,14.2,
+Torino,Pietro Comuzzo,,CB,2005,IT,14.8,
+Torino,Niccolò Fortini,,CB,2006,IT,11.7,1
+Torino,Rolando Mandragora,,CM,1997,IT,14.8,
+Torino,Nikola Vlašić,,AM,1997,HR,15,
+Torino,Daniel Bragança,,CM,1999,PT,13.3,1
+Torino,Faustino Anjorin,,CM,2001,GB-ENG,13.3,1
+Torino,Kian Fitz-Jim,,CM,2003,NL,13.3,1
+Torino,Gaetano Oristanio,,CM,2002,IT,13.3,1
+Torino,Emirhan Ilkhan,,CM,2004,TR,12.5,1
+Torino,Cesare Casadei,,CM,2003,IT,13.3,1
+Torino,Gvidas Gineitis,,CM,2004,LT,14.4,
+Torino,Alessio Cacciamani,,CM,2007,IT,11.7,1
+Torino,Andrea Luongo,,CM,2008,IT,10.7,1
+Torino,Giovanni Simeone,,ST,1995,AR,14.6,
+Torino,Duván Zapata,,ST,1991,CO,14.6,
+Torino,Che Adams,,ST,1996,GB-SCT,14.6,
+Torino,Pietro Pellegri,,ST,2001,IT,13.3,1
+Torino,Sandro Kulenović,,ST,1999,HR,13.3,1
+Torino,Zakaria Aboukhlal,,ST,2000,MA,13.3,1
+Lecce,Marco Bleve,,GK,1995,IT,11.8,1
+Lecce,Wladimiro Falcone,,GK,1995,IT,15,
+Lecce,Alexandru Borbei,,GK,2003,RO,12.2,1
+Lecce,Plamen Penev,,GK,2008,BG,9.6,1
+Lecce,Antonino Gallo,,LB,2000,IT,14.4,
+Lecce,Gaby Jean,,CB,2000,FR,12.6,1
+Lecce,Corrie Ndaba,,CB,1999,IE,12.6,1
+Lecce,Jamil Siebert,,CB,2002,DE,12.6,1
+Lecce,Danilo Veiga,,RB,2002,PT,14,
+Lecce,Ali Dembele,,CB,2004,FR,11.8,1
+Lecce,Sebastian Esposito,,CB,2003,AU,12.6,1
+Lecce,Kialonda Gaspar,,CB,1997,AO,14.4,
+Lecce,Tiago Gabriel,,CB,2004,PT,14.2,
+Lecce,Elijah Scott,,CB,2006,DE,11,1
+Lecce,Vernon Addo,,CB,2005,NL,11.8,1
+Lecce,Marlon Ubani,,CB,2005,DE,11.8,1
+Lecce,Lassana Coulibaly,,CM,1996,ML,12.6,1
+Lecce,Youssef Maleh,,CM,1998,MA,12.6,1
+Lecce,Ivan Ilić,,CM,2001,RS,14.6,
+Lecce,Omri Gandelman,,CM,2000,IL,12.6,1
+Lecce,Mohamed Kaba,,CM,2001,FR,12.6,1
+Lecce,Sadik Fofana,,CM,2003,TG,12.6,1
+Lecce,Medon Berisha,,CM,2003,AL,14,
+Lecce,Olaf Gorter,,CM,2005,NL,11.8,1
+Lecce,Niko Kovač,,CM,2005,BA,11.8,1
+Lecce,Willem Geubbels,,ST,2001,FR,14.4,
+Lecce,Santiago Pierotti,,RW,2001,AR,14.2,
+Lecce,Nikola Štulić,,ST,2001,RS,14.2,
+Lecce,Joel Monteiro,,ST,1999,CH,12.6,1
+Lecce,Konan N'Dri,,ST,2000,CI,12.6,1
+Lecce,Miloš Jović,,ST,2006,RS,11,1
+Lecce,Hjalte Laerke,,ST,2007,DK,11,1
+Lecce,Paco Esteban,,ST,2006,ES,11,1
+Monza,Demba Thiam,,GK,1998,SN,11.3,1
+Monza,Noel Törnqvist,,GK,2002,SE,11.3,1
+Monza,Aljaž Strajnar,,GK,2007,SI,9.7,1
+Monza,Valentin Antov,,CB,2000,BG,11.7,1
+Monza,Samuele Birindelli,,CB,1999,IT,11.7,1
+Monza,Ricardo Mangas,,CB,1998,PT,11.7,1
+Monza,Andrea Carboni,,CB,2001,IT,11.7,1
+Monza,Saba Goglichidze,,CB,2004,GE,10.9,1
+Monza,Jan Ziółkowski,,CB,2005,PL,10.9,1
+Monza,Lorenzo Lucchesi,,CB,2003,IT,11.7,1
+Monza,Eddy Kouadio,,CB,2006,IT,10.1,1
+Monza,Adam Bakoune,,CB,2006,IT,10.1,1
+Monza,Yvan Maye,,CB,2006,FR,10.1,1
+Monza,Andrea Colpani,,CM,1999,IT,11.7,1
+Monza,Matteo Pessina,,CM,1997,IT,11.7,1
+Monza,Patrick Ciurria,,CM,1995,IT,11.3,1
+Monza,Michael Folorunsho,,CM,1998,IT,14.4,
+Monza,Idrissa Touré,,LB,1998,DE,14,
+Monza,Leonardo Colombo,,CM,2005,IT,10.9,1
+Monza,Ebenezer Akinsanmiro,,CM,2004,NG,10.9,1
+Monza,Manga Foe Ondoa,,CM,2005,FR,10.9,1
+Monza,Mathis Mout,,CM,2007,IT,10.1,1
+Monza,Patrick Cutrone,,ST,1998,IT,11.7,1
+Monza,Dany Mota Carvalho,,ST,1998,PT,11.7,1
+Monza,Keïta Baldé,,ST,1995,SN,11.3,1
+Monza,Cyril Ngonge,,RW,2000,BE,14.4,
+Monza,Exequiel Zeballos,,ST,2002,AR,11.7,1
+Monza,Omari Forson,,ST,2004,GB-ENG,10.9,1
+Monza,Gustavo Varela,,ST,2005,PT,10.9,1
+Monza,Jay Robinson,,ST,2007,GB-ENG,10.1,1
+Monza,Kevin Martins,,ST,2005,IT,10.9,1
+Como,Mauro Vigorito,,GK,1990,IT,12.7,1
+Como,Jean Butez,,GK,1995,FR,15,
+Como,Robert Sánchez,,GK,1997,ES,15.4,
+Como,Edoardo Goldaniga,,CB,1993,IT,13.7,1
+Como,Trevoh Chalobah,,CB,1999,GB-ENG,15.6,
+Como,Marc-Oliver Kempf,,CB,1995,DE,14.6,
+Como,Alberto Dossena,,CB,1998,IT,14.1,1
+Como,Ivan Smolčić,,RB,2000,HR,14.4,
+Como,Yan Couto,,RB,2002,BR,15,
+Como,Kaiki,,CB,2002,BR,14.1,1
+Como,Álex Valle,,LB,2004,ES,14.4,
+Como,Willy Kambwala,,CB,2004,CD,13.3,1
+Como,Jacobo Ramón,,CB,2005,ES,14.6,
+Como,Luca Mazzitelli,,CM,1995,IT,13.7,1
+Como,Luis Milla,,CM,1994,ES,15,
+Como,Maxence Caqueret,,CM,2000,FR,14.4,
+Como,Samuele Ricci,,CM,2001,IT,15.2,
+Como,Lucas Da Cunha,,CM,2001,FR,15,
+Como,Martin Baturina,,CM,2003,HR,14.8,
+Como,Maximo Perrone,,DM,2003,AR,15,
+Como,Nico Paz,,AM,2004,AR,16.2,
+Como,Adrian Lahdo,,CM,2007,SE,12.5,1
+Como,Mattia Liberali,,CM,2007,IT,12.5,1
+Como,Moise Kean,,ST,2000,IT,16,
+Como,Tasos Douvikas,,ST,1999,GR,14.8,
+Como,Suliman Mustapha,,ST,2001,AT,14.1,1
+Como,Jayden Addai,,RW,2005,NL,14.4,
+Como,Assane Diao,,RW,2005,SN,15,
+Como,Jesús Rodríguez,,LW,2005,ES,15,
+1. FC Köln,Matthias Köbbing,,GK,1997,DE,12.5,1
+1. FC Köln,Ron-Robert Zieler,,GK,1989,DE,11.5,1
+1. FC Köln,Marvin Schwäbe,,GK,1995,DE,14.6,
+1. FC Köln,Martin James,,GK,2008,FR,9.9,1
+1. FC Köln,Timo Hübers,,CB,1996,DE,14.4,
+1. FC Köln,Alessio Castro-Montes,,CB,1997,BE,12.9,1
+1. FC Köln,Borna Sosa,,LB,1998,HR,14.6,
+1. FC Köln,Gideon Mensah,,LB,1998,GH,14.2,
+1. FC Köln,Luka Lochoshvili,,CB,1998,GE,12.9,1
+1. FC Köln,Joël Schmied,,CB,1998,CH,12.9,1
+1. FC Köln,Sebastian Sebulonsen,,CB,2000,NO,12.9,1
+1. FC Köln,Rav van den Berg,,CB,2004,NL,14.2,
+1. FC Köln,Elias Bakatukanda,,CB,2004,DE,12.1,1
+1. FC Köln,Julian Pauli,,CB,2005,DE,12.1,1
+1. FC Köln,Jahmai Simpson-Pusey,,CB,2005,GB-ENG,12.1,1
+1. FC Köln,Ellyes Skhiri,,DM,1995,TN,15,
+1. FC Köln,Tom Krauß,,CM,2001,DE,14.2,
+1. FC Köln,Isak Bergmann Jóhannesson,,CM,2003,IS,14.6,
+1. FC Köln,Paul Okon-Engstler,,CM,2005,AU,12.1,1
+1. FC Köln,Gil Neves,,CM,2008,PT,10.3,1
+1. FC Köln,Linton Maina,,LW,1999,DE,14.4,
+1. FC Köln,Luca Waldschmidt,,AM,1996,DE,14.2,
+1. FC Köln,Ragnar Ache,,ST,1998,DE,14.4,
+1. FC Köln,Thijs Dallinga,,ST,2000,NL,14.6,
+1. FC Köln,Imad Rondić,,ST,1999,BA,12.9,1
+1. FC Köln,Marius Bülter,,ST,1993,DE,14,
+1. FC Köln,Jan Thielmann,,RW,2002,DE,14.6,
+1. FC Köln,Said El Mala,,LW,2006,DE,14.8,
+1. FC Köln,Malek El Mala,,ST,2005,DE,12.1,1
+1. FC Köln,Mikey Moore,,ST,2007,GB-ENG,11.3,1
+1. FC Köln,Reigan Heskey,,ST,2008,GB-ENG,10.3,1
+TSG Hoffenheim,Oliver Baumann,,GK,1990,DE,15.4,
+TSG Hoffenheim,Luca Philipp,,GK,2000,DE,13.3,1
+TSG Hoffenheim,Lukas Petersson,,GK,2004,IS,12.5,1
+TSG Hoffenheim,Bernardo,,CB,1995,BR,13.3,1
+TSG Hoffenheim,Ozan Kabak,,CB,2000,TR,15,
+TSG Hoffenheim,Koki Machida,,CB,1997,JP,13.7,1
+TSG Hoffenheim,Vladimír Coufal,,RB,1992,CZ,14.6,
+TSG Hoffenheim,Valentin Gendrey,,CB,2000,FR,13.7,1
+TSG Hoffenheim,Albian Hajdari,,CB,2003,CH,14.6,
+TSG Hoffenheim,Arthur Chaves,,CB,2001,BR,13.7,1
+TSG Hoffenheim,Robin Hranac,,CB,2000,CZ,13.7,1
+TSG Hoffenheim,Mats Rots,,CB,2006,NL,12.1,1
+TSG Hoffenheim,Sean Dulic,,CB,2005,DE,12.9,1
+TSG Hoffenheim,Natnael Abraha,,CB,2008,DE,11.1,1
+TSG Hoffenheim,Wouter Burger,,DM,2001,NL,14.8,
+TSG Hoffenheim,Alexander Prass,,CM,2001,AT,13.7,1
+TSG Hoffenheim,Bambase Conte,,CM,2003,DE,13.7,1
+TSG Hoffenheim,Leon Avdullahu,,CM,1991,XK,12.7,1
+TSG Hoffenheim,Luis Engelns,,CM,2007,DE,12.1,1
+TSG Hoffenheim,Nathan De Cat,,CM,2008,BE,11.1,1
+TSG Hoffenheim,Cajetan Lenz,,CM,2006,DE,12.1,1
+TSG Hoffenheim,Andrej Kramarić,,AM,1991,HR,15.4,
+TSG Hoffenheim,Adam Hložek,,ST,2002,CZ,14.8,
+TSG Hoffenheim,Patrick Wimmer,,RW,2001,AT,14.8,
+TSG Hoffenheim,Tim Lemperle,,ST,2002,DE,14.6,
+TSG Hoffenheim,Fisnik Asllani,,ST,2002,XK,15,
+TSG Hoffenheim,Adam Daghim,,ST,2005,DK,12.9,1
+TSG Hoffenheim,Max Moerstedt,,ST,2006,DE,12.1,1
+Bayer Leverkusen,Niklas Lomb,,GK,1993,DE,14,1
+Bayer Leverkusen,Janis Blaswich,,GK,1991,DE,14.4,
+Bayer Leverkusen,Mark Flekken,,GK,1993,NL,15.2,
+Bayer Leverkusen,Lucas Vázquez,,RB,1991,ES,14.8,
+Bayer Leverkusen,Facundo Medina,,LB,1999,AR,15,
+Bayer Leverkusen,Edmond Tapsoba,,CB,1999,BF,15.6,
+Bayer Leverkusen,Loïc Badé,,CB,2000,FR,15,
+Bayer Leverkusen,Miguel Gutiérrez,,CB,2001,ES,14.8,1
+Bayer Leverkusen,Jarell Quansah,,CB,2003,GB-ENG,15.2,
+Bayer Leverkusen,Tim Oermann,,CB,2003,DE,14.8,1
+Bayer Leverkusen,Guéla Doué,,RB,2002,CI,14.8,
+Bayer Leverkusen,Jonas Hofmann,,CM,1992,DE,13.8,1
+Bayer Leverkusen,Aleix García,,CM,1997,ES,15.4,
+Bayer Leverkusen,Robert Andrich,,DM,1994,DE,15.2,
+Bayer Leverkusen,Malik Tillman,,AM,2002,US,15.4,
+Bayer Leverkusen,Ignacio Fernández,,CM,2002,AR,14.8,1
+Bayer Leverkusen,Ibrahim Maza,,AM,2005,DZ,14.8,
+Bayer Leverkusen,Kennet Eichhorn,,CM,2009,DE,12.2,1
+Bayer Leverkusen,Naba Mensah,,CM,2007,DE,13.2,1
+Bayer Leverkusen,Patrik Schick,,ST,1996,CZ,15.6,
+Bayer Leverkusen,Moussa Diaby,,RW,1999,FR,15.4,
+Bayer Leverkusen,Martin Terrier,,LW,1997,FR,15,
+Bayer Leverkusen,Victor Boniface,,ST,2000,NG,15,
+Bayer Leverkusen,Nathan Tella,,RW,1999,NG,14.6,
+Bayer Leverkusen,Afonso Moreira,,LW,2005,PT,14.4,
+Bayer Leverkusen,Christian Kofane,,ST,2006,CM,14.4,
+Bayer Leverkusen,Montrell Culbreath,,ST,2007,DE,13.2,1
+Bayer Leverkusen,Ndjicoura Bomba,,ST,2008,ML,12.2,1
+Borussia Dortmund,Gregor Kobel,,GK,1997,CH,16.4,
+Borussia Dortmund,Patrick Drewes,,GK,1993,DE,14.2,1
+Borussia Dortmund,Alexander Meyer,,GK,1991,DE,14.2,
+Borussia Dortmund,Silas Ostrzinski,,GK,2003,DE,14.6,1
+Borussia Dortmund,Waldemar Anton,,CB,1996,DE,15.4,
+Borussia Dortmund,Emre Can,,DM,1994,DE,15,
+Borussia Dortmund,Ramy Bensebaini,,CB,1995,DZ,15,
+Borussia Dortmund,Julian Ryerson,,RB,1997,NO,15.4,
+Borussia Dortmund,Nico Schlotterbeck,,CB,1999,DE,16,
+Borussia Dortmund,Daniel Svensson,,LB,2002,SE,15,
+Borussia Dortmund,Kouakou Gadou,,CB,2007,FR,13.4,1
+Borussia Dortmund,Filippo Mané,,CB,2005,IT,14.2,1
+Borussia Dortmund,Kaua Prates,,CB,2008,BR,12.4,1
+Borussia Dortmund,Luca Reggiani,,CB,2008,IT,12.4,1
+Borussia Dortmund,Marcel Sabitzer,,CM,1994,AT,15.4,
+Borussia Dortmund,Joey Veerman,,CM,1998,NL,15.2,
+Borussia Dortmund,Felix Nmecha,,CM,2000,DE,15.6,
+Borussia Dortmund,Carney Chukwuemeka,,AM,2003,AT,14.8,
+Borussia Dortmund,Jobe Bellingham,,CM,2005,GB-ENG,15.4,
+Borussia Dortmund,Ethan Nwaneri,,AM,2007,GB-ENG,15,
+Borussia Dortmund,Konstantinos Karetsas,,CM,2007,BE,13.4,1
+Borussia Dortmund,Justin Lerma,,CM,2008,EC,12.4,1
+Borussia Dortmund,Mussa Kaba,,CM,2008,DE,12.4,1
+Borussia Dortmund,Enzo dos Santos,,CM,2009,LU,12.4,1
+Borussia Dortmund,Serhou Guirassy,,ST,1996,GN,16.6,
+Borussia Dortmund,Fábio Silva,,ST,2002,PT,14.8,
+Borussia Dortmund,Maximilian Beier,,RW,2002,DE,15.2,
+Borussia Dortmund,Samuele Inácio,,ST,2008,IT,12.4,1
+Borussia Dortmund,Mathis Albert,,ST,2009,US,12.4,1
+Bayern München,Manuel Neuer,,GK,1986,DE,16,
+Bayern München,Sven Ulreich,,GK,1988,DE,14.5,1
+Bayern München,Jonas Urbig,,GK,2003,DE,14.8,
+Bayern München,Jonathan Tah,,CB,1996,DE,16.4,
+Bayern München,Dayot Upamecano,,CB,1998,FR,16.4,
+Bayern München,Konrad Laimer,,RB,1997,AT,15.8,
+Bayern München,Alphonso Davies,,LB,2000,CA,16.2,
+Bayern München,Hiroki Ito,,CB,1999,JP,15.4,
+Bayern München,Sacha Boey,,RB,2000,FR,15,
+Bayern München,Josip Stanišić,,RB,2000,HR,15.6,
+Bayern München,Min-jae Kim,Kim Min-jae,CB,1996,KR,16,
+Bayern München,Nathaniel Brown,,LB,2003,DE,15,
+Bayern München,Joshua Kimmich,,DM,1995,DE,17,
+Bayern München,Ismael Saibari,,AM,2001,MA,15.4,
+Bayern München,Jamal Musiala,,AM,2003,DE,17.6,
+Bayern München,Tom Bischof,,CM,2005,DE,15,
+Bayern München,Aleksandar Pavlović,,CM,2004,DE,16,
+Bayern München,Lennart Karl,,AM,2008,DE,14.6,
+Bayern München,David Daiber,,CM,2007,PT,14.3,1
+Bayern München,Bara Ndiaye,,CM,2007,SN,14.3,1
+Bayern München,Serge Gnabry,,RW,1995,DE,15.8,
+Bayern München,Harry Kane,,ST,1993,GB-ENG,18.3,
+Bayern München,Luis Díaz,,LW,1997,CO,17,
+Bayern München,Michael Olise,,RW,2001,FR,17.4,
+FC Schalke 04,Kevin Müller,,GK,1991,DE,14.4,
+FC Schalke 04,Loris Karius,,GK,1993,DE,10.7,1
+FC Schalke 04,Johannes Siebeking,,GK,2006,DE,9.5,1
+FC Schalke 04,Robin Gosens,,LB,1994,DE,15,
+FC Schalke 04,Maximilian Wöber,,CB,1998,AT,11.5,1
+FC Schalke 04,Timo Becker,,CB,1997,DE,11.5,1
+FC Schalke 04,Nikola Katić,,CB,1996,BA,11.5,1
+FC Schalke 04,Hasan Kuruçay,,CB,1997,TR,11.5,1
+FC Schalke 04,Adrian Gantenbein,,CB,2001,CH,11.5,1
+FC Schalke 04,Vitalie Becker,,CB,2005,DE,10.7,1
+FC Schalke 04,Mertcan Ayhan,,CB,2006,TR,9.9,1
+FC Schalke 04,Kenan Karaman,,CM,1994,TR,11.1,1
+FC Schalke 04,Janik Bachmann,,CM,1996,DE,11.5,1
+FC Schalke 04,Finn Porath,,CM,1997,DE,11.5,1
+FC Schalke 04,Dejan Ljubicic,,CM,1997,AT,11.5,1
+FC Schalke 04,Ron Schallenberg,,CM,1998,DE,11.5,1
+FC Schalke 04,Dina Ebimbe,,CM,2000,CM,11.5,1
+FC Schalke 04,Satoshi Tanaka,,CM,2002,JP,11.5,1
+FC Schalke 04,Adil Aouchiche,,CM,2002,DZ,11.5,1
+FC Schalke 04,Soufiane El-Faouzi,,CM,2002,DE,11.5,1
+FC Schalke 04,Luca Vozar,,CM,2007,DE,9.9,1
+FC Schalke 04,Bryan Lasme,,ST,1998,FR,11.5,1
+FC Schalke 04,Edin Džeko,,ST,1986,BA,14.6,
+FC Schalke 04,Hee-chan Hwang,Hwang Hee-chan,RW,1996,KR,14.8,
+FC Schalke 04,Moussa Sylla,,ST,1999,ML,11.5,1
+FC Schalke 04,Chikwubuike Adamu,,ST,2001,NG,11.5,1
+FC Schalke 04,Emil Højlund,,ST,2005,DK,10.7,1
+Hamburger SV,Daniel Heuer Fernandes,,GK,1992,PT,14.6,
+Hamburger SV,Sander Tangvik,,GK,2002,NO,12.6,1
+Hamburger SV,Elias Lahti,,GK,2009,FI,10,1
+Hamburger SV,Fernando Dickes,,GK,2007,DE,11,1
+Hamburger SV,Jordan Torunarigha,,CB,1997,NG,14.2,
+Hamburger SV,Sebastiaan Bornauw,,CB,1999,BE,14.4,
+Hamburger SV,Miro Muheim,,LB,1998,CH,14.4,
+Hamburger SV,Nicolás Capaldo,,CM,1998,AR,14.4,
+Hamburger SV,David Wolfe,,CB,2002,NO,13,1
+Hamburger SV,Joel Agyekum,,CB,2005,DE,12.2,1
+Hamburger SV,Zakaria El Ouahdi,,CB,2001,MA,13,1
+Hamburger SV,Shafiq Nandja,,CB,2007,DE,11.4,1
+Hamburger SV,Louis Lemke,,CB,2009,DE,10.4,1
+Hamburger SV,Bakery Jatta,,CM,1998,GM,13,1
+Hamburger SV,Albert Sambi Lokonga,,CM,1999,BE,14.4,
+Hamburger SV,Fábio Vieira,,AM,2000,PT,15,
+Hamburger SV,Immanuel Pherai,,CM,2001,SR,13,1
+Hamburger SV,Albert Gronbaek Erlykke,,CM,2001,DK,13,1
+Hamburger SV,Nicolai Remberg,,CM,2000,DE,13,1
+Hamburger SV,Bilal Nadir,,CM,2003,FR,13,1
+Hamburger SV,Martin Adeline,,CM,2003,FR,13,1
+Hamburger SV,Kofi Amoako,,CM,2005,DE,12.2,1
+Hamburger SV,Yussuf Poulsen,,ST,1994,DK,14.4,
+Hamburger SV,Patson Daka,,ST,1998,ZM,13,1
+Hamburger SV,Terem Moffi,,ST,1999,NG,14.8,
+Hamburger SV,Otto Stange,,ST,2007,DE,11.4,1
+Hamburger SV,Alexander Røssing-Lelesiit,,ST,2007,NO,11.4,1
+VfB Stuttgart,Fabian Bredlow,,GK,1995,DE,13.6,1
+VfB Stuttgart,Marius Funk,,GK,1996,DE,14,1
+VfB Stuttgart,Stefan Drljača,,GK,1999,DE,14,1
+VfB Stuttgart,Dennis Seimen,,GK,2005,DE,13.2,1
+VfB Stuttgart,Dan-Axel Zagadou,,CB,1999,FR,14,
+VfB Stuttgart,Josha Vagnoman,,RB,2000,DE,14.6,
+VfB Stuttgart,Maximilian Mittelstädt,,LB,1997,DE,15.2,
+VfB Stuttgart,Jeff Chabot,,CB,1998,DE,15.2,
+VfB Stuttgart,Leonidas Stergiou,,CB,2002,CH,14.4,1
+VfB Stuttgart,Lorenz Assignon,,CB,2000,FR,14,
+VfB Stuttgart,Ramon Hendriks,,CB,2001,NL,14.6,
+VfB Stuttgart,Ameen Al Dakhil,,CB,2002,BE,14.4,1
+VfB Stuttgart,Luca Jaquez,,CB,2003,CH,14.4,1
+VfB Stuttgart,Finn Jeltsch,,CB,2006,DE,14.4,
+VfB Stuttgart,Nikolas Nartey,,CM,2000,DK,14.4,
+VfB Stuttgart,Grischa Prömel,,CM,1995,DE,14.6,
+VfB Stuttgart,Atakan Karazor,,DM,1996,DE,14.8,
+VfB Stuttgart,Angelo Stiller,,DM,2001,DE,15.8,
+VfB Stuttgart,Bilal El Khannouss,,AM,2004,MA,15.2,
+VfB Stuttgart,Jarzinho Malanga,,CM,2006,DE,12.8,1
+VfB Stuttgart,Ertugrul Yigit,,CM,2009,DE,11.8,1
+VfB Stuttgart,Chris Führich,,LW,1998,DE,15,
+VfB Stuttgart,Deniz Undav,,ST,1996,DE,15.6,
+VfB Stuttgart,Ermedin Demirović,,ST,1998,BA,15.2,
+VfB Stuttgart,Jamie Leweling,,RW,2001,DE,15.2,
+VfB Stuttgart,Tiago Tomás,,ST,2002,PT,14.6,
+VfB Stuttgart,Dženan Pejčinović,,ST,2005,DE,14.2,
+VfB Stuttgart,Badredine Bouanani,,ST,2004,DZ,14.2,
+VfB Stuttgart,Leo Sauer,,ST,2005,SK,13.6,1
+VfB Stuttgart,Jeremy,,ST,2005,EC,13.6,1
+Werder Bremen,Alexander Schlager,,GK,1996,AT,12.9,1
+Werder Bremen,Markus Kolke,,GK,1990,DE,11.9,1
+Werder Bremen,Stefan Smarkalev,,GK,2007,BG,11.3,1
+Werder Bremen,Mitchell Weiser,,RB,1994,DE,14.8,
+Werder Bremen,Niklas Stark,,CB,1995,DE,14.4,
+Werder Bremen,Marco Friedl,,CB,1998,AT,14.8,
+Werder Bremen,Felix Agu,,CB,1999,NG,13.3,1
+Werder Bremen,Amos Pieper,,CB,1998,DE,14.4,
+Werder Bremen,Olivier Deman,,LB,2000,BE,14.2,
+Werder Bremen,Julián Malatini,,CB,2001,AR,13.3,1
+Werder Bremen,Moussa N'Diaye,,CB,2002,SN,13.3,1
+Werder Bremen,Arthur Augusto,,CB,2003,BR,13.3,1
+Werder Bremen,Mick Schmetgens,,CB,2007,DE,11.7,1
+Werder Bremen,Oskar Wójcik,,CB,2003,PL,13.3,1
+Werder Bremen,Ludovit Reis,,CM,2000,NL,13.3,1
+Werder Bremen,Senne Lynen,,DM,1999,BE,14.6,
+Werder Bremen,Jens Stage,,CM,1996,DK,15,
+Werder Bremen,Youri Regeer,,CM,2003,NL,13.3,1
+Werder Bremen,Skelly Alvero,,CM,2002,FR,13.3,1
+Werder Bremen,Chuki,,CM,2004,ES,12.5,1
+Werder Bremen,Dariusz Stalmach,,CM,2005,PL,12.5,1
+Werder Bremen,Niclas Füllkrug,,ST,1993,DE,14.8,
+Werder Bremen,Dawid Kownacki,,ST,1997,PL,13.3,1
+Werder Bremen,Cédric Itten,,ST,1996,CH,13.3,1
+Werder Bremen,Marco Grüll,,LW,1998,AT,14.4,
+Werder Bremen,Justin Njinmah,,RW,2000,DE,14.4,
+Werder Bremen,Eren Dinkçi,,LW,2001,DE,14.4,
+Werder Bremen,Keke Topp,,ST,2004,DE,14.2,
+Werder Bremen,Salim Musah,,ST,2006,DE,11.7,1
+Werder Bremen,Kenny Quetant,,ST,2006,FR,11.7,1
+Werder Bremen,Paul Erevbenagie,,ST,2007,DE,11.7,1
+1. FSV Mainz 05,Robin Zentner,,GK,1994,DE,14.8,
+1. FSV Mainz 05,Alexander Schwolow,,GK,1992,DE,12,1
+1. FSV Mainz 05,Maximilian Kinzig,,GK,2003,DE,13,1
+1. FSV Mainz 05,Dominik Kohr,,CB,1994,DE,14.4,
+1. FSV Mainz 05,Stefan Posch,,CB,1997,AT,13.4,1
+1. FSV Mainz 05,Silvan Widmer,,CB,1993,CH,13,1
+1. FSV Mainz 05,Phillipp Mwene,,LB,1994,AT,14.2,
+1. FSV Mainz 05,Stefan Bell,,CB,1991,DE,14.2,
+1. FSV Mainz 05,Danny da Costa,,RB,1993,DE,14.2,
+1. FSV Mainz 05,Anthony Caci,,LB,1997,FR,14.4,
+1. FSV Mainz 05,Fabio Gruber,,CB,2002,PE,13.4,1
+1. FSV Mainz 05,Kacper Potulski,,CB,2007,PL,11.8,1
+1. FSV Mainz 05,Nadiem Amiri,,CM,1996,DE,15.2,
+1. FSV Mainz 05,Marco Richter,,CM,1997,DE,13.4,1
+1. FSV Mainz 05,Lennart Maloney,,CM,1999,US,13.4,1
+1. FSV Mainz 05,Kaishu Sano,,DM,2000,JP,15.2,
+1. FSV Mainz 05,Sota Kawasaki,,CM,2001,JP,13.4,1
+1. FSV Mainz 05,Paul Nebel,,AM,2002,DE,14.8,
+1. FSV Mainz 05,Eric Martel,,DM,2002,DE,14.6,
+1. FSV Mainz 05,Hyun-seok Hong,,CM,1999,KR,13.4,1
+1. FSV Mainz 05,Otto Ruoppi,,CM,2003,FI,13.4,1
+1. FSV Mainz 05,Sheraldo Becker,,ST,1995,SR,13,1
+1. FSV Mainz 05,Phillip Tietz,,ST,1997,DE,14.4,
+1. FSV Mainz 05,Silas Wamangituka,,ST,1999,CD,13.4,1
+1. FSV Mainz 05,Ransford Königsdörffer,,ST,2001,GH,14.2,
+1. FSV Mainz 05,Benedict Hollerbach,,ST,2001,DE,14.6,
+1. FSV Mainz 05,Alynho Haidara,,ST,2008,CI,10.8,1
+FC Augsburg,Finn Dahmen,,GK,1998,DE,14.8,
+FC Augsburg,Nediljko Labrović,,GK,1999,HR,12.7,1
+FC Augsburg,Tom Wisbereit,,GK,2007,DE,11.1,1
+FC Augsburg,Jeffrey Gouweleeuw,,CB,1991,NL,14.2,
+FC Augsburg,Marius Wolf,,RB,1995,DE,14.2,
+FC Augsburg,Calvin Brackelmann,,CB,1999,DE,13.1,1
+FC Augsburg,Chrislain Matsima,,CB,2002,FR,14.4,
+FC Augsburg,Young-woo Seol,,CB,1998,KR,13.1,1
+FC Augsburg,Noahkai Banks,,CB,2006,US,11.5,1
+FC Augsburg,Hennes Behrens,,CB,2005,DE,12.3,1
+FC Augsburg,Alexis Claude-Maurice,,AM,1998,FR,14.6,
+FC Augsburg,Kristijan Jakić,,DM,1997,HR,14.6,
+FC Augsburg,Robin Fellhauer,,CM,1998,DE,13.1,1
+FC Augsburg,Yannik Keitel,,CM,2000,DE,13.1,1
+FC Augsburg,Han-Noah Massengo,,CM,2001,FR,13.1,1
+FC Augsburg,Fabian Rieder,,CM,2002,CH,13.1,1
+FC Augsburg,Tim Breithaupt,,CM,2002,DE,13.1,1
+FC Augsburg,Anton Kade,,CM,2004,DE,12.3,1
+FC Augsburg,Mert Kömür,,RW,2005,DE,14.2,
+FC Augsburg,Sima Suso,,CM,2005,DE,12.3,1
+FC Augsburg,Tim Schnitzer,,CM,2008,DE,10.5,1
+FC Augsburg,Michael Gregoritsch,,ST,1994,AT,12.7,1
+FC Augsburg,Steve Mounié,,ST,1994,BJ,12.7,1
+FC Augsburg,Nathanael Mbuku,,ST,2002,CD,13.1,1
+FC Augsburg,Arijon Ibrahimovic,,ST,2005,DE,12.3,1
+FC Augsburg,Rodrigo Ribeiro,,ST,2005,PT,12.3,1
+FC Augsburg,Faik Sakar,,ST,2008,DE,10.5,1
+FC Augsburg,Uchenna Ogundu,,ST,2006,NG,11.5,1
+SC Freiburg,Florian Müller,,GK,1997,DE,13.4,1
+SC Freiburg,Jannik Huth,,GK,1994,DE,13,1
+SC Freiburg,Mio Backhaus,,GK,2004,DE,14.6,
+SC Freiburg,Matthias Ginter,,CB,1994,DE,15.2,
+SC Freiburg,Christian Günter,,LB,1993,DE,14.6,
+SC Freiburg,Lukas Kübler,,RB,1992,DE,14.4,
+SC Freiburg,Philipp Lienhart,,CB,1996,AT,15,
+SC Freiburg,Anthony Jung,,CB,1991,DE,12.8,1
+SC Freiburg,Philipp Treu,,RB,2001,DE,14.4,
+SC Freiburg,Jordy Makengo,,LB,2001,FR,14.2,
+SC Freiburg,Max Rosenfelder,,CB,2003,DE,14.4,
+SC Freiburg,Ifechukwu Ogbus,,CB,2005,CH,13,1
+SC Freiburg,Berkay Yılmaz,,CB,2005,TR,13,1
+SC Freiburg,Maximilian Eggestein,,CM,1996,DE,15,
+SC Freiburg,Rihito Yamamoto,,CM,2001,JP,13.8,1
+SC Freiburg,Patrick Osterhage,,CM,2000,DE,14.4,
+SC Freiburg,Yannik Engelhardt,,DM,2001,DE,14.4,
+SC Freiburg,Rouven Tarnutzer,,CM,2007,CH,12.2,1
+SC Freiburg,Jan-Niklas Beste,,ST,1999,DE,13.8,1
+SC Freiburg,Vincenzo Grifo,,LW,1993,IT,15.2,
+SC Freiburg,Florent Muslija,,ST,1998,XK,13.8,1
+SC Freiburg,Lucas Höler,,ST,1994,DE,14.6,
+SC Freiburg,Yuito Suzuki,,AM,2001,JP,14.8,
+SC Freiburg,Igor Matanović,,ST,2003,HR,14.4,
+SC Freiburg,Derry Scherhant,,LW,2002,DE,14.2,
+SC Freiburg,Cyriaque Irié,,ST,2005,BF,13,1
+SC Freiburg,Keisuke Goto,,ST,2005,JP,13,1
+Borussia Mönchengladbach,Tobias Sippel,,GK,1988,DE,12,1
+Borussia Mönchengladbach,Moritz Nicolas,,GK,1997,DE,14.8,
+Borussia Mönchengladbach,Daniel Batz,,GK,1991,DE,12,1
+Borussia Mönchengladbach,Jan Jakob Olschowsky,,GK,2001,DE,13,1
+Borussia Mönchengladbach,Kevin Diks,,CB,1996,NL,14.6,
+Borussia Mönchengladbach,Daiki Hashioka,,CB,1999,JP,13.4,1
+Borussia Mönchengladbach,Ko Itakura,,CB,1997,JP,15,
+Borussia Mönchengladbach,Joe Scally,,RB,2002,US,14.6,
+Borussia Mönchengladbach,Yukhym Konoplya,,CB,1999,UA,13.4,1
+Borussia Mönchengladbach,Fabio Chiarodia,,CB,2005,IT,12.6,1
+Borussia Mönchengladbach,David Herold,,CB,2003,DE,13.4,1
+Borussia Mönchengladbach,Lukas Ullrich,,CB,2004,DE,12.6,1
+Borussia Mönchengladbach,Jan Leszczyński,,CB,2007,PL,11.8,1
+Borussia Mönchengladbach,Florian Neuhaus,,CM,1997,DE,14.6,
+Borussia Mönchengladbach,Kevin Stöger,,AM,1993,AT,14.6,
+Borussia Mönchengladbach,Philipp Sander,,CM,1998,DE,14.4,
+Borussia Mönchengladbach,Enzo Leopold,,CM,2000,DE,13.4,1
+Borussia Mönchengladbach,Jens Castrop,,CM,2003,KR,13.4,1
+Borussia Mönchengladbach,Zento Uno,,CM,2003,JP,13.4,1
+Borussia Mönchengladbach,Fritz Fleck,,CM,2007,DE,11.8,1
+Borussia Mönchengladbach,Wael Mohya,,CM,2008,DE,10.8,1
+Borussia Mönchengladbach,Mathieu Nguefack,,CM,2008,DE,10.8,1
+Borussia Mönchengladbach,Robin Hack,,LW,1998,DE,14.6,
+Borussia Mönchengladbach,Franck Honorat,,RW,1996,FR,14.8,
+Borussia Mönchengladbach,Tim Kleindienst,,ST,1995,DE,15,
+Borussia Mönchengladbach,Isac Lidberg,,ST,1998,SE,13.4,1
+Borussia Mönchengladbach,Tomáš Čvančara,,ST,2000,CZ,13.4,1
+Borussia Mönchengladbach,Nicolas Kühn,,ST,2000,DE,13.4,1
+Borussia Mönchengladbach,Hugo Bolin,,ST,2003,SE,13.4,1
+Borussia Mönchengladbach,Shūto Machino,,ST,1999,JP,14.6,
+Borussia Mönchengladbach,Iaia Danfa,,ST,2007,GW,11.8,1
+Eintracht Frankfurt,Jens Grahl,,GK,1988,DE,12.9,1
+Eintracht Frankfurt,Noah Atubolu,,GK,2002,DE,15.2,
+Eintracht Frankfurt,Kauã Santos,,GK,2003,BR,14.6,
+Eintracht Frankfurt,Amil Siljevic,,GK,2007,DE,12.3,1
+Eintracht Frankfurt,Timmy Chandler,,CB,1990,US,13.3,1
+Eintracht Frankfurt,Robin Koch,,CB,1996,DE,15.4,
+Eintracht Frankfurt,Lilian Brassier,,CB,1999,FR,14,
+Eintracht Frankfurt,Nnamdi Collins,,CB,2004,DE,14.6,
+Eintracht Frankfurt,Elias Baum,,CB,2005,DE,13.5,1
+Eintracht Frankfurt,Keita Kosugi,,CB,2006,JP,12.7,1
+Eintracht Frankfurt,Otávio,,CB,2005,BR,13.5,1
+Eintracht Frankfurt,Mario Götze,,AM,1992,DE,15,
+Eintracht Frankfurt,Raphael Onyedika,,DM,2001,NG,15,
+Eintracht Frankfurt,Farès Chaïbi,,AM,2002,DZ,15,
+Eintracht Frankfurt,Can Uzun,,AM,2005,TR,15.2,
+Eintracht Frankfurt,Noel Aseko Nkili,,CM,2005,DE,13.5,1
+Eintracht Frankfurt,Oscar Højlund,,CM,2005,DK,13.5,1
+Eintracht Frankfurt,Love Arrhov,,CM,2008,SE,11.7,1
+Eintracht Frankfurt,Ritsu Doan,,RW,1998,JP,15.4,
+Eintracht Frankfurt,Jonathan Burkardt,,ST,2000,DE,15.4,
+Eintracht Frankfurt,Jessic Ngankam,,ST,2000,DE,14.3,1
+Eintracht Frankfurt,Ansgar Knauff,,RW,2002,DE,14.8,
+Eintracht Frankfurt,Younes Ebnoutalib,,ST,2003,DE,14.3,1
+Eintracht Frankfurt,Ayoube Amaimouni-Echghouyab,,ST,2004,MA,13.5,1
+Eintracht Frankfurt,Malik Pimpong,,ST,2008,DK,11.7,1
+Union Berlin,Frederik Rønnow,,GK,1992,DK,15,
+Union Berlin,Carl Klaus,,GK,1994,DE,12.4,1
+Union Berlin,Matheo Raab,,GK,1998,DE,12.8,1
+Union Berlin,Marvin Friedrich,,CB,1995,DE,12.8,1
+Union Berlin,Christopher Trimmel,,RB,1987,AT,13.8,
+Union Berlin,Ohis Uduokhai,,CB,1997,DE,13.2,1
+Union Berlin,Josip Juranović,,RB,1995,HR,14.4,
+Union Berlin,Derrick Köhn,,LB,1999,DE,14.2,
+Union Berlin,Leopold Querfeld,,CB,2003,AT,14.6,
+Union Berlin,Tom Rothe,,CB,2004,DE,12.4,1
+Union Berlin,Zeno Van Den Bosch,,CB,2003,BE,13.2,1
+Union Berlin,Stanley N'Soki,,CB,1999,FR,13.2,1
+Union Berlin,Andrik Markgraf,,CB,2006,DE,11.6,1
+Union Berlin,Rani Khedira,,DM,1994,DE,14.6,
+Union Berlin,Janik Haberer,,CM,1994,DE,14,
+Union Berlin,Robert Skov,,CM,1996,DK,13.2,1
+Union Berlin,Michel Aebischer,,CM,1997,CH,14.4,
+Union Berlin,Kastriot Imeri,,CM,2000,CH,13.2,1
+Union Berlin,András Schäfer,,CM,1999,HU,14.4,
+Union Berlin,Jeong Wooyeong,,CM,1999,KR,13.2,1
+Union Berlin,Aljoscha Kemlein,,CM,2004,DE,14.2,
+Union Berlin,Emmanuel Latte Lath,,ST,1999,CI,13.2,1
+Union Berlin,Tim Skarke,,RW,1996,DE,14.2,
+Union Berlin,Oliver Burke,,ST,1997,GB-SCT,14.4,
+Union Berlin,Andrej Ilić,,ST,2000,RS,14.6,
+Union Berlin,Marin Ljubicic,,ST,2002,HR,13.2,1
+Union Berlin,Livan Burcu,,ST,2004,TR,12.4,1
+Union Berlin,Julien Friedrich,,ST,2006,DE,11.6,1
+Union Berlin,Linus Güther,,ST,2010,DE,10.6,1
+Union Berlin,Mekhi Gray,,ST,2007,JM,11.6,1
+SC Paderborn 07,Markus Schubert,,GK,1998,DE,10.7,1
+SC Paderborn 07,Nahuel Noll,,GK,2003,DE,10.7,1
+SC Paderborn 07,Florian Pruhs,,GK,2006,DE,9.1,1
+SC Paderborn 07,Felix Götze,,CB,1998,DE,11.1,1
+SC Paderborn 07,Marcel Hoffmeier,,CB,1999,DE,11.1,1
+SC Paderborn 07,Tjark Scheller,,CB,2002,DE,11.1,1
+SC Paderborn 07,Jano ter Horst,,CB,2002,DE,11.1,1
+SC Paderborn 07,Mattes Hansen,,CB,2004,DE,10.3,1
+SC Paderborn 07,Tristan Zobel,,CB,2003,DE,11.1,1
+SC Paderborn 07,Jonah Sticker,,CB,2004,DE,10.3,1
+SC Paderborn 07,Nyamekye Awortwie-Grant,,CB,2000,DE,11.1,1
+SC Paderborn 07,Ruben Müller,,CB,2005,DE,10.3,1
+SC Paderborn 07,Tom Baack,,CM,1999,DE,11.1,1
+SC Paderborn 07,Sebastian Klaas,,CM,1998,DE,11.1,1
+SC Paderborn 07,Timur Gayret,,CM,1998,DE,11.1,1
+SC Paderborn 07,Laurin Curda,,CM,2001,DE,11.1,1
+SC Paderborn 07,Laurin Ulrich,,CM,2005,DE,10.3,1
+SC Paderborn 07,Santiago Castaneda,,CM,2004,US,10.3,1
+SC Paderborn 07,Luka Đurić,,CM,2003,BA,11.1,1
+SC Paderborn 07,Clemens Lippmann,,CM,2006,DE,9.5,1
+SC Paderborn 07,Niklas Mohr,,CM,2004,DE,10.3,1
+SC Paderborn 07,Steffen Tigges,,ST,1998,DE,11.1,1
+SC Paderborn 07,Sven Michel,,ST,1990,DE,10.1,1
+SC Paderborn 07,Oliver Batista-Meier,,ST,2001,DE,11.1,1
+SC Paderborn 07,Marvin Pieringer,,ST,1999,DE,14.2,
+SC Paderborn 07,Rayan Philippe,,ST,2000,FR,14.2,
+SC Paderborn 07,Gabriel Vidovic,,ST,2003,DE,11.1,1
+SC Paderborn 07,Stefano Marino,,ST,2004,DE,10.3,1
+SC Paderborn 07,Deniz Zeitler,,ST,2006,DE,9.5,1
+SC Paderborn 07,Albert Millgramm,,ST,2004,DE,10.3,1
+SC Paderborn 07,Lasse Eickel,,ST,2008,DE,8.5,1
+SV Elversberg,Tim Boss,,GK,1993,DE,10.1,1
+SV Elversberg,Frank Lehmann,,GK,1989,DE,9.5,1
+SV Elversberg,Nicolas Kristof,,GK,1999,AT,10.5,1
+SV Elversberg,Elias Etringer,,GK,2007,DE,8.9,1
+SV Elversberg,Florian Le Joncour,,CB,1995,FR,10.5,1
+SV Elversberg,Jan Gyamerah,,CB,1995,GH,10.5,1
+SV Elversberg,Luca Sirch,,CB,1999,DE,10.9,1
+SV Elversberg,Maximilian Rohr,,CB,1995,DE,10.5,1
+SV Elversberg,Lukas Pinckert,,CB,2000,DE,10.9,1
+SV Elversberg,Lasse Günther,,CB,2003,DE,10.9,1
+SV Elversberg,Look Sa Nicholas Mickelson,,CB,1999,TH,10.9,1
+SV Elversberg,Luis Seifert,,CB,2004,DE,10.1,1
+SV Elversberg,Amara Condé,,CM,1997,GN,10.9,1
+SV Elversberg,Łukasz Poręba,,CM,2000,PL,10.9,1
+SV Elversberg,Frederik Schmahl,,CM,2002,DE,10.9,1
+SV Elversberg,Felix Keidel,,CM,2003,DE,10.9,1
+SV Elversberg,Noah Darvich,,CM,2006,DE,9.3,1
+SV Elversberg,Francis Onyeka,,CM,2007,DE,9.3,1
+SV Elversberg,Luca Schnellbacher,,ST,1994,DE,10.5,1
+SV Elversberg,Tom Zimmerschied,,ST,1998,DE,10.9,1
+SV Elversberg,Luca Pfeiffer,,ST,1996,DE,10.9,1
+SV Elversberg,Lukas Petkov,,ST,2000,BG,10.9,1
+SV Elversberg,Jason Ceka,,ST,1999,DE,10.9,1
+SV Elversberg,Noel Futkeu,,ST,2002,DE,10.9,1
+SV Elversberg,Maurice Krattenmacher,,ST,2005,DE,10.1,1
+SV Elversberg,David Mokwa Ntusu,,ST,2004,FR,10.1,1
+SV Elversberg,Cole Campbell,,ST,2006,US,9.3,1
+SV Elversberg,Raif Adam,,ST,2005,DE,10.1,1
+RB Leipzig,Ørjan Nyland,,GK,1990,NO,14.6,
+RB Leipzig,Leopold Zingerle,,GK,1994,DE,13.8,1
+RB Leipzig,Maarten Vandevoordt,,GK,2002,BE,14.8,
+RB Leipzig,Benjamin Henrichs,,CB,1997,DE,14.4,
+RB Leipzig,Ridle Baku,,RB,1998,DE,15,
+RB Leipzig,Lukas Klostermann,,CB,1996,DE,14,
+RB Leipzig,Willi Orbán,,CB,1992,HU,15.4,
+RB Leipzig,David Raum,,LB,1998,DE,15.4,
+RB Leipzig,Castello Lukeba,,CB,2002,FR,15.8,
+RB Leipzig,Maxime Estève,,CB,2002,FR,14.8,
+RB Leipzig,Max Finkgräfe,,CB,2004,DE,13.8,1
+RB Leipzig,Abdoul Koné,,CB,2005,FR,13.8,1
+RB Leipzig,Christoph Baumgartner,,AM,1999,AT,15.4,
+RB Leipzig,Nicolas Seiwald,,DM,2001,AT,15,
+RB Leipzig,Rocco Reitz,,CM,2002,DE,15,
+RB Leipzig,Neil El Aynaoui,,CM,2001,MA,15.2,
+RB Leipzig,Ezechiel Banzuzi,,CM,2005,NL,14,
+RB Leipzig,Arthur Vermeeren,,CM,2005,BE,15,
+RB Leipzig,Brajan Gruda,,RW,2004,DE,15,
+RB Leipzig,Assan Ouédraogo,,CM,2006,DE,14.8,
+RB Leipzig,Andrija Maksimović,,CM,2007,RS,13,1
+RB Leipzig,Viggo Gebel,,CM,2007,DE,13,1
+RB Leipzig,Benno Kaltefleiter,,CM,2008,DE,12,1
+RB Leipzig,Christopher Nkunku,,AM,1997,FR,15.8,
+RB Leipzig,Johan Bakayoko,,RW,2003,BE,15.2,
+RB Leipzig,Antonio Nusa,,LW,2005,NO,15.2,
+RB Leipzig,Romulo Cruz,,ST,2002,BR,14.6,1
+RB Leipzig,Marc Guiu,,ST,2006,ES,13,1
+RB Leipzig,Tidiam Gomis,,ST,2006,FR,13,1
+RB Leipzig,Samba Konaté,,ST,2009,FR,12,1
+RB Leipzig,Suleman Sani,,ST,2006,NG,13,1
+Toulouse FC,Guillaume Restes,,GK,2005,FR,14.8,
+Toulouse FC,Mathys Niflore,,GK,2007,FR,11,1
+Toulouse FC,Rasmus Nicolaisen,,CB,1997,DK,14.4,
+Toulouse FC,Mark McKenzie,,CB,1999,US,14.6,
+Toulouse FC,David Odogu,,CB,2006,DE,11.4,1
+Toulouse FC,Rafik Messali,,CB,2003,DZ,13,1
+Toulouse FC,Seny Koumbassa,,CB,2007,FR,11.4,1
+Toulouse FC,Niklas Schmidt,,CM,1998,DE,13,1
+Toulouse FC,Cristian Cásseres,,DM,2000,VE,14.6,
+Toulouse FC,Francis Abu,,CM,2001,GH,13,1
+Toulouse FC,Aron Dønnum,,RW,1998,NO,14.6,
+Toulouse FC,Thomas Jørgensen,,CM,2005,DK,12.2,1
+Toulouse FC,Niko Sigur,,CM,2003,CA,13,1
+Toulouse FC,Mathis Amougou,,CM,2006,FR,11.4,1
+Toulouse FC,Alexis Vossah,,CM,2008,FR,10.4,1
+Toulouse FC,Aymen Amaaouch,,CM,2009,FR,10.4,1
+Toulouse FC,Yann Gboho,,AM,2001,FR,14.6,
+Toulouse FC,Casper Tengstedt,,ST,2000,DK,13,1
+Toulouse FC,Jacen Russell-Rowe,,ST,2002,CA,13,1
+Toulouse FC,Santiago Hidalgo,,LW,2005,AR,14.4,
+Toulouse FC,Sion Oppong,,ST,2007,SE,11.4,1
+Toulouse FC,Ilyas Azizi,,ST,2008,FR,10.4,1
+Toulouse FC,Julián Vignolo,,ST,2006,AR,11.4,1
+Stade Brestois,Egil Selvik,,GK,1997,NO,12.7,1
+Stade Brestois,Romain Cagnon,,GK,1997,FR,12.7,1
+Stade Brestois,Mathieu Patouillet,,GK,2004,FR,11.9,1
+Stade Brestois,Brendan Chardonnet,,CB,1994,FR,14.4,
+Stade Brestois,Gautier Lloris,,CB,1995,FR,13.8,
+Stade Brestois,Kenny Lala,,RB,1991,FR,14.2,
+Stade Brestois,Bradley Locko,,LB,2002,FR,14.4,
+Stade Brestois,Luc Zogbe,,CB,2005,CI,12.3,1
+Stade Brestois,Raphaël Le Guen,,CB,2006,FR,11.5,1
+Stade Brestois,Justin Bourgault,,CB,2005,FR,12.3,1
+Stade Brestois,Lucas Tousart,,CM,1997,FR,13.1,1
+Stade Brestois,Hugo Magnetti,,CM,1998,FR,14.4,
+Stade Brestois,Joris Chotard,,CM,2001,FR,13.1,1
+Stade Brestois,Mamady Diambou,,CM,2002,ML,13.1,1
+Stade Brestois,Kamory Doumbia,,AM,2003,ML,14.6,
+Stade Brestois,Joseph Nonge,,CM,2005,BE,12.3,1
+Stade Brestois,Hamidou Makalou,,CM,2006,ML,11.5,1
+Stade Brestois,Ludovic Ajorque,,ST,1994,FR,14.4,
+Stade Brestois,Mama Baldé,,ST,1995,GW,12.7,1
+Stade Brestois,Noah Edjouma,,ST,2005,FR,12.3,1
+Stade Brestois,Pathé Mboup,,ST,2003,SN,13.1,1
+Olympique de Marseille,Jeffrey De Lange,,GK,1998,NL,14.2,1
+Olympique de Marseille,Théo Vermot,,GK,1997,FR,14.2,1
+Olympique de Marseille,Jelle Van Neck,,GK,2004,BE,13.4,1
+Olympique de Marseille,Ulisses Garcia,,LB,1996,CH,14.4,
+Olympique de Marseille,Emerson,,CB,1994,IT,14,
+Olympique de Marseille,Timothy Weah,,RW,2000,US,14.8,
+Olympique de Marseille,Nayef Aguerd,,CB,1996,MA,15.4,
+Olympique de Marseille,Derek Cornelius,,CB,1997,CA,14.6,1
+Olympique de Marseille,Bamo Meité,,CB,2001,CI,14.6,1
+Olympique de Marseille,CJ Egan-Riley,,CB,2003,GB-ENG,14.4,
+Olympique de Marseille,Angel Gomes,,AM,2000,GB-ENG,15,
+Olympique de Marseille,Pierre-Emile Højbjerg,,DM,1995,DK,15.6,
+Olympique de Marseille,Himad Abdelli,,AM,1999,DZ,14.4,
+Olympique de Marseille,Tochukwu Nadi,,CM,2003,NG,14.6,1
+Olympique de Marseille,Amine Harit,,ST,1997,MA,14.4,
+Olympique de Marseille,Neal Maupay,,ST,1996,FR,13.8,
+Olympique de Marseille,Amine Gouiri,,ST,2000,DZ,15.6,
+Olympique de Marseille,Igor Paixão,,LW,2000,BR,15.2,
+Olympique de Marseille,Faris Moumbagna,,ST,2000,CM,14.6,1
+Olympique de Marseille,Keyliane Abdallah,,ST,2006,FR,13,1
+Olympique de Marseille,Tadjidine M'Madi,,ST,2007,FR,13,1
+AJ Auxerre,Paul Nardi,,GK,1994,FR,11.7,1
+AJ Auxerre,Louis Mezerette,,GK,2006,FR,10.5,1
+AJ Auxerre,Francisco Sierralta,,CB,1997,CL,12.5,1
+AJ Auxerre,Axel Tuanzebe,,CB,1997,CD,14.2,
+AJ Auxerre,Bryan Okoh,,CB,2003,CH,12.5,1
+AJ Auxerre,Sinaly Diomandé,,CB,2001,CI,14.2,
+AJ Auxerre,Marvin Senaya,,CB,2001,GH,12.5,1
+AJ Auxerre,Fredrik Oppegard,,CB,2002,NO,12.5,1
+AJ Auxerre,Lamine Sy,,CB,2002,FR,12.5,1
+AJ Auxerre,Clement Akpa,,CB,2001,CI,12.5,1
+AJ Auxerre,Sekou Fofana,,CB,2003,CI,12.5,1
+AJ Auxerre,Telli Siwe,,CB,2004,FR,11.7,1
+AJ Auxerre,Elikya Legros,,CB,2008,FR,9.9,1
+AJ Auxerre,Alvin Petit Dol,,CB,2006,FR,10.9,1
+AJ Auxerre,Assane Dioussé,,CM,1997,SN,12.5,1
+AJ Auxerre,Romain Faivre,,CM,1998,FR,12.5,1
+AJ Auxerre,Naouirou Ahamada,,CM,2002,FR,12.5,1
+AJ Auxerre,Kévin Danois,,CM,2004,FR,14.2,
+AJ Auxerre,Pierre Ekwah,,CM,2002,FR,12.5,1
+AJ Auxerre,Arthur Piedfort,,CM,2005,BE,11.7,1
+AJ Auxerre,Tidiane Devernois,,CM,2007,FR,10.9,1
+AJ Auxerre,Lamfia Dioubaté,,CM,2007,FR,10.9,1
+AJ Auxerre,Daniel Namaso,,ST,2000,CM,12.5,1
+AJ Auxerre,Eros Maddy,,ST,2001,NL,12.5,1
+AJ Auxerre,Cameron Archer,,ST,2001,GB-ENG,12.5,1
+AJ Auxerre,Josué Casimir,,ST,2001,HT,12.5,1
+AJ Auxerre,Lasso Coulibaly,,ST,2002,CI,12.5,1
+AJ Auxerre,Rayan Mandengue,,ST,2006,CM,10.9,1
+AJ Auxerre,Aristide Zossou,,ST,2005,CI,11.7,1
+AJ Auxerre,Xiangxin Wei,,ST,2008,CN,9.9,1
+AJ Auxerre,Ryan Rodin,,ST,2006,FR,10.9,1
+LOSC Lille,Arnaud Bodart,,GK,1998,BE,13.8,1
+LOSC Lille,Berke Özer,,GK,2000,TR,14.8,
+LOSC Lille,Orlando Gill,,GK,2000,PY,13.8,1
+LOSC Lille,Romain Perraud,,LB,1997,FR,14.6,
+LOSC Lille,Calvin Verdonk,,CB,1997,ID,14.2,1
+LOSC Lille,Nianzou Kouassi,,CB,2002,FR,14.2,1
+LOSC Lille,Alexsandro Ribeiro,,CB,1999,BR,15.4,
+LOSC Lille,Tiago Santos,,RB,2002,PT,14.8,
+LOSC Lille,Nathan Ngoy,,CB,2003,BE,14.6,
+LOSC Lille,Loun Srdanovic,,CB,2006,CH,12.6,1
+LOSC Lille,Isaac Cossier,,CB,2006,FR,12.6,1
+LOSC Lille,Nabil Bentaleb,,CM,1994,DZ,14.6,
+LOSC Lille,Benjamin André,,DM,1990,FR,15,
+LOSC Lille,Hákon Arnar Haraldsson,,AM,2003,IS,15.4,
+LOSC Lille,Maurits Kjærgaard,,CM,2003,DK,14.2,1
+LOSC Lille,Ngal'ayel Mukau,,CM,2004,CD,13.4,1
+LOSC Lille,Mohamed Bayo,,ST,1993,GN,13.8,1
+LOSC Lille,Gaëtan Perrin,,ST,1996,FR,14.2,1
+LOSC Lille,Olivier Giroud,,ST,1986,FR,14.6,
+LOSC Lille,Osame Sahraoui,,LW,2001,NO,14.6,
+LOSC Lille,Ayase Ueda,,ST,1998,JP,15,
+LOSC Lille,Tiago Fonseca Morais,,ST,2003,PT,14.2,1
+LOSC Lille,Dilane Bakwa,,RW,2002,FR,14.6,
+LOSC Lille,Basar Onal,,ST,2004,TR,13.4,1
+LOSC Lille,Ethan Mbappé,,ST,2006,FR,12.6,1
+LOSC Lille,Hamza Igamane,,ST,2002,MA,15,
+LOSC Lille,Soriba Diaoune,,ST,2007,FR,12.6,1
+OGC Nice,Yehvann Diouf,,GK,1999,FR,14.8,
+OGC Nice,Teddy Boulhendi,,GK,2001,FR,13.3,1
+OGC Nice,Jonathan Clauss,,RB,1992,FR,14.8,
+OGC Nice,Ali El Abdi,,CB,1993,TN,13.3,1
+OGC Nice,Niels Nkounkou,,CB,2000,FR,13.7,1
+OGC Nice,Antoine Mendy,,CB,2004,SN,12.9,1
+OGC Nice,Moise Bombito,,CB,2000,CA,13.7,1
+OGC Nice,Mohamed Abdelmonem,,CB,1999,EG,13.7,1
+OGC Nice,Hamza Koutoune,,CB,2006,MA,12.1,1
+OGC Nice,Laurent Abergel,,DM,1993,FR,14,
+OGC Nice,Axel Witsel,,DM,1989,BE,14.6,
+OGC Nice,Morgan Sanson,,CM,1994,FR,14.6,
+OGC Nice,Everton,,CM,1995,BR,13.3,1
+OGC Nice,Salis Abdul Samed,,CM,2000,GH,13.7,1
+OGC Nice,Hicham Boudaoui,,CM,1999,DZ,15,
+OGC Nice,Issiaga Camara,,CM,2005,GN,12.9,1
+OGC Nice,Djibril Coulibaly,,CM,2008,FR,11.1,1
+OGC Nice,Nassim Laarej,,CM,2009,FR,11.1,1
+OGC Nice,Gauthier Hein,,AM,1996,FR,14.4,
+OGC Nice,Sofiane Diop,,AM,2000,MA,15,
+OGC Nice,Isak Jansson,,ST,2002,SE,13.7,1
+OGC Nice,Nathan N'Goumou,,ST,2000,CM,13.7,1
+OGC Nice,Sepe Elye Wahi,,ST,2003,CI,13.7,1
+OGC Nice,Mohamed Amoura,,ST,2000,DZ,15.4,
+OGC Nice,Zoumana Diallo,,ST,2005,FR,12.9,1
+OGC Nice,Victor Orakpo,,ST,2006,NG,12.1,1
+Olympique Lyonnais,Rémy Descamps,,GK,1996,FR,13.8,1
+Olympique Lyonnais,Dominik Greif,,GK,1997,SK,14.8,
+Olympique Lyonnais,Justin Jose Bengui Joao,,GK,2005,FR,13,1
+Olympique Lyonnais,Lassine Diarra,,GK,2002,ML,13.8,1
+Olympique Lyonnais,Nicolás Tagliafico,,LB,1992,AR,15,
+Olympique Lyonnais,Moussa Niakhaté,,CB,1996,SN,15,
+Olympique Lyonnais,Clinton Mata,,CB,1992,AO,14.6,
+Olympique Lyonnais,Felix Bacher,,CB,2000,AT,14.2,1
+Olympique Lyonnais,Abner Vinícius,,LB,2000,BR,14.4,
+Olympique Lyonnais,Ruben Kluivert,,CB,2001,NL,14.4,
+Olympique Lyonnais,Mohamed Ouédraogo,,CB,2003,BF,14.2,1
+Olympique Lyonnais,Zachary Athekame,,RB,2004,CH,14.6,
+Olympique Lyonnais,Noham Kamara,,CB,2007,FR,12.6,1
+Olympique Lyonnais,Corentin Tolisso,,CM,1994,FR,15.2,
+Olympique Lyonnais,Paul Akouokou,,CM,1997,CI,14.2,1
+Olympique Lyonnais,Pavel Šulc,,AM,2000,CZ,15,
+Olympique Lyonnais,Tanner Tessmann,,CM,2001,US,14.8,
+Olympique Lyonnais,Mads Bidstrup,,CM,2001,DK,14.2,1
+Olympique Lyonnais,Tyler Morton,,CM,2002,GB-ENG,14.6,
+Olympique Lyonnais,Noah Nartey,,CM,2005,DK,13.4,1
+Olympique Lyonnais,Mathys De Carvalho,,CM,2005,PT,13.4,1
+Olympique Lyonnais,Khalis Merah,,CM,2007,FR,12.6,1
+Olympique Lyonnais,Loïs Openda,,ST,2000,BE,15.6,
+Olympique Lyonnais,Julien Duranville,,ST,2006,BE,12.6,1
+Olympique Lyonnais,Ernest Nuamah,,RW,2003,GH,14.8,
+Olympique Lyonnais,Kaïl Boudache,,ST,2006,FR,12.6,1
+Olympique Lyonnais,Alejandro Rodriguez,,ST,2008,GB-ENG,11.6,1
+Olympique Lyonnais,Rémi Himbert,,ST,2008,FR,11.6,1
+Paris Saint-Germain,Matvey Safonov,,GK,1999,RU,15,
+Paris Saint-Germain,Lucas Chevalier,,GK,2001,FR,16,
+Paris Saint-Germain,Achraf Hakimi,,RB,1998,MA,17.3,
+Paris Saint-Germain,Marcos Aoás Corrêa,Marquinhos,CB,1994,BR,16.6,
+Paris Saint-Germain,Lucas Digne,,LB,1993,FR,15,
+Paris Saint-Germain,Lucas Hernández,,CB,1996,FR,15.6,
+Paris Saint-Germain,Willian Pacho,,CB,2001,EC,16.4,
+Paris Saint-Germain,Illia Zabarnyi,,CB,2002,UA,15.8,
+Paris Saint-Germain,Nuno Mendes,,LB,2002,PT,17,
+Paris Saint-Germain,Lucas Beraldo,,CB,2003,BR,15.2,
+Paris Saint-Germain,Fabián Ruiz,,CM,1996,ES,16.4,
+Paris Saint-Germain,Vítor Machado Ferreira,Vitinha,CM,2000,PT,17.6,
+Paris Saint-Germain,Warren Zaïre-Emery,,CM,2006,FR,16,
+Paris Saint-Germain,João Neves,,CM,2004,PT,17,
+Paris Saint-Germain,Senny Mayulu,,CM,2006,FR,14.8,
+Paris Saint-Germain,Pedro Fernández,,CM,2008,ES,13.2,1
+Paris Saint-Germain,Ousmane Dembélé,,RW,1997,FR,17.8,
+Paris Saint-Germain,Ferran Torres,,ST,2000,ES,15.6,
+Paris Saint-Germain,Khvicha Kvaratskhelia,,LW,2001,GE,17.4,
+Paris Saint-Germain,Maghnes Akliouche,,RW,2002,FR,15.6,
+Paris Saint-Germain,Désiré Doué,,RW,2005,FR,17,
+Paris Saint-Germain,Mika Godts,,ST,2005,BE,14.6,
+Paris Saint-Germain,Quentin Ndjantou,,ST,2007,FR,14.2,1
+FC Lorient,Benjamin Leroy,,GK,1989,FR,11,1
+FC Lorient,Bingourou Kamara,,GK,1996,SN,12,1
+FC Lorient,Yvon Mvogo,,GK,1994,CH,14.4,
+FC Lorient,Alec Georgen,,CB,1998,FR,12.4,1
+FC Lorient,Souleymane Isaak Toure,,CB,2003,FR,12.4,1
+FC Lorient,Formose Mendy,,CB,2001,SN,12.4,1
+FC Lorient,Montassar Talbi,,CB,1998,TN,14.2,
+FC Lorient,Dembo Sylla,,CB,2002,GN,12.4,1
+FC Lorient,Nathaniel Adjei,,CB,2002,GH,12.4,1
+FC Lorient,Srđan Kuzmić,,CB,2004,SI,11.6,1
+FC Lorient,Nosa Edward Obaretin,,CB,2003,IT,12.4,1
+FC Lorient,Kan Guy Arsène Kouassi,,CB,2004,BF,11.6,1
+FC Lorient,Jean-Victor Makengo,,CM,1998,FR,12.4,1
+FC Lorient,Noah Cadiou,,CM,1998,FR,12.4,1
+FC Lorient,Bandiougou Fadiga,,CM,2001,FR,12.4,1
+FC Lorient,Noah Mbamba,,CM,2005,BE,11.6,1
+FC Lorient,Theo Le Bris,,RW,2002,FR,14.2,
+FC Lorient,Panos Katseris,,CM,2001,GR,12.4,1
+FC Lorient,Arthur Ebong,,CM,2004,CM,11.6,1
+FC Lorient,Gabin Bernardeau,,CM,2006,FR,10.8,1
+FC Lorient,Aiyegun Tosin,,ST,1998,BJ,12.4,1
+FC Lorient,Isak Jensen,,ST,2003,DK,12.4,1
+FC Lorient,Ibrahima Baldé,,ST,2003,FR,12.4,1
+FC Lorient,Mohamed Bamba,,ST,2001,CI,12.4,1
+FC Lorient,Souleymane Faye,,ST,2003,SN,12.4,1
+Stade Rennais,Nicolas Lemaître,,GK,1997,FR,13.2,1
+Stade Rennais,Brice Samba,,GK,1994,FR,15.4,
+Stade Rennais,Kilian Belazzoug,,GK,2006,FR,11.6,1
+Stade Rennais,Przemysław Frankowski,,RB,1995,PL,14.6,
+Stade Rennais,Bryan Reynolds,,CB,2001,US,13.6,1
+Stade Rennais,Alidu Seidu,,CB,2000,GH,13.6,1
+Stade Rennais,Anthony Rouault,,CB,2001,FR,14.6,
+Stade Rennais,Charlie Cresswell,,CB,2002,GB-ENG,14.6,
+Stade Rennais,Quentin Merlin,,LB,2002,FR,14.8,
+Stade Rennais,Mahamadou Nagida,,CB,2005,CM,12.8,1
+Stade Rennais,Gonçalo Oliveira,,CB,2006,PT,12,1
+Stade Rennais,Abdelhamid Aït Boudlal,,CB,2006,MA,14.2,
+Stade Rennais,Mahdi Camara,,CM,1998,FR,14.6,
+Stade Rennais,Valentin Rongier,,CM,1994,FR,15,
+Stade Rennais,Adrien Thomasson,,CM,1993,FR,14.6,
+Stade Rennais,Sebastian Szymański,,CM,1999,PL,13.6,1
+Stade Rennais,Ludovic Blas,,AM,1997,FR,14.8,
+Stade Rennais,Ayanda Sishuba,,CM,2005,BE,12.8,1
+Stade Rennais,Djaoui Cissé,,CM,2004,FR,14.4,
+Stade Rennais,Arnaud Nordin,,ST,1998,FR,13.6,1
+Stade Rennais,Boulaye Dia,,ST,1996,SN,15,
+Stade Rennais,Mousa Al-Tamari,,RW,1997,JO,14.6,
+Stade Rennais,Esteban Lepaul,,ST,2000,FR,15,
+Stade Rennais,Issa Soumaré,,LW,2000,SN,14.2,
+Stade Rennais,Eliezer Mayenda,,ST,2005,ES,14,
+Stade Rennais,Elias Legendre Quiñonez,,ST,2008,EC,11,1
+ES Troyes AC,Zacharie Boucher,,GK,1992,FR,9.3,1
+ES Troyes AC,Hillel Konaté,,GK,1994,BF,9.9,1
+ES Troyes AC,Patrick Beach,,GK,2003,AU,10.3,1
+ES Troyes AC,Adrien Monfray,,CB,1990,FR,9.7,1
+ES Troyes AC,Paolo Gozzi Iweru,,CB,2001,IT,10.7,1
+ES Troyes AC,Lucas Maronnier,,CB,2000,FR,10.7,1
+ES Troyes AC,Michel Diaz,,CB,2003,FR,10.7,1
+ES Troyes AC,Yvann Titi,,CB,2006,FR,9.1,1
+ES Troyes AC,Tom Akpakoun,,CB,2005,FR,9.9,1
+ES Troyes AC,Anis Ouzenadji,,CB,2006,FR,9.1,1
+ES Troyes AC,Alexandre Phliponeau,,CM,2000,FR,10.7,1
+ES Troyes AC,Iron Gomis,,CM,1999,FR,10.7,1
+ES Troyes AC,Antoine Mille,,CM,1997,FR,10.7,1
+ES Troyes AC,Karim Dermane,,CM,2003,TG,10.7,1
+ES Troyes AC,Mouhamed Diop,,CM,2000,SN,10.7,1
+ES Troyes AC,Hugo Picard,,CM,2003,FR,10.7,1
+ES Troyes AC,Roman Murcy,,CM,2006,FR,9.1,1
+ES Troyes AC,Renaud Ripart,,ST,1993,FR,10.3,1
+ES Troyes AC,Timothée Nkada,,ST,1999,FR,10.7,1
+ES Troyes AC,Kandet Diawara,,ST,2000,GN,10.7,1
+ES Troyes AC,Jérémy Le Douaron,,ST,1998,FR,10.7,1
+ES Troyes AC,Ibrahim Traoré,,ST,2006,FR,9.1,1
+ES Troyes AC,Merwan Ifnaoui,,ST,1998,FR,10.7,1
+ES Troyes AC,Amadou Diakite,,ST,2005,FR,9.9,1
+ES Troyes AC,Elijah Olaniyi Odede,,ST,2007,NG,9.1,1
+Angers SCO,Anthony Lopes,,GK,1990,PT,14.8,
+Angers SCO,Melvin Zinga,,GK,2002,FR,12,1
+Angers SCO,Oumar Pona,,GK,2006,ML,10.4,1
+Angers SCO,Carlens Arcus,,RB,1996,HT,14,
+Angers SCO,Jordan Lefort,,CB,1993,FR,13.8,
+Angers SCO,Ousman Camara,,CB,2003,FR,12.4,1
+Angers SCO,Emmanuel Biumla,,CB,2005,FR,11.6,1
+Angers SCO,Lilian Rao-Lisoa,,CB,2000,FR,12.4,1
+Angers SCO,Joseph Kalulu,,CB,2004,FR,11.6,1
+Angers SCO,Marius Louãr,,CB,2007,FR,10.8,1
+Angers SCO,Haris Belkebla,,CM,1994,DZ,14,
+Angers SCO,Branco van den Boomen,,CM,1995,NL,12,1
+Angers SCO,Louis Mouton,,CM,2002,FR,12.4,1
+Angers SCO,Yassin Belkhdim,,CM,2002,MA,12.4,1
+Angers SCO,Bané Diatta,,CM,2008,FR,9.8,1
+Angers SCO,Jim Allevinah,,ST,1995,GA,12,1
+Angers SCO,Amine El Ouazzani,,ST,2001,FR,12.4,1
+Angers SCO,Amine Sbaï,,ST,2000,FR,12.4,1
+Angers SCO,Anthony Bermont,,ST,2005,FR,11.6,1
+Angers SCO,Prosper Peter,,ST,2007,NG,10.8,1
+Angers SCO,Harouna Djibirin,,ST,2006,CM,10.8,1
+Le Havre AC,Gauthier Gallon,,GK,1993,FR,11.5,1
+Le Havre AC,Lionel Mpasi,,GK,1994,CD,11.5,1
+Le Havre AC,Paul Argney,,GK,2006,FR,10.3,1
+Le Havre AC,Ahmed Touba,,CB,1999,DZ,12.3,1
+Le Havre AC,Vincent Sasso,,CB,1991,FR,11.3,1
+Le Havre AC,Ayumu Seko,,CB,2000,JP,12.3,1
+Le Havre AC,Timothee Pembele,,CB,2002,FR,12.3,1
+Le Havre AC,Elias Jelert Kristensen,,CB,2003,DK,12.3,1
+Le Havre AC,Stephan Zagadou,,CB,2008,FR,9.7,1
+Le Havre AC,Enzo Koffi,,CB,2006,FR,10.7,1
+Le Havre AC,Kaito Mizuta,,CM,2000,JP,12.3,1
+Le Havre AC,Amir Richardson,,CM,2002,MA,12.3,1
+Le Havre AC,Rassoul N'Diaye,,CM,2001,FR,12.3,1
+Le Havre AC,Junior Mwanga,,CM,2003,FR,12.3,1
+Le Havre AC,Simon Ebonog,,CM,2004,FR,11.5,1
+Le Havre AC,Ismail Bouneb,,CM,2006,FR,10.7,1
+Le Havre AC,Daren Mosengo,,CM,2006,FR,10.7,1
+Le Havre AC,Guy Zohouri,,CM,2007,CI,10.7,1
+Le Havre AC,Josh Maja,,ST,1998,NG,12.3,1
+Le Havre AC,Mbwana Samatta,,ST,1992,TZ,11.3,1
+Le Havre AC,Felix Mambimbi,,ST,2001,CH,12.3,1
+Le Havre AC,Andy Logbo,,ST,2004,FR,11.5,1
+Le Havre AC,Joan Tincres,,ST,2006,FR,10.7,1
+Le Havre AC,Sota Nakamura,,ST,2002,JP,12.3,1
+Le Havre AC,Rayan Fofana,,ST,2006,FR,10.7,1
+Le Mans FC,Nicolas Kocik,,GK,1998,FR,9.8,1
+Le Mans FC,Ewan Hatfout,,GK,2000,FR,9.8,1
+Le Mans FC,Augustin Delbecque,,GK,2002,FR,9.8,1
+Le Mans FC,Lucas Buadés,,CB,1997,FR,10.2,1
+Le Mans FC,Samuel Yohou,,CB,1991,FR,9.2,1
+Le Mans FC,Djibril Sidibé,,RB,1992,FR,14,
+Le Mans FC,Yasser Larouci,,CB,2001,DZ,10.2,1
+Le Mans FC,Raúl Torrente,,CB,2001,ES,10.2,1
+Le Mans FC,Lucas Calodat,,CB,2002,FR,10.2,1
+Le Mans FC,Rayan Bamba,,CB,2004,FR,9.4,1
+Le Mans FC,Théo Eyoum,,CB,2002,FR,10.2,1
+Le Mans FC,Noa Boisse,,CB,2006,FR,8.6,1
+Le Mans FC,Edwin Quarshie,,CM,1995,FR,9.8,1
+Le Mans FC,Alexandre Lauray,,CM,1997,FR,10.2,1
+Le Mans FC,Jean Vercruysse,,CM,2000,FR,10.2,1
+Le Mans FC,Milan Robin,,CM,1999,FR,10.2,1
+Le Mans FC,Martin Rossignol,,CM,2003,FR,10.2,1
+Le Mans FC,Lucas Bretelle,,CM,2002,FR,10.2,1
+Le Mans FC,Adil Bourabaa,,CM,2005,DZ,9.4,1
+Le Mans FC,Habib Diallo,,ST,1995,SN,14.6,
+Le Mans FC,Antoine Rabillard,,ST,1995,FR,9.8,1
+Le Mans FC,Dame Guèye,,ST,1995,SN,9.8,1
+Le Mans FC,Erwan Colas,,ST,1997,FR,10.2,1
+Le Mans FC,Bilal Brahimi,,ST,2000,FR,10.2,1
+Le Mans FC,Enzo Vagner,,ST,2006,BR,8.6,1
+Le Mans FC,William Harhouz,,ST,1999,FR,10.2,1
+RC Lens,Mathieu Gorgelin,,GK,1990,FR,12.4,1
+RC Lens,Régis Gurtner,,GK,1986,FR,12.4,1
+RC Lens,Robin Risser,,GK,2004,FR,14.8,
+RC Lens,Ilan Jourdren,,GK,2008,FR,10.8,1
+RC Lens,Jonathan Gradit,,CB,1992,FR,14.6,
+RC Lens,Ruben Aguilar,,RB,1993,FR,14.4,
+RC Lens,Matthieu Udol,,LB,1996,FR,14.4,
+RC Lens,Jean-Clair Todibo,,CB,1999,FR,15,
+RC Lens,Maik Nawrocki,,CB,2001,PL,13.8,1
+RC Lens,Saud Abdulhamid,,CB,1999,SA,13.8,1
+RC Lens,Jhoanner Chavez,,CB,2002,EC,13.8,1
+RC Lens,Samson Baidoo,,CB,2004,AT,14.6,
+RC Lens,Pierre Ganiou,,CB,2005,FR,13,1
+RC Lens,Nidal Čelik,,CB,2006,BA,12.2,1
+RC Lens,Kyllian Antonio,,CB,2008,FR,11.2,1
+RC Lens,Souleymane Sagnan,,CB,2006,ML,12.2,1
+RC Lens,Thorgan Hazard,,CM,1993,BE,13.4,1
+RC Lens,Mickaël Cuisance,,CM,1999,FR,13.8,1
+RC Lens,Amadou Haïdara,,CM,1998,ML,13.8,1
+RC Lens,Yacine Titraoui,,CM,2003,DZ,13.8,1
+RC Lens,Andrija Bulatović,,CM,2006,ME,14.2,
+RC Lens,Mezian Soares,,CM,2009,PT,11.2,1
+RC Lens,Florian Thauvin,,ST,1993,FR,13.4,1
+RC Lens,Odsonne Édouard,,ST,1998,FR,15,
+RC Lens,Florian Sotoca,,RW,1990,FR,14.4,
+RC Lens,Michał Skóraś,,ST,2000,PL,13.8,1
+RC Lens,Junior Kadile,,ST,2002,FR,13.8,1
+RC Lens,Abdallah Sima,,LW,2001,SN,14.6,
+RC Lens,Franjo Ivanovic,,ST,2003,AT,13.8,1
+AS Monaco,Lukáš Hrádecký,,GK,1989,FI,15,
+AS Monaco,Philipp Köhn,,GK,1998,CH,15,
+AS Monaco,Yann Lienard,,GK,2003,FR,14.1,1
+AS Monaco,Eric Dier,,CB,1994,GB-ENG,14.8,
+AS Monaco,Thilo Kehrer,,CB,1996,DE,15,
+AS Monaco,Jordan Teze,,CB,1999,NL,14.2,
+AS Monaco,Mohammed Salisu,,CB,1999,GH,15,
+AS Monaco,Vanderson de Oliveira Campos,Vanderson,RB,2001,BR,15.4,
+AS Monaco,Flávio Nazinho,,CB,2003,PT,14.5,1
+AS Monaco,Christian Mawissa,,CB,2005,FR,14,
+AS Monaco,Sadibou Sané,,CB,2004,SN,14,
+AS Monaco,Samuel Nibombe,,CB,2007,BE,12.9,1
+AS Monaco,Aleksandr Golovin,,AM,1996,RU,15.4,
+AS Monaco,Denis Zakaria,,DM,1996,CH,15.8,
+AS Monaco,Edan Diop,,CM,2004,FR,13.7,1
+AS Monaco,Lamine Camara,,CM,2004,SN,15.4,
+AS Monaco,Stanis Idumbo-Muzambo,,CM,2005,BE,13.7,1
+AS Monaco,Mamadou Coulibaly,,CM,2004,FR,14,
+AS Monaco,Pape Cabral,,CM,2007,FR,12.9,1
+AS Monaco,Takumi Minamino,,AM,1995,JP,15.2,
+AS Monaco,Ansu Fati,,LW,2002,ES,15,
+AS Monaco,Folarin Balogun,,ST,2001,US,15.4,
+AS Monaco,Matthis Abline,,ST,2003,FR,14.8,
+AS Monaco,Mika Biereth,,ST,2003,DK,15,
+AS Monaco,Paris Brunner,,ST,2006,DE,12.9,1
+AS Monaco,Mathys Detourbet,,ST,2007,FR,12.9,1
+RC Strasbourg,Filip Jørgensen,,GK,2002,DK,14.8,
+RC Strasbourg,Miłosz Piekutowski,,GK,2006,PL,11.7,1
+RC Strasbourg,Ismaël Doukouré,,CB,2003,FR,14.6,
+RC Strasbourg,Andrew Omobamidele,,CB,2002,IE,14.6,
+RC Strasbourg,Abakar Sylla,,CB,2002,CI,13.7,1
+RC Strasbourg,Mateo Del Blanco,,CB,2003,AR,13.7,1
+RC Strasbourg,Lucas Høgsberg,,CB,2006,DK,12.1,1
+RC Strasbourg,Jeyland Mitchell,,CB,2004,CR,12.9,1
+RC Strasbourg,Karim Coulibaly,,CB,2007,DE,12.1,1
+RC Strasbourg,Genesis Antwi,,CB,2007,GB-ENG,12.1,1
+RC Strasbourg,Gio Reyna,,CM,2002,US,13.7,1
+RC Strasbourg,Dario Essugo,,CM,2005,PT,12.9,1
+RC Strasbourg,Pape Diop,,CM,2003,SN,13.7,1
+RC Strasbourg,Maximillian Oyedele,,CM,2004,PL,12.9,1
+RC Strasbourg,Samir El Mourabet,,CM,2005,MA,12.9,1
+RC Strasbourg,Benjamin Brantlind,,CM,2008,SE,11.1,1
+RC Strasbourg,Omari Kellyman,,CM,2005,GB-ENG,12.9,1
+RC Strasbourg,Diogo Lobão,,CM,2006,PT,12.1,1
+RC Strasbourg,Sebastian Nanasi,,LW,2002,SE,14.8,
+RC Strasbourg,Sekou Mara,,ST,2002,FR,13.7,1
+RC Strasbourg,Deivid Washington,,ST,2005,BR,12.9,1
+RC Strasbourg,Joaquín Panichelli,,ST,2002,AR,14.8,
+RC Strasbourg,Martial Godo,,ST,2003,GB-ENG,13.7,1
+RC Strasbourg,Conrad Harder,,ST,2005,DK,14.6,
+RC Strasbourg,Samuel Amo-Ameyaw,,ST,2006,GB-ENG,12.1,1
+RC Strasbourg,Fabio Baldé,,ST,2005,DE,12.9,1
+RC Strasbourg,Oso,,ST,2003,ES,13.7,1
+RC Strasbourg,Gessime Yassine,,ST,2005,FR,12.9,1
+RC Strasbourg,Yaya Diemé,,ST,2007,SN,12.1,1
+RC Strasbourg,Jacobo Ortega,,ST,2006,ES,12.1,1
+Paris FC,Kevin Trapp,,GK,1990,DE,15.2,
+Paris FC,Obed Nkambadio,,GK,2003,FR,14,
+Paris FC,Hamari Traoré,,CB,1992,ML,11.6,1
+Paris FC,Thibault De Smet,,CB,1998,BE,12.6,1
+Paris FC,Samir Chergui,,CB,1999,DZ,12.6,1
+Paris FC,Otavio Ataide,,CB,2002,BR,12.6,1
+Paris FC,Moustapha Mbow,,CB,2000,SN,14.2,
+Paris FC,Yoan Kore,,CB,2004,FR,11.8,1
+Paris FC,Diego Coppola,,CB,2003,IT,12.6,1
+Paris FC,Nhoa Sangui,,LB,2006,FR,14,
+Paris FC,Vincent Marchetti,,CM,1997,FR,14.2,
+Paris FC,Maxime López,,CM,1997,FR,14.6,
+Paris FC,Pierre Lees-Melou,,CM,1993,FR,14.4,
+Paris FC,Adama Camara,,CM,1996,FR,12.6,1
+Paris FC,Patrick Zabi,,CM,2006,CI,11,1
+Paris FC,Rudy Matondo,,CM,2008,FR,10,1
+Paris FC,Lassine Sinayoko,,ST,1999,ML,14.6,
+Paris FC,Moses Simon,,ST,1995,NG,12.2,1
+Paris FC,Jonathan Ikoné,,ST,1998,FR,12.6,1
+Paris FC,Jean-Philippe Krasso,,ST,1997,CI,14.4,
+Paris FC,Ilan Kebbal,,AM,1998,DZ,14.8,
+Paris FC,Pablo Pagis,,LW,2003,FR,14.4,
+Paris FC,Luca Koleosho,,LW,2004,IT,14.4,
+Paris FC,Omar Sissoko,,ST,2006,FR,11,1
+FC Porto,Diogo Costa,,GK,1999,PT,16,
+FC Porto,Cláudio Ramos,,GK,1991,PT,12.6,1
+FC Porto,João Costa Gomes,,GK,1996,PT,13.6,1
+FC Porto,João Afonso,,GK,2007,PT,12,1
+FC Porto,Jan Bednarek,,CB,1996,PL,15,
+FC Porto,Nehuén Pérez,,CB,2000,AR,14,1
+FC Porto,Francisco Moura,,LB,1999,PT,14.6,
+FC Porto,Zaidu Sanusi,,CB,1997,NG,14,1
+FC Porto,Jakub Kiwior,,CB,2000,PL,15.2,
+FC Porto,Alberto Baio,,CB,2003,PT,14,1
+FC Porto,Dominik Prpić,,CB,2004,HR,13.2,1
+FC Porto,Martim Fernandes,,CB,2006,PT,12.4,1
+FC Porto,Souza,,CB,2006,BR,12.4,1
+FC Porto,Seko Fofana,,CM,1995,CI,15,
+FC Porto,Pablo Rosario,,CM,1997,NL,14,1
+FC Porto,Gabri Veiga,,AM,2002,ES,15.4,
+FC Porto,Alan Varela,,DM,2001,AR,15.2,
+FC Porto,In-beom Hwang,Hwang In-beom,CM,1996,KR,15,
+FC Porto,Vasco Sousa,,CM,2003,PT,14,1
+FC Porto,Victor Froholdt,,CM,2006,DK,15,
+FC Porto,Pepê,,ST,1997,BR,14,1
+FC Porto,André Silva,,ST,1995,PT,14.6,
+FC Porto,William da Silva,,ST,2006,BR,12.4,1
+FC Porto,Santiago Giménez,,ST,2001,MX,15.4,
+FC Porto,Borja Sainz,,LW,2001,ES,14.8,
+FC Porto,Gabriel Veron,,ST,2002,BR,14,1
+FC Porto,Oskar Pietuszewski,,ST,2008,PL,11.4,1
+Benfica,Anatoliy Trubin,,GK,2001,UA,15.6,
+Benfica,Samuel Soares,,GK,2002,PT,13.7,1
+Benfica,Clément Lenglet,,CB,1995,FR,15,
+Benfica,Alexander Bah,,CB,1997,DK,14.1,1
+Benfica,Souffian El Karouani,,CB,2000,MA,14.1,1
+Benfica,Samuel Dahl,,LB,2003,SE,14.6,
+Benfica,Alessandro Circati,,CB,2003,AU,14.4,
+Benfica,Tomás Araújo,,CB,2002,PT,15,
+Benfica,Daniel Banjaqui,,CB,2008,PT,11.5,1
+Benfica,José Neto,,CB,2008,PT,11.5,1
+Benfica,Gabriel Índio,,CB,2008,BR,11.5,1
+Benfica,João Palhinha,,DM,1995,PT,15.8,
+Benfica,Fredrik Aursnes,,CM,1995,NO,15.4,
+Benfica,Leandro Barreiro Martins,,CM,2000,LU,14.1,1
+Benfica,Georgiy Sudakov,,AM,2002,UA,15.6,
+Benfica,Enzo Barrenechea,,DM,2001,AR,14.8,
+Benfica,Richard Ríos,,CM,2000,CO,15.4,
+Benfica,Manu Silva,,CM,2001,PT,14.1,1
+Benfica,Dodi Lukébakio,,RW,1997,BE,15.2,
+Benfica,Bruma,,ST,1994,GW,13.7,1
+Benfica,Rafa Silva,,AM,1993,PT,15,
+Benfica,Vangelis Pavlidis,,ST,1998,GR,15.6,
+Benfica,Jhon Durán,,ST,2003,CO,15,
+Benfica,Jakub Kamiński,,ST,2002,PL,14.1,1
+Benfica,Andreas Schjelderup,,LW,2004,DK,15,
+Benfica,Gianluca Prestianni,,ST,2006,AR,12.5,1
+Benfica,Anísio Cabral,,ST,2008,PT,11.5,1
+Vitória SC,Oliwier Zych,,GK,2004,PL,11.1,1
+Vitória SC,Lucas Furtado,,GK,2005,BR,11.1,1
+Vitória SC,Juan Castillo,,GK,2003,CO,11.9,1
+Vitória SC,Miguel Magalhães,,CB,2002,PT,12.3,1
+Vitória SC,Joao Mendes,,CB,2000,PT,12.3,1
+Vitória SC,Ahmed Sidibé,,CB,2002,FR,12.3,1
+Vitória SC,Óscar Rivas,,CB,2000,ES,12.3,1
+Vitória SC,Miguel Nóbrega,,CB,2000,PT,12.3,1
+Vitória SC,Anthony Strata,,CB,2004,FR,11.5,1
+Vitória SC,Thiago Balieiro,,CB,2003,BR,12.3,1
+Vitória SC,Francisco Dias,,CB,2002,PT,12.3,1
+Vitória SC,Samu,,CM,1996,PT,12.3,1
+Vitória SC,Lohann Doucet,,CM,2002,BF,12.3,1
+Vitória SC,Goncalo Nogueira,,CM,2003,PT,12.3,1
+Vitória SC,Beni,,CM,2002,AO,12.3,1
+Vitória SC,Ricardo Rocha,,CM,2003,PT,12.3,1
+Vitória SC,Marco Cruz,,CM,2004,PT,11.5,1
+Vitória SC,Matija Mitrović,,CM,2004,RS,11.5,1
+Vitória SC,Santi Verdi,,CM,2008,PT,9.7,1
+Vitória SC,Telmo Arcanjo,,ST,2001,CV,12.3,1
+Vitória SC,Alioune Ndoye,,ST,2001,SN,12.3,1
+Vitória SC,Vando Félix,,ST,2002,GN,12.3,1
+Vitória SC,Fabio Blanco,,ST,2004,ES,11.5,1
+Vitória SC,Victor Andersson,,ST,2004,SE,11.5,1
+Vitória SC,Rodrigo Macedo,,ST,2003,PT,12.3,1
+Vitória SC,Ederson José dos Santos Lourenço da Silva,Ederson,CM,1999,BR,16,
+Vitória SC,Vignon Ouotro,,ST,2005,CI,11.5,1
+Vitória SC,Miguel Nogueira,,ST,2005,PT,11.5,1
+Vitória SC,Oumar Camara,,ST,2007,FR,10.7,1
+SC Braga,Tiago Sá,,GK,1995,PT,12.3,1
+SC Braga,Bernardo Fontes,,GK,2002,BR,12.7,1
+SC Braga,João Carvalho,,GK,2004,PT,11.9,1
+SC Braga,Sikou Niakaté,,CB,1999,FR,13.1,1
+SC Braga,Vitor Carvalho,,CB,1997,BR,13.1,1
+SC Braga,Bartłomiej Wdowik,,CB,2000,PL,13.1,1
+SC Braga,Victor Perea,,CB,2000,ES,13.1,1
+SC Braga,Bright Arrey-Mbi,,CB,2003,DE,13.1,1
+SC Braga,Sergio Barcia,,CB,2000,ES,13.1,1
+SC Braga,Gustaf Lagerbielke,,CB,2000,SE,13.1,1
+SC Braga,Adrian Leon Barisic,,CB,2001,BA,13.1,1
+SC Braga,Adrian Bajrami,,CB,2002,CH,13.1,1
+SC Braga,Diogo Travassos,,CB,2004,PT,12.3,1
+SC Braga,Jonatás Noro,,CB,2005,PT,12.3,1
+SC Braga,João Moutinho,,CM,1986,PT,12.1,1
+SC Braga,Denis Huseinbasic,,CM,2001,BA,13.1,1
+SC Braga,Gabriel Silva,,CM,2002,BR,13.1,1
+SC Braga,Demir Tiknaz,,CM,2004,TR,12.3,1
+SC Braga,Jean-Baptiste Gorby,,CM,2002,FR,13.1,1
+SC Braga,Arnau Martínez,,RB,2003,ES,14.8,
+SC Braga,Mario Dorgeles,,CM,2004,CI,12.3,1
+SC Braga,Diego Rodrigues,,CM,2005,PT,12.3,1
+SC Braga,Tomy Marqués,,CM,2006,ES,11.5,1
+SC Braga,Luisinho,,CM,2006,PT,11.5,1
+SC Braga,Jonas Wind,,ST,1999,DK,14.6,
+SC Braga,Ricardo Horta,,ST,1994,PT,12.7,1
+SC Braga,Fran Navarro,,ST,1998,ES,13.1,1
+SC Braga,Pau Victor Delgado,,ST,2001,ES,13.1,1
+SC Braga,Jovan Milošević,,ST,2005,RS,12.3,1
+SC Braga,João Aragão,,ST,2008,PT,10.5,1
+FC Twente,Joël Drommel,,GK,1996,NL,12,1
+FC Twente,Lars Unnerstall,,GK,1990,DE,11,1
+FC Twente,Remko Pasveer,,GK,1983,NL,13.8,
+FC Twente,Issam El Maach,,GK,2000,MA,12,1
+FC Twente,Yannick Gerritsen,,GK,2006,NL,10.4,1
+FC Twente,Robin Pröpper,,CB,1993,NL,12,1
+FC Twente,Bart van Rooij,,CB,2001,NL,12.4,1
+FC Twente,Max Bruns,,CB,2002,NL,12.4,1
+FC Twente,Aske Adelgaard,,CB,2003,DK,12.4,1
+FC Twente,Stav Lemkin,,CB,2003,IL,12.4,1
+FC Twente,Juliën Mesbahi,,CB,2006,MA,10.8,1
+FC Twente,Krzysztof Kurowski,,CB,2006,PL,10.8,1
+FC Twente,Guilherme Peixoto,,CB,2006,PT,10.8,1
+FC Twente,Ruud Nijstad,,CB,2008,NL,9.8,1
+FC Twente,Thomas van den Belt,,CM,2001,NL,12.4,1
+FC Twente,Ramiz Zerrouki,,CM,1998,DZ,12.4,1
+FC Twente,Kristian Hlynsson,,CM,2004,IS,11.6,1
+FC Twente,Gijs Besselink,,CM,2004,NL,11.6,1
+FC Twente,Daouda Weidmann,,CM,2003,FR,12.4,1
+FC Twente,Jordy Bawuah,,CM,2006,BE,10.8,1
+FC Twente,Marko Pjaca,,ST,1995,HR,12,1
+FC Twente,Sam Lammers,,ST,1997,NL,12.4,1
+FC Twente,Wout Weghorst,,ST,1992,NL,14.4,
+FC Twente,Naci Ünüvar,,ST,2003,TR,12.4,1
+FC Twente,Taylor Booth,,ST,2001,US,12.4,1
+FC Twente,Daan Rots,,ST,2001,NL,12.4,1
+FC Twente,Younes Taha,,ST,2002,MA,12.4,1
+FC Twente,Filip Thorvaldsen,,ST,2006,NO,10.8,1
+FC Twente,Lucas Vennegoor of Hesselink,,ST,2006,NL,10.8,1
+FC Twente,Sondre Ørjasæter,,ST,2003,NO,12.4,1
+PSV,Nick Olij,,GK,1995,NL,13,1
+PSV,Matej Kovář,,GK,2000,CZ,14.6,
+PSV,Tijn Smolenaars,,GK,2005,NL,12.6,1
+PSV,Filip Kostić,,LW,1992,RS,14.4,
+PSV,Armando Obispo,,CB,1999,CW,13.8,1
+PSV,Mauro Júnior,,CB,1999,BR,13.8,1
+PSV,Lutsharel Geertruida,,CB,2000,NL,13.8,1
+PSV,Sergiño Dest,,CB,2000,US,13.8,1
+PSV,Kiliann Sildillia,,CB,2002,FR,13.8,1
+PSV,Adamo Nagalo,,CB,2002,BF,13.8,1
+PSV,Ryan Flamingo,,CB,2002,NL,13.8,1
+PSV,Yarek Gasiorowski,,CB,2005,ES,13,1
+PSV,Fabian Merién,,CB,2008,NL,11.2,1
+PSV,Guus Til,,AM,1997,NL,14.8,
+PSV,Jerdy Schouten,,DM,1997,NL,15,
+PSV,Sven Mijnans,,CM,2000,NL,13.8,1
+PSV,Paul Wanner,,CM,2005,AT,13,1
+PSV,Isaac Babadi,,CM,2005,NL,13,1
+PSV,Kodai Sano,,CM,2003,JP,13.8,1
+PSV,Joel van den Berg,,CM,2007,NL,12.2,1
+PSV,Noah Fernandez,,CM,2008,BE,11.2,1
+PSV,Ivan Perišić,,LW,1989,HR,14.8,
+PSV,Alassane Pléa,,ST,1993,FR,13.4,1
+PSV,Dennis Man,,ST,1998,RO,13.8,1
+PSV,Ricardo Pepi,,ST,2003,US,14.8,
+PSV,Ruben van Bommel,,ST,2004,NL,13,1
+PSV,Esmir Bajraktarevic,,ST,2005,BA,13,1
+PSV,Sami Ouaissa,,ST,2004,NL,13,1
+PSV,Amir Bouhamdi,,ST,2008,NL,11.2,1
+Feyenoord,Liam Bossin,,GK,1996,IE,13.2,1
+Feyenoord,Florian Kastenmeier,,GK,1996,DE,13.2,1
+Feyenoord,Tjark Ernst,,GK,2003,DE,13.2,1
+Feyenoord,Mannou Berger,,GK,2004,NL,12.4,1
+Feyenoord,Jerry St. Juste,,CB,1996,NL,13.6,1
+Feyenoord,Bart Nieuwkoop,,CB,1996,NL,13.6,1
+Feyenoord,Jordan Lotomba,,CB,1998,CH,13.6,1
+Feyenoord,Mats Deijl,,CB,1997,NL,13.6,1
+Feyenoord,Gijs Smal,,CB,1997,NL,13.6,1
+Feyenoord,Diego López,,LW,2002,ES,15,
+Feyenoord,Tsuyoshi Watanabe,,CB,1997,JP,13.6,1
+Feyenoord,Jordan Bos,,CB,2002,AU,13.6,1
+Feyenoord,Mika Marmol,,CB,2001,ES,13.6,1
+Feyenoord,Thomas Beelen,,CB,2001,NL,13.6,1
+Feyenoord,Givairo Read,,CB,2004,NL,12.8,1
+Feyenoord,Thijs Kraaijeveld,,CB,2007,NL,12,1
+Feyenoord,Tijme Wessels,,CB,2007,NL,12,1
+Feyenoord,Charles Vanhoutte,,CM,1998,BE,14.4,
+Feyenoord,Sem Steijn,,CM,2001,NL,13.6,1
+Feyenoord,Jakub Moder,,CM,1999,PL,13.6,1
+Feyenoord,Oussama Targhalline,,CM,2002,MA,13.6,1
+Feyenoord,Luciano Valente,,CM,2003,NL,13.6,1
+Feyenoord,Gjivai Zechiël,,CM,2004,NL,12.8,1
+Feyenoord,Tobias van den Elshout,,CM,2007,NL,12,1
+Feyenoord,Gonçalo Borges,,ST,2001,PT,13.6,1
+Feyenoord,Nacho Ferri,,ST,2004,ES,12.8,1
+Feyenoord,Anis Hadj Moussa,,RW,2002,DZ,14.8,
+Feyenoord,Gaoussou Diarra,,ST,2002,ML,13.6,1
+Feyenoord,Shaqueel van Persie,,ST,2006,NL,12,1
+Feyenoord,Jivayno Zinhagel,,ST,2009,NL,11,1
+Ajax,Marc-André ter Stegen,,GK,1992,DE,16,
+Ajax,Maarten Paes,,GK,1998,ID,13.1,1
+Ajax,Joeri Heerkens,,GK,2006,NL,11.5,1
+Ajax,Caio Henrique,,LB,1997,BR,15,
+Ajax,Owen Wijndal,,CB,1999,NL,13.5,1
+Ajax,Daley Blind,,CB,1990,NL,14.8,
+Ajax,Youri Baas,,LB,2003,NL,14.6,
+Ajax,Anton Gaaei,,CB,2002,DK,13.5,1
+Ajax,Lucas Rosa,,CB,2000,BR,13.5,1
+Ajax,Dies Janse,,CB,2006,NL,11.9,1
+Ajax,Aaron Bouwman,,CB,2007,NL,11.9,1
+Ajax,Jofre Torrents,,CB,2007,ES,11.9,1
+Ajax,Julian Brandt,,AM,1996,DE,15.6,
+Ajax,Sofyan Amrabat,,DM,1996,MA,15.4,
+Ajax,Davy Klaassen,,AM,1993,NL,14.4,
+Ajax,Oscar Gloch,,CM,2004,IL,12.7,1
+Ajax,Jorthy Mokio,,CM,2008,BE,10.9,1
+Ajax,Rayane Bounida,,CM,2006,BE,11.9,1
+Ajax,Abdellah Ouazane,,CM,2009,MA,10.9,1
+Ajax,Steven Berghuis,,ST,1991,NL,12.5,1
+Ajax,Kasper Dolberg,,ST,1997,DK,13.5,1
+Ajax,Viktor Tsyhankov,,ST,1997,UA,13.5,1
+Ajax,Tolu Arokodare,,ST,2000,NG,14.6,
+Ajax,Oliver Edvardsen,,ST,1999,NO,13.5,1
+Ajax,Marcos Leonardo Almeida,,ST,2003,BR,13.5,1
+Ajax,Amourricho van Axel Dongen,,ST,2004,NL,12.7,1
+AZ Alkmaar,Jeroen Zoet,,GK,1991,NL,11.4,1
+AZ Alkmaar,Jari De Busser,,GK,1999,BE,12.4,1
+AZ Alkmaar,Hobie Verhulst,,GK,1993,NL,12,1
+AZ Alkmaar,Rome Owusu-Oduro,,GK,2004,NL,11.6,1
+AZ Alkmaar,Wesley Hoedt,,CB,1994,NL,12.4,1
+AZ Alkmaar,Mees De Wit,,CB,1998,NL,12.8,1
+AZ Alkmaar,Denso Kasius,,CB,2002,NL,12.8,1
+AZ Alkmaar,Seiya Maikuma,,CB,1997,JP,12.8,1
+AZ Alkmaar,Maxim Dekker,,CB,2004,NL,12,1
+AZ Alkmaar,Wouter Goes,,CB,2004,NL,12,1
+AZ Alkmaar,Lewis Schouten,,CB,2004,NL,12,1
+AZ Alkmaar,Sam De Grand,,CB,2004,NL,12,1
+AZ Alkmaar,Mateo Chávez,,CB,2004,MX,12,1
+AZ Alkmaar,Elijah Dijkstra,,CB,2006,NL,11.2,1
+AZ Alkmaar,Andrea Natali,,CB,2008,IT,10.2,1
+AZ Alkmaar,Rion Ichihara,,CB,2005,JP,12,1
+AZ Alkmaar,Jordy Clasie,,CM,1991,NL,11.8,1
+AZ Alkmaar,Peer Koopmeiners,,CM,2000,NL,12.8,1
+AZ Alkmaar,Stije Resink,,CM,2003,NL,12.8,1
+AZ Alkmaar,Valdemar Andreasen,,CM,2005,DK,12,1
+AZ Alkmaar,Dave Kwakman,,CM,2004,NL,12,1
+AZ Alkmaar,Kees Smit,,CM,2006,NL,11.2,1
+AZ Alkmaar,Jizz Hornkamp,,ST,1998,NL,12.8,1
+AZ Alkmaar,Calvin Stengs,,ST,1998,NL,12.8,1
+AZ Alkmaar,Ibrahim Sadiq,,ST,2000,GH,12.8,1
+AZ Alkmaar,Mexx Meerdink,,ST,2003,NL,12.8,1
+AZ Alkmaar,Ro-Zangelo Daal,,ST,2004,NL,12,1
+AZ Alkmaar,Weslley Patati,,ST,2003,BR,12.8,1
+AZ Alkmaar,Ayoub Oufkir,,ST,2006,NL,11.2,1
+AZ Alkmaar,Wassim Bouziane,,ST,2006,NL,11.2,1
+AZ Alkmaar,Bendegúz Kovács,,ST,2007,HU,11.2,1
+Fluminense,Vitor Eudes,,GK,1998,BR,12,1
+Fluminense,Marcelo Pitaluga,,GK,2002,BR,12,1
+Fluminense,Gustavo Ramalho,,GK,2002,BR,12,1
+Fluminense,Lucas Emanuel,,GK,2008,BR,9.4,1
+Fluminense,Samuel Xavier,,CB,1990,BR,11.4,1
+Fluminense,Igor Rabello,,CB,1995,BR,12,1
+Fluminense,Renê,,CB,1992,BR,11.4,1
+Fluminense,Guga,,CB,1998,BR,12.4,1
+Fluminense,Guilherme Arana,,CB,1997,BR,12.4,1
+Fluminense,Ignácio,,CB,1996,BR,12.4,1
+Fluminense,Juan Freytes,,CB,2000,AR,12.4,1
+Fluminense,Julio Cesar,,CB,2006,BR,10.8,1
+Fluminense,Jemmes,,CB,2000,BR,12.4,1
+Fluminense,Davi Schuindt,,CB,2004,BR,11.6,1
+Fluminense,Ganso,,CM,1989,BR,11.4,1
+Fluminense,Alisson Becker,Alisson,GK,1992,BR,17,
+Fluminense,Otávio,,CM,1994,BR,12,1
+Fluminense,Yeferson Soteldo,,CM,1997,VE,12.4,1
+Fluminense,David Terans,,CM,1994,UY,12,1
+Fluminense,Nonato,,CM,1998,BR,12.4,1
+Fluminense,Luciano Acosta,,CM,1994,AR,12,1
+Fluminense,Jefferson Savarino,,CM,1996,VE,12.4,1
+Fluminense,Julián Millán,,CM,1998,CO,12.4,1
+Fluminense,Hércules,,CM,2000,BR,12.4,1
+Fluminense,Gabriel Martinelli,,LW,2001,BR,16,
+Fluminense,João Pedro,,ST,2001,BR,16.4,
+Fluminense,Facundo Bernal,,CM,2003,UY,12.4,1
+Fluminense,Kaio,,CM,2007,BR,10.8,1
+Fluminense,Breno,,CM,2007,BR,10.8,1
+Fluminense,Davi Melo,,CM,2005,BR,11.6,1
+Fluminense,Vagno,,CM,2007,BR,10.8,1
+Fluminense,Naarã Teixeira,,CM,2008,BR,9.8,1
+Fluminense,Hulk,,ST,1986,BR,11.4,1
+Fluminense,Germán Cano,,ST,1988,AR,11.4,1
+Fluminense,Agustín Canobbio,,ST,1998,UY,12.4,1
+Fluminense,Yago,,ST,2001,BR,12.4,1
+Fluminense,Kevin Serna,,ST,1997,CO,12.4,1
+Fluminense,Rodrigo Castillo,,ST,1999,AR,12.4,1
+Fluminense,Agner Moura,,ST,2005,BR,11.6,1
+Fluminense,Matheus Reis,,ST,2007,MX,10.8,1
+Fluminense,Riquelme Felipe,,ST,2007,BR,10.8,1
+Fluminense,Oliver,,ST,2007,BR,10.8,1
+Fluminense,Keven Samuel,,ST,2007,BR,10.8,1
+Fluminense,Wesley Natã,,ST,2008,BR,9.8,1
+Fluminense,Kelwin,,ST,2006,BR,10.8,1
+Fluminense,John Kennedy,,ST,2002,BR,12.4,1
+Palmeiras,Marcelo Lomba,,GK,1986,BR,11.7,1
+Palmeiras,Carlos Miguel,,GK,1998,BR,12.7,1
+Palmeiras,Wanderson Ferreira,,GK,2005,BR,11.9,1
+Palmeiras,Luiz Sá,,GK,2007,BR,11.1,1
+Palmeiras,Kauan Lima,,GK,2007,BR,11.1,1
+Palmeiras,Gustavo Gómez,,CB,1993,PY,14.8,
+Palmeiras,Joaquín Piquerez,,CB,1998,UY,13.1,1
+Palmeiras,Alexander Barboza,,CB,1995,AR,12.7,1
+Palmeiras,Bruno Fuchs,,CB,1999,BR,13.1,1
+Palmeiras,Khellven,,CB,2001,BR,13.1,1
+Palmeiras,Murilo Cerqueira,,CB,1997,BR,13.1,1
+Palmeiras,Agustin Giay,,CB,2004,AR,12.3,1
+Palmeiras,Jefte,,CB,2003,BR,13.1,1
+Palmeiras,Luis Gustavo,,CB,2006,BR,11.5,1
+Palmeiras,Arthur Santana,,CB,2005,BR,12.3,1
+Palmeiras,Meykson Silmark,,CB,2006,BR,11.5,1
+Palmeiras,Koné Zié Mohamed,,CB,2007,CI,11.5,1
+Palmeiras,Marlon Freitas,,CM,1995,BR,14.4,
+Palmeiras,Jhon Arias,,CM,1997,CO,13.1,1
+Palmeiras,Lucas Evangelista,,CM,1995,BR,12.7,1
+Palmeiras,Mauricio,,CM,2001,PY,13.1,1
+Palmeiras,Emiliano Martínez,,CM,1999,UY,13.1,1
+Palmeiras,Vitor de Almeida,,CM,2005,BR,12.3,1
+Palmeiras,Vitor Figueiredo,,CM,2006,BR,11.5,1
+Palmeiras,Victor Gabriel,,CM,2006,BR,11.5,1
+Palmeiras,Rafael Coutinho,,CM,2006,BR,11.5,1
+Palmeiras,Erick Machado,,CM,2007,BR,11.5,1
+Palmeiras,Luis Pacheco,,CM,2008,BR,10.5,1
+Palmeiras,Gabriel Silva,,CM,2007,BR,11.5,1
+Palmeiras,Eduardo Conceição,,CM,2009,BR,10.5,1
+Palmeiras,Paulinho,,ST,2000,BR,13.1,1
+Palmeiras,Ramón Sosa,,LW,1999,PY,14.6,
+Palmeiras,José Manuel López,,ST,2000,AR,14.8,
+Palmeiras,Luighi Hanri,,ST,2006,BR,11.5,1
+Palmeiras,Riquelme Fillipi,,ST,2006,BR,11.5,1
+Palmeiras,Larson,,ST,2005,BR,12.3,1
+Palmeiras,Allan,,ST,2004,BR,12.3,1
+Palmeiras,Heittor da Silva,,ST,2007,BR,11.5,1
+Palmeiras,Vitor Roque,,ST,2005,BR,15,
+Palmeiras,Andreas Pereira,,CM,1996,BR,15,
+Palmeiras,Felipe Anderson,,LW,1993,BR,12.7,1
+Botafogo,Neto,,GK,1989,BR,11.2,1
+Botafogo,Raul,,GK,1997,BR,12.2,1
+Botafogo,Leo Linck,,GK,2001,BR,12.2,1
+Botafogo,Cristhian Loor,,GK,2006,EC,10.6,1
+Botafogo,Rhyan Luca,,GK,2006,BR,10.6,1
+Botafogo,Vitinho,,CB,1999,BR,12.6,1
+Botafogo,Marçal,,CB,1989,BR,11.6,1
+Botafogo,Alex Telles,,LB,1992,BR,14.2,
+Botafogo,Nahuel Ferraresi,,CB,1998,VE,12.6,1
+Botafogo,Kaio Pantaleão,,CB,1995,BR,12.2,1
+Botafogo,Caio Roque,,CB,2002,BR,12.6,1
+Botafogo,Mateo Ponte,,CB,2003,UY,12.6,1
+Botafogo,Bastos,,CB,1991,AO,11.6,1
+Botafogo,Jhoan Hernández,,CB,2006,CO,11,1
+Botafogo,Ythallo,,CB,2004,BR,11.8,1
+Botafogo,Anthony,,CB,2005,BR,11.8,1
+Botafogo,Wallace,,CB,2007,BR,11,1
+Botafogo,Victor Hugo,,CB,2007,BR,11,1
+Botafogo,Caio Valle,,CB,2007,BR,11,1
+Botafogo,Carlos Santos,,CB,2005,BR,11.8,1
+Botafogo,Gabriel Pereira,,CB,2006,BR,11,1
+Botafogo,Gabriel Abdias,,CB,2006,BR,11,1
+Botafogo,Marcos Vinagre,,CB,2007,BR,11,1
+Botafogo,Pedro de Paula,,CB,2008,BR,10,1
+Botafogo,João Lira,,CB,2008,BR,10,1
+Botafogo,Arthur Alves,,CB,2008,BR,10,1
+Botafogo,Edenilson,,CM,1989,BR,11.6,1
+Botafogo,Allan,,CM,1991,BR,11.6,1
+Botafogo,Brian Rodríguez,,LW,2000,UY,14.4,
+Botafogo,Danilo dos Santos de Oliveira,,CM,2001,BR,12.6,1
+Botafogo,Cristian Medina,,CM,2002,AR,12.6,1
+Botafogo,Lucas Villalba,,CM,2001,UY,12.6,1
+Botafogo,Matheus Martins,,CM,2003,BR,12.6,1
+Botafogo,Bernardo Valim,,CM,2006,BR,11,1
+Botafogo,Newton,,CM,2000,BR,12.6,1
+Botafogo,Jordan Barrera,,CM,2006,CO,11,1
+Botafogo,Kaua Branco,,CM,2006,BR,11,1
+Botafogo,Alvaro Montoro,,CM,2007,AR,11,1
+Botafogo,Lucyo,,CM,2006,BR,11,1
+Botafogo,Lucas Camilo,,CM,2006,BR,11,1
+Botafogo,Zappelini,,CM,2007,BR,11,1
+Botafogo,Kauan,,CM,2006,BR,11,1
+Botafogo,Samuel da Silva,,CM,2008,BR,10,1
+Botafogo,Davi Alves,,CM,2008,BR,10,1
+Botafogo,Felipe Januário,,CM,2007,BR,11,1
+Botafogo,Joaquín Correa,,ST,1994,AR,12.2,1
+Botafogo,Júnior Santos,,ST,1994,BR,12.2,1
+Botafogo,Chris Ramos,,ST,1997,ES,12.6,1
+Botafogo,Weliton Santos,,ST,2005,BR,11.8,1
+Botafogo,Nathan Ribeiro,,ST,2005,BR,11.8,1
+Botafogo,Arthur Izaque,,ST,2007,BR,11,1
+Botafogo,Kadir Barría,,ST,2007,PA,11,1
+Botafogo,Rogerio Medeiros,,ST,2008,BR,10,1
+Botafogo,Matheusinho,,ST,2007,BR,11,1
+Botafogo,Miguel Caldas,,ST,2008,BR,10,1
+Botafogo,Arthur Cabral,,ST,1998,BR,12.6,1
+São Paulo,Carlos Coronel,,GK,1996,PY,11.8,1
+São Paulo,Rafael Monteiro,,GK,1989,BR,10.8,1
+São Paulo,Young,,GK,2002,BR,11.8,1
+São Paulo,Felipe,,GK,2005,BR,11,1
+São Paulo,João Pedro,,ST,2001,BR,16.4,
+São Paulo,Robert Arboleda,,CB,1991,EC,11.2,1
+São Paulo,Lucas Ramon,,CB,1994,BR,11.8,1
+São Paulo,Alan Franco,,CB,1996,AR,12.2,1
+São Paulo,Enzo Díaz,,CB,1995,AR,11.8,1
+São Paulo,Luan,,CB,1999,BR,12.2,1
+São Paulo,José Sabino,,CB,1996,BR,12.2,1
+São Paulo,Sávio Moreira,Savinho,RW,2004,BR,15.9,
+São Paulo,Matheus Doria,,CB,1994,BR,11.8,1
+São Paulo,Matheus Belém,,CB,2003,BR,12.2,1
+São Paulo,Igor Teixeira,,CB,2007,BR,10.6,1
+São Paulo,Isac,,CB,2006,BR,10.6,1
+São Paulo,Igor Odoni,,CB,2007,BR,10.6,1
+São Paulo,Pedro Henrique,,CB,2007,BR,10.6,1
+São Paulo,Nicolas,,CB,2007,BR,10.6,1
+São Paulo,Raphael,,CB,2005,BR,11.4,1
+São Paulo,Luis Osorio,,CB,2006,BR,10.6,1
+São Paulo,Lucas Moura,,CM,1992,BR,11.2,1
+São Paulo,Cauly,,CM,1995,BR,11.8,1
+São Paulo,Danielzinho,,CM,1994,BR,11.8,1
+São Paulo,Marcos Antônio,,CM,2000,BR,12.2,1
+São Paulo,Ferreira,,CM,1997,BR,12.2,1
+São Paulo,Damian Bobadilla,,CM,2001,PY,12.2,1
+São Paulo,Pablo Maia,,CM,2002,BR,12.2,1
+São Paulo,Felipe Negrucci,,CM,2004,BR,11.4,1
+São Paulo,Mateus Manso,,CM,2004,BR,11.4,1
+São Paulo,Pedrinho,,CM,2007,BR,10.6,1
+São Paulo,Maik,,CM,2005,BR,11.4,1
+São Paulo,Hugo,,CM,2004,BR,11.4,1
+São Paulo,Djhordney,,CM,2007,BR,10.6,1
+São Paulo,Artur Guimaraes,,ST,1998,BR,12.2,1
+São Paulo,Jonathan Calleri,,ST,1993,AR,11.8,1
+São Paulo,Luciano,,ST,1993,BR,11.8,1
+São Paulo,André Silva,,ST,1997,BR,12.2,1
+São Paulo,Gonzalo Tapia,,ST,2002,CL,12.2,1
+São Paulo,Ryan Rodrigues,,ST,2006,BR,10.6,1
+São Paulo,Lucca Marques,,ST,2007,BR,10.6,1
+São Paulo,Paulo Sérgio,,ST,2005,BR,11.4,1
+São Paulo,Perivan,,ST,2007,BR,10.6,1
+São Paulo,Wendell,,LB,1993,BR,11.8,1
+São Paulo,Cédric,,RB,1991,PT,11.2,1
+São Paulo,Rafael Tolói,,CB,1990,IT,11.2,1
+Corinthians,Vinícius Souza,,DM,1999,BR,14.6,
+Corinthians,Matheus Donelli,,GK,2002,BR,11.8,1
+Corinthians,Kauê,,GK,2004,BR,11,1
+Corinthians,Felipexxx,,GK,2005,BR,11,1
+Corinthians,Matheuzinho,,CB,2000,BR,12.2,1
+Corinthians,André Ramalho,,CB,1992,BR,11.2,1
+Corinthians,Raniele,,CB,1996,BR,12.2,1
+Corinthians,Hugo,,CB,1997,BR,12.2,1
+Corinthians,Pedro Milans,,CB,2002,UY,12.2,1
+Corinthians,Bidu,,CB,1999,BR,12.2,1
+Corinthians,Andrey Santos,,CM,2004,BR,15.2,
+Corinthians,João Pedro,,ST,2001,BR,16.4,
+Corinthians,Guilherme Pellegrin,,CB,2006,BR,10.6,1
+Corinthians,João Vitor,,CB,2007,BR,10.6,1
+Corinthians,André Luiz,,CB,2006,BR,10.6,1
+Corinthians,João Vitor,,CB,2005,BR,11.4,1
+Corinthians,Iago da Silva,,CB,2009,BR,9.6,1
+Corinthians,Charles,,CM,1996,BR,12.2,1
+Corinthians,Alex Santana,,CM,1995,BG,11.8,1
+Corinthians,Matheus Pereira,,CM,1998,BR,12.2,1
+Corinthians,Jesse Lingard,,CM,1992,GB-ENG,11.2,1
+Corinthians,Zakaria Labyad,,CM,1993,MA,11.8,1
+Corinthians,André Carrillo,,CM,1991,PE,11.2,1
+Corinthians,Allan,,CM,1997,BR,12.2,1
+Corinthians,Rodrigo Garro,,CM,1998,AR,12.2,1
+Corinthians,Bidon,,CM,2005,BR,11.4,1
+Corinthians,Kayke,,CM,2004,BR,11.4,1
+Corinthians,Yago,,CM,2006,BR,10.6,1
+Corinthians,Guilherme,,CM,2007,BR,10.6,1
+Corinthians,Luiz de Nardi,,CM,2007,BR,10.6,1
+Corinthians,Luiz Eduardo,,CM,2007,BR,10.6,1
+Corinthians,Luiz Gustavo,,CM,2006,BR,10.6,1
+Corinthians,Guilherme Amorim,,CM,2008,BR,9.6,1
+Corinthians,Yuri Alberto,,ST,2001,BR,12.2,1
+Corinthians,Memphis Depay,,ST,1994,NL,11.8,1
+Corinthians,Vitinho,,ST,1993,BR,11.8,1
+Corinthians,Pedro Raul,,ST,1996,BR,12.2,1
+Corinthians,Dieguinho,,ST,2007,BR,10.6,1
+Corinthians,Nícollas Mello,,ST,2008,BR,9.6,1
+Corinthians,Fabrizio Angileri,,LB,1994,AR,11.8,1
+Corinthians,Gabriel Paulista,,CB,1990,BR,11.2,1
+Corinthians,Gustavo Henrique,,CB,1993,BR,11.8,1
+Corinthians,Kaio César,,RW,2004,BR,11.4,1
+Flamengo,Agustín Rossi,,GK,1995,AR,14.8,
+Flamengo,Andrew,,GK,2001,BR,12.8,1
+Flamengo,Francisco Dyogo,,GK,2004,BR,12,1
+Flamengo,Léo Nannetti,,GK,2007,BR,11.2,1
+Flamengo,Pedro Henrique,,GK,2008,BR,10.2,1
+Flamengo,Ayrton Lucas,,CB,1997,BR,13.2,1
+Flamengo,Léo Ortiz,,CB,1996,BR,14.8,
+Flamengo,Alex Sandro,,LB,1991,BR,14.4,
+Flamengo,Guillermo Varela,,CB,1993,UY,12.8,1
+Flamengo,Danilo Luiz da Silva,Danilo,RB,1991,BR,14.6,
+Flamengo,Andreas Pereira,,CM,1996,BR,15,
+Flamengo,Vitão,,CB,2000,BR,13.2,1
+Flamengo,Daniel Sales,,CB,2006,BR,11.6,1
+Flamengo,João Pedro,,ST,2001,BR,16.4,
+Flamengo,Gusttavo,,CB,2006,BR,11.6,1
+Flamengo,Johnny Goes,,CB,2007,BR,11.6,1
+Flamengo,Antonio Da Silva,,CB,2006,BR,11.6,1
+Flamengo,Daniel Carvalho,,CB,2009,BR,10.6,1
+Flamengo,Giorgian de Arrascaeta,,AM,1994,UY,15.4,
+Flamengo,Lucas Paquetá,,AM,1997,BR,16,
+Flamengo,Erick Pulgar,,DM,1994,CL,14.4,
+Flamengo,Jorge Carrascal,,AM,1998,CO,14.8,
+Flamengo,Gonzalo Plata,,RW,2000,EC,14.6,
+Flamengo,Nicolas de la Cruz,,CM,1997,UY,13.2,1
+Flamengo,Evertton,,CM,2003,BR,13.2,1
+Flamengo,Yan,,CM,2005,BR,12.4,1
+Flamengo,João Victor,,CM,2007,BR,11.6,1
+Flamengo,Pablo Lucio,,CM,2007,BR,11.6,1
+Flamengo,Lucas,,CM,2007,BR,11.6,1
+Flamengo,Luiz Felipe,,CM,2008,BR,10.6,1
+Flamengo,Joshua,,CM,2007,BR,11.6,1
+Flamengo,Ramires,,CM,2006,BR,11.6,1
+Flamengo,João Vitor,,CM,2009,BR,10.6,1
+Flamengo,Kaio,,CM,2007,BR,11.6,1
+Flamengo,Kaio Júnior,,CM,2007,BR,11.6,1
+Flamengo,Juan Sayago,,CM,2007,AR,11.6,1
+Flamengo,Pedro Guilherme Abreu dos Santos,Pedro,ST,1997,BR,15,
+Flamengo,Éverton,,ST,1996,BR,13.2,1
+Flamengo,Bruno Henrique,,ST,1990,BR,12.2,1
+Flamengo,Luiz Araújo,,ST,1996,BR,13.2,1
+Flamengo,Guilherme,,ST,2006,BR,11.6,1
+Flamengo,Douglas Telles,,ST,2007,BR,11.6,1
+Flamengo,João Paulo,,ST,2007,BR,11.6,1
+Flamengo,Alan Silva,,ST,2007,BR,11.6,1
+Flamengo,Ryan de Oliveira,,ST,2008,BR,10.6,1
+Flamengo,Samuel Lino,,LW,1999,BR,14.8,
+Flamengo,Jorge Luiz Frello Filho,Jorginho,DM,1991,IT,15,
+Flamengo,Emerson Royal,,RB,1999,BR,13.2,1
+Flamengo,Saúl Ñíguez,,CM,1994,ES,14.6,
+Slavia Praha,Wiktor Nowak,,CM,2004,PL,12.1,1
+Girona,Paulo Gazzaniga,,GK,1992,AR,15,
+Girona,David López,,CB,1989,ES,14.4,
+Girona,Alejandro Francés,,CB,2002,ES,14.4,
+Girona,Álex Moreno,,LB,1993,ES,14.6,
+Girona,Thomas Lemar,,CM,1995,FR,14.8,
+Girona,Donny van de Beek,,CM,1997,NL,14.6,
+Girona,Azzedine Ounahi,,CM,2000,MA,15,
+Girona,Viktor Tsygankov,,RW,1997,UA,15.6,
+Girona,Bryan Gil,,LW,2001,ES,14.8,
+Girona,Joel Roca,,LW,2005,ES,14.4,
+Girona,Cristhian Stuani,,ST,1986,UY,14.4,
+Girona,Abel Ruiz,,ST,2000,ES,14.8,
+Girona,Vladyslav Vanat,,ST,2002,UA,15,
+Mallorca,Martin Valjent,,CB,1995,SK,14.8,
+Mallorca,Antonio Raíllo,,CB,1991,ES,14.6,
+Mallorca,Samú Costa,,DM,2000,PT,15,
+Mallorca,Manu Morlanes,,CM,1999,ES,14.6,
+Mallorca,Omar Mascarell,,DM,1993,ES,14.2,
+Mallorca,Sergi Darder,,AM,1993,ES,14.8,
+Mallorca,Dani Rodríguez,,AM,1988,ES,14.4,
+Mallorca,Takuma Asano,,RW,1994,JP,14.6,
+Mallorca,Jan Virgili,,LW,2006,ES,14.4,
+Mallorca,Vedat Muriqi,,ST,1994,XK,15,
+Mallorca,Abdón Prats,,ST,1992,ES,14.2,
+Mallorca,Mateo Joseph,,ST,2003,ES,14.4,
+Real Oviedo,Aarón Escandell,,GK,1995,ES,14.2,
+Real Oviedo,David Costas,,CB,1995,ES,13.8,
+Real Oviedo,Dani Calvo,,CB,1994,ES,13.8,
+Real Oviedo,Rahim Alhassane,,LB,2002,GH,13.8,
+Real Oviedo,Santiago Colombatto,,CM,1997,AR,14.2,
+Real Oviedo,Kwasi Sibo,,DM,1998,GH,14,
+Real Oviedo,Alberto Reina,,CM,1997,ES,13.8,
+Real Oviedo,Santi Cazorla,,AM,1984,ES,14,
+Real Oviedo,Luka Ilić,,AM,1999,RS,14.2,
+Real Oviedo,Ilyas Chaira,,LW,2001,MA,14.2,
+Real Oviedo,Haissem Hassan,,RW,2002,FR,14,
+Real Oviedo,Salomón Rondón,,ST,1989,VE,14.4,
+Real Oviedo,Federico Viñas,,ST,1998,UY,14,
+Hellas Verona,Victor Nelsson,,CB,1998,DK,14.4,
+Hellas Verona,Domagoj Bradarić,,LB,1999,HR,14.4,
+Hellas Verona,Suat Serdar,,CM,1997,DE,14.4,
+Hellas Verona,Abdou Harroui,,CM,1998,NL,14.2,
+Hellas Verona,Tomáš Suslov,,AM,2002,SK,14.6,
+Hellas Verona,Amin Sarr,,ST,2001,SE,14.4,
+Hellas Verona,Daniel Mosquera,,ST,1999,CO,14.2,
+Cremonese,Federico Baschirotto,,CB,1996,IT,14.2,
+Cremonese,Matteo Bianchetti,,CB,1993,IT,13.8,
+Cremonese,Giuseppe Pezzella,,LB,1997,IT,14,
+Cremonese,Alberto Grassi,,CM,1995,IT,13.8,
+Cremonese,Franco Vázquez,,AM,1989,AR,14,
+Cremonese,Jari Vandeputte,,LW,1996,BE,14.2,
+Cremonese,Federico Bonazzoli,,ST,1997,IT,14.2,
+Cremonese,Jamie Vardy,,ST,1987,GB-ENG,14.8,
+Cremonese,Antonio Sanabria,,ST,1996,PY,14.2,
+Pisa,Adrian Šemper,,GK,1998,HR,14,
+Pisa,Antonio Caracciolo,,CB,1990,IT,13.8,
+Pisa,Arturo Calabresi,,CB,1996,IT,13.8,
+Pisa,Simone Canestrelli,,CB,2000,IT,14,
+Pisa,Marius Marin,,CM,1998,RO,14,
+Pisa,Juan Cuadrado,,RW,1988,CO,14,
+Pisa,M'Bala Nzola,,ST,1996,AO,14.4,
+Pisa,Stefano Moreo,,ST,1993,IT,14,
+VfL Wolfsburg,Denis Vavro,,CB,1996,SK,14.6,
+VfL Wolfsburg,Moritz Jenz,,CB,1999,DE,14.4,
+VfL Wolfsburg,Joakim Mæhle,,RB,1997,DK,14.8,
+VfL Wolfsburg,Kilian Fischer,,RB,2000,DE,14.4,
+VfL Wolfsburg,Maximilian Arnold,,CM,1994,DE,15,
+VfL Wolfsburg,Christian Eriksen,,CM,1992,DK,15,
+VfL Wolfsburg,Mattias Svanberg,,CM,1999,SE,14.8,
+VfL Wolfsburg,Lovro Majer,,AM,1998,HR,14.8,
+FC St. Pauli,Nikola Vasilj,,GK,1995,BA,14.8,
+FC St. Pauli,Hauke Wahl,,CB,1994,DE,14.4,
+FC St. Pauli,Eric Smith,,CB,1997,SE,14.6,
+FC St. Pauli,Karol Mets,,CB,1993,EE,14,
+FC St. Pauli,Louis Oppie,,LB,2002,DE,13.8,
+FC St. Pauli,Manolis Saliakas,,RB,1996,GR,14.2,
+FC St. Pauli,Jackson Irvine,,CM,1993,AU,14.6,
+FC St. Pauli,Joel Chima Fujita,,CM,2002,JP,14.4,
+FC St. Pauli,James Sands,,DM,2000,US,14.2,
+FC St. Pauli,Connor Metcalfe,,CM,1999,AU,14,
+FC St. Pauli,Danel Sinani,,AM,1997,LU,14.4,
+FC St. Pauli,Mathias Pereira Lage,,LW,1996,FR,14,
+FC St. Pauli,Martijn Kaars,,ST,1999,NL,14,
+1. FC Heidenheim,Patrick Mainka,,CB,1994,DE,14.2,
+1. FC Heidenheim,Benedikt Gimber,,CB,1997,DE,14.2,
+1. FC Heidenheim,Jonas Föhrenbach,,LB,1996,DE,13.8,
+1. FC Heidenheim,Jan Schöppner,,CM,1999,DE,14.2,
+1. FC Heidenheim,Niklas Dorsch,,DM,1998,DE,14.2,
+1. FC Heidenheim,Adrian Beck,,AM,1997,DE,14.4,
+1. FC Heidenheim,Mathias Honsak,,LW,1996,AT,14,
+1. FC Heidenheim,Budu Zivzivadze,,ST,1994,GE,14.2,
+1. FC Heidenheim,Stefan Schimmer,,ST,1994,DE,13.8,
+FC Nantes,Nicolas Pallois,,CB,1987,FR,14,
+FC Nantes,Jean-Charles Castelletto,,CB,1995,CM,14.2,
+FC Nantes,Chidozie Awaziem,,CB,1997,NG,14.2,
+FC Nantes,Nicolas Cozza,,LB,1999,FR,14,
+FC Nantes,Kelvin Amian,,RB,1998,FR,14,
+FC Nantes,Francis Coquelin,,DM,1991,FR,14.2,
+FC Nantes,Johann Lepenant,,CM,2002,FR,14.4,
+FC Nantes,Pedro Chirivella,,CM,1997,ES,14.2,
+FC Nantes,Mostafa Mohamed,,ST,1997,EG,14.6,
+FC Nantes,Ignatius Ganago,,ST,1999,CM,14.2,
+FC Metz,Jonathan Fischer,,GK,1999,DK,14,
+FC Metz,Koffi Kouao,,RB,1998,CI,14,
+FC Metz,Benjamin Stambouli,,DM,1990,FR,13.8,
+FC Metz,Jessy Deminguet,,CM,1998,FR,14,
+Sporting CP,Rui Silva,,GK,1994,PT,15,
+Sporting CP,Gonçalo Inácio,,CB,2001,PT,15.6,
+Sporting CP,Ousmane Diomande,,CB,2003,CI,15.6,
+Sporting CP,Zeno Debast,,CB,2003,BE,15,
+Sporting CP,Maximiliano Araújo,,LB,2000,UY,15.2,
+Sporting CP,Francisco Trincão,,RW,1999,PT,15.6,
+Sporting CP,Luis Suárez,,ST,1997,CO,15.6,
+Sporting CP,Fotis Ioannidis,,ST,2000,GR,15,
+Celtic,Kasper Schmeichel,,GK,1986,DK,14.8,
+Celtic,Cameron Carter-Vickers,,CB,1997,US,15,
+Celtic,Liam Scales,,CB,1998,IE,14.4,
+Celtic,Callum McGregor,,CM,1993,GB-SCT,14.8,
+Rangers,John Souttar,,CB,1996,GB-SCT,14.2,
+Rangers,James Tavernier,,RB,1991,GB-ENG,14.2,
+Rangers,Nicolas Raskin,,CM,2001,BE,14.6,
+Beşiktaş,Ersin Destanoğlu,,GK,2001,TR,14.4,
+Beşiktaş,Emirhan Topçu,,CB,2000,TR,14.2,
+Beşiktaş,Wilfred Ndidi,,DM,1996,NG,15,
+Beşiktaş,Orkun Kökçü,,CM,2000,TR,15.4,
+Olympiacos,Gelson Martins,,RW,1995,PT,14.8,
+Olympiacos,Daniel Podence,,LW,1995,PT,14.8,
+Olympiacos,Ayoub El Kaabi,,ST,1993,MA,15,
+Al-Nassr,Bento Matheus Krepski,Bento,GK,1999,BR,15,
+Al-Nassr,Íñigo Martínez,,CB,1991,ES,15,
+Al-Nassr,Sultan Al-Ghannam,,RB,1994,SA,14.2,
+Al-Nassr,Marcelo Brozović,,CM,1992,HR,15.2,
+Al-Nassr,João Félix,,AM,1999,PT,15.6,
+Al-Nassr,Kingsley Coman,,LW,1996,FR,15.6,
+Al-Nassr,Sadio Mané,,LW,1992,SN,15.4,
+Al-Nassr,Abdulrahman Ghareeb,,LW,1997,SA,14.2,
+Al-Nassr,Cristiano Ronaldo,,ST,1985,PT,16,
+Al-Hilal,Yassine Bounou,,GK,1991,MA,15.6,
+Al-Hilal,Kalidou Koulibaly,,CB,1991,SN,15,
+Al-Hilal,Hassan Al-Tambakti,,CB,1999,SA,14.4,
+Al-Hilal,Theo Hernández,,LB,1997,FR,16,
+Al-Hilal,Rúben Neves,,CM,1997,PT,15.4,
+Al-Hilal,Sergej Milinković-Savić,,CM,1995,RS,15.6,
+Al-Hilal,Mohamed Kanno,,CM,1994,SA,14.4,
+Al-Hilal,Malcom Filipe Silva de Oliveira,Malcom,RW,1997,BR,15.2,
+Al-Hilal,Salem Al-Dawsari,,LW,1991,SA,14.8,
+Al-Hilal,Darwin Núñez,,ST,1999,UY,15.8,
+Al-Ittihad,Predrag Rajković,,GK,1995,RS,14.8,
+Al-Ittihad,Danilo Pereira,,CB,1991,PT,14.4,
+Al-Ittihad,N'Golo Kanté,,DM,1991,FR,15.4,
+Al-Ittihad,Fábio Henrique Tavares,Fabinho,DM,1993,BR,15,
+Al-Ittihad,Houssem Aouar,,AM,1998,DZ,15,
+Al-Ittihad,Steven Bergwijn,,LW,1997,NL,15,
+Al-Ittihad,Youssef En-Nesyri,,ST,1997,MA,15,
+Al-Ittihad,Karim Benzema,,ST,1987,FR,15.6,
+Al-Ahli,Édouard Mendy,,GK,1992,SN,15.2,
+Al-Ahli,Merih Demiral,,CB,1998,TR,15.2,
+Al-Ahli,Roger Ibañez,,CB,1998,BR,15,
+Al-Ahli,Enzo Millot,,AM,2002,FR,15.2,
+Al-Ahli,Riyad Mahrez,,RW,1991,DZ,15.4,
+Al-Ahli,Wenderson Rodrigues do Nascimento Galeno,Galeno,LW,1997,BR,15,
+Al-Ahli,Ivan Toney,,ST,1996,GB-ENG,15.6,
+Al-Qadsiah,Koen Casteels,,GK,1992,BE,14.8,
+Al-Qadsiah,Nacho Fernández,,CB,1990,ES,14.6,
+Al-Qadsiah,Nahitan Nández,,CM,1995,UY,14.8,
+Al-Qadsiah,Julián Quiñones,,ST,1997,MX,15,
+Al-Qadsiah,Mateo Retegui,,ST,1999,IT,15.4,
+Inter Miami,Jordi Alba,,LB,1989,ES,14.4,
+Inter Miami,Sergio Busquets,,DM,1988,ES,14.6,
+Inter Miami,Rodrigo De Paul,,CM,1994,AR,15.6,
+Inter Miami,Lionel Messi,,RW,1987,AR,16.4,
+Inter Miami,Luis Suárez,,ST,1987,UY,14.6,
+LAFC,Hugo Lloris,,GK,1986,FR,14.4,
+LAFC,Heung-min Son,Son Heung-min,LW,1992,KR,15.8,
+LAFC,Denis Bouanga,,LW,1994,GA,15,
+LA Galaxy,Riqui Puig,,AM,1999,ES,14.6,
+LA Galaxy,Marco Reus,,AM,1989,DE,14.4,
+River Plate,Franco Armani,,GK,1986,AR,14.4,
+River Plate,Germán Pezzella,,CB,1991,AR,14.4,
+River Plate,Gonzalo Montiel,,RB,1997,AR,14.6,
+River Plate,Marcos Acuña,,LB,1991,AR,14.4,
+River Plate,Enzo Pérez,,CM,1986,AR,13.8,
+River Plate,Juan Fernando Quintero,,AM,1993,CO,14.4,
+River Plate,Sebastián Driussi,,ST,1996,AR,14.4,
+River Plate,Maximiliano Salas,,ST,1997,AR,14.4,
+River Plate,Miguel Borja,,ST,1993,CO,14.2,
+Boca Juniors,Agustín Marchesín,,GK,1988,AR,14.2,
+Boca Juniors,Marcos Rojo,,CB,1990,AR,13.8,
+Boca Juniors,Leandro Paredes,,DM,1994,AR,15,
+Boca Juniors,Ander Herrera,,CM,1989,ES,14.2,
+Boca Juniors,Miguel Merentiel,,ST,1996,UY,14.4,
+Boca Juniors,Edinson Cavani,,ST,1987,UY,14,
+Monterrey,Sergio Ramos,,CB,1986,ES,14.6,
+Monterrey,Óliver Torres,,CM,1994,ES,14.2,
+Monterrey,Lucas Ocampos,,RW,1994,AR,14.8,
+Monterrey,Germán Berterame,,ST,1998,MX,14.6,
+Tigres UANL,Nahuel Guzmán,,GK,1986,AR,14.2,
+Tigres UANL,Diego Lainez,,RW,2000,MX,14.4,
+Tigres UANL,Ángel Correa,,ST,1995,AR,15,
+Tigres UANL,André-Pierre Gignac,,ST,1985,FR,13.8,
+Club América,Luis Malagón,,GK,1997,MX,14.6,
+Club América,Israel Reyes,,CB,2000,MX,14.4,
+Club América,Henry Martín,,ST,1992,MX,14.2,
+Cruz Azul,Kevin Mier,,GK,2000,CO,14.4,
+Cruz Azul,Jorge Sánchez,,RB,1997,MX,14.2,
+Cruz Azul,Erik Lira,,DM,2000,MX,14.2,
+Cruz Azul,Ángel Sepúlveda,,ST,1991,MX,14,

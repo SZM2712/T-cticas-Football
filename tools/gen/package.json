@@ -1,0 +1,7 @@
+{
+  "name": "@tf/gen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": { "@tf/core": "*", "@tf/data": "*", "@tf/i18n": "*" }
+}
