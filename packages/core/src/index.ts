@@ -26,7 +26,13 @@ export * from "./config/match";
 export { teamRating, squadRating, quickMatch, updateElo } from "./match/quick";
 export * from "./match/types";
 export { INSTRUCTION_KEYS } from "./types/tactics";
-export { applyCommand, validatePlan, type Command, type CommandResult } from "./commands";
+export { applyCommand, validatePlan, validateDevPlan, type Command, type CommandResult } from "./commands";
+export * from "./types/development";
+export * from "./config/development";
+export { monthlyDevelopment, curve, volatilityFor } from "./development/tick";
+export { monthlyScouting, observe, scoutReportsView, starsOf, scoutBias, type ScoutReportView } from "./development/scouting";
+export { seasonTurnover, type TurnoverSummary } from "./development/season";
+export { planEffects, rollAdherence, staffQuality, activeParts, type PlanEffects, type StaffQuality } from "./development/plan";
 export { simulateMatch, simulateWithInterventions, startMatch, type LiveMatch, type SimulateOptions } from "./match/engine";
 export {
   buildMatchInput, pickLineup, teamSheet, coachAuthority, invalidateAbilityCache, fitnessOn, isInjured, isSuspended, skillsOf, familiarity, type Lineup,
@@ -44,3 +50,4 @@ export {
 } from "./engine/game";
 export { playerView, clubSummary, displayName, type PlayerView, type ClubSummary } from "./views/player";
 export * from "./views/game";
+export { playerDevelopmentView, type PlayerDevelopmentView } from "./views/development";

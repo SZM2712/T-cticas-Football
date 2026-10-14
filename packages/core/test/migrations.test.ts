@@ -10,10 +10,17 @@ function asV1(): Record<string, unknown> {
   w.meta.saveVersion = 1;
   delete w.stats;
   delete w.tactics;
-  for (const p of Object.values(w.players) as Record<string, unknown>[]) {
+  delete w.plans;
+  delete w.scouting;
+  for (const p of Object.values(w.players) as Record<string, any>[]) {
     delete p.fitnessDay;
     delete p.suspensions;
     delete p.career;
+    for (const k of ["caMonthly", "caYearly", "monthMinutes", "recentMinutes", "recoveryMult", "injuryRiskDelta"]) delete p.development[k];
+  }
+  for (const s of Object.values(w.staff) as Record<string, any>[]) {
+    delete s.attributes.nutrition;
+    delete s.attributes.conditioning;
   }
   // Un resultado con el formato antiguo.
   const m = Object.values(w.matches)[0] as Record<string, any> | undefined;
@@ -31,8 +38,13 @@ describe("migraciones", () => {
     expect(p.suspensions).toEqual([]);
     expect(p.career).toEqual([]);
     expect(p.fitnessDay).toBe(world.meta.today);
+    expect(world.plans).toEqual({});
+    expect(world.scouting).toEqual({});
+    expect(p.development.recoveryMult).toBe(1);
+    expect(p.development.caMonthly).toEqual([]);
+    expect(Object.values(world.staff)[0]!.attributes.nutrition).toBe(8);
     const game = openGame(world, "quick");
-    expect(() => advanceDays(game, 3)).not.toThrow();
+    expect(() => advanceDays(game, 35)).not.toThrow();
   });
 
   it("un resultado antiguo pasa a tener motor, goles y tarjetas", () => {

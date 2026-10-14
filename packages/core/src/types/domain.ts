@@ -4,6 +4,7 @@
 import type { Climate, ConfederationId } from "@tf/data";
 import type { GoalkeepingAttr, MentalAttr, PhysicalAttr, Position, TechnicalAttr } from "../config/attributes";
 import type { PsychTrait } from "../config/psych";
+import type { DevFactor, DevelopmentPlan, PlanAdherence, ScoutBelief } from "./development";
 import type { Intervention, TacticsPlan } from "./tactics";
 import type {
   Attr, ClubId, CompetitionId, GameDay, LeagueId, MatchId, NationalTeamId, NationId, PlayerId, Signed, StaffId,
@@ -60,7 +61,20 @@ export interface DevelopmentState {
   // El "shape" (talento natural por atributo) no se guarda: se deriva del stream
   // RNG `shape/<playerId>` cuando se necesita (ver gen/attributes.ts).
   /** Factores dominantes del último periodo, para el informe "¿por qué?" (Fase 3). */
-  recentFactors: { key: string; value: number }[];
+  recentFactors: DevFactor[];
+  /** CA de los últimos 24 meses (×10, entero) y al cierre de cada temporada (×10). */
+  caMonthly: number[];
+  caYearly: number[];
+  /** Minutos jugados en el mes en curso y media reciente con decaimiento. */
+  monthMinutes: number;
+  recentMinutes: number;
+  /** Efectos vigentes del plan individual sobre la recuperación (×) y el riesgo de lesión (puntos de propensión). */
+  recoveryMult: number;
+  injuryRiskDelta: number;
+  /** Lo que hizo con el plan el último mes. */
+  adherence?: PlanAdherence;
+  /** Último día en que una lesión larga dejó secuelas (para no aplicarlas dos veces). */
+  lastShockDay?: GameDay;
 }
 
 export interface Appearance {
@@ -151,7 +165,8 @@ export interface Player {
 
 // ── Staff ───────────────────────────────────────────────────────────────────
 
-export type StaffRole = "headCoach" | "assistant" | "coach" | "scout" | "physio" | "referee" | "nationalCoach";
+export type StaffRole =
+  | "headCoach" | "assistant" | "coach" | "scout" | "physio" | "nutritionist" | "fitnessCoach" | "referee" | "nationalCoach";
 
 export interface Staff {
   id: StaffId;
@@ -171,6 +186,10 @@ export interface Staff {
     judgingAbility: Attr;
     judgingPotential: Attr;
     physiotherapy: Attr;
+    /** Nutricionista: calidad de las pautas de dieta. */
+    nutrition: Attr;
+    /** Preparador físico: calidad de las rutinas de ejercicio. */
+    conditioning: Attr;
     discipline: Attr;
     motivation: Attr;
     youth: Attr;
@@ -422,6 +441,8 @@ export interface SeasonRecord {
   relegated: Record<string, ClubId[]>;
   /** Máximo goleador de cada competición registrada (clave = nameKey). */
   topScorers?: Record<string, { player: PlayerId; goals: number }>;
+  /** Retiradas, canteranos subidos y jugadores que quedaron libres al cerrar la temporada. */
+  turnover?: { retired: number; promoted: number; released: number };
 }
 
 export interface World {
@@ -446,6 +467,10 @@ export interface World {
   /** Anfitriones decididos para torneos futuros: clave = id de plantilla + año. */
   hosts: Record<string, NationId[]>;
   history: SeasonRecord[];
+  /** Planes individuales de desarrollo: playerId → plan (Fase 3). */
+  plans: Record<string, DevelopmentPlan>;
+  /** Creencias de los ojeadores: staffId → playerId → creencia. */
+  scouting: Record<string, Record<string, ScoutBelief>>;
   /** Planes tácticos fijados por el usuario: teamId → plan (los demás equipos los decide la IA). */
   tactics: Record<string, TacticsPlan>;
   /** Estadísticas por competición en curso: competitionId → playerId → línea. */

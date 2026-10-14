@@ -3,7 +3,7 @@
 
 import type {
   Command, CommandResult, CompetitionId, FixtureView, Intervention, LeagueOption, MatchChange, MatchId, MatchReport,
-  Position, ScorerView, SquadRowView, TableRowView, TacticsView, TeamId,
+  PlayerDevelopmentView, Position, ScorerView, SquadRowView, TableRowView, TacticsView, TeamId,
 } from "@tf/core";
 
 export interface Summary {
@@ -52,6 +52,8 @@ export interface Api {
   squad(args: { team: TeamId; competition?: CompetitionId }): SquadRowView[];
   fixtures(args: { team: TeamId }): { past: FixtureView[]; next: FixtureView[] };
   tactics(args: { team: TeamId }): TacticsView;
+  /** Ficha de desarrollo de un jugador (evolución, por qué, plan, ojeadores). */
+  player(args: { id: string }): PlayerDevelopmentView;
   command(args: { cmd: Command }): CommandResult;
   /** Huella del mundo (para comprobar el determinismo navegador = Node). */
   hash(args: object): string;

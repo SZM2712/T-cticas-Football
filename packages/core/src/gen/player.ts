@@ -8,7 +8,8 @@ import {
   type AttrKey, type Position,
 } from "../config/attributes";
 import {
-  ATTR_NOISE, ATTR_RELEVANCE_SPREAD, DUAL_NATIONALITY_CHANCE, SECOND_NATION_CHOICE, SHAPE_SD,
+  ATTR_NOISE, ATTR_RELEVANCE_SPREAD, DUAL_NATIONALITY_CHANCE, GEN_GAP_EXTRA, GEN_GAP_SD_PER_YEAR, SECOND_NATION_CHOICE, SHAPE_SD,
+  YOUTH_CA_PENALTY,
 } from "../config/generation";
 import { abilityFor, type AttributeMap } from "../player/ability";
 import type { Rng } from "../rng/rng";
@@ -141,10 +142,13 @@ function deriveHidden(rng: Rng, p: PsychProfile): HiddenAttributes {
 }
 
 function initialDevelopment(rng: Rng, ca: number, age: number, youthQuality: number): DevelopmentState {
+  // Margen hasta el techo: lo que le falta por edad para su nivel adulto, más un extra
+  // pequeño (× cantera) con dispersión: unos superan lo esperado y otros se quedan cortos.
+  const agePenalty = Math.max(0, 22 - age) * YOUTH_CA_PENALTY;
   const youngYears = Math.max(0, 23.5 - age);
-  const gapMean = youngYears * 0.5 * (0.8 + 0.5 * youthQuality);
-  const gapSd = 0.5 + youngYears * 0.18;
-  const gap = age >= 28 ? Math.abs(rng.normal(0, 0.25)) : Math.abs(rng.normal(gapMean, gapSd));
+  const gapMean = agePenalty + GEN_GAP_EXTRA * (0.6 + 0.8 * youthQuality) * Math.min(1, youngYears / 4);
+  const gapSd = 0.25 + youngYears * GEN_GAP_SD_PER_YEAR;
+  const gap = age >= 28 ? Math.abs(rng.normal(0, 0.25)) : Math.max(0, rng.normal(gapMean, gapSd));
   const roll = rng.float();
   const maturation: MaturationProfile = roll < 0.25 ? "early" : roll < 0.75 ? "standard" : "late";
   const maturationShift =
@@ -156,6 +160,12 @@ function initialDevelopment(rng: Rng, ca: number, age: number, youthQuality: num
     maturationShift: round(maturationShift, 2),
     physicalPeakAge: round(clamp(rng.normal(27, 1.5), 24, 31), 2),
     recentFactors: [],
+    caMonthly: [],
+    caYearly: [],
+    monthMinutes: 0,
+    recentMinutes: 0,
+    recoveryMult: 1,
+    injuryRiskDelta: 0,
   };
 }
 

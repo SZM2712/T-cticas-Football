@@ -3,7 +3,7 @@
 /** Versión del generador: cambia el hash del mundo de referencia si se toca. */
 export const GENERATOR_VERSION = "gen-1";
 /** Versión del formato del estado: cada cambio añade una migración en world/migrations.ts. */
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
 /** Año de la primera temporada (julio). */
 export const DEFAULT_START_YEAR = 2026;
 
@@ -12,6 +12,9 @@ export const DEPTH_OFFSETS = [0.9, -0.1, -1.2, -2.2] as const;
 /** Canteranos/promesas extra por plantilla jugable y su desfase de calidad. */
 export const PROSPECTS_PER_SQUAD = 3;
 export const PROSPECT_OFFSET = -3.2;
+/** Techo inicial de los jóvenes: extra sobre su nivel adulto (× cantera) y dispersión por año de juventud. */
+export const GEN_GAP_EXTRA = 0.25;
+export const GEN_GAP_SD_PER_YEAR = 0.22;
 /** Penalización de CA por juventud: por cada año por debajo de 22. */
 export const YOUTH_CA_PENALTY = 0.45;
 /** Penalización de CA por veteranía a partir de 32 años. */
@@ -45,7 +48,7 @@ export const SHADOW_FOREIGN_SHARE = 0.12;
 export const SHADOW_TIER3_OFFSET = -1.3;
 
 /** Staff por club jugable. */
-export const STAFF_PER_CLUB = { headCoach: 1, assistant: 1, coach: 2, scout: 2, physio: 1 } as const;
+export const STAFF_PER_CLUB = { headCoach: 1, assistant: 1, coach: 2, scout: 2, physio: 1, nutritionist: 1, fitnessCoach: 1 } as const;
 /** Árbitros por nación jugable y (mínimo) por nación no jugable. */
 export const REFEREES_PLAYABLE = 24;
 export const REFEREES_OTHER = 1;

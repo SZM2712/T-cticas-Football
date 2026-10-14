@@ -15,7 +15,9 @@ import { playMatch, type EngineMode, type PlayedMatch } from "../match/play";
 import { updateElo } from "../match/quick";
 import type { MatchInput, MatchReport } from "../match/types";
 import type { Intervention } from "../types/tactics";
-import { seasonStartDay } from "../time/calendar";
+import { dateOf, seasonStartDay } from "../time/calendar";
+import { monthlyDevelopment } from "../development/tick";
+import { monthlyScouting } from "../development/scouting";
 import type { Match, World } from "../types/domain";
 import type { GameDay } from "../types/ids";
 import { worldRng } from "../world/rng";
@@ -88,6 +90,12 @@ export function advanceDay(game: Game, opts: AdvanceOptions = {}): PlayedMatch[]
     closeSeason(ctx, world.meta.season);
     world.meta.season += 1;
     buildSeason(ctx, world.meta.season);
+  }
+
+  // Desarrollo de los jugadores y trabajo de los ojeadores, el primer día de cada mes.
+  if (dateOf(day).d === 1) {
+    monthlyDevelopment(world, day);
+    monthlyScouting(world, day);
   }
 
   // Convocatorias y amistosos al abrirse una ventana FIFA; convocatorias antes de un torneo.

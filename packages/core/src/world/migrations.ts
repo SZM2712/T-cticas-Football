@@ -28,6 +28,25 @@ const MIGRATIONS: Record<number, Migration> = {
       r.cards ??= [];
     }
   },
+  // v2 → v3 (Fase 3): desarrollo. Historial de CA, minutos recientes, efectos del plan,
+  // planes individuales, creencias de ojeadores y atributos de nutricionista y preparador.
+  2: (w) => {
+    w.plans ??= {};
+    w.scouting ??= {};
+    for (const p of Object.values(w.players as Record<string, { development: Record<string, unknown> }>)) {
+      const d = p.development;
+      d.caMonthly ??= [];
+      d.caYearly ??= [];
+      d.monthMinutes ??= 0;
+      d.recentMinutes ??= 0;
+      d.recoveryMult ??= 1;
+      d.injuryRiskDelta ??= 0;
+    }
+    for (const s of Object.values(w.staff as Record<string, { attributes: Record<string, unknown> }>)) {
+      s.attributes.nutrition ??= 8;
+      s.attributes.conditioning ??= 8;
+    }
+  },
 };
 
 /** Lleva un estado guardado de cualquier versión anterior a la actual. */

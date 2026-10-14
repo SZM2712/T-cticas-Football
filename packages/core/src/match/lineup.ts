@@ -15,7 +15,7 @@ import type { FormationId, MatchInput, SheetPlayer, Skills, TacticsPlan, TeamShe
 
 /** Forma física hoy: la del último partido más la recuperación de los días pasados. */
 export function fitnessOn(p: Player, day: GameDay): number {
-  const rate = RECOVERY_PER_DAY * (0.6 + p.physical.naturalFitness / 25);
+  const rate = RECOVERY_PER_DAY * (0.6 + p.physical.naturalFitness / 25) * p.development.recoveryMult;
   return Math.min(1, p.fitness + rate * Math.max(0, day - p.fitnessDay));
 }
 
@@ -256,7 +256,7 @@ function sheetPlayer(
     consistency: p.hidden.consistency,
     bigMatches: p.hidden.bigMatches,
     pressure: p.hidden.pressure,
-    injuryProneness: p.hidden.injuryProneness,
+    injuryProneness: clamp(p.hidden.injuryProneness + p.development.injuryRiskDelta, 1, 20),
     temperament: p.hidden.temperament,
     morale: p.state.morale,
     ability,

@@ -59,3 +59,22 @@ describe("i18n del motor de partido", () => {
     for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
   });
 });
+
+describe("i18n del desarrollo", () => {
+  it("planes, adherencia, factores y ojeadores tienen texto", async () => {
+    const core = await import("@tf/core");
+    const keys = [
+      ...core.TRAINING_FOCUSES.map((k) => `focus.${k}`),
+      ...core.INTENSITIES.map((k) => `intensity.${k}`),
+      ...core.DIETS.map((k) => `diet.${k}`),
+      ...core.EXERCISES.map((k) => `exercise.${k}`),
+      ...core.SLEEP_PLANS.map((k) => `sleep.${k}`),
+      ...["full", "partial", "none"].map((k) => `adherence.${k}`),
+      ...["low", "medium", "high"].map((k) => `confidence.${k}`),
+      ...["age", "minutes", "training", "attitude", "plan.training", "plan.diet", "plan.exercise", "plan.sleep", "mentor", "decline", "injury"]
+        .flatMap((k) => [`factor.${k}.up`, `factor.${k}.down`]),
+      ...["coach", "physio", "nutritionist", "fitnessCoach"].map((k) => `role.${k}`),
+    ];
+    for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
+  });
+});

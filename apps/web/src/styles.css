@@ -69,3 +69,12 @@ ul.instructions { padding-left: 18px; }
 .live-panel { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin: 8px 0; max-width: 840px; }
 .live-panel h4 { margin: 6px 0; }
 .live-panel label { display: inline-flex; gap: 4px; align-items: center; }
+.player-panel { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; }
+.player-panel h3 { margin: 0; }
+.dev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.dev-grid h4 { margin: 8px 0 4px; }
+.plan-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.plan-form label { display: flex; flex-direction: column; font-size: 0.9rem; }
+ul.factors { list-style: none; padding: 0; margin: 0; }
+ul.factors li { padding: 2px 0; }
+.spark { color: var(--accent); max-width: 100%; height: auto; }

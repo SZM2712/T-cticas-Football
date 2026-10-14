@@ -267,6 +267,8 @@ export function generateWorld(opts: GenerateOptions): World {
     matches: {},
     hosts: {},
     history: [],
+    plans: {},
+    scouting: {},
     tactics: {},
     stats: {},
     events: [],

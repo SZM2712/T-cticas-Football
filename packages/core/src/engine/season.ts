@@ -6,6 +6,7 @@ import { buildContinentalSeason } from "../competition/continental";
 import { applyPromotions, buildDomesticSeason } from "../competition/domestic";
 import { buildInternationalSeason } from "../competition/international";
 import { continentalDates, continentalDays, windowsOf } from "../competition/seasonPlan";
+import { seasonTurnover } from "../development/season";
 import type { CareerLine, SeasonRecord, World } from "../types/domain";
 import type { PlayerId, TeamId } from "../types/ids";
 
@@ -30,6 +31,8 @@ export function closeSeason(ctx: Ctx, season: number): SeasonRecord {
     comp.meta.recorded = true;
   }
   record.topScorers = rollUpStats(world);
+  // Relevo generacional: retiradas, canteranos y plantillas.
+  record.turnover = seasonTurnover(world, season);
   for (const data of NATION_LEAGUES) {
     const { promoted, relegated } = applyPromotions(world, data.nation, season);
     record.promoted[data.nation] = promoted;
