@@ -20,7 +20,8 @@ export interface StaffSpec {
 }
 
 const AGE_BY_ROLE: Record<StaffRole, [number, number]> = {
-  headCoach: [36, 66], assistant: [32, 62], coach: [28, 62], scout: [26, 68], physio: [26, 60],
+  headCoach: [36, 66], assistant: [32, 62], coach: [28, 62], scout: [26, 68], physio: [26, 60], nutritionist: [26, 60],
+  fitnessCoach: [27, 60],
   referee: [27, 45], nationalCoach: [42, 70],
 };
 
@@ -31,6 +32,8 @@ const FOCUS: Record<StaffRole, (keyof Staff["attributes"])[]> = {
   coach: ["coaching", "youth", "discipline"],
   scout: ["judgingAbility", "judgingPotential"],
   physio: ["physiotherapy"],
+  nutritionist: ["nutrition"],
+  fitnessCoach: ["conditioning", "coaching"],
   referee: ["discipline"],
   nationalCoach: ["tactics", "manManagement", "motivation"],
 };
@@ -52,6 +55,8 @@ export function generateStaff(rng: Rng, spec: StaffSpec): Staff {
     judgingAbility: v(focus.has("judgingAbility")),
     judgingPotential: v(focus.has("judgingPotential")),
     physiotherapy: v(focus.has("physiotherapy")),
+    nutrition: v(focus.has("nutrition")),
+    conditioning: v(focus.has("conditioning")),
     discipline: v(focus.has("discipline")),
     motivation: v(focus.has("motivation")),
     youth: v(focus.has("youth")),

@@ -3,12 +3,22 @@
 
 import { FORMATIONS } from "../match/tactics";
 import type { World } from "../types/domain";
-import { isNationalTeamId, type TeamId } from "../types/ids";
+import { exactAge } from "../time/calendar";
+import {
+  DIETS, EXERCISES, INTENSITIES, PERSUASION_APPROACHES, SLEEP_PLANS, TRAINING_FOCUSES, type DevelopmentPlan, type PersuasionApproach,
+} from "../types/development";
+import { isNationalTeamId, type PlayerId, type TeamId } from "../types/ids";
+import { MENTOR_MIN_AGE } from "../config/development";
 import { INSTRUCTION_KEYS, type TacticsPlan } from "../types/tactics";
 
 export type Command =
   | { type: "setTactics"; team: TeamId; plan: TacticsPlan }
-  | { type: "clearTactics"; team: TeamId };
+  | { type: "clearTactics"; team: TeamId }
+  /** Plan individual de desarrollo (entrenamiento, dieta, ejercicio, sueño, mentor). */
+  | { type: "setPlan"; player: PlayerId; plan: DevelopmentPlan }
+  | { type: "clearPlan"; player: PlayerId }
+  /** Intentar convencer a un jugador que se plantea retirarse (una vez; él decide). */
+  | { type: "persuadeRetirement"; player: PlayerId; approach: PersuasionApproach };
 
 export type CommandResult = { ok: true } | { ok: false; error: string };
 
@@ -54,6 +64,21 @@ export function validatePlan(world: World, team: TeamId, plan: TacticsPlan): str
   return null;
 }
 
+/** Comprueba un plan individual; devuelve la clave del error o null. */
+export function validateDevPlan(world: World, playerId: PlayerId, plan: DevelopmentPlan): string | null {
+  const p = world.players[playerId];
+  if (!p || p.retired) return "error.unknownPlayer";
+  if (
+    !TRAINING_FOCUSES.includes(plan.focus) || !INTENSITIES.includes(plan.intensity) || !DIETS.includes(plan.diet) ||
+    !EXERCISES.includes(plan.exercise) || !SLEEP_PLANS.includes(plan.sleep)
+  ) return "error.plan";
+  if (plan.mentor !== undefined) {
+    const m = world.players[plan.mentor];
+    if (!m || m.retired || m.id === p.id || m.clubId !== p.clubId || exactAge(m.birthDay, world.meta.today) < MENTOR_MIN_AGE) return "error.mentor";
+  }
+  return null;
+}
+
 export function applyCommand(world: World, cmd: Command): CommandResult {
   switch (cmd.type) {
     case "setTactics": {
@@ -65,5 +90,27 @@ export function applyCommand(world: World, cmd: Command): CommandResult {
     case "clearTactics":
       delete world.tactics[cmd.team];
       return { ok: true };
+    case "setPlan": {
+      const error = validateDevPlan(world, cmd.player, cmd.plan);
+      if (error) return { ok: false, error };
+      const plan: DevelopmentPlan = {
+        focus: cmd.plan.focus, intensity: cmd.plan.intensity, diet: cmd.plan.diet, exercise: cmd.plan.exercise, sleep: cmd.plan.sleep,
+      };
+      if (cmd.plan.mentor) plan.mentor = cmd.plan.mentor;
+      world.plans[cmd.player] = plan;
+      return { ok: true };
+    }
+    case "clearPlan":
+      delete world.plans[cmd.player];
+      return { ok: true };
+    case "persuadeRetirement": {
+      const intent = world.players[cmd.player]?.retirementIntent;
+      if (!intent) return { ok: false, error: "error.noRetirement" };
+      if (intent.persuasion) return { ok: false, error: "error.alreadyTalked" };
+      if (!PERSUASION_APPROACHES.includes(cmd.approach)) return { ok: false, error: "error.plan" };
+      intent.persuasion = cmd.approach;
+      world.events.push({ day: world.meta.today, type: "manager.persuadedRetirement", data: { player: cmd.player, approach: cmd.approach } });
+      return { ok: true };
+    }
   }
 }

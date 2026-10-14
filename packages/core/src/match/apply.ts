@@ -79,6 +79,7 @@ export function applyReport(world: World, m: Match, report: MatchReport, engine:
     const p = world.players[line.id];
     if (!p) continue;
     const team = teams[line.side];
+    p.development.monthMinutes += line.minutes;
     if (engine === "full") {
       p.fitness = line.condition;
       p.fitnessDay = day;

@@ -1,4 +1,4 @@
-// npm run sim -- --seasons=20 --seed=123 [--engine=auto|full|quick] [--real] [--compare] [--out=docs/balance/fase2.md]
+// npm run sim -- --seasons=20 --seed=123 [--engine=auto|full|quick] [--real] [--compare] [--dev] [--out=docs/balance/fase2.md]
 //                [--replay=mt_000123]
 // Simulación headless de balance del motor de partido (Fase 2). Imprime las métricas de
 // los partidos de liga frente a los criterios de aceptación y, con --compare, compara el
@@ -9,6 +9,7 @@ import {
   advanceDay, buildMatchInput, hashValue, newGame, seasonStartDay, simulateMatch, worldRng, type EngineMode, type Game,
   type GenerateOptions,
 } from "@tf/core";
+import { maxDrift, talentSnapshot, type TalentSnapshot } from "./development";
 import { addReport, checkTargets, compareEngines, isLeagueMatch, newAccumulator, summarize, type Summary } from "./metrics";
 
 function args(): Record<string, string> {
@@ -94,6 +95,7 @@ if (seasons > 0 && !opts.replay) {
   const t1 = performance.now();
   const target = seasonStartDay(game.world.meta.season + seasons);
   let lastSeason = game.world.meta.season;
+  const snaps: TalentSnapshot[] = [talentSnapshot(game.world)];
   while (game.world.meta.today < target) {
     const ts = performance.now();
     const played = advanceDay(game);
@@ -109,7 +111,14 @@ if (seasons > 0 && !opts.replay) {
     }
     if (game.world.meta.season !== lastSeason) {
       lastSeason = game.world.meta.season;
-      console.log(`  temporada ${lastSeason - 1}/${String(lastSeason).slice(2)} terminada · ${((performance.now() - t1) / 1000).toFixed(1)} s`);
+      const snap = talentSnapshot(game.world);
+      snaps.push(snap);
+      const rec = game.world.history.at(-1)?.turnover;
+      console.log(
+        `  temporada ${lastSeason - 1}/${String(lastSeason).slice(2)} terminada · ${((performance.now() - t1) / 1000).toFixed(1)} s` +
+          (opts.dev ? ` · CA P50 ${f2(snap.p50)} P95 ${f2(snap.p95)} P99 ${f2(snap.p99)} élite ${snap.elite} edad ${f1(snap.avgAge)} jóvenes ${snap.youth} jugadores ${snap.players}` +
+            (rec ? ` · retirados ${rec.retired} canteranos ${rec.promoted} libres ${rec.released}` : "") : ""),
+      );
     }
   }
   const secs = (performance.now() - t1) / 1000;
@@ -118,6 +127,14 @@ if (seasons > 0 && !opts.replay) {
   lines.push(`## ${seasons} temporada(s), semilla ${seed}, motor ${engine}`, "");
   lines.push(`Tiempo total ${f1(secs)} s (${f1(secs / seasons)} s por temporada) · choques de calendario: ${game.ctx.clashes} · hash final ${hashValue(game.world)}`, "");
   lines.push(...table([["Ligas", league], ["Todos los partidos", all]]), "");
+  if (opts.dev) {
+    lines.push("### Talento mundial por temporada (jugadores con club)", "", "| Temporada | Jugadores | CA P50 | P95 | P99 | Élite (CA ≥ 16) | Edad media | ≤ 21 años |", "|---|---:|---:|---:|---:|---:|---:|---:|");
+    for (const s of snaps) lines.push(`| ${s.season} | ${s.players} | ${f2(s.p50)} | ${f2(s.p95)} | ${f2(s.p99)} | ${s.elite} | ${f1(s.avgAge)} | ${s.youth} |`);
+    const d = maxDrift(snaps);
+    lines.push("", "### Criterio de la Fase 3: sin inflación (±8 % respecto al año 1)", "");
+    for (const k of ["p50", "p95", "p99", "elite"] as const) lines.push(`- ${d[k] <= 0.08 ? "✅" : "❌"} ${k}: desviación máxima ${f1(100 * d[k])} %`);
+    lines.push("");
+  }
   lines.push("### Criterios de aceptación (partidos de liga)", "");
   for (const c of checkTargets(league)) lines.push(`- ${c.ok ? "✅" : "❌"} ${c.key}: ${f2(c.value)} (objetivo ${c.range[0]}–${c.range[1]})`);
   lines.push("");

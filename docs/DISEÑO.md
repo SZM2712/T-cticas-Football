@@ -750,6 +750,63 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 - Pestañas: clasificación, resultados, plantilla, goleadores, táctica y partido en directo con visor 2D (canvas que interpola los fotogramas), registro de eventos, estadísticas e instrucciones cumplidas o ignoradas.
 - El paquete de datos reales se carga solo si se marca (import dinámico).
 
+## 10c. Fase 3 — desarrollo (implementado)
+
+### Desarrollo mensual (`core/development/tick.ts`)
+- **Tick mensual** el día 1 de cada mes, con un stream por jugador (`dev/<año>/<mes>/<id>`).
+- **Techo latente**:
+  - Deriva según el entorno: minutos, calidad de entrenamiento (instalaciones y técnicos), plan cumplido y mentor. Se mide **respecto a la media mundial del mes** y pesa casi solo en la etapa formativa (16–21 años).
+  - Ruido según la volatilidad de la edad.
+  - Sin suelo en la CA: un techo por debajo de la CA es un jugador que ya tocó su máximo. Con suelo, el ruido tendría efecto trinquete.
+- **Crecimiento** de la CA hacia el techo: curva de edad desplazada por la maduración, margen techo − CA, minutos (los jóvenes tienen un mínimo «de filial»), entrenamiento, profesionalidad, intensidad del plan y suerte del mes.
+- **Reparto por atributos**: talento natural (`shape`), foco del plan, edad (lo físico madura antes, lo mental después) y margen hasta 20. Siempre se reparte de forma que la CA crezca exactamente lo calculado.
+- **Declive**: el físico cae pasado su pico (lo frenan la profesionalidad y el plan); la técnica cae desde los 31; la experiencia suma en los mentales entre 22 y 32 años.
+- **Lesión larga** (60 días o más): secuelas en el techo y en la explosividad, atenuadas por la calidad médica.
+- **Informe «¿por qué?»**: los cuatro factores con más peso cada mes (edad, minutos, entrenamiento, actitud, partes del plan, mentor, declive, lesión). La UI solo muestra su sentido.
+
+### Plan individual con staff (`development/plan.ts`)
+- **Contenido del plan** (`World.plans`):
+  - foco de entrenamiento (10 opciones) e intensidad (suave, normal, alta);
+  - dieta del nutricionista (estándar, masa muscular, perder peso, recuperación);
+  - rutina del preparador físico (fuerza, velocidad, resistencia, movilidad);
+  - sueño (libre o rutina supervisada);
+  - mentor.
+- **Adherencia mensual** por parte (la cumple, a medias o no):
+  - suman su profesionalidad, su mentalidad de crecimiento, la autoridad del técnico y la calidad del staff;
+  - resta su vida fuera del campo, sobre todo en sueño y dieta;
+  - resta el ego cuando el plan es exigente.
+  - Ignorar el plan deja el evento `player.planIgnored`.
+- **Efectos del plan**, según lo cumplido y la calidad del staff: crecimiento, foco, atributos concretos, peso, recuperación entre partidos, riesgo de lesión (la intensidad alta con rutina extra sobrecarga) y freno del declive.
+- **Mentoría**: el aprendiz acerca su profesionalidad, temperamento, competitividad y mentalidad de crecimiento a las del mentor, también los malos hábitos. Si ambos tienen mucho ego, chocan (`player.mentorClash`).
+- **Staff nuevo** por club jugable: nutricionista y preparador físico.
+
+### Ojeadores (`development/scouting.ts`)
+- **Creencia por ojeador y jugador**: filtro de Kalman 1D sobre el techo, con deriva de proceso y un sesgo propio (físico o técnico, y su nacionalidad).
+- **Observaciones**: cada mes ven su plantilla de cerca y unos cuantos jugadores de su liga.
+- **Informe**: estrellas del nivel actual, horquilla de potencial al 80 % y confianza. Dos ojeadores discrepan de forma explicable.
+
+### Relevo generacional (`development/season.ts`)
+- **Retiradas**: al cierre de temporada, por edad (pesan no tener club o haberse quedado atrás).
+- **Cantera**: los canteranos (18–20 años) cubren los huecos por puesto, más uno extra por club jugable.
+- **Plantilla larga**: los más flojos ya formados quedan libres.
+- **Anti-inflación (§4.3)**:
+  - cupo mundial de canteranos con techo de élite por promoción;
+  - «generación que viene»: jóvenes por debajo de la élite con techo de élite. Su tamaño se corrige cada temporada según lo lejos que esté la élite de su cuota mundial (`ELITE_TARGET_SHARE`);
+  - el resto de techos altos se recorta justo por debajo.
+
+### Retiradas anticipadas (`development/retirement.ts`)
+- **Cuándo se lo plantea un jugador**: una lesión de 4 meses o más (a partir de los 27 años, más probable si reincide), motivos personales (raro; pesan su inseguridad y su vida fuera del campo) o la edad sin minutos (33 años o más).
+- **Qué puede hacer el técnico**: hablar con él **una vez** (`persuadeRetirement`) con un enfoque:
+  - lo que significa para el club (funciona con los leales);
+  - un papel importante (con los ambiciosos y competitivos);
+  - apoyo médico y personal (con lesiones y problemas personales);
+  - aceptar su decisión.
+- **Él decide**, según su carácter, el motivo, el enfoque y la autoridad del técnico. Si se retira, se va al final de la temporada; por motivos personales, al momento.
+- Todo queda registrado en eventos.
+
+### Estado v3
+`SAVE_VERSION = 3`, con migración v2→v3 y su test.
+
 ## 11. Ideas incorporadas (pendientes de su fase)
 
 ### 11.1 Contratos avanzados (Fase 6 — economía y mercado)

@@ -25,6 +25,8 @@ import { generateClub } from "./clubs";
 import { generatePlayer } from "./player";
 import { normalizePosition, splitName, validateRealPlayers } from "./realPlayers";
 import { generateStaff } from "./staff";
+import { limitEliteCeilings } from "../development/season";
+import { ELITE_PIPELINE_START } from "../config/development";
 
 export interface GenerateOptions {
   seed: string | number;
@@ -267,6 +269,8 @@ export function generateWorld(opts: GenerateOptions): World {
     matches: {},
     hosts: {},
     history: [],
+    plans: {},
+    scouting: {},
     tactics: {},
     stats: {},
     events: [],
@@ -415,6 +419,8 @@ export function generateWorld(opts: GenerateOptions): World {
     const referees = playable.has(n.code) ? REFEREES_PLAYABLE : REFEREES_OTHER + (n.strength > 0.6 ? 2 : 0);
     for (let i = 0; i < referees; i++) addStaff(world, root, null, n, "referee", 8 + 8 * n.strength, `gen/staff/ref/${n.code}/${i}`);
   }
+  // La generación que viene: solo un cupo de jóvenes con techo de élite (DISEÑO §4.3).
+  limitEliteCeilings(Object.values(world.players), ELITE_PIPELINE_START, root.fork("gen/elite"));
   callUps(world);
   return world;
 }

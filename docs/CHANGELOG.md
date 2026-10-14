@@ -1,5 +1,40 @@
 # Cambios por fase
 
+## Fase 3 — Desarrollo (rama `claude/fase-3-desarrollo`)
+
+### Qué hay
+- **Desarrollo mensual de todos los jugadores**:
+  - techo latente que se mueve, sobre todo en la etapa formativa;
+  - crecimiento hacia el techo según la edad, la maduración, los minutos, el entrenamiento y la actitud;
+  - reparto por atributos según el talento natural y el foco;
+  - declive físico y técnico con la edad, y experiencia;
+  - secuelas de lesiones largas.
+- **Informe «¿por qué?»** de cada jugador: los factores del mes en texto (por ejemplo «le faltan minutos», «duerme poco: su vida nocturna pasa factura»).
+- **Plan individual con el staff** (idea del usuario):
+  - foco e intensidad del entrenamiento, dieta del nutricionista, rutina del preparador físico, rutina de sueño y mentor;
+  - **el jugador decide cada mes si lo cumple**: lo cumple, a medias o no, según su profesionalidad, su vida fuera del campo, su ego, la autoridad del técnico y la calidad del staff;
+  - los efectos dependen de lo que de verdad hace: crecimiento, atributos, peso, recuperación y riesgo de lesión;
+  - nuevo staff por club: nutricionista y preparador físico.
+- **Mentoría**: el joven toma hábitos del veterano, buenos y malos; si chocan los egos, queda registrado.
+- **Ojeadores con incertidumbre**: creencias propias con sesgo, horquilla de potencial en estrellas y confianza que crece al observar más.
+- **Relevo generacional**: retiradas, cantera que cubre huecos y jugadores libres. Hay cupo de talento de élite para que el mundo no se infle en 20 temporadas.
+- **Retiradas anticipadas** (idea del usuario): un jugador puede plantearse dejarlo por una lesión grave, por motivos personales o por la edad. El técnico puede hablar con él una vez (club, papel importante, apoyo o aceptar) y **él decide**.
+- **UI**: ficha de jugador al pulsar en la plantilla, con:
+  - evolución en gráfica y por temporadas;
+  - «¿por qué?»;
+  - editor del plan y lo que cumplió el último mes;
+  - staff;
+  - informes de ojeadores;
+  - aviso de retirada con las opciones para convencerle.
+- **Estado v3** con migración.
+- `npm run sim -- --dev`: talento mundial por temporada y criterio de no inflación.
+
+### Balance (`docs/balance/fase3.md`)
+- 20 temporadas: P50 −6,3 %, P95 +1,8 %, P99 +0,5 % ✅.
+- Élite (CA ≥ 16): no se infla (53 → 54), pero oscila entre 44 y 64 (±23 %): ❌ con el ±8 % original. Es un recuento de unos 55 jugadores; hay propuesta de criterio en el informe.
+- Partidos: siguen en rango tras el desarrollo (8 temporadas: 2,55 goles, 42,9 % local, 24,8 % empates, 0,16 rojas).
+- El hash del mundo de referencia cambia por el staff nuevo, la brecha inicial techo–CA, el cupo de élite al generar y los campos de desarrollo del estado v3.
+
 ## Fase 2 — Motor de partido (rama `claude/fase-2-motor-partido`)
 
 ### Qué hay

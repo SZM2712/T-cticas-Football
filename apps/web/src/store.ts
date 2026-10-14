@@ -17,6 +17,8 @@ interface UiState {
   version: number;
   competition: CompetitionId | null;
   team: TeamId | null;
+  /** Jugador abierto en la ficha de desarrollo. */
+  player: string | null;
   set(patch: Partial<Omit<UiState, "set">>): void;
 }
 
@@ -37,5 +39,6 @@ export const useUi = create<UiState>((set) => ({
   version: 0,
   competition: null,
   team: null,
+  player: null,
   set: (patch) => set(patch),
 }));

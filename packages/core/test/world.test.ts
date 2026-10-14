@@ -10,7 +10,11 @@ import {
  */
 // Fase 2: cambia por el formato del estado (SAVE_VERSION 2: fitnessDay, suspensions,
 // career, tactics, stats). La generación no cambia: no hay tiradas nuevas de RNG.
-const GOLDEN_HASH_123 = "86ef81d9c603f326";
+// Fase 3: cambia la generación. Hay staff nuevo (nutricionista y preparador físico, con los
+// atributos nutrition y conditioning), una brecha inicial techo–CA recalibrada, un cupo de
+// techos de élite al generar (ELITE_PIPELINE_START) y campos nuevos de desarrollo, plans y
+// scouting (SAVE_VERSION 3).
+const GOLDEN_HASH_123 = "b99c9e06e64909e2";
 
 let world: World;
 beforeAll(() => {
