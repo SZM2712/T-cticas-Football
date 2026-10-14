@@ -3,7 +3,7 @@
 
 import { nationByCode } from "@tf/data";
 import { SQUAD_TEMPLATE, type Position } from "../config/attributes";
-import { ELITE_CA, ELITE_INFLOW_PER_YEAR, ELITE_PIPELINE_START, INTAKE_AGE, INTAKE_EXTRA, INTAKE_GAP_EXTRA, INTAKE_GAP_SD, INTAKE_OFFSET, MAX_CEILING, RETIRE_CURVE, SQUAD_MAX } from "../config/development";
+import { ELITE_CA, ELITE_FEEDBACK, ELITE_INFLOW_PER_YEAR, ELITE_PIPELINE_START, ELITE_TARGET_SHARE, INTAKE_AGE, INTAKE_EXTRA, INTAKE_GAP_EXTRA, INTAKE_GAP_SD, INTAKE_OFFSET, MAX_CEILING, RETIRE_CURVE, SQUAD_MAX } from "../config/development";
 import { SHADOW_SQUAD_SIZE, YOUTH_CA_PENALTY } from "../config/generation";
 import { generatePlayer } from "../gen/player";
 import { invalidateAbilityCache } from "../match/lineup";
@@ -106,11 +106,26 @@ export function seasonTurnover(world: World, season: number): TurnoverSummary {
       }
     }
   }
-  // Oferta de élite: un cupo de cracks por promoción y una "generación que viene" de tamaño fijo.
+  // Oferta de élite: un cupo de cracks por promoción y una "generación que viene" cuyo tamaño
+  // se corrige según lo lejos que esté la élite actual de su cuota mundial.
   limitEliteCeilings(intake, ELITE_INFLOW_PER_YEAR, rng.fork("elite"));
-  limitEliteCeilings(Object.values(world.players).filter((p) => !p.retired), ELITE_PIPELINE_START, rng.fork("pipeline"));
+  limitEliteCeilings(Object.values(world.players).filter((p) => !p.retired), elitePipelineSize(world), rng.fork("pipeline"));
   invalidateAbilityCache();
   return summary;
+}
+
+/** Tamaño de la "generación que viene" esta temporada (realimentación sobre la élite actual). */
+export function elitePipelineSize(world: World): number {
+  let withClub = 0;
+  let elite = 0;
+  for (const p of Object.values(world.players)) {
+    if (p.retired || !p.clubId) continue;
+    withClub++;
+    if (currentAbility(p) >= ELITE_CA) elite++;
+  }
+  const target = Math.max(1, withClub * ELITE_TARGET_SHARE);
+  const scale = 1 + ELITE_FEEDBACK * (target - elite) / target;
+  return Math.round(clamp(ELITE_PIPELINE_START * scale, 0, 3 * ELITE_PIPELINE_START));
 }
 
 /**
