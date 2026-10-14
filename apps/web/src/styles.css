@@ -73,6 +73,10 @@ ul.instructions { padding-left: 18px; }
 .player-panel h3 { margin: 0; }
 .dev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 .dev-grid h4 { margin: 8px 0 4px; }
+.dev-grid > section { min-width: 0; overflow-x: auto; }
+.dev-grid > section.scouts { grid-column: 1 / -1; }
+.dev-grid table.grid { font-size: 0.85rem; }
+.dev-grid table.grid td, .dev-grid table.grid th { white-space: nowrap; padding: 2px 4px; }
 .plan-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
 .plan-form label { display: flex; flex-direction: column; font-size: 0.9rem; }
 ul.factors { list-style: none; padding: 0; margin: 0; }

@@ -128,6 +128,8 @@ export const UI_ENTRIES: Record<string, Row> = {
   "dev.exercise": ["Rutina física (preparador)", "Fitness routine (fitness coach)", "Routine physique (préparateur)", "Fitnessprogramm (Athletiktrainer)", "体能计划（体能教练）"],
   "dev.sleep": ["Descanso", "Rest", "Repos", "Erholung", "休息"],
   "dev.mentor": ["Mentor", "Mentor", "Mentor", "Mentor", "导师"],
+  "dev.years": ["{n} años", "{n} years old", "{n} ans", "{n} Jahre", "{n}岁"],
+  "dev.savePlan": ["Guardar plan", "Save plan", "Enregistrer le plan", "Plan speichern", "保存计划"],
   "dev.clearPlan": ["Quitar plan", "Remove plan", "Retirer le plan", "Plan entfernen", "取消计划"],
   "dev.planSaved": ["Plan guardado", "Plan saved", "Plan enregistré", "Plan gespeichert", "计划已保存"],
   "dev.lastMonth": ["El último mes…", "Last month…", "Le mois dernier…", "Letzten Monat…", "上个月……"],

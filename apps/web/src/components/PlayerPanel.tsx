@@ -63,7 +63,7 @@ export function PlayerPanel({ id }: { id: string }) {
     <div className="player-panel">
       <div className="row">
         <h3>{v.name}</h3>
-        <span>{t(`pos.${v.position}`)} · {v.age} {t("squad.age").toLowerCase()} · {nation(v.nationality)} · {v.heightCm} cm · {v.weightKg} kg</span>
+        <span>{t(`pos.${v.position}`)} · {t("dev.years", { n: v.age })} · {nation(v.nationality)} · {v.heightCm} cm · {v.weightKg} kg</span>
         <span className="hint">{t(`archetype.${v.archetype.primary}`)}</span>
         <button onClick={() => useUi.getState().set({ player: null })}>✕</button>
       </div>
@@ -123,7 +123,7 @@ export function PlayerPanel({ id }: { id: string }) {
             </label>
           </div>
           <div className="row">
-            <button className="primary" onClick={save}>{t("tactics.save")}</button>
+            <button className="primary" onClick={save}>{t("dev.savePlan")}</button>
             {v.plan && <button onClick={clear}>{t("dev.clearPlan")}</button>}
             {msg && <span className="ok">{msg}</span>}
           </div>
@@ -142,7 +142,7 @@ export function PlayerPanel({ id }: { id: string }) {
           <h4>{t("dev.staff")}</h4>
           <ul className="factors">{v.staff.map((s, i) => <li key={i}>{t(`role.${s.role}`)}: {s.name}</li>)}</ul>
         </section>
-        <section>
+        <section className="scouts">
           <h4>{t("dev.scouts")}</h4>
           {v.scouts.length ? (
             <table className="grid">
