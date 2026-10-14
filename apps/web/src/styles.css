@@ -65,3 +65,7 @@ ol.log .ev-red { color: var(--bad); }
 .range input { flex: 1; }
 .hint { color: var(--muted); }
 ul.instructions { padding-left: 18px; }
+.live-badge { color: var(--bad); }
+.live-panel { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin: 8px 0; max-width: 840px; }
+.live-panel h4 { margin: 6px 0; }
+.live-panel label { display: inline-flex; gap: 4px; align-items: center; }

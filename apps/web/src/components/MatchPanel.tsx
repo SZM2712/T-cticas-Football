@@ -1,3 +1,4 @@
+import type { MatchChange } from "@tf/core";
 import { useEffect, useState } from "react";
 import { call } from "../client";
 import { act, useView } from "../hooks";
@@ -11,6 +12,7 @@ import { MatchViewer } from "./MatchViewer";
 export function MatchPanel() {
   const { t, comp } = useT();
   const team = useUi((s) => s.team);
+  const busy = useUi((s) => s.busy);
   const fixtures = useView("fixtures", team ? { team } : null);
   const [watched, setWatched] = useState<WatchedMatch | null>(null);
 
@@ -19,11 +21,22 @@ export function MatchPanel() {
   }, []);
 
   if (!team) return <p>{t("match.noWatch")}</p>;
+  const refresh = async () => useUi.getState().set({ summary: await call("summary", {}) });
   const watch = (id: string) =>
     act(async () => {
-      const w = await call("watch", { match: id as never });
-      setWatched(w);
-      useUi.getState().set({ summary: await call("summary", {}) });
+      setWatched(await call("startLive", { match: id as never, team }));
+      await refresh();
+    });
+  const intervene = async (step: number, side: 0 | 1, change: MatchChange): Promise<string | null> => {
+    const r = await call("intervene", { step, side, change });
+    if (!r.ok) return r.error;
+    setWatched(r.match);
+    return null;
+  };
+  const finish = () =>
+    act(async () => {
+      setWatched(await call("finishLive", {}));
+      await refresh();
     });
 
   return (
@@ -35,7 +48,7 @@ export function MatchPanel() {
             <li key={f.id}>
               <small>{comp(f.competitionKey)}</small>
               <FixtureLine f={f} />
-              <button onClick={() => watch(f.id)}>{t("match.watch")}</button>
+              <button disabled={busy || watched?.live} onClick={() => watch(f.id)}>{t("match.watch")}</button>
             </li>
           ))}
         </ul>
@@ -49,7 +62,7 @@ export function MatchPanel() {
           ))}
         </ul>
       </aside>
-      <section>{watched ? <MatchViewer key={watched.fixture.id} m={watched} /> : <p>{t("match.noWatch")}</p>}</section>
+      <section>{watched ? <MatchViewer key={watched.fixture.id} m={watched} onIntervene={intervene} onFinish={finish} /> : <p>{t("match.noWatch")}</p>}</section>
     </div>
   );
 }

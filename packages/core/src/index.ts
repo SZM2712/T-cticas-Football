@@ -27,7 +27,7 @@ export { teamRating, squadRating, quickMatch, updateElo } from "./match/quick";
 export * from "./match/types";
 export { INSTRUCTION_KEYS } from "./types/tactics";
 export { applyCommand, validatePlan, type Command, type CommandResult } from "./commands";
-export { simulateMatch, type SimulateOptions } from "./match/engine";
+export { simulateMatch, simulateWithInterventions, startMatch, type LiveMatch, type SimulateOptions } from "./match/engine";
 export {
   buildMatchInput, pickLineup, teamSheet, coachAuthority, invalidateAbilityCache, fitnessOn, isInjured, isSuspended, skillsOf, familiarity, type Lineup,
 } from "./match/lineup";
@@ -39,7 +39,8 @@ export { applyReport, resultFromReport } from "./match/apply";
 export { playMatch, engineFor, type EngineMode, type PlayedMatch } from "./match/play";
 export { migrateWorld } from "./world/migrations";
 export {
-  newGame, openGame, advanceDay, advanceDays, advanceSeasons, type Game, type AdvanceOptions,
+  newGame, openGame, advanceDay, advanceDays, advanceSeasons, liveReport, liveIntervene, finishLive, type Game,
+  type AdvanceOptions, type LiveSession,
 } from "./engine/game";
 export { playerView, clubSummary, displayName, type PlayerView, type ClubSummary } from "./views/player";
 export * from "./views/game";

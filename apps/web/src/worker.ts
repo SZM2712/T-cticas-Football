@@ -1,8 +1,9 @@
 // Web Worker que hospeda el juego (GameHost). Todo el estado vive aquí.
 
 import {
-  advanceDay, applyCommand, competitionResultsView, displayName, hashValue, leagueOptions, leagueTableView, newGame, squadView, tacticsView,
-  teamFixturesView, teamRef, topScorersView, type Game, type GenerateOptions, type PlayedMatch,
+  advanceDay, applyCommand, competitionResultsView, displayName, finishLive, hashValue, liveIntervene, liveReport, simulateWithInterventions, worldRng, leagueOptions, leagueTableView, newGame, squadView, tacticsView,
+  teamFixturesView, teamRef, topScorersView, type Game, type GenerateOptions, type Match, type MatchReport,
+  type MatchInput, type TeamId,
 } from "@tf/core";
 import type { Api, Request, Response, Summary, WatchedMatch } from "./protocol";
 
@@ -20,11 +21,14 @@ function summary(): Summary {
   return { seed: g.world.meta.seed, today: g.world.meta.today, season: g.world.meta.season, real: g.world.meta.dataPack === "real", played };
 }
 
-function step(frames?: ReadonlySet<string>): PlayedMatch[] {
-  const list = advanceDay(need(), frames ? { frames } : {});
+function step(live?: string) {
+  const list = advanceDay(need(), live ? { live } : {});
   played += list.length;
   return list;
 }
+
+/** Equipo del usuario en el partido en directo. */
+let liveTeam: TeamId | null = null;
 
 function colorDistance(a: string, b: string): number {
   const rgb = (h: string) => {
@@ -37,12 +41,23 @@ function colorDistance(a: string, b: string): number {
   return Math.hypot(r1! - r2!, g1! - g2!, b1! - b2!);
 }
 
-function toWatched(p: PlayedMatch): WatchedMatch {
+function toWatched(m: Match, report: MatchReport, input: MatchInput | undefined, engine: "full" | "quick", live: boolean): WatchedMatch {
   const w = need().world;
   const names: Record<string, string> = {};
-  for (const line of p.report.players) names[line.id] = displayName(w.players[line.id]!);
-  for (const id of [...p.report.lineups[0], ...p.report.lineups[1]]) names[id] ??= displayName(w.players[id]!);
-  const m = p.match;
+  const add = (id: string) => (names[id] ??= displayName(w.players[id]!));
+  for (const line of report.players) add(line.id);
+  for (const id of [...report.lineups[0], ...report.lineups[1]]) add(id);
+  const squads: WatchedMatch["squads"] = [[], []];
+  if (input) {
+    [input.home, input.away].forEach((sheet, side) => {
+      for (const [list, bench] of [[sheet.xi, false], [sheet.bench, true]] as const) {
+        for (const p of list) {
+          add(p.id);
+          squads[side]!.push({ id: p.id, position: p.position, bench });
+        }
+      }
+    });
+  }
   const colors = (team: string, fallback: [string, string]): [string, string] => {
     const c = w.clubs[team]?.colors;
     return c ? [c.primary, c.secondary] : fallback;
@@ -51,17 +66,34 @@ function toWatched(p: PlayedMatch): WatchedMatch {
   const away = colors(m.away, ["#1565c0", "#ffffff"]);
   // Si los colores principales se parecen, el visitante juega con su segundo color.
   const awayColor = colorDistance(home[0], away[0]) < 120 ? (colorDistance(home[0], away[1]) < 120 ? "#ffffff" : away[1]) : away[0];
+  const side = liveTeam === m.home ? 0 : liveTeam === m.away ? 1 : null;
   return {
     fixture: {
       id: m.id, day: m.day, competitionKey: w.competitions[m.competitionId]?.nameKey ?? "",
-      home: teamRef(w, m.home), away: teamRef(w, m.away), score: [m.result!.home, m.result!.away], engine: p.engine,
-      ...(m.result!.pens ? { pens: m.result!.pens } : {}),
+      home: teamRef(w, m.home), away: teamRef(w, m.away), score: report.score, engine,
+      ...(report.pens ? { pens: report.pens } : {}),
     },
-    report: p.report,
-    engine: p.engine,
+    report,
+    engine,
     names,
     colors: [home[0], awayColor],
+    live,
+    side,
+    squads,
+    interventions: report.interventions ?? [],
   };
+}
+
+function liveWatched(): WatchedMatch {
+  const g = need();
+  const live = g.live!;
+  return toWatched(live.match, liveReport(g, true), live.input, "full", true);
+}
+
+/** Fotogramas del partido cerrado: se vuelve a simular con las mismas intervenciones (determinista). */
+function liveReportOf(input: MatchInput, report: MatchReport): MatchReport {
+  const g = need();
+  return simulateWithInterventions(input, worldRng(g.world).fork(input.seedPath), { frames: true }, report.interventions ?? []).report;
 }
 
 async function loadReal(): Promise<Pick<GenerateOptions, "players" | "leagues">> {
@@ -92,13 +124,32 @@ const handlers: { [M in keyof Api]: (args: Parameters<Api[M]>[0]) => ReturnType<
     }
     return summary();
   },
-  watch({ match }) {
-    const w = need().world;
+  startLive({ match, team }) {
+    const g = need();
+    const w = g.world;
     const m = w.matches[match];
     if (!m || m.result) return null;
+    liveTeam = team;
     while (w.meta.today < m.day - 1) step();
-    const p = step(new Set([match])).find((x) => x.match.id === match);
-    lastWatched = p ? toWatched(p) : null;
+    if (w.meta.today < m.day) step(match);
+    if (g.live?.match.id !== match) return null;
+    lastWatched = liveWatched();
+    return lastWatched;
+  },
+  intervene({ step: at, side, change }) {
+    const r = liveIntervene(need(), { step: at, side, change });
+    if (!r.ok) return r;
+    lastWatched = liveWatched();
+    return { ok: true, match: lastWatched };
+  },
+  finishLive() {
+    const g = need();
+    if (!g.live) return lastWatched;
+    const input = g.live.input;
+    const p = finishLive(g);
+    played++;
+    // Repetición con fotogramas del partido ya cerrado (idéntico a lo que se vio).
+    lastWatched = toWatched(p.match, liveReportOf(input, p.report), input, "full", false);
     return lastWatched;
   },
   lastWatched: () => lastWatched,

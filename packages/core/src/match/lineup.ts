@@ -10,6 +10,7 @@ import type { Match, Player, World } from "../types/domain";
 import { isNationalTeamId, type CompetitionId, type GameDay, type TeamId } from "../types/ids";
 import { clamp } from "../util/math";
 import { FORMATIONS, FORMATION_IDS, aiTactics, instructionCompliance, resolveTactics, teamStyle } from "./tactics";
+import { INSTRUCTION_KEYS, type InstructionKey } from "../types/tactics";
 import type { FormationId, MatchInput, SheetPlayer, Skills, TacticsPlan, TeamSheet } from "./types";
 
 /** Forma física hoy: la del último partido más la recuperación de los días pasados. */
@@ -241,7 +242,11 @@ export function coachAuthority(world: World, team: TeamId, p: Player): number {
   return clamp(0.5 + (coach.reputation - p.reputation) * 0.6 + (coach.attributes.manManagement - 10) / 25, 0, 1);
 }
 
-function sheetPlayer(p: Player, role: Position | null, day: GameDay, ability: number, instructions: SheetPlayer["instructions"]): SheetPlayer {
+function sheetPlayer(
+  p: Player, role: Position | null, day: GameDay, ability: number, instructions: InstructionKey[], authority: number,
+): SheetPlayer {
+  const compliance = {} as Record<InstructionKey, number>;
+  for (const key of INSTRUCTION_KEYS) compliance[key] = instructionCompliance(p, key, authority);
   return {
     id: p.id,
     position: p.position,
@@ -256,6 +261,7 @@ function sheetPlayer(p: Player, role: Position | null, day: GameDay, ability: nu
     morale: p.state.morale,
     ability,
     instructions,
+    compliance,
   };
 }
 
@@ -267,16 +273,17 @@ export function teamSheet(
   tactics.formation = lineup.formation;
   const ids = new Set([...lineup.xi, ...lineup.bench].map((p) => p.id as string));
   tactics.instructions = tactics.instructions.filter((i) => ids.has(i.player));
-  const instructionsOf = (p: Player) =>
-    tactics.instructions
-      .filter((i) => i.player === p.id)
-      .map((i) => ({ key: i.key, compliance: instructionCompliance(p, i.key, coachAuthority(world, team, p)) }));
-  return {
+  const instructionsOf = (p: Player) => tactics.instructions.filter((i) => i.player === p.id).map((i) => i.key);
+  const sheet = (p: Player, role: Position | null) =>
+    sheetPlayer(p, role, day, lineup.ability.get(p.id) ?? 10, instructionsOf(p), coachAuthority(world, team, p));
+  const out: TeamSheet = {
     team,
     tactics,
-    xi: lineup.xi.map((p, i) => sheetPlayer(p, slots[i]?.role ?? p.position, day, lineup.ability.get(p.id) ?? 10, instructionsOf(p))),
-    bench: lineup.bench.map((p) => sheetPlayer(p, null, day, lineup.ability.get(p.id) ?? 10, instructionsOf(p))),
+    xi: lineup.xi.map((p, i) => sheet(p, slots[i]?.role ?? p.position)),
+    bench: lineup.bench.map((p) => sheet(p, null)),
   };
+  if (plan) out.human = true;
+  return out;
 }
 
 const refereeCache = new WeakMap<World, Map<string, number[]>>();

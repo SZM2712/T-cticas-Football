@@ -3,7 +3,7 @@
 
 import { beforeAll, describe, expect, it } from "vitest";
 import {
-  advanceDay, applyCommand, applyReport, buildMatchInput, generateWorld, hashValue, instructionCompliance, newGame,
+  advanceDay, applyCommand, finishLive, liveIntervene, liveReport, applyReport, buildMatchInput, generateWorld, hashValue, instructionCompliance, newGame,
   pickLineup, quickMatch, simulateMatch, worldRng, type GameDay, type Match, type MatchId, type MatchInput, type MatchReport,
   type PlayerId, type World,
 } from "../src";
@@ -254,5 +254,84 @@ describe("tácticas: balón parado e instrucciones", () => {
     const ignored = r.instructions.filter((o) => !o.followed).length;
     applyReport(ww, m, r, "full");
     expect(ww.events.filter((e) => e.type === "player.ignoredInstruction").length).toBe(ignored);
+  });
+});
+
+describe("partido en directo", () => {
+  /** Avanza hasta el día de un partido de liga del primer club y lo reserva para jugarlo en directo. */
+  function liveGame(seed: number) {
+    const g = newGame({ seed });
+    const club = Object.values(g.world.leagues)[0]!.clubs[0]!;
+    const m = Object.values(g.world.matches)
+      .filter((x) => (x.home === club || x.away === club) && g.world.competitions[x.competitionId]?.kind === "league")
+      .sort((a, b) => a.day - b.day)[0]!;
+    while (g.world.meta.today < m.day - 1) advanceDay(g);
+    advanceDay(g, { live: m.id });
+    const side = (m.home === club ? 0 : 1) as 0 | 1;
+    return { g, m, club, side };
+  }
+
+  it("sin intervenciones, el directo da el mismo partido que la simulación normal", () => {
+    const a = liveGame(31);
+    const b = newGame({ seed: 31 });
+    while (b.world.meta.today < a.m.day) advanceDay(b);
+    expect(a.g.live?.match.id).toBe(a.m.id);
+    expect(a.m.result).toBeUndefined();
+    const played = finishLive(a.g);
+    expect(hashValue(played.report)).toBe(hashValue(simulateMatch(played.input!, worldRng(a.g.world).fork(`match/${a.m.id}`))));
+    expect([a.m.result!.home, a.m.result!.away]).toEqual([b.world.matches[a.m.id]!.result!.home, b.world.matches[a.m.id]!.result!.away]);
+  });
+
+  it("una intervención no cambia lo ya jugado y el partido es reproducible", () => {
+    const { g, side } = liveGame(32);
+    const before = liveReport(g);
+    const f = before.frames!;
+    const k = f.step.findIndex((s) => s > 300);
+    const step = f.step[k]!;
+    const xi = new Set(f.rosters.filter((r) => r.side === side && r.at <= k).at(-1)!.ids);
+    const sheet = side === 0 ? g.live!.input.home : g.live!.input.away;
+    const out = sheet.xi.find((p) => xi.has(p.id) && p.position !== "GK")!;
+    const inn = sheet.bench.find((p) => p.position !== "GK")!;
+    expect(liveIntervene(g, { step, side, change: { type: "sub", out: out.id, in: inn.id } })).toEqual({ ok: true });
+    const after = liveReport(g);
+    // Lo anterior a la pausa es idéntico, fotograma a fotograma.
+    const n = f.step.findIndex((s) => s > step);
+    expect(after.frames!.pos.slice(0, n * 44)).toEqual(f.pos.slice(0, n * 44));
+    expect(after.frames!.ball.slice(0, n * 2)).toEqual(f.ball.slice(0, n * 2));
+    expect(after.events.some((e) => e.type === "sub" && e.player === inn.id && e.detail === "manual")).toBe(true);
+    expect(hashValue(liveReport(g))).toBe(hashValue(after));
+    // No se puede volver atrás ni repetir el cambio.
+    expect(liveIntervene(g, { step: step - 10, side, change: { type: "tactics", tactics: { mentality: 0.5 } } })).toEqual({ ok: false, error: "error.pastStep" });
+    expect(liveIntervene(g, { step, side, change: { type: "sub", out: out.id, in: inn.id } }).ok).toBe(false);
+    const played = finishLive(g);
+    expect(played.match.interventions).toHaveLength(1);
+    expect(g.live).toBeNull();
+  });
+
+  it("cambio de sistema en el descanso (encerrarse): se recolocan los jugadores y la IA rival responde", () => {
+    const { g, side } = liveGame(33);
+    const r = liveReport(g);
+    const ht = r.events.findIndex((e) => e.type === "halfTime");
+    const k = r.frames!.event.indexOf(ht);
+    const step = r.frames!.step[k]!;
+    const res = liveIntervene(g, { step, side, change: { type: "tactics", tactics: { formation: "5-3-2", mentality: -1 } } });
+    expect(res).toEqual({ ok: true });
+    const after = liveReport(g);
+    expect(after.events.some((e) => e.type === "tactical" && e.side === side && e.detail === "5-3-2")).toBe(true);
+    expect(after.events.some((e) => e.type === "tactical" && e.side !== side && e.detail === "response")).toBe(true);
+    const roster = after.frames!.rosters.filter((x) => x.side === side).at(-1)!;
+    expect(roster.ids.filter(Boolean).length).toBeGreaterThanOrEqual(10);
+  });
+
+  it("una instrucción dada en directo se decide en ese momento y queda con su minuto", () => {
+    const { g, side } = liveGame(34);
+    const r = liveReport(g);
+    const step = r.frames!.step[Math.floor(r.frames!.step.length / 3)]!;
+    const sheet = side === 0 ? g.live!.input.home : g.live!.input.away;
+    const instructions = sheet.xi.slice(1, 6).map((p) => ({ player: p.id, key: "pressMore" as const }));
+    expect(liveIntervene(g, { step, side, change: { type: "instructions", instructions } })).toEqual({ ok: true });
+    const after = liveReport(g);
+    const live = after.instructions.filter((o) => o.minute !== undefined);
+    expect(live).toHaveLength(5);
   });
 });

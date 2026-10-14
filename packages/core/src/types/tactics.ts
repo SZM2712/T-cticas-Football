@@ -72,3 +72,26 @@ export interface TacticsPlan {
   setPieces?: Partial<SetPieces>;
   instructions?: PlayerInstruction[];
 }
+
+/** Cambio que el técnico hace durante un partido en directo. */
+export type MatchChange =
+  | { type: "sub"; out: PlayerId; in: PlayerId }
+  | {
+      type: "tactics";
+      tactics: Partial<Pick<Tactics, "formation" | "mentality" | "pressing" | "tempo" | "width" | "directness">> & {
+        setPieces?: Partial<SetPieces>;
+      };
+    }
+  /** Sustituye todas las instrucciones individuales del equipo. */
+  | { type: "instructions"; instructions: PlayerInstruction[] };
+
+/**
+ * Intervención en directo. `step` es el número de unidades de simulación ya jugadas
+ * cuando se aplica: con la misma entrada, semilla e intervenciones el partido es idéntico.
+ */
+export interface Intervention {
+  step: number;
+  /** 0 = local, 1 = visitante. */
+  side: 0 | 1;
+  change: MatchChange;
+}

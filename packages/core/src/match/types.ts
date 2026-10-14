@@ -6,9 +6,9 @@ import type { PlayerId, TeamId } from "../types/ids";
 
 export type {
   FormationId, Tactics, SetPieces, PlayerInstruction, InstructionKey, TacticsPlan, CornerRoutine, CornerCrowd,
-  FreeKickRoutine, ThrowInRoutine, KickoffRoutine,
+  FreeKickRoutine, ThrowInRoutine, KickoffRoutine, MatchChange, Intervention,
 } from "../types/tactics";
-import type { InstructionKey, Tactics } from "../types/tactics";
+import type { InstructionKey, Intervention, Tactics } from "../types/tactics";
 
 /** Habilidades que usa el motor (1–20), ya combinadas a partir de los atributos. */
 export interface Skills {
@@ -60,15 +60,19 @@ export interface SheetPlayer {
   morale: number;
   /** CA en su posición natural (para decidir cambios). */
   ability: number;
+  /** Instrucciones que le dio el técnico antes del partido. */
+  instructions: InstructionKey[];
   /**
-   * Instrucciones que le dio el técnico y probabilidad de que las cumpla en este partido
-   * (sale de su carácter y de la autoridad del técnico; nunca se muestra como número).
+   * Probabilidad de que cumpla cada instrucción (también las que se le den en directo).
+   * Sale de su carácter y de la autoridad del técnico; nunca se muestra como número.
    */
-  instructions: { key: InstructionKey; compliance: number }[];
+  compliance: Record<InstructionKey, number>;
 }
 
 export interface TeamSheet {
   team: TeamId;
+  /** Lo dirige un humano: la IA rival puede reaccionar a sus cambios, no al revés. */
+  human?: boolean;
   tactics: Tactics;
   /** Once inicial en el orden de los puestos de la formación. */
   xi: SheetPlayer[];
@@ -113,7 +117,9 @@ export type MatchEventType =
   | "extraTime"
   | "shootout"
   | "penaltyScored"
-  | "penaltyMissed";
+  | "penaltyMissed"
+  /** Cambio táctico (detail: formación, "style", "instructions" o "response" de la IA). */
+  | "tactical";
 
 export type GoalKind = "open" | "header" | "penalty" | "freeKick" | "longShot" | "rebound" | "ownGoal";
 
@@ -183,6 +189,10 @@ export interface Frames {
   evCount: number[];
   /** Reloj del partido (s) en ese fotograma: la 2.ª parte empieza en 2700. */
   clock: number[];
+  /** Unidad de simulación en curso en ese fotograma (para intervenir en directo). */
+  step: number[];
+  /** Ocupantes de los 11 puestos de cada equipo desde el fotograma `at` (cambios, expulsiones, sistema). */
+  rosters: { at: number; side: Side; ids: (PlayerId | null)[] }[];
 }
 
 /** Si el jugador siguió cada instrucción (consecuencia que se recuerda en el mundo). */
@@ -190,6 +200,8 @@ export interface InstructionOutcome {
   player: PlayerId;
   key: InstructionKey;
   followed: boolean;
+  /** Minuto si se dio durante el partido. */
+  minute?: number;
 }
 
 export interface MatchReport {
@@ -204,5 +216,7 @@ export interface MatchReport {
   lineups: [PlayerId[], PlayerId[]];
   tactics: [Tactics, Tactics];
   instructions: InstructionOutcome[];
+  /** Intervenciones en directo aplicadas (para repetir o auditar el partido). */
+  interventions?: Intervention[];
   frames?: Frames;
 }

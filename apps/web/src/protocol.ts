@@ -2,8 +2,8 @@
 // comandos; nunca toca el estado del mundo (regla 3 de CLAUDE.md).
 
 import type {
-  Command, CommandResult, CompetitionId, FixtureView, LeagueOption, MatchId, MatchReport, ScorerView, SquadRowView,
-  TableRowView, TacticsView, TeamId,
+  Command, CommandResult, CompetitionId, FixtureView, Intervention, LeagueOption, MatchChange, MatchId, MatchReport,
+  Position, ScorerView, SquadRowView, TableRowView, TacticsView, TeamId,
 } from "@tf/core";
 
 export interface Summary {
@@ -22,6 +22,13 @@ export interface WatchedMatch {
   /** Nombres de los jugadores que aparecen en el informe. */
   names: Record<string, string>;
   colors: [string, string];
+  /** Partido en directo aún sin cerrar: el usuario puede pausar e intervenir. */
+  live: boolean;
+  /** Equipo que dirige el usuario en este partido (0 local, 1 visitante) o null si solo mira. */
+  side: 0 | 1 | null;
+  /** Convocados de cada equipo (once + banquillo) con su posición natural. */
+  squads: [{ id: string; position: Position; bench: boolean }[], { id: string; position: Position; bench: boolean }[]];
+  interventions: Intervention[];
 }
 
 export interface Api {
@@ -30,8 +37,12 @@ export interface Api {
   advance(args: { days: number }): Summary;
   /** Avanza hasta el próximo partido del equipo (incluido). */
   advanceToMatch(args: { team: TeamId }): Summary;
-  /** Avanza hasta el partido y lo juega con fotogramas para el visor. */
-  watch(args: { match: MatchId }): WatchedMatch | null;
+  /** Avanza hasta el día del partido y lo deja listo para jugarlo en directo. */
+  startLive(args: { match: MatchId; team: TeamId | null }): WatchedMatch | null;
+  /** Intervención en una pausa del partido en directo. */
+  intervene(args: { step: number; side: 0 | 1; change: MatchChange }): { ok: true; match: WatchedMatch } | { ok: false; error: string };
+  /** Cierra el partido en directo: su resultado pasa al mundo. */
+  finishLive(args: object): WatchedMatch | null;
   /** Último partido visto (para repetirlo sin volver a simularlo). */
   lastWatched(args: object): WatchedMatch | null;
   leagues(args: object): LeagueOption[];

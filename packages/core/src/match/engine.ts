@@ -23,9 +23,10 @@ import { clamp } from "../util/math";
 import { ATTACKING_ROLES as ATTACKERS, DEFENDING_ROLES as DEFENDERS } from "./roles";
 import { FORMATIONS, shapePosition, type Slot } from "./tactics";
 import type {
-  Frames, GoalKind, InstructionOutcome, MatchEvent, MatchEventType, MatchInput, MatchReport, PlayerLine,
-  SheetPlayer, Side, Tactics, TeamSheet, TeamStats,
+  Frames, GoalKind, InstructionKey, InstructionOutcome, Intervention, MatchChange, MatchEvent, MatchEventType, MatchInput,
+  MatchReport, PlayerLine, SheetPlayer, Side, Tactics, TeamSheet, TeamStats,
 } from "./types";
+import { INSTRUCTION_KEYS } from "../types/tactics";
 
 export interface SimulateOptions {
   /** Generar fotogramas para el visor 2D. */
@@ -52,6 +53,8 @@ const NO_MODS: Mods = { shot: 1, dribble: 1, cross: 1, long: 1, short: 1, throug
 interface Live {
   sp: SheetPlayer;
   mods: Mods;
+  /** Instrucciones vigentes y si las está cumpliendo. */
+  follows: Partial<Record<InstructionKey, boolean>>;
   side: Side;
   /** Puesto que ocupa (0..10) o −1 si no está en el campo. */
   slot: number;
@@ -87,7 +90,15 @@ interface Team {
   /** Posiciones relativas de los 11 puestos (x, y) — caché por posición del balón. */
   shape: Float64Array;
   shapeKey: number;
+  /** Mentalidad de partida sobre la que actúa la gestión del marcador. */
+  baseMentality: number;
+  /** El técnico humano tomó el mando en directo: sin gestión automática del marcador. */
+  manual: boolean;
+  /** Unidad en la que se abrió la última ventana de cambios (varios cambios en la misma pausa = una ventana). */
+  windowUnit: number;
 }
+
+type Phase = "start" | "play" | "shootout" | "done";
 
 type PassKind = "recycle" | "progress" | "long" | "through";
 type ShotKind = keyof typeof XG_BASE;
@@ -110,7 +121,7 @@ function lineOf(p: Position): number {
   return 2;
 }
 
-class Sim {
+export class Sim {
   private readonly teams: [Team, Team];
   private readonly events: MatchEvent[] = [];
   private readonly score: [number, number] = [0, 0];
@@ -133,6 +144,13 @@ class Sim {
   private forced: "recycle" | "long" | null = null;
   /** Factor común del partido: unos son abiertos y otros se traban. */
   private readonly openness: number;
+  /** Unidades de simulación jugadas (saques, acciones, finales de parte, tanda). */
+  private units = 0;
+  private phase: Phase = "start";
+  private periodEnd = 0;
+  private guard = 0;
+  private readonly lineups: [string[], string[]];
+  private readonly applied: Intervention[] = [];
 
   constructor(
     private readonly input: MatchInput,
@@ -141,7 +159,30 @@ class Sim {
   ) {
     this.teams = [this.makeTeam(0, input.home), this.makeTeam(1, input.away)];
     this.openness = clamp(1 + this.rng.normal(0, OPENNESS_SD), 0.5, 1.6);
-    if (withFrames) this.frames = { t: [], ball: [], pos: [], owner: [], event: [], evCount: [], clock: [] };
+    if (withFrames) this.frames = { t: [], ball: [], pos: [], owner: [], event: [], evCount: [], clock: [], step: [], rosters: [] };
+    this.lineups = [this.teams[0].field.map((p) => p!.sp.id), this.teams[1].field.map((p) => p!.sp.id)];
+    this.rosterChanged(this.teams[0]);
+    this.rosterChanged(this.teams[1]);
+  }
+
+  private rosterChanged(team: Team): void {
+    if (!this.frames) return;
+    this.frames.rosters.push({ at: this.frames.t.length, side: team.side, ids: team.field.map((p) => (p ? p.sp.id : null)) });
+  }
+
+  /** Modificadores a partir de las instrucciones que el jugador está cumpliendo. */
+  private static modsOf(follows: Partial<Record<InstructionKey, boolean>>): Mods {
+    let mods = NO_MODS;
+    for (const key of INSTRUCTION_KEYS) {
+      if (!follows[key]) continue;
+      if (mods === NO_MODS) mods = { ...NO_MODS };
+      const eff = INSTRUCTION_EFFECTS[key] as Partial<Mods>;
+      for (const k of Object.keys(eff) as (keyof Mods)[]) {
+        if (k === "dx" || k === "press" || k === "tackle") mods[k] += eff[k]!;
+        else mods[k] *= eff[k]!;
+      }
+    }
+    return mods;
   }
 
   private makeTeam(side: Side, sheet: TeamSheet): Team {
@@ -152,20 +193,14 @@ class Sim {
       let form = 1 + this.rng.normal(0, sd);
       if (this.input.importance > 0.5) form += ((sp.bigMatches - 10) / 10) * 0.04 * this.input.importance;
       // Cada instrucción se cumple o no en este partido según su carácter y la autoridad del técnico.
-      let mods = NO_MODS;
-      for (const ins of sp.instructions) {
-        const followed = this.rng.float() < ins.compliance;
-        this.outcomes.push({ player: sp.id, key: ins.key, followed });
-        if (!followed) continue;
-        if (mods === NO_MODS) mods = { ...NO_MODS };
-        const eff = INSTRUCTION_EFFECTS[ins.key] as Partial<Mods>;
-        for (const k of Object.keys(eff) as (keyof Mods)[]) {
-          if (k === "dx" || k === "press" || k === "tackle") mods[k] += eff[k]!;
-          else mods[k] *= eff[k]!;
-        }
+      const follows: Partial<Record<InstructionKey, boolean>> = {};
+      for (const key of sp.instructions) {
+        const followed = this.rng.float() < sp.compliance[key];
+        this.outcomes.push({ player: sp.id, key, followed });
+        follows[key] = followed;
       }
       return {
-        sp, mods, side, slot, role, fam: slot >= 0 ? sp.familiarity : 1, cond: sp.fitness, form: clamp(form, 0.82, 1.16), mult: 1,
+        sp, mods: Sim.modsOf(follows), follows, side, slot, role, fam: slot >= 0 ? sp.familiarity : 1, cond: sp.fitness, form: clamp(form, 0.82, 1.16), mult: 1,
         started: slot >= 0, played: slot >= 0, minutes: 0, yellow: 0, red: false, injuryDays: 0, impact: 0, goals: 0, assists: 0,
       };
     };
@@ -174,6 +209,7 @@ class Sim {
     const team: Team = {
       side, sheet, t: { ...sheet.tactics }, slots, field, bench, all: [...field, ...bench], subs: 0, windows: 0,
       plan: [this.rng.int(56, 63), this.rng.int(66, 74), this.rng.int(77, 84)], stats: emptyStats(), shape: new Float64Array(22), shapeKey: -1,
+      baseMentality: sheet.tactics.mentality, manual: false, windowUnit: -1,
     };
     for (const p of field) this.updateMult(p);
     return team;
@@ -274,11 +310,12 @@ class Sim {
 
   /** Gestión del marcador: el que gana se protege y el que pierde arriesga, más cuanto más tarde. */
   private gameState(team: Team, minute: number): void {
+    if (team.manual) return;
     const [a, b] = GAME_STATE_RAMP;
     const ramp = clamp((minute - a) / (b - a), 0, 1);
     const diff = this.score[team.side] - this.score[(1 - team.side) as Side] + this.aggregateFor(team.side);
     const shift = diff > 0 ? -GAME_STATE_SHIFT : diff < 0 ? GAME_STATE_SHIFT : 0;
-    const m = clamp(team.sheet.tactics.mentality + shift * ramp * (Math.abs(diff) >= 2 ? 0.6 : 1), -1, 1);
+    const m = clamp(team.baseMentality + shift * ramp * (Math.abs(diff) >= 2 ? 0.6 : 1), -1, 1);
     if (m !== team.t.mentality) {
       team.t.mentality = m;
       team.shapeKey = -1;
@@ -398,6 +435,7 @@ class Sim {
       this.emergencyKeeper(team);
     }
     if (this.carrier === out) this.carrier = this.pickNear(team, 0.4, 0.5, 0.2, null, true) ?? this.carrier;
+    this.rosterChanged(team);
     return sub !== null;
   }
 
@@ -427,6 +465,8 @@ class Sim {
     p.role = "GK";
     p.fam = 0.02;
     this.updateMult(p);
+    team.shapeKey = -1;
+    this.rosterChanged(team);
   }
 
   private aiSubs(team: Team, minute: number): void {
@@ -466,6 +506,7 @@ class Sim {
     }
     if (made) {
       team.windows++;
+      this.rosterChanged(team);
       this.advanceDead(DEAD_SECONDS.sub);
     }
   }
@@ -505,6 +546,8 @@ class Sim {
       } else this.emergencyKeeper(team);
     }
     if (this.carrier === p) this.carrier = this.pickNear(team, 0.4, 0.5, 0.2, null, true) ?? this.carrier;
+    team.shapeKey = -1;
+    this.rosterChanged(team);
   }
 
   private foul(def: Team, fouler: Live, victim: Live, tactical: boolean): void {
@@ -1029,6 +1072,7 @@ class Sim {
     f.event.push(event);
     f.evCount.push(this.events.length);
     f.clock.push(Math.round(this.clock));
+    f.step.push(this.units);
     const n = f.t.length;
     for (const team of this.teams) {
       this.computeShape(team);
@@ -1054,23 +1098,226 @@ class Sim {
 
   // ── Partido completo ──────────────────────────────────────────────────────
 
-  private playPeriod(period: number): void {
-    this.period = period;
+  /** Arranque de una parte: añadido, reloj y saque inicial. */
+  private startPeriod(): void {
+    const period = this.period;
     const base = PERIOD_BASE[period]!;
     const len = period < 2 ? 2700 : 900;
     const [lo, hi] = period === 0 ? STOPPAGE_FIRST : period === 1 ? STOPPAGE_SECOND : [0, 2];
-    const end = base + len + this.rng.int(lo, hi) * 60;
+    this.periodEnd = base + len + this.rng.int(lo, hi) * 60;
     this.clock = base;
     this.minuteSeen = Math.floor(base / 60) - 1;
+    this.guard = 0;
     this.kickoff((period % 2) as Side);
     const ko = this.ev("kickoff", this.poss);
     this.snap(ko);
-    let guard = 0;
-    while (this.clock < end && guard++ < 5000) this.step();
-    this.clock = Math.min(this.clock, end);
-    if (period === 1 && this.needsExtra()) return;
+  }
+
+  /** Final de una parte y paso a la siguiente fase del partido. */
+  private endPeriod(): void {
+    const period = this.period;
+    this.clock = Math.min(this.clock, this.periodEnd);
+    if (period === 1 && this.needsExtra()) {
+      this.extraTime = true;
+      this.ev("extraTime", 0);
+      this.period = 2;
+      this.phase = "start";
+      return;
+    }
     const e = this.ev(period === 1 || period === 3 ? "fullTime" : "halfTime", 0);
     this.snap(e);
+    if (period === 0 || period === 2) {
+      this.period = period + 1;
+      this.phase = "start";
+    } else if (period === 3 && this.needsExtra()) this.phase = "shootout";
+    else this.phase = "done";
+  }
+
+  /**
+   * Una unidad de simulación: un saque inicial, una acción, un final de parte o la tanda.
+   * Entre dos unidades se puede pausar el partido e intervenir.
+   */
+  private unit(): void {
+    this.units++;
+    switch (this.phase) {
+      case "start":
+        this.startPeriod();
+        this.phase = "play";
+        return;
+      case "play":
+        if (this.clock < this.periodEnd && this.guard++ < 5000) this.step();
+        else this.endPeriod();
+        return;
+      case "shootout":
+        this.shootout();
+        this.phase = "done";
+        return;
+      case "done":
+        return;
+    }
+  }
+
+  get finished(): boolean {
+    return this.phase === "done";
+  }
+
+  get step_(): number {
+    return this.units;
+  }
+
+  /** Juega hasta haber completado `step` unidades (o hasta el final). */
+  runTo(step: number): void {
+    while (this.units < step && this.phase !== "done") this.unit();
+  }
+
+  runToEnd(): void {
+    while (this.phase !== "done") this.unit();
+  }
+
+  // ── Intervenciones en directo ─────────────────────────────────────────────
+
+  /** En una pausa entre partes (descanso, antes de la prórroga) los cambios no gastan ventana. */
+  private atBreak(): boolean {
+    return this.phase === "start" && this.units > 0;
+  }
+
+  /** Aplica un cambio del técnico. Devuelve la clave del error (i18n) o null. */
+  apply(side: Side, change: MatchChange): string | null {
+    if (this.phase === "done") return "error.matchOver";
+    const team = this.teams[side];
+    let error: string | null;
+    switch (change.type) {
+      case "sub":
+        error = this.manualSub(team, change.out, change.in);
+        break;
+      case "tactics":
+        error = this.changeTactics(team, change.tactics);
+        break;
+      case "instructions":
+        error = this.changeInstructions(team, change.instructions);
+        break;
+    }
+    if (!error) this.applied.push({ step: this.units, side, change });
+    return error;
+  }
+
+  private manualSub(team: Team, outId: string, inId: string): string | null {
+    const out = team.field.find((p) => p?.sp.id === outId);
+    const sub = team.bench.find((p) => p.sp.id === inId);
+    if (!out) return "error.subOut";
+    if (!sub || sub.played) return "error.subIn";
+    if (team.subs >= MAX_SUBS) return "error.noSubsLeft";
+    const newWindow = !this.atBreak() && team.windowUnit !== this.units;
+    if (newWindow && team.windows >= SUB_WINDOWS) return "error.noWindowsLeft";
+    if (newWindow) {
+      team.windows++;
+      team.windowUnit = this.units;
+    }
+    const slot = out.slot;
+    out.slot = -1;
+    team.field[slot] = null;
+    this.enter(team, sub, slot);
+    this.ev("sub", team.side, sub, out, "manual", slot);
+    if (this.carrier === out) this.carrier = sub;
+    this.rosterChanged(team);
+    return null;
+  }
+
+  private changeTactics(team: Team, patch: Extract<MatchChange, { type: "tactics" }>["tactics"]): string | null {
+    const before = team.t.mentality;
+    if (patch.formation && !FORMATIONS[patch.formation]) return "error.formation";
+    for (const k of ["mentality", "pressing", "tempo", "width", "directness"] as const) {
+      const v = patch[k];
+      if (v === undefined) continue;
+      const lo = k === "mentality" ? -1 : 0;
+      if (!Number.isFinite(v) || v < lo || v > 1) return "error.range";
+    }
+    if (patch.formation && patch.formation !== team.t.formation) this.reassign(team, patch.formation);
+    if (patch.mentality !== undefined) {
+      team.baseMentality = patch.mentality;
+      team.t.mentality = patch.mentality;
+    }
+    for (const k of ["pressing", "tempo", "width", "directness"] as const) if (patch[k] !== undefined) team.t[k] = patch[k];
+    if (patch.setPieces) team.t.setPieces = { ...team.t.setPieces, ...patch.setPieces };
+    team.manual = true;
+    team.shapeKey = -1;
+    this.ev("tactical", team.side, null, null, patch.formation ?? "style");
+    this.aiResponse(this.teams[(1 - team.side) as Side], team.t.mentality - before);
+    return null;
+  }
+
+  /**
+   * La IA rival responde a un cambio de mentalidad claro: si el otro se lanza, ella se
+   * protege y busca la contra; si el otro se encierra, ella da un paso adelante.
+   */
+  private aiResponse(ai: Team, delta: number): void {
+    if (ai.sheet.human || ai.manual || Math.abs(delta) < 0.3) return;
+    const shift = delta > 0 ? -0.15 : 0.2;
+    ai.baseMentality = clamp(ai.baseMentality + shift, -1, 1);
+    ai.t.mentality = clamp(ai.t.mentality + shift, -1, 1);
+    if (delta > 0) ai.t.directness = clamp(ai.t.directness + 0.1, 0, 1);
+    ai.shapeKey = -1;
+    this.ev("tactical", ai.side, null, null, "response");
+  }
+
+  /** Reparte a los jugadores en el campo entre los puestos de un nuevo sistema. */
+  private reassign(team: Team, formation: Tactics["formation"]): void {
+    const slots = FORMATIONS[formation];
+    const field: (Live | null)[] = new Array(slots.length).fill(null);
+    field[0] = team.field[0] ?? null;
+    const pool = team.field.filter((p, i): p is Live => p !== null && i !== 0);
+    const order = slots.map((sl, i) => ({ i, role: sl.role })).slice(1).sort((a, b) => lineOf(a.role) - lineOf(b.role) || a.i - b.i);
+    for (const { i, role } of order) {
+      let best = -1;
+      let bestV = -Infinity;
+      for (let k = 0; k < pool.length; k++) {
+        const p = pool[k]!;
+        const fam = p.sp.position === role ? 1 : lineOf(p.sp.position) === lineOf(role) ? 0.7 : 0.35;
+        const v = p.sp.ability - (1 - fam) * 5;
+        if (v > bestV) {
+          bestV = v;
+          best = k;
+        }
+      }
+      if (best < 0) continue;
+      const p = pool.splice(best, 1)[0]!;
+      p.slot = i;
+      p.role = role;
+      p.fam = p.sp.position === role ? 1 : lineOf(p.sp.position) === lineOf(role) ? 0.7 : 0.35;
+      field[i] = p;
+      this.updateMult(p);
+    }
+    team.slots = slots;
+    team.field = field;
+    team.t.formation = formation;
+    team.shapeKey = -1;
+    this.rosterChanged(team);
+  }
+
+  private changeInstructions(team: Team, list: { player: string; key: InstructionKey }[]): string | null {
+    const ids = new Set(team.all.map((p) => p.sp.id as string));
+    if (list.some((i) => !ids.has(i.player) || !INSTRUCTION_KEYS.includes(i.key))) return "error.instruction";
+    const [minute] = this.displayMinute();
+    for (const p of team.all) {
+      const wanted = new Set(list.filter((i) => i.player === p.sp.id).map((i) => i.key));
+      const follows: Partial<Record<InstructionKey, boolean>> = {};
+      for (const key of INSTRUCTION_KEYS) {
+        if (!wanted.has(key)) continue;
+        if (p.follows[key] !== undefined) follows[key] = p.follows[key];
+        else {
+          // Instrucción nueva dada en directo: vuelve a decidir si hace caso.
+          const followed = this.rng.float() < p.sp.compliance[key];
+          follows[key] = followed;
+          this.outcomes.push({ player: p.sp.id, key, followed, minute });
+        }
+      }
+      p.follows = follows;
+      p.mods = Sim.modsOf(follows);
+    }
+    team.t.instructions = list.map((i) => ({ player: i.player as never, key: i.key }));
+    team.shapeKey = -1;
+    this.ev("tactical", team.side, null, null, "instructions");
+    return null;
   }
 
   private needsExtra(): boolean {
@@ -1119,21 +1366,11 @@ class Sim {
     this.pens = goals;
   }
 
-  run(): MatchReport {
-    const lineups: [string[], string[]] = [this.teams[0].field.map((p) => p!.sp.id), this.teams[1].field.map((p) => p!.sp.id)];
-    this.playPeriod(0);
-    this.playPeriod(1);
-    if (this.needsExtra()) {
-      this.extraTime = true;
-      this.ev("extraTime", 0);
-      this.playPeriod(2);
-      this.playPeriod(3);
-      if (this.needsExtra()) this.shootout();
-    }
-    return this.report(lineups);
+  report(): MatchReport {
+    return this.buildReport(this.lineups);
   }
 
-  private report(lineups: [string[], string[]]): MatchReport {
+  private buildReport(lineups: [string[], string[]]): MatchReport {
     const players: PlayerLine[] = [];
     let motm: { line: PlayerLine; v: number } | undefined;
     for (const team of this.teams) {
@@ -1168,6 +1405,7 @@ class Sim {
       instructions: this.outcomes,
     };
     if (this.pens) report.pens = this.pens;
+    if (this.applied.length) report.interventions = this.applied.slice();
     if (this.frames) report.frames = this.frames;
     return report;
   }
@@ -1175,7 +1413,34 @@ class Sim {
 
 const round3 = (x: number) => Math.round(x * 1000) / 1000;
 
+/** Partido en curso que se puede pausar entre unidades para intervenir. */
+export type LiveMatch = Sim;
+
+export function startMatch(input: MatchInput, rng: Rng, opts: SimulateOptions = {}): LiveMatch {
+  return new Sim(input, rng, opts.frames ?? false);
+}
+
+/**
+ * Simula un partido completo a partir de su instantánea de entrada y de las intervenciones
+ * del técnico (en orden de `step`). Función pura dado el RNG. Las intervenciones que no se
+ * pueden aplicar devuelven su error en `errors` (mismo índice).
+ */
+export function simulateWithInterventions(
+  input: MatchInput, rng: Rng, opts: SimulateOptions, interventions: readonly Intervention[],
+): { report: MatchReport; errors: (string | null)[] } {
+  const sim = new Sim(input, rng, opts.frames ?? false);
+  const errors: (string | null)[] = [];
+  for (const iv of interventions) {
+    sim.runTo(iv.step);
+    errors.push(sim.apply(iv.side, iv.change));
+  }
+  sim.runToEnd();
+  return { report: sim.report(), errors };
+}
+
 /** Simula un partido completo a partir de su instantánea de entrada. Función pura dado el RNG. */
 export function simulateMatch(input: MatchInput, rng: Rng, opts: SimulateOptions = {}): MatchReport {
-  return new Sim(input, rng, opts.frames ?? false).run();
+  const sim = new Sim(input, rng, opts.frames ?? false);
+  sim.runToEnd();
+  return sim.report();
 }

@@ -716,6 +716,23 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
   - La UI solo muestra si la cumplió, nunca la probabilidad (regla 6).
 - **Plan del usuario**: `World.tactics[teamId]` (`TacticsPlan`) se fija con el comando `setTactics` validado; lo que no fija lo decide la IA. Admite once propio por puestos.
 
+### Partido en directo (`startMatch`, `simulateWithInterventions`, `liveIntervene`)
+- **Unidades de simulación**: el motor avanza por unidades (un saque inicial, una acción, un final de parte, la tanda de penaltis). Entre dos unidades se puede pausar.
+- **Intervenciones** (`Intervention`): cada una tiene la unidad (`step`), el equipo y el cambio.
+  - Cambio de jugador: en el descanso no gasta ventana; varios cambios en la misma pausa cuentan como una sola ventana.
+  - Sistema: los jugadores en el campo se recolocan en los puestos nuevos.
+  - Mentalidad, presión, ritmo, amplitud, juego directo y balón parado.
+  - Instrucciones individuales: cada orden nueva se decide en ese momento según la disposición del jugador y queda registrada con su minuto.
+- **Determinismo**:
+  - Con la misma entrada, semilla e intervenciones, el partido es idéntico. Lo jugado antes de una intervención no cambia, porque el azar se consume en el mismo orden.
+  - Por eso el directo se resuelve volviendo a simular el partido desde el principio con las intervenciones acumuladas (~3 ms).
+  - Nunca se puede intervenir antes de la última intervención (`error.pastStep`).
+- **IA**:
+  - Cuando el humano toma el mando táctico, su equipo deja de tener gestión automática del marcador; el asistente sigue haciendo los cambios por cansancio o lesión.
+  - La IA rival responde a cambios claros de mentalidad: se protege si el otro se lanza y da un paso adelante si el otro se encierra.
+- **Mundo**: `advanceDay(game, { live: matchId })` reserva el partido. `finishLive` lo cierra, guarda las intervenciones en `Match.interventions` para repetirlo o auditarlo, y hace avanzar la competición. Si se avanza otro día con un directo abierto, se cierra solo con lo que tenga.
+- **UI**: «Ver en directo» abre el partido sin poder adelantar. Pausa manual y automática en el descanso y antes de la prórroga. Panel de cambios, sistema y estilo, e instrucciones. Al final, «Terminar partido».
+
 ### Consecuencias en el mundo (`match/apply.ts`)
 - Resultado con goleadores, asistentes, tarjetas, estadísticas y mejor jugador.
 - Estadísticas por competición (`World.stats`): al cerrar temporada pasan a la trayectoria del jugador (`Player.career`) y al máximo goleador del historial.

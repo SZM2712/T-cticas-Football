@@ -1,7 +1,8 @@
-import type { MatchEvent } from "@tf/core";
+import type { MatchChange, MatchEvent } from "@tf/core";
 import { useEffect, useRef, useState } from "react";
 import { useT } from "../i18n";
 import type { WatchedMatch } from "../protocol";
+import { LivePanel } from "./LivePanel";
 
 const SPEEDS = [4, 8, 16, 32, 64];
 const W = 105;
@@ -36,12 +37,22 @@ function drawPitch(ctx: CanvasRenderingContext2D, s: number): void {
   for (const x of [0, W - 5.5]) ctx.strokeRect(x * s, (H / 2 - 9.15) * s, 5.5 * s, 18.3 * s);
 }
 
-export function MatchViewer({ m }: { m: WatchedMatch }) {
+/** Eventos en los que el directo se pausa solo: descanso y antes de la prórroga. */
+const AUTO_PAUSE = new Set(["halfTime", "extraTime"]);
+
+export function MatchViewer({
+  m, onIntervene, onFinish,
+}: {
+  m: WatchedMatch;
+  onIntervene?: (step: number, side: 0 | 1, change: MatchChange) => Promise<string | null>;
+  onFinish?: () => void;
+}) {
   const { t, team } = useT();
   const canvas = useRef<HTMLCanvasElement>(null);
   const [time, setTime] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [speed, setSpeed] = useState(16);
+  const lastIdx = useRef(0);
   const f = m.report.frames;
   const end = f ? f.t[f.t.length - 1]! : 0;
 
@@ -64,9 +75,32 @@ export function MatchViewer({ m }: { m: WatchedMatch }) {
   }, [playing, speed, f, end]);
 
   const idx = f ? frameAt(f.t, time) : 0;
+
+  // En directo, el partido se para solo en el descanso (y antes de la prórroga) para hacer cambios.
+  useEffect(() => {
+    if (!f || !m.live) return;
+    for (let i = lastIdx.current + 1; i <= idx; i++) {
+      const e = f.event[i]!;
+      if (e >= 0 && AUTO_PAUSE.has(m.report.events[e]!.type)) {
+        lastIdx.current = i;
+        setTime(f.t[i]!);
+        setPlaying(false);
+        return;
+      }
+    }
+    lastIdx.current = idx;
+  }, [idx, f, m.live, m.report.events]);
   const shown: MatchEvent[] = f ? m.report.events.slice(0, f.evCount[idx]) : m.report.events;
   const score = [0, 0];
   for (const e of shown) if (e.type === "goal" || e.type === "ownGoal") score[e.side]!++;
+
+  /** Dorsal: orden en la convocatoria (1–11 titulares, 12+ suplentes). */
+  const roster = (side: number) => f?.rosters.filter((r) => r.side === side && r.at <= idx).at(-1)?.ids ?? [];
+  const shirt = (side: number, slot: number) => {
+    const id = roster(side)[slot];
+    const k = id ? m.squads[side]!.findIndex((p) => p.id === id) : -1;
+    return k >= 0 ? k + 1 : slot + 1;
+  };
 
   useEffect(() => {
     const c = canvas.current;
@@ -97,7 +131,7 @@ export function MatchViewer({ m }: { m: WatchedMatch }) {
         ctx.font = `${Math.round(1.6 * s)}px sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(String(i + 1), x * W * s, y * H * s);
+        ctx.fillText(String(shirt(side, i)), x * W * s, y * H * s);
       }
     }
     ctx.beginPath();
@@ -106,11 +140,16 @@ export function MatchViewer({ m }: { m: WatchedMatch }) {
     ctx.arc(lerp(f.ball, 0) * W * s, lerp(f.ball, 1) * H * s, 0.8 * s, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
-  }, [time, idx, f, m.colors]);
+  }, [time, idx, f, m.colors, m.squads]);
 
   const clock = f ? f.clock[idx]! : 0;
   const label = (e: MatchEvent) => {
     const params = { player: e.player ? m.names[e.player] ?? "" : "", other: e.other ? m.names[e.other] ?? "" : "" };
+    if (e.type === "tactical") {
+      const who = team(e.side === 0 ? m.fixture.home : m.fixture.away);
+      const d = e.detail ?? "style";
+      return `${t("event.tactical", { team: who })}: ${["response", "instructions", "style"].includes(d) ? t(`tacticalDetail.${d}`) : d}`;
+    }
     let text = t(`event.${e.type}`, params);
     if (e.type === "goal" && e.detail && e.detail !== "open") text += ` (${t(`goalKind.${e.detail}`)})`;
     return text;
@@ -133,13 +172,27 @@ export function MatchViewer({ m }: { m: WatchedMatch }) {
         <>
           <canvas ref={canvas} width={840} height={544} />
           <div className="row">
-            <button onClick={() => setPlaying(!playing)}>{playing ? t("match.pause") : t("match.play")}</button>
-            <button onClick={() => { setTime(0); setPlaying(true); }}>{t("match.replay")}</button>
-            <input type="range" min={0} max={end} step={1} value={time} onChange={(e) => setTime(Number(e.target.value))} />
+            {m.live && <strong className="live-badge">● {t("match.live")}</strong>}
+            {!finished && <button onClick={() => setPlaying(!playing)}>{playing ? t("match.pause") : t("match.play")}</button>}
+            {!m.live && <button onClick={() => { setTime(0); setPlaying(true); lastIdx.current = 0; }}>{t("match.replay")}</button>}
+            {/* En directo no se puede adelantar: solo se ve lo que ya se ha jugado. */}
+            {!m.live && <input type="range" min={0} max={end} step={1} value={time} onChange={(e) => setTime(Number(e.target.value))} />}
             <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))}>
               {SPEEDS.map((x) => <option key={x} value={x}>{t("match.speed", { n: x })}</option>)}
             </select>
+            {m.live && finished && onFinish && <button className="primary" onClick={onFinish}>{t("match.finish")}</button>}
           </div>
+          {m.live && !playing && !finished && m.side !== null && onIntervene && (
+            <LivePanel
+              m={m}
+              side={m.side}
+              step={f.step[idx]!}
+              onField={roster(m.side).filter((x) => x !== null).map(String)}
+              used={new Set(f.rosters.filter((r) => r.side === m.side && r.at <= idx).flatMap((r) => r.ids.filter((x) => x !== null).map(String)))}
+              subsMade={shown.filter((e) => e.type === "sub" && e.side === m.side).length}
+              onIntervene={onIntervene}
+            />
+          )}
         </>
       ) : (
         <p className="hint">{t("match.engineQuick")}</p>

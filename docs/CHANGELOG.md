@@ -13,6 +13,11 @@
   - Seis sistemas y diales de mentalidad, presión, ritmo, amplitud y juego directo.
   - **Balón parado** completo: córners (primer palo, segundo palo, en corto, al borde del área y cuántos suben), faltas (tirar, centrar o en corto), saques de banda (cortos o largos al área), saque inicial al empezar y tras el descanso (elaborar o en largo) y lanzadores designados de penaltis, faltas, córners y saques largos.
   - **Instrucciones individuales** (13): el jugador decide en cada partido si las cumple según su profesionalidad, su ego, el choque con su forma de ser y la autoridad del técnico. Ignorarlas queda registrado en el mundo (`player.ignoredInstruction`) para la Fase 4.
+- **Partido en directo**:
+  - Se puede pausar en cualquier momento; en el descanso y antes de la prórroga se pausa solo.
+  - En la pausa se hacen cambios, se cambia el sistema o la mentalidad, la presión y el ritmo, y se dan o quitan instrucciones; cada jugador vuelve a decidir si hace caso.
+  - La IA rival reacciona a los cambios claros de mentalidad.
+  - Es determinista: lo ya jugado nunca cambia, no se puede volver atrás y las intervenciones quedan guardadas en el partido.
 - **Comandos** `setTactics` y `clearTactics`, validados (jugadores de la plantilla, rangos y rutinas válidas). La UI nunca toca el estado.
 - **Consecuencias**:
   - Goleadores, asistentes y tarjetas en cada resultado.
@@ -55,8 +60,7 @@
   - El roadmap se renumera: 9 Assets e IA, 10 Pulido, 11 Director deportivo y presidente.
 - **Pendiente para fases posteriores**:
   - Elegir el once a mano desde la UI: el plan ya lo admite, falta el control visual (Fase 7).
-  - Cambios tácticos durante el partido (Fase 4/7).
-  - Conectar las instrucciones ignoradas con relaciones y tensiones de ego (Fase 4).
+    - Conectar las instrucciones ignoradas con relaciones y tensiones de ego (Fase 4).
   - Controversias arbitrales con evidencia (Fase 5).
 
 ## Fase 1 — Núcleo (rama `claude/fase-1-nucleo`)

@@ -4,7 +4,7 @@
 import type { Climate, ConfederationId } from "@tf/data";
 import type { GoalkeepingAttr, MentalAttr, PhysicalAttr, Position, TechnicalAttr } from "../config/attributes";
 import type { PsychTrait } from "../config/psych";
-import type { TacticsPlan } from "./tactics";
+import type { Intervention, TacticsPlan } from "./tactics";
 import type {
   Attr, ClubId, CompetitionId, GameDay, LeagueId, MatchId, NationalTeamId, NationId, PlayerId, Signed, StaffId,
   TeamId, Unit,
@@ -403,6 +403,8 @@ export interface Match {
   /** En la vuelta de una eliminatoria o en una ronda única: hay que decidir ganador. */
   decisive: boolean;
   result?: MatchResult;
+  /** Intervenciones en directo del técnico humano (para repetir o auditar el partido). */
+  interventions?: Intervention[];
 }
 
 // ── Eventos y mundo ─────────────────────────────────────────────────────────

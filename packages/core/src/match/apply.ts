@@ -51,6 +51,7 @@ function statLine(world: World, competitionId: string, player: PlayerId, team: T
 
 export function applyReport(world: World, m: Match, report: MatchReport, engine: "full" | "quick"): void {
   m.result = resultFromReport(report, engine);
+  if (report.interventions?.length) m.interventions = report.interventions;
   const day = m.day as GameDay;
   // Instrucciones ignoradas: el técnico (y en la Fase 4 el vestuario) lo recuerda.
   for (const o of report.instructions) {
