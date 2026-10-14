@@ -18,5 +18,8 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm test
-      - name: Mundo de referencia y 2 temporadas
-        run: npm run gen -- --seed=123 --stats --seasons=2
+      - run: npm run build:web
+      - name: Mundo de referencia y 1 temporada con el motor de partido
+        run: npm run gen -- --seed=123 --stats --seasons=1
+      - name: Balance del motor (1 temporada)
+        run: npm run sim -- --seasons=1 --seed=123

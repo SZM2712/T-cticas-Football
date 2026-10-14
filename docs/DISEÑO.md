@@ -549,12 +549,14 @@ Escenarios guionizados de test (Fase 4): para cada dinámica, ≥ 3 escenarios c
 | **1. Núcleo** | Monorepo, RNG, tipos, tiempo/calendario, datos de ~100 naciones, i18n, generación de mundo, motor de formatos de competición (ligas, copas, continentales, selecciones), serialización, CLI `gen` | Mismo seed → mismo hash; seeds distintos → mundos distintos; calendario de 4 temporadas sin choques; generación < 5 s; distribuciones en rango (§10) |
 | **2. Motor de partido** | Motor por eventos, tácticas básicas, cambios, tarjetas, lesiones, modelo rápido, CLI `sim` | 20 temporadas: goles/partido 2,5–2,9; local 42–47 %; empates 24–28 %; rojas 0,1–0,2; goleadores con cola larga; partido reproducible por `seedPath`; motor rápido dentro de ±3 % del completo en esas métricas |
 | **3. Desarrollo** | Techo latente, crecimiento, entrenamiento, mentoría (atributos), ojeadores | 20 temporadas sin inflación (±8 % en P50/P95/P99 y nº de élite); dos ojeadores discrepan en ≥ 30 % de jóvenes; informe "por qué" presente en todo cambio de CA ≥ 0.3 |
-| **4. Vestuario y ego** | Grafo, camarillas, jerarquía, estado emocional, memoria episódica, 3 dinámicas, `Commitment`s, encaje, conversaciones | Escenarios guionizados dentro de rango en ≥ 200 semillas; cada promesa de prensa/conversación crea `Commitment` con acción enlazada; avance de día < 200 ms (perfil móvil simulado con CPU ×4 throttling) |
-| **5. Medios** | Narrativas, periodistas, prensa contextual, quejas arbitrales, delegación con directrices | 0 preguntas repetidas en una temporada sin hecho nuevo (test automático en 20 temporadas); el asistente nunca viola una directriz |
+| **4. Vestuario y ego** | Grafo, camarillas, jerarquía, estado emocional, memoria episódica, 3 dinámicas, `Commitment`s, encaje, conversaciones. Preparación multijugador (§11.3): autor en cada `Command`, varios mánagers humanos, sal de turno en la semilla | Escenarios guionizados dentro de rango en ≥ 200 semillas; cada promesa de prensa/conversación crea `Commitment` con acción enlazada; avance de día < 200 ms (perfil móvil simulado con CPU ×4 throttling) |
+| **5. Medios, redes y disciplina** | Narrativas, periodistas, prensa contextual, redes sociales ficticias, decisiones arbitrales dudosas con evidencia, colectivo arbitral, comité de disciplina con expedientes, alegaciones y recursos, delegación con directrices (§11.4) | 0 preguntas repetidas en una temporada sin hecho nuevo (test automático en 20 temporadas); el asistente nunca viola una directriz; toda sanción tiene expediente con hechos enlazados; ninguna publicación expone números ocultos |
 | **6. Mundo** | Economía, mercado, IA de clubes, directiva, afición, redes | Sin traspasos absurdos (detector: precio vs. valor, encaje con necesidad, presupuesto) en 20 temporadas; FFP respetado por la IA |
 | **7. UI completa** | Todas las pantallas, mapa del vestuario, paneles, accesibilidad | Tests visuales Playwright sin solapamientos en 360/768/1440 px; axe sin violaciones AA; navegación completa por teclado |
-| **8. Assets e IA** | Prompts de imagen, caché, retratos SVG, `LlmProvider` | Todo jugador tiene cara; juego 100 % offline sin proveedor |
-| **9. Pulido** | Tutoriales, logros, editor de BD, balance final | 3 temporadas jugadas sin bugs bloqueantes |
+| **8. Multijugador asíncrono** | Servidor autoritativo (nube o mini PC), salas de 2–10 humanos, órdenes por partido, avance por días con espera solo a quien juega, plazos, notificaciones, repeticiones, anti-repetición (§11.3) | Un partido simulado nunca cambia; con el mundo y las órdenes, nadie puede predecir el resultado antes del cierre; el resultado de cualquier día se reproduce desde el registro; un humano que juega el domingo puede cerrar antes que el del viernes sin bloquearlo |
+| **9. Assets e IA** | Prompts de imagen, caché, retratos SVG, `LlmProvider` | Todo jugador tiene cara; juego 100 % offline sin proveedor |
+| **10. Pulido** | Tutoriales, logros, editor de BD, balance final | 3 temporadas jugadas sin bugs bloqueantes |
+| **11. Director deportivo y presidente** | Modos jugables de los otros cargos (§11.2) | Cada cargo tiene su propio ciclo de decisiones y sus formas de acceso y salida |
 
 > Propuesta: adelantar a la Fase 2 una **UI mínima de depuración** (lista de jugadores, tabla, resultados) para poder ver el mundo desde el principio. No sustituye a la Fase 7.
 
@@ -674,6 +676,80 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 
 ---
 
+## 10b. Fase 2 — motor de partido (implementado)
+
+### Motor por zonas (`core/match/engine.ts`)
+- **Entrada**: `MatchInput` es una instantánea completa: once, banquillo, habilidades combinadas (1–20), forma física, ocultos relevantes, táctica, rigor del árbitro e importancia. Con la misma entrada y el mismo `seedPath` (`match/<id>`), el partido es idéntico.
+- **Cadenas de posesión**: el poseedor elige entre pase de seguridad, pase hacia delante, balón largo, pase al hueco, regate, centro o tiro. Pesa la zona (campo continuo 0..1, rejilla 6×5 a efectos de diales), su puesto, sus atributos, la táctica y sus instrucciones.
+- **Duelos logísticos** contra el defensor más cercano según la forma táctica del rival. Modificadores: calidad × forma del día × condición × encaje en el puesto × moral, campo, inferioridad numérica, presión alta, último tercio y mentalidad.
+- **Tiros con xG** por tipo de ocasión (área, área cercana, banda, lejano, cabezazo, mano a mano, penalti, falta directa, cabezazo de córner, rechace) y calidad de rematador y portero. Pueden ir bloqueados, parados (córner o rechace), fuera o al palo.
+- **Faltas y tarjetas**: el árbitro tiene rigor propio. Hay faltas tácticas para cortar contras, el amonestado se cuida y hay amarillas por protestas según el temperamento.
+- **Lesiones** por minuto (propensión × cansancio) y por faltas.
+- **Cansancio** minuto a minuto. Cambios de la IA en 3 ventanas (cansados, amonestados en riesgo, atacante si pierde, defensa si gana por la mínima al final).
+- **Gestión del marcador**: quien gana se repliega y quien pierde arriesga, más cuanto más tarde.
+- **Prórroga y penaltis** en partidos decisivos, teniendo en cuenta la ida.
+- **Fotogramas para el visor 2D**: posición de los 22 puestos y del balón en cada acción, derivada de la forma táctica. Se calculan sin tocar el RNG, así que pedirlos no cambia el partido.
+- **LOD**: modo `auto` usa el motor completo salvo entre dos clubes en sombra, que usan el modelo rápido (`quick.ts`) calibrado contra el completo.
+- **Rendimiento**: ~2,5 ms por partido (~25 s por temporada mundial completa en escritorio, < 100 ms por día de juego).
+
+### Tácticas (`types/tactics.ts`, `match/tactics.ts`)
+- **Sistema y estilo**:
+  - Formaciones: 4-4-2, 4-3-3, 4-2-3-1, 3-5-2, 5-3-2 y 4-1-4-1.
+  - Mentalidad, presión, ritmo, amplitud y juego directo.
+  - La IA tiene un estilo estable por club (hash del id) y ajusta la mentalidad según el rival y el campo.
+- **Balón parado**:
+
+| Situación | Opciones | Efecto en el motor |
+|---|---|---|
+| Córner | primer palo, segundo palo, en corto, al borde del área | Probabilidad y calidad del remate; en corto se conserva el balón; al borde busca al mejor tirador lejano |
+| Suben al córner | pocos, los centrales, todos | Más remate a cambio de más contras rivales tras el despeje |
+| Falta en zona de disparo | tirar, centrar, en corto | Probabilidad de tiro directo, centro o conservar |
+| Saque de banda | corto o largo | El largo en campo rival es un centro al área del lanzador |
+| Saque inicial (inicio y descanso) | elaborar o balón largo | Primera acción de la jugada |
+| Lanzadores | penaltis (orden), faltas, córners y saques largos | Si el designado no está en el campo, tira el mejor disponible |
+
+- **Instrucciones individuales**: tirar más/menos, regatear más/menos, centrar más, pase corto/largo, incorporarse, quedarse atrás, presionar más/menos, entrar fuerte, no ir al suelo. Cada una modifica pesos de acción, posición, cansancio o faltas.
+- **Aceptación (ego y carácter)**:
+  - Antes de cada partido, cada jugador decide si cumple cada instrucción.
+  - La probabilidad sube con su profesionalidad y con la autoridad del técnico sobre él (reputación relativa y mano con la gente). Baja con su ego y con el choque entre la orden y su forma de ser: un goleador con ego no quiere tirar menos; un jugador temperamental no sabe no ir al suelo.
+  - Ignorar una instrucción deja un `WorldEvent` `player.ignoredInstruction`. En la Fase 4 alimentará la relación técnico–jugador y las dinámicas de ego.
+  - La UI solo muestra si la cumplió, nunca la probabilidad (regla 6).
+- **Plan del usuario**: `World.tactics[teamId]` (`TacticsPlan`) se fija con el comando `setTactics` validado; lo que no fija lo decide la IA. Admite once propio por puestos.
+
+### Partido en directo (`startMatch`, `simulateWithInterventions`, `liveIntervene`)
+- **Unidades de simulación**: el motor avanza por unidades (un saque inicial, una acción, un final de parte, la tanda de penaltis). Entre dos unidades se puede pausar.
+- **Intervenciones** (`Intervention`): cada una tiene la unidad (`step`), el equipo y el cambio.
+  - Cambio de jugador: en el descanso no gasta ventana; varios cambios en la misma pausa cuentan como una sola ventana.
+  - Sistema: los jugadores en el campo se recolocan en los puestos nuevos.
+  - Mentalidad, presión, ritmo, amplitud, juego directo y balón parado.
+  - Instrucciones individuales: cada orden nueva se decide en ese momento según la disposición del jugador y queda registrada con su minuto.
+- **Determinismo**:
+  - Con la misma entrada, semilla e intervenciones, el partido es idéntico. Lo jugado antes de una intervención no cambia, porque el azar se consume en el mismo orden.
+  - Por eso el directo se resuelve volviendo a simular el partido desde el principio con las intervenciones acumuladas (~3 ms).
+  - Nunca se puede intervenir antes de la última intervención (`error.pastStep`).
+- **IA**:
+  - Cuando el humano toma el mando táctico, su equipo deja de tener gestión automática del marcador; el asistente sigue haciendo los cambios por cansancio o lesión.
+  - La IA rival responde a cambios claros de mentalidad: se protege si el otro se lanza y da un paso adelante si el otro se encierra.
+- **Mundo**: `advanceDay(game, { live: matchId })` reserva el partido. `finishLive` lo cierra, guarda las intervenciones en `Match.interventions` para repetirlo o auditarlo, y hace avanzar la competición. Si se avanza otro día con un directo abierto, se cierra solo con lo que tenga.
+- **UI**: «Ver en directo» abre el partido sin poder adelantar. Pausa manual y automática en el descanso y antes de la prórroga. Panel de cambios, sistema y estilo, e instrucciones. Al final, «Terminar partido».
+
+### Consecuencias en el mundo (`match/apply.ts`)
+- Resultado con goleadores, asistentes, tarjetas, estadísticas y mejor jugador.
+- Estadísticas por competición (`World.stats`): al cerrar temporada pasan a la trayectoria del jugador (`Player.career`) y al máximo goleador del historial.
+- Forma física con recuperación perezosa por días (`fitness` + `fitnessDay`).
+- Lesiones con fecha de alta.
+- Sanciones por competición: roja directa 2 partidos, doble amarilla 1, cada 5 amarillas 1.
+- Internacionalidades y goles con la selección.
+- Eventos `match.redCard`, `player.injured` (≥ 21 días) y `player.ignoredInstruction`.
+
+### Estado v2
+`SAVE_VERSION = 2`, con migración v1→v2 (`world/migrations.ts`) y su test.
+
+### UI de depuración (`apps/web`)
+- React + Vite. El juego vive en un Web Worker y la UI solo envía `Command`s y pide vistas (`core/views/game.ts`).
+- Pestañas: clasificación, resultados, plantilla, goleadores, táctica y partido en directo con visor 2D (canvas que interpola los fotogramas), registro de eventos, estadísticas e instrucciones cumplidas o ignoradas.
+- El paquete de datos reales se carga solo si se marca (import dinámico).
+
 ## 11. Ideas incorporadas (pendientes de su fase)
 
 ### 11.1 Contratos avanzados (Fase 6 — economía y mercado)
@@ -707,4 +783,64 @@ Los cargos del club son puestos que ocupa **un actor** (el jugador humano o una 
   - En clubes de propietario, el presidente llega por compra o nombramiento.
   - Se puede perder el cargo: moción de censura, elecciones, despido o venta del club.
 - **El resto de cargos los ocupa la IA** y reacciona según su personalidad y memoria. Un presidente impaciente despide al entrenador; si tú eres el presidente y despides a un entrenador querido, el vestuario y la afición lo recuerdan.
-- **Arquitectura (decisión temprana para no rehacer)**: cada `Command` del usuario se valida contra los **permisos del cargo** que ocupa en su club (matriz de autoridad). Pertenece a la Fase 4 (comandos) y la Fase 6 (directiva). Los modos de director deportivo y presidente jugables completos llegan como **Fase 10** tras el juego base.
+- **Arquitectura (decisión temprana para no rehacer)**: cada `Command` del usuario se valida contra los **permisos del cargo** que ocupa en su club (matriz de autoridad). Pertenece a la Fase 4 (comandos) y la Fase 6 (directiva). Los modos de director deportivo y presidente jugables completos llegan como **Fase 11** tras el juego base. *(Orden confirmado por el usuario al empezar la Fase 2.)*
+
+### 11.3 Multijugador asíncrono (Fase 8; preparación en la Fase 4)
+Decisiones del usuario: **2–10 humanos** por partida, **servidor propio** (en la nube o en un mini PC) y avance **hasta el próximo partido de cualquier humano**, sin que un partido posterior bloquee a uno anterior.
+
+- **Un mundo, un servidor autoritativo.**
+  - El servidor ejecuta el mismo `packages/core` y guarda un **registro de comandos de solo añadir** más instantáneas periódicas del mundo.
+  - Los clientes (PWA o Tauri) piden vistas y envían comandos; nunca tienen la copia oficial.
+  - Cada humano dirige un club. Cada `Command` lleva su autor y se valida contra su cargo (§11.2).
+- **Órdenes por partido.**
+  - Cada humano entrega sus órdenes para su próximo partido cuando quiera: once, táctica, balón parado, instrucciones y planes condicionales («si a los 70' perdemos…»).
+  - Las órdenes se pueden editar hasta que se simula el día de ese partido.
+  - Lo que no fija lo completa su asistente con sus directrices (Fase 5). Si un lesionado del viernes estaba en el once del domingo, lo cubre el asistente según el plan.
+- **Avance por días con espera selectiva.**
+  - El servidor avanza día a día. Para simular el día D solo espera a los humanos que **juegan el día D**.
+  - Quien juega el domingo puede dejar listo su partido antes que quien juega el viernes, y el viernes no espera por él.
+  - Los días sin partidos humanos se simulan solos hasta el siguiente.
+  - Los comandos que no son de partido (fichajes, charlas, prensa) se aplican en el día del mundo en que se envían, y los conflictos (dos ofertas por el mismo jugador) se resuelven en el tick diario con orden determinista.
+- **Plazos y avisos.**
+  - Cada partido humano tiene un plazo configurable por la sala (p. ej. 24–48 h desde que pasa a ser el siguiente). Al vencer, juega el asistente con las directrices guardadas.
+  - Notificaciones por web push, correo o bot de Telegram/Discord: «Stefan ya dejó listo su partido del domingo», «Faltáis tú y Ana para el viernes», «Ya se jugó la jornada».
+- **Anti-repetición («no salvarse el pellejo»).**
+  - Cada partido se simula **una vez** en el servidor y su resultado es definitivo. Ver el partido es reproducir los fotogramas ya calculados.
+  - **El azar se fija después del cierre.** La semilla de cada día es `hash(semilla del mundo, sal del día, id del partido)`. La sal es un secreto que el servidor genera al cerrar el día y publica después. Sin ella nadie puede simular en casa su partido con distintas tácticas antes de decidir (ataque de oráculo). En un jugador, la sal está vacía y nada cambia.
+  - Las órdenes cerradas quedan selladas con hora y forman parte del registro.
+  - **Auditoría**: con la semilla, las sales publicadas y el registro de comandos, cualquiera puede reproducir el mundo y comprobar que nadie hizo trampa.
+  - Variante para un jugador: **modo a hierro**. Autoguardado al cerrar las órdenes; recargar no cambia el resultado.
+- **Despliegue.**
+  - Una imagen Docker con servidor Node + SQLite (Postgres opcional).
+  - Corre igual en la nube o en un mini PC de casa, expuesto con un túnel (Cloudflare Tunnel o Tailscale).
+  - Copias de seguridad del registro.
+- **Preparación en la Fase 4** (barato ahora, caro después):
+  - autor en cada `Command`;
+  - `World.managers` (varios humanos, cada uno con su club y cargo);
+  - la sal de turno en la derivación de semillas de partido (vacía por defecto, sin cambiar el hash de un jugador).
+
+### 11.4 Redes sociales, polémica y disciplina (Fase 5)
+- **Plataformas ficticias** con nombres genéricos (sin marcas): una red de mensajes cortos, una de fotos, periódicos deportivos, tertulias de radio y TV y foros de aficionados. Con un paquete real se pueden renombrar.
+- **Quién publica**, siempre según su perfil y su memoria:
+  - jugadores: el suplente con ego publica un indirecto, el polémico da «me gusta» a una crítica contra su técnico o a un rival que lo pretende;
+  - aficionados por segmentos, con tendencias y etiquetas;
+  - periodistas con línea editorial, fuentes y memoria;
+  - técnicos y directivos rivales;
+  - **el propio usuario**: lo que publica es una declaración, con compromisos, contradicciones y narrativas (§6).
+- **Origen de la polémica**:
+  - El motor de partido registra **decisiones dudosas con evidencia**: penalti no pitado, roja al límite, fuera de juego ajustado. Cada una lleva su grado de claridad, y la opinión de cada actor depende de la evidencia y de sus colores. Se puede adelantar al motor en cuanto convenga, porque no cambia resultados.
+  - La viralidad depende del jugo del tema, de quién lo dice, de la rivalidad y de la memoria (un árbitro que ya «te perjudicó» antes).
+- **Árbitros y comités**:
+  - El colectivo arbitral recuerda las críticas: comunicados, tensión con el árbitro aludido y actas más duras. **Nunca arbitraje sesgado a propósito**: el árbitro no pita en tu contra por venganza.
+  - El **comité de disciplina** sigue un proceso: acta → expediente → alegaciones del usuario → sanción → recurso. Sanciones posibles: multas, partidos sin banquillo, sanciones a jugadores por publicaciones y cierre parcial del estadio.
+  - Toda sanción enlaza los hechos que la causaron.
+- **Consecuencias por cargo**:
+  - Entrenador: autoridad en el vestuario (afecta a la aceptación de instrucciones), confianza de la directiva y relación con prensa y árbitros.
+  - Director deportivo: juicio público de fichajes, filtraciones y presión de representantes.
+  - Presidente: ánimo de los socios, patrocinadores, mociones de censura y elecciones.
+  - Jugadores: moral, valor de mercado y relaciones.
+- **Reglas que se mantienen**:
+  - El motor decide quién publica, sobre qué, con qué tono y cuánto se difunde; las plantillas o el LLM opcional solo redactan (regla 4).
+  - Todo deja huella (regla 5).
+  - Nunca números ocultos en pantalla: «la afición está dividida», no un porcentaje (regla 6).
+

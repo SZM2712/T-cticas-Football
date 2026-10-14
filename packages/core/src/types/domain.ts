@@ -4,6 +4,7 @@
 import type { Climate, ConfederationId } from "@tf/data";
 import type { GoalkeepingAttr, MentalAttr, PhysicalAttr, Position, TechnicalAttr } from "../config/attributes";
 import type { PsychTrait } from "../config/psych";
+import type { Intervention, TacticsPlan } from "./tactics";
 import type {
   Attr, ClubId, CompetitionId, GameDay, LeagueId, MatchId, NationalTeamId, NationId, PlayerId, Signed, StaffId,
   TeamId, Unit,
@@ -87,6 +88,21 @@ export interface Injury {
   until: GameDay;
 }
 
+/** Partidos de sanción pendientes en una competición. */
+export interface Suspension {
+  competitionId: CompetitionId;
+  matches: number;
+}
+
+/** Línea de la trayectoria: una temporada en un equipo (club o selección). */
+export interface CareerLine {
+  season: number;
+  team: TeamId;
+  apps: number;
+  goals: number;
+  assists: number;
+}
+
 export interface Player {
   id: PlayerId;
   firstName: string;
@@ -119,8 +135,13 @@ export interface Player {
   contract: Contract | null;
   /** Canterano del club actual. */
   homegrown: boolean;
+  /** Forma física al terminar su último partido; se recupera con los días (ver match/lineup.ts). */
   fitness: Unit;
+  /** Día en que se fijó `fitness`. */
+  fitnessDay: GameDay;
   injury: Injury | null;
+  suspensions: Suspension[];
+  career: CareerLine[];
   reputation: Unit;
   caps: number;
   internationalGoals: number;
@@ -321,13 +342,50 @@ export interface Competition {
   meta: Record<string, string | number | boolean | string[]>;
 }
 
+export interface MatchGoal {
+  minute: number;
+  /** 0 = local, 1 = visitante (equipo que suma el gol). */
+  side: 0 | 1;
+  scorer: PlayerId;
+  assist?: PlayerId;
+  kind: string;
+}
+
+export interface MatchCard {
+  minute: number;
+  side: 0 | 1;
+  player: PlayerId;
+  red: boolean;
+}
+
 export interface MatchResult {
   home: number;
   away: number;
   /** Penaltis (si hubo tanda). */
   pens?: [number, number];
-  /** Resuelto con el modelo rápido provisional (Fase 1) en vez del motor de partido. */
-  quick: boolean;
+  extraTime?: boolean;
+  /** Motor completo por zonas o modelo rápido (LOD ligero). */
+  engine: "full" | "quick";
+  goals: MatchGoal[];
+  cards: MatchCard[];
+  /** Solo motor completo: tiros, a puerta, xG ×100 y % de posesión del local. */
+  stats?: { shots: [number, number]; onTarget: [number, number]; xg: [number, number]; possession: number };
+  /** Mejor jugador del partido. */
+  motm?: PlayerId;
+}
+
+/** Estadísticas de un jugador en una competición. */
+export interface PlayerCompStats {
+  team: TeamId;
+  apps: number;
+  starts: number;
+  minutes: number;
+  goals: number;
+  assists: number;
+  yellow: number;
+  red: number;
+  /** Suma de valoraciones (media = ratingSum / apps). */
+  ratingSum: number;
 }
 
 export interface Match {
@@ -345,6 +403,8 @@ export interface Match {
   /** En la vuelta de una eliminatoria o en una ronda única: hay que decidir ganador. */
   decisive: boolean;
   result?: MatchResult;
+  /** Intervenciones en directo del técnico humano (para repetir o auditar el partido). */
+  interventions?: Intervention[];
 }
 
 // ── Eventos y mundo ─────────────────────────────────────────────────────────
@@ -360,6 +420,8 @@ export interface SeasonRecord {
   champions: Record<string, TeamId>;
   promoted: Record<string, ClubId[]>;
   relegated: Record<string, ClubId[]>;
+  /** Máximo goleador de cada competición registrada (clave = nameKey). */
+  topScorers?: Record<string, { player: PlayerId; goals: number }>;
 }
 
 export interface World {
@@ -384,6 +446,10 @@ export interface World {
   /** Anfitriones decididos para torneos futuros: clave = id de plantilla + año. */
   hosts: Record<string, NationId[]>;
   history: SeasonRecord[];
+  /** Planes tácticos fijados por el usuario: teamId → plan (los demás equipos los decide la IA). */
+  tactics: Record<string, TacticsPlan>;
+  /** Estadísticas por competición en curso: competitionId → playerId → línea. */
+  stats: Record<string, Record<string, PlayerCompStats>>;
   events: WorldEvent[];
   idCounters: Record<string, number>;
 }

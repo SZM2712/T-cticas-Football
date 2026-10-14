@@ -1,6 +1,6 @@
 // Calendario y competiciones a lo largo de 4 temporadas (2026/27 → 2029/30, que incluye
-// Eurocopa 2028, Copa de las Américas 2028 y Mundial 2030). Los resultados salen del
-// modelo rápido provisional de la Fase 1.
+// Eurocopa 2028, Copa de las Américas 2028 y Mundial 2030). Aquí se prueba el calendario,
+// no el motor: los resultados salen del modelo rápido (el motor completo tiene su test).
 
 import { NATION_LEAGUES } from "@tf/data";
 import { beforeAll, describe, expect, it } from "vitest";
@@ -11,7 +11,7 @@ import {
 let game: Game;
 let world: World;
 beforeAll(() => {
-  game = newGame({ seed: 123 });
+  game = newGame({ seed: 123 }, "quick");
   advanceSeasons(game, 4);
   advanceDays(game, 45); // termina el Mundial de 2030
   world = game.world;
@@ -119,11 +119,11 @@ describe("competiciones", () => {
 });
 
 describe("determinismo de la simulación", () => {
-  it("misma semilla y mismos días → mismo mundo", () => {
+  it("misma semilla y mismos días → mismo mundo (motor completo)", () => {
     const a = newGame({ seed: 777 });
     const b = newGame({ seed: 777 });
-    advanceDays(a, 200);
-    advanceDays(b, 200);
+    advanceDays(a, 75);
+    advanceDays(b, 75);
     expect(hashValue(a.world)).toBe(hashValue(b.world));
   });
 });
