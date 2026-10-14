@@ -3,7 +3,7 @@
 
 import { ALL_ATTRS, ATTR_GROUP, POSITION_WEIGHTS, type AttrKey } from "../config/attributes";
 import {
-  AGE_GROWTH_CURVE, CEILING_DRIFT, CEILING_NOISE, CRITICAL_WINDOW, CRITICAL_WINDOW_MULT, DECLINING_PHYSICAL, EXPERIENCE_ATTRS,
+  ADULT_DRIFT_MULT, AGE_GROWTH_CURVE, CEILING_DRIFT, CEILING_NOISE, CRITICAL_WINDOW, CRITICAL_WINDOW_MULT, DECLINING_PHYSICAL, EXPERIENCE_ATTRS,
   EXPERIENCE_GAIN, FOCUS_ATTRS, FOCUS_BOOST, FULL_MINUTES, GAP_HALF, YOUTH_MINUTES_FLOOR, IRRELEVANT_GROWTH, MAX_CEILING, MENTOR_MIN_AGE,
   MENTOR_TRAITS, MENTOR_TRANSFER, MONTH_LUCK_SD, MONTHLY_GROWTH, PHYSICAL_DECLINE, SERIOUS_INJURY_DAYS,
   SLEEP_CONSISTENCY, TECHNICAL_DECLINE, TECHNICAL_DECLINE_AGE,
@@ -133,7 +133,7 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
   const mentorCompat = mentoring(world, p, plan?.mentor, ctx.day);
 
   // 1) El techo latente se mueve.
-  const window = age >= CRITICAL_WINDOW[0] && age <= CRITICAL_WINDOW[1] ? CRITICAL_WINDOW_MULT : 1;
+  const window = age >= CRITICAL_WINDOW[0] && age <= CRITICAL_WINDOW[1] ? CRITICAL_WINDOW_MULT : ADULT_DRIFT_MULT;
   const env = baseEnv(minutes, training) - ctx.meanEnv + 0.2 * (fx.score - 0.5) + (mentorCompat !== null ? 0.05 * mentorCompat : 0);
   const drift = CEILING_DRIFT * window * env * (0.5 + p.psych.growthMindset);
   dev.volatility = volatilityFor(age);

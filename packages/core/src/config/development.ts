@@ -32,6 +32,8 @@ export const CEILING_NOISE = 0.4;
 /** Edades de la ventana crítica (el entorno pesa más). */
 export const CRITICAL_WINDOW: readonly [number, number] = [16, 21];
 export const CRITICAL_WINDOW_MULT = 1.8;
+/** Fuera de la ventana crítica el entorno apenas mueve el techo (el adulto alcanza su techo, no lo crea). */
+export const ADULT_DRIFT_MULT = 0.25;
 /**
  * Techo máximo absoluto. El techo puede quedar por debajo de la CA (jugador que ya tocó su
  * máximo): entonces no crece; los ojeadores nunca estiman un potencial por debajo de lo visto.
@@ -145,7 +147,10 @@ export const INTAKE_GAP_SD = 1.1;
  */
 export const ELITE_CA = 16;
 export const ELITE_INFLOW_PER_YEAR = 7;
-/** Jóvenes (CA < élite) del mundo inicial con techo de élite: la "generación que viene". */
+/**
+ * Jóvenes (CA < élite) con techo de élite: la "generación que viene". El cupo se fija en el
+ * mundo inicial y se mantiene cada temporada: si alguien entra, el más flojo sale.
+ */
 export const ELITE_PIPELINE_START = 28;
 /** Canteranos extra por club jugable al año (además de cubrir bajas). */
 export const INTAKE_EXTRA = 1;
