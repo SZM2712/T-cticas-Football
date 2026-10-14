@@ -18,6 +18,7 @@ import type { Intervention } from "../types/tactics";
 import { dateOf, seasonStartDay } from "../time/calendar";
 import { monthlyDevelopment } from "../development/tick";
 import { monthlyScouting } from "../development/scouting";
+import { monthlyRetirementCheck } from "../development/retirement";
 import type { Match, World } from "../types/domain";
 import type { GameDay } from "../types/ids";
 import { worldRng } from "../world/rng";
@@ -96,6 +97,7 @@ export function advanceDay(game: Game, opts: AdvanceOptions = {}): PlayedMatch[]
   if (dateOf(day).d === 1) {
     monthlyDevelopment(world, day);
     monthlyScouting(world, day);
+    monthlyRetirementCheck(world, day);
   }
 
   // Convocatorias y amistosos al abrirse una ventana FIFA; convocatorias antes de un torneo.

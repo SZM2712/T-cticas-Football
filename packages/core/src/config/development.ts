@@ -11,10 +11,10 @@ export const MONTHLY_GROWTH = 0.26;
 /** Margen (techo − CA) al que el crecimiento va a media velocidad. */
 export const GAP_HALF = 1.2;
 /** Dispersión log-normal de los meses buenos y malos. */
-export const MONTH_LUCK_SD = 0.3;
+export const MONTH_LUCK_SD = 0.2;
 /** Curva de crecimiento por edad (ajustada por la maduración): [edad, factor]. */
 export const AGE_GROWTH_CURVE: readonly (readonly [number, number])[] = [
-  [15, 1.1], [18, 1], [21, 0.72], [24, 0.36], [27, 0.1], [30, 0.03], [40, 0],
+  [15, 1.1], [18, 1], [21, 0.85], [24, 0.45], [27, 0.12], [30, 0.03], [40, 0],
 ];
 /** Atributos que no son relevantes para su puesto también crecen, pero menos. */
 export const IRRELEVANT_GROWTH = 0.18;
@@ -27,6 +27,8 @@ export const YOUTH_MINUTES_FLOOR = 0.45;
 
 /** Deriva mensual del techo por unidad de entorno por encima/debajo de la media. */
 export const CEILING_DRIFT = 0.05;
+/** Ruido mensual del techo como fracción de la volatilidad anual (/√12). */
+export const CEILING_NOISE = 0.4;
 /** Edades de la ventana crítica (el entorno pesa más). */
 export const CRITICAL_WINDOW: readonly [number, number] = [16, 21];
 export const CRITICAL_WINDOW_MULT = 1.8;
@@ -129,7 +131,7 @@ export const RETIRE_CURVE: readonly (readonly [number, number])[] = [
 /** Edades de los canteranos que suben cada verano. */
 export const INTAKE_AGE: readonly [number, number] = [18, 20];
 /** Nivel de los canteranos al subir respecto al club (sin contar la penalización por edad). */
-export const INTAKE_OFFSET = -1.6;
+export const INTAKE_OFFSET = -0.6;
 /**
  * Techo de los canteranos: margen medio sobre su nivel de entrada = penalización por edad
  * hasta los 22 + este extra (× calidad de la cantera) y su dispersión. Es el dial
@@ -137,6 +139,14 @@ export const INTAKE_OFFSET = -1.6;
  */
 export const INTAKE_GAP_EXTRA = 0.25;
 export const INTAKE_GAP_SD = 1.1;
+/**
+ * Oferta mundial de talento de élite (DISEÑO §4.3): canteranos al año con techo ≥ ELITE_CA.
+ * El resto de techos altos se recorta justo por debajo. Mantiene estable el nº de cracks.
+ */
+export const ELITE_CA = 16;
+export const ELITE_INFLOW_PER_YEAR = 7;
+/** Jóvenes (CA < élite) del mundo inicial con techo de élite: la "generación que viene". */
+export const ELITE_PIPELINE_START = 28;
 /** Canteranos extra por club jugable al año (además de cubrir bajas). */
 export const INTAKE_EXTRA = 1;
 /** Tamaño máximo de plantilla: los más flojos sin minutos salen del club (agentes libres). */
@@ -153,3 +163,19 @@ export const SCOUT_MIN_SD = 0.6;
 /** Jugadores ajenos que observa cada ojeador al mes y máximo de fichas guardadas. */
 export const SCOUT_EXTRA_PER_MONTH = 6;
 export const SCOUT_MAX_BELIEFS = 160;
+
+// ── Retirada anticipada (lesión, motivos personales, edad) ──────────────────
+
+/** Lesión a partir de la que un veterano puede plantearse dejarlo (días) y edad mínima. */
+export const RETIRE_INJURY_DAYS = 120;
+export const RETIRE_INJURY_MIN_AGE = 27;
+/** Probabilidad mensual de plantearse dejarlo por motivos personales (× (0,5 + inseguridad + vida fuera/2)). */
+export const RETIRE_PERSONAL_MONTHLY = 0.00015;
+/** Veterano sin minutos: edad mínima, umbral de minutos (0..1) y probabilidad mensual. */
+export const RETIRE_AGE_MIN = 33;
+export const RETIRE_AGE_MINUTES = 0.25;
+export const RETIRE_AGE_MONTHLY = 0.04;
+/** Días que se toma para decidir. */
+export const RETIRE_DECISION_DAYS = 28;
+/** Probabilidad base de retirarse según el motivo. */
+export const RETIRE_BASE: Record<"injury" | "personal" | "age", number> = { injury: 0.55, personal: 0.6, age: 0.65 };

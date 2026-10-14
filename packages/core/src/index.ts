@@ -51,3 +51,4 @@ export {
 export { playerView, clubSummary, displayName, type PlayerView, type ClubSummary } from "./views/player";
 export * from "./views/game";
 export { playerDevelopmentView, type PlayerDevelopmentView } from "./views/development";
+export { monthlyRetirementCheck, retirementChance, retireNow } from "./development/retirement";

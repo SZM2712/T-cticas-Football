@@ -6,7 +6,7 @@ import { scoutReportsView, type ScoutReportView } from "../development/scouting"
 import { fitnessOn, isInjured } from "../match/lineup";
 import { currentAbility } from "../player/ability";
 import type { World } from "../types/domain";
-import type { DevelopmentPlan, PlanAdherence } from "../types/development";
+import type { DevelopmentPlan, PlanAdherence, RetirementIntent } from "../types/development";
 import type { PlayerId } from "../types/ids";
 import { playerView, type PlayerView } from "./player";
 
@@ -25,6 +25,9 @@ export interface PlayerDevelopmentView extends PlayerView {
   /** Staff del club que prepara cada parte del plan. */
   staff: { role: string; name: string }[];
   scouts: ScoutReportView[];
+  /** Se está planteando retirarse (y lo que ya le dijo el técnico) o ya lo anunció. */
+  retirement: RetirementIntent | null;
+  retiring: boolean;
   /** Posibles mentores: compañeros veteranos. */
   mentors: { id: PlayerId; name: string }[];
 }
@@ -59,6 +62,8 @@ export function playerDevelopmentView(world: World, id: PlayerId): PlayerDevelop
     adherence: world.plans[id] ? (p.development.adherence ?? null) : null,
     staff,
     scouts: scoutReportsView(world, id),
+    retirement: p.retirementIntent ?? null,
+    retiring: p.retiring ?? false,
     mentors,
   };
 }

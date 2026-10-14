@@ -4,7 +4,7 @@
 import type { Climate, ConfederationId } from "@tf/data";
 import type { GoalkeepingAttr, MentalAttr, PhysicalAttr, Position, TechnicalAttr } from "../config/attributes";
 import type { PsychTrait } from "../config/psych";
-import type { DevFactor, DevelopmentPlan, PlanAdherence, ScoutBelief } from "./development";
+import type { DevFactor, DevelopmentPlan, PlanAdherence, RetirementIntent, ScoutBelief } from "./development";
 import type { Intervention, TacticsPlan } from "./tactics";
 import type {
   Attr, ClubId, CompetitionId, GameDay, LeagueId, MatchId, NationalTeamId, NationId, PlayerId, Signed, StaffId,
@@ -75,6 +75,8 @@ export interface DevelopmentState {
   adherence?: PlanAdherence;
   /** Último día en que una lesión larga dejó secuelas (para no aplicarlas dos veces). */
   lastShockDay?: GameDay;
+  /** Lesiones graves sufridas (pesan en la tentación de retirarse). */
+  seriousInjuries?: number;
 }
 
 export interface Appearance {
@@ -161,6 +163,10 @@ export interface Player {
   internationalGoals: number;
   memoryIds: string[];
   retired: boolean;
+  /** Se está planteando retirarse (lesión, motivos personales, edad). */
+  retirementIntent?: RetirementIntent;
+  /** Anunció su retirada: se retira al terminar la temporada. */
+  retiring?: boolean;
 }
 
 // ── Staff ───────────────────────────────────────────────────────────────────

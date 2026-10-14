@@ -1,5 +1,6 @@
 import {
-  DIETS, EXERCISES, INTENSITIES, SLEEP_PLANS, TRAINING_FOCUSES, type DevelopmentPlan, type PlayerDevelopmentView,
+  DIETS, EXERCISES, INTENSITIES, PERSUASION_APPROACHES, SLEEP_PLANS, TRAINING_FOCUSES, type DevelopmentPlan,
+  type PersuasionApproach, type PlayerDevelopmentView,
 } from "@tf/core";
 import { useEffect, useState } from "react";
 import { call } from "../client";
@@ -44,6 +45,11 @@ export function PlayerPanel({ id }: { id: string }) {
       setMsg(r.ok ? t("dev.planSaved") : t(r.error));
     });
   const clear = () => act(() => call("command", { cmd: { type: "clearPlan", player: id as never } }));
+  const persuade = (approach: PersuasionApproach) =>
+    act(async () => {
+      const r = await call("command", { cmd: { type: "persuadeRetirement", player: id as never, approach } });
+      setMsg(r.ok ? t("retire.talked") : t(r.error));
+    });
   const sel = <K extends keyof DevelopmentPlan>(key: K, values: readonly string[], prefix: string) => (
     <label>
       {t(`dev.${key}`)}
@@ -61,6 +67,22 @@ export function PlayerPanel({ id }: { id: string }) {
         <span className="hint">{t(`archetype.${v.archetype.primary}`)}</span>
         <button onClick={() => useUi.getState().set({ player: null })}>✕</button>
       </div>
+      {v.retiring && <p className="bad"><strong>{t("retire.announced")}</strong></p>}
+      {v.retirement && (
+        <div className="live-panel">
+          <strong className="bad">{t(`retire.reason.${v.retirement.reason}`)}</strong>
+          {v.retirement.persuasion ? (
+            <p>{t("retire.waiting", { approach: t(`retire.approach.${v.retirement.persuasion}`) })}</p>
+          ) : (
+            <>
+              <p className="hint">{t("retire.help")}</p>
+              <div className="row">
+                {PERSUASION_APPROACHES.map((a) => <button key={a} onClick={() => persuade(a)}>{t(`retire.approach.${a}`)}</button>)}
+              </div>
+            </>
+          )}
+        </div>
+      )}
       <div className="dev-grid">
         <section>
           <h4>{t("dev.evolution")}</h4>

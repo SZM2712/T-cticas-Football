@@ -4,7 +4,9 @@
 import { FORMATIONS } from "../match/tactics";
 import type { World } from "../types/domain";
 import { exactAge } from "../time/calendar";
-import { DIETS, EXERCISES, INTENSITIES, SLEEP_PLANS, TRAINING_FOCUSES, type DevelopmentPlan } from "../types/development";
+import {
+  DIETS, EXERCISES, INTENSITIES, PERSUASION_APPROACHES, SLEEP_PLANS, TRAINING_FOCUSES, type DevelopmentPlan, type PersuasionApproach,
+} from "../types/development";
 import { isNationalTeamId, type PlayerId, type TeamId } from "../types/ids";
 import { MENTOR_MIN_AGE } from "../config/development";
 import { INSTRUCTION_KEYS, type TacticsPlan } from "../types/tactics";
@@ -14,7 +16,9 @@ export type Command =
   | { type: "clearTactics"; team: TeamId }
   /** Plan individual de desarrollo (entrenamiento, dieta, ejercicio, sueño, mentor). */
   | { type: "setPlan"; player: PlayerId; plan: DevelopmentPlan }
-  | { type: "clearPlan"; player: PlayerId };
+  | { type: "clearPlan"; player: PlayerId }
+  /** Intentar convencer a un jugador que se plantea retirarse (una vez; él decide). */
+  | { type: "persuadeRetirement"; player: PlayerId; approach: PersuasionApproach };
 
 export type CommandResult = { ok: true } | { ok: false; error: string };
 
@@ -99,5 +103,14 @@ export function applyCommand(world: World, cmd: Command): CommandResult {
     case "clearPlan":
       delete world.plans[cmd.player];
       return { ok: true };
+    case "persuadeRetirement": {
+      const intent = world.players[cmd.player]?.retirementIntent;
+      if (!intent) return { ok: false, error: "error.noRetirement" };
+      if (intent.persuasion) return { ok: false, error: "error.alreadyTalked" };
+      if (!PERSUASION_APPROACHES.includes(cmd.approach)) return { ok: false, error: "error.plan" };
+      intent.persuasion = cmd.approach;
+      world.events.push({ day: world.meta.today, type: "manager.persuadedRetirement", data: { player: cmd.player, approach: cmd.approach } });
+      return { ok: true };
+    }
   }
 }

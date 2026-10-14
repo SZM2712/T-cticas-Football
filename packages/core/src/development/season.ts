@@ -3,7 +3,7 @@
 
 import { nationByCode } from "@tf/data";
 import { SQUAD_TEMPLATE, type Position } from "../config/attributes";
-import { INTAKE_AGE, INTAKE_EXTRA, INTAKE_GAP_EXTRA, INTAKE_GAP_SD, INTAKE_OFFSET, MAX_CEILING, RETIRE_CURVE, SQUAD_MAX } from "../config/development";
+import { ELITE_CA, ELITE_INFLOW_PER_YEAR, INTAKE_AGE, INTAKE_EXTRA, INTAKE_GAP_EXTRA, INTAKE_GAP_SD, INTAKE_OFFSET, MAX_CEILING, RETIRE_CURVE, SQUAD_MAX } from "../config/development";
 import { SHADOW_SQUAD_SIZE, YOUTH_CA_PENALTY } from "../config/generation";
 import { generatePlayer } from "../gen/player";
 import { invalidateAbilityCache } from "../match/lineup";
@@ -14,6 +14,7 @@ import type { GameDay, PlayerId } from "../types/ids";
 import { clamp, round } from "../util/math";
 import { nextId } from "../world/ids";
 import { worldRng } from "../world/rng";
+import { retireNow } from "./retirement";
 import { curve } from "./tick";
 
 export interface TurnoverSummary {
@@ -52,6 +53,15 @@ export function seasonTurnover(world: World, season: number): TurnoverSummary {
   for (const p of Object.values(world.players)) {
     if (p.retired) continue;
     const age = ageOn(p.birthDay, day);
+    // Quien anunció su retirada durante la temporada se va ahora.
+    if (p.retiring) {
+      retireNow(world, p);
+      summary.retired++;
+      world.events.push({ day, type: "player.retired", data: { player: p.id, age } });
+      continue;
+    }
+    // Quien aún está decidiendo no se retira por la curva de edad: decide él.
+    if (p.retirementIntent) continue;
     let chance = curve(RETIRE_CURVE, age - (p.position === "GK" ? 2 : 0));
     if (chance <= 0 && p.clubId) continue;
     const club = p.clubId ? world.clubs[p.clubId] : undefined;
@@ -59,14 +69,13 @@ export function seasonTurnover(world: World, season: number): TurnoverSummary {
     else if (currentAbility(p) < club.quality - 2.5) chance *= 1.4;
     chance *= 1.2 - 0.4 * p.psych.professionalism;
     if (!rng.chance(clamp(chance, 0, 1))) continue;
-    removeFromClub(world, p);
-    p.retired = true;
-    delete world.plans[p.id];
+    retireNow(world, p);
     summary.retired++;
     if (p.reputation >= 0.5) world.events.push({ day, type: "player.retired", data: { player: p.id, age } });
   }
 
   // 2) Plantillas: los canteranos cubren los huecos por puesto (y algunos más en los clubes jugables).
+  const intake: Player[] = [];
   for (const club of Object.values(world.clubs)) {
     const crng = rng.fork(club.id);
     const template = templateFor(club);
@@ -81,7 +90,7 @@ export function seasonTurnover(world: World, season: number): TurnoverSummary {
     }
     if (club.leagueId) for (let i = 0; i < INTAKE_EXTRA; i++) needs.push(crng.pick(Object.keys(template) as Position[]));
     for (const position of needs) {
-      promoteYouth(world, club, position, day, crng.int(INTAKE_AGE[0], INTAKE_AGE[1]), root, crng);
+      intake.push(promoteYouth(world, club, position, day, crng.int(INTAKE_AGE[0], INTAKE_AGE[1]), root, crng));
       summary.promoted++;
     }
     // 3) Plantilla demasiado larga: salen los más flojos ya formados (quedan libres).
@@ -97,8 +106,23 @@ export function seasonTurnover(world: World, season: number): TurnoverSummary {
       }
     }
   }
+  limitEliteCeilings(intake, ELITE_INFLOW_PER_YEAR, rng.fork("elite"));
   invalidateAbilityCache();
   return summary;
+}
+
+/**
+ * Cupo de talento de élite: de los jugadores dados (aún por debajo de la élite), solo los
+ * `allowed` con mayor techo lo conservan por encima de ELITE_CA; el resto se recorta justo
+ * por debajo (seguirán siendo muy buenos). Determinista: orden por techo y por id.
+ */
+export function limitEliteCeilings(players: Player[], allowed: number, rng: ReturnType<typeof worldRng>): void {
+  const candidates = players
+    .filter((p) => p.development.latentCeiling >= ELITE_CA && currentAbility(p) < ELITE_CA)
+    .sort((a, b) => b.development.latentCeiling - a.development.latentCeiling || a.id.localeCompare(b.id));
+  for (const p of candidates.slice(allowed)) {
+    p.development.latentCeiling = round(ELITE_CA - 0.1 - rng.float() * 0.8, 3);
+  }
 }
 
 /** Sube un canterano al primer equipo con la calidad de la cantera del club. */

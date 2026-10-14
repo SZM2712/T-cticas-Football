@@ -3,7 +3,7 @@
 
 import { ALL_ATTRS, ATTR_GROUP, POSITION_WEIGHTS, type AttrKey } from "../config/attributes";
 import {
-  AGE_GROWTH_CURVE, CEILING_DRIFT, CRITICAL_WINDOW, CRITICAL_WINDOW_MULT, DECLINING_PHYSICAL, EXPERIENCE_ATTRS,
+  AGE_GROWTH_CURVE, CEILING_DRIFT, CEILING_NOISE, CRITICAL_WINDOW, CRITICAL_WINDOW_MULT, DECLINING_PHYSICAL, EXPERIENCE_ATTRS,
   EXPERIENCE_GAIN, FOCUS_ATTRS, FOCUS_BOOST, FULL_MINUTES, GAP_HALF, YOUTH_MINUTES_FLOOR, IRRELEVANT_GROWTH, MAX_CEILING, MENTOR_MIN_AGE,
   MENTOR_TRAITS, MENTOR_TRANSFER, MONTH_LUCK_SD, MONTHLY_GROWTH, PHYSICAL_DECLINE, SERIOUS_INJURY_DAYS,
   SLEEP_CONSISTENCY, TECHNICAL_DECLINE, TECHNICAL_DECLINE_AGE,
@@ -137,7 +137,7 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
   const env = baseEnv(minutes, training) - ctx.meanEnv + 0.2 * (fx.score - 0.5) + (mentorCompat !== null ? 0.05 * mentorCompat : 0);
   const drift = CEILING_DRIFT * window * env * (0.5 + p.psych.growthMindset);
   dev.volatility = volatilityFor(age);
-  const noise = rng.normal(0, (dev.volatility / Math.sqrt(12)) * 0.6);
+  const noise = rng.normal(0, (dev.volatility / Math.sqrt(12)) * CEILING_NOISE);
   // Sin suelo en la CA: si el techo pudiera rebotar en ella, el ruido solo empujaría hacia
   // arriba (efecto trinquete) e inflaría el talento. Por debajo de la CA, ya no crece.
   dev.latentCeiling = clamp(dev.latentCeiling + drift + noise, 1, MAX_CEILING);
@@ -199,6 +199,7 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
   const inj = p.injury;
   if (inj && inj.until - inj.since >= SERIOUS_INJURY_DAYS && inj.since > ctx.day - 32 && dev.lastShockDay !== inj.since) {
     dev.lastShockDay = inj.since;
+    dev.seriousInjuries = (dev.seriousInjuries ?? 0) + 1;
     injuryHit = rng.range(0.3, 0.8) * (1 - 0.4 * q.medical);
     dev.latentCeiling -= injuryHit;
     addAttr(p, "acceleration", -injuryHit * 0.6);

@@ -186,3 +186,35 @@ describe("vistas", () => {
     for (const f of v.factors) expect([-2, -1, 1, 2]).toContain(f.trend);
   });
 });
+
+describe("retiradas anticipadas", () => {
+  it("cada enfoque funciona con un tipo de jugador; aceptar lo hace más probable", async () => {
+    const { retirementChance } = await import("../src");
+    const players = Object.values(base.players);
+    const loyal = players.reduce((a, b) => (b.psych.loyalty > a.psych.loyalty ? b : a));
+    const mercenary = players.reduce((a, b) => (b.psych.loyalty < a.psych.loyalty ? b : a));
+    expect(retirementChance(loyal, "age", "club", 0.5, 33)).toBeLessThan(retirementChance(mercenary, "age", "club", 0.5, 33) - 0.15);
+    expect(retirementChance(loyal, "injury", "accept", 0.5, 30)).toBeGreaterThan(retirementChance(loyal, "injury", undefined, 0.5, 30));
+    expect(retirementChance(loyal, "injury", "support", 0.5, 30)).toBeLessThan(retirementChance(loyal, "injury", undefined, 0.5, 30));
+  });
+
+  it("una lesión larga hace dudar a un veterano; se le puede hablar una vez y decide él", async () => {
+    const { monthlyRetirementCheck } = await import("../src");
+    const w = clone(base);
+    const vets = Object.values(w.players).filter((p) => p.clubId && exactAge(p.birthDay, w.meta.today) >= 31).slice(0, 60);
+    const day = monthDay(w, 1);
+    for (const p of vets) p.injury = { kind: "match", since: (day - 5) as GameDay, until: (day + 200) as GameDay };
+    monthlyRetirementCheck(w, day);
+    const doubting = vets.filter((p) => p.retirementIntent);
+    expect(doubting.length).toBeGreaterThan(10);
+    const p = doubting[0]!;
+    expect(applyCommand(w, { type: "persuadeRetirement", player: p.id, approach: "support" })).toEqual({ ok: true });
+    expect(applyCommand(w, { type: "persuadeRetirement", player: p.id, approach: "club" })).toEqual({ ok: false, error: "error.alreadyTalked" });
+    monthlyRetirementCheck(w, (p.retirementIntent!.decideBy + 1) as GameDay);
+    expect(p.retirementIntent).toBeUndefined();
+    const decision = w.events.find((e) => e.type === "player.retirementDecision" && e.data.player === p.id)!;
+    expect(decision.data.approach).toBe("support");
+    expect(["retire", "stay"]).toContain(decision.data.decision);
+    if (decision.data.decision === "retire") expect(p.retiring).toBe(true);
+  });
+});

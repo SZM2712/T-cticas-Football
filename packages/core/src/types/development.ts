@@ -62,3 +62,18 @@ export interface ScoutBelief {
   /** Observaciones acumuladas. */
   n: number;
 }
+
+/** Motivo por el que un jugador se plantea retirarse. */
+export type RetirementReason = "injury" | "personal" | "age";
+/** Cómo intenta convencerle el técnico: lo que significa para el club, un papel importante, apoyo, o aceptarlo. */
+export const PERSUASION_APPROACHES = ["club", "role", "support", "accept"] as const;
+export type PersuasionApproach = (typeof PERSUASION_APPROACHES)[number];
+
+export interface RetirementIntent {
+  reason: RetirementReason;
+  since: GameDay;
+  /** Día en que tomará la decisión. */
+  decideBy: GameDay;
+  /** Lo que intentó el técnico (una sola vez). */
+  persuasion?: PersuasionApproach;
+}

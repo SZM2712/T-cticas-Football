@@ -42,7 +42,7 @@ export function Squad() {
               <span className="bar"><span style={{ width: `${r.fitness}%` }} /></span>
             </td>
             <td className="left">
-              {r.injuredDays > 0 ? t("status.injured", { days: r.injuredDays }) : r.suspended ? t("status.suspended") : t("status.ok")}
+              {r.retirement ? <strong className="bad">{t(`status.${r.retirement}`)}</strong> : r.injuredDays > 0 ? t("status.injured", { days: r.injuredDays }) : r.suspended ? t("status.suspended") : t("status.ok")}
             </td>
             <td>{r.apps}</td>
             <td>{r.goals}</td>

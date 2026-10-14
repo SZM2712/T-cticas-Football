@@ -76,6 +76,8 @@ export interface SquadRowView {
   fitness: number;
   injuredDays: number;
   suspended: boolean;
+  /** Se plantea retirarse o ya anunció que se retira. */
+  retirement: "considering" | "retiring" | null;
   apps: number;
   goals: number;
   assists: number;
@@ -113,6 +115,7 @@ export function squadView(world: World, team: TeamId, competitionId?: Competitio
         fitness: Math.round(fitnessOn(p, day) * 100),
         injuredDays: isInjured(p, day) ? p.injury!.until - day : 0,
         suspended: competitionId ? isSuspended(p, competitionId) : p.suspensions.length > 0,
+        retirement: p.retirementIntent ? ("considering" as const) : p.retiring ? ("retiring" as const) : null,
         apps,
         goals,
         assists,
