@@ -274,6 +274,14 @@ export function generateWorld(opts: GenerateOptions): World {
     tactics: {},
     stats: {},
     events: [],
+    managers: {},
+    relationships: {},
+    trust: {},
+    memories: {},
+    commitments: {},
+    inbox: [],
+    dressing: {},
+    salts: {},
     idCounters: {},
   };
   const playable = new Set(NATION_LEAGUES.map((l) => l.nation as string));

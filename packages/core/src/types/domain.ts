@@ -5,6 +5,7 @@ import type { Climate, ConfederationId } from "@tf/data";
 import type { GoalkeepingAttr, MentalAttr, PhysicalAttr, Position, TechnicalAttr } from "../config/attributes";
 import type { PsychTrait } from "../config/psych";
 import type { DevFactor, DevelopmentPlan, PlanAdherence, RetirementIntent, ScoutBelief } from "./development";
+import type { Commitment, DressingRoom, InboxItem, Manager, ManagerTrust, Memory, Relationship } from "./social";
 import type { Intervention, TacticsPlan } from "./tactics";
 import type {
   Attr, ClubId, CompetitionId, GameDay, LeagueId, MatchId, NationalTeamId, NationId, PlayerId, Signed, StaffId,
@@ -163,6 +164,8 @@ export interface Player {
   internationalGoals: number;
   memoryIds: string[];
   retired: boolean;
+  /** Pidió salir del club (escalón final de una dinámica de ego). Lo usa el mercado (Fase 6). */
+  transferRequest?: GameDay;
   /** Se está planteando retirarse (lesión, motivos personales, edad). */
   retirementIntent?: RetirementIntent;
   /** Anunció su retirada: se retira al terminar la temporada. */
@@ -482,5 +485,22 @@ export interface World {
   /** Estadísticas por competición en curso: competitionId → playerId → línea. */
   stats: Record<string, Record<string, PlayerCompStats>>;
   events: WorldEvent[];
+  // ── Vestuario (Fase 4) ──
+  /** Mánagers humanos (uno por humano; vacío en una simulación sin humanos). */
+  managers: Record<string, Manager>;
+  /** Relaciones entre jugadores: "idA|idB" (idA < idB). Solo en clubes dirigidos por humanos. */
+  relationships: Record<string, Relationship>;
+  /** Confianza de cada jugador en cada mánager: "playerId|managerId". */
+  trust: Record<string, ManagerTrust>;
+  memories: Record<string, Memory>;
+  commitments: Record<string, Commitment>;
+  inbox: InboxItem[];
+  /** Vestuario de cada club dirigido por un humano. */
+  dressing: Record<string, DressingRoom>;
+  /**
+   * Sal de turno por día (multijugador, DISEÑO §11.3): se publica al cerrar el día y entra en la
+   * semilla de sus partidos. Vacía en un jugador: no cambia nada.
+   */
+  salts: Record<string, string>;
   idCounters: Record<string, number>;
 }

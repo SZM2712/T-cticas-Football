@@ -192,3 +192,10 @@ export const RETIRE_AGE_MONTHLY = 0.04;
 export const RETIRE_DECISION_DAYS = 28;
 /** Probabilidad base de retirarse según el motivo. */
 export const RETIRE_BASE: Record<"injury" | "personal" | "age", number> = { injury: 0.55, personal: 0.6, age: 0.65 };
+
+// ── Reparto del tick mensual ────────────────────────────────────────────────
+/**
+ * El desarrollo mensual de cada jugador ocurre en "su" día del mes (1–28, por hash del id):
+ * así ningún día carga con los 16.000 jugadores a la vez (avance de día < 200 ms en móvil).
+ */
+export const DEV_SPREAD_DAYS = 28;

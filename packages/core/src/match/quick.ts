@@ -2,13 +2,13 @@
 // (partidos entre clubes en sombra) y está calibrado contra el motor completo: mismas
 // medias de goles, victorias locales y empates (ver tools/sim y docs/balance/fase2.md).
 
+import { matchSeedPath } from "../world/rng";
 import { POSITION_LINE, type Position } from "../config/attributes";
 import { QUICK } from "../config/match";
-import { currentAbility } from "../player/ability";
 import type { Rng } from "../rng/rng";
 import type { Match, World } from "../types/domain";
 import { isNationalTeamId, type TeamId } from "../types/ids";
-import { isInjured, pickLineup, type Lineup } from "./lineup";
+import { abilityAt, isInjured, pickLineup, type Lineup } from "./lineup";
 import { aiTactics } from "./tactics";
 import type { MatchEvent, MatchReport, PlayerLine, Side, TeamStats } from "./types";
 
@@ -20,7 +20,7 @@ export function squadRating(world: World, squad: readonly string[]): number {
   for (const id of squad) {
     const p = world.players[id];
     if (!p || p.retired || isInjured(p, world.meta.today)) continue;
-    byLine[POSITION_LINE[p.position as Position]]!.push(currentAbility(p));
+    byLine[POSITION_LINE[p.position as Position]]!.push(abilityAt(p, p.position));
   }
   let sum = 0;
   let n = 0;
@@ -127,7 +127,7 @@ export function quickMatch(world: World, m: Match, rng: Rng, ratings: Map<string
     }
   });
   const report: MatchReport = {
-    seedPath: `match/${m.id}`,
+    seedPath: matchSeedPath(world, m),
     score,
     extraTime,
     events,

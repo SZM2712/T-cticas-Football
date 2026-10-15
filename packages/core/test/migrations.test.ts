@@ -12,6 +12,7 @@ function asV1(): Record<string, unknown> {
   delete w.tactics;
   delete w.plans;
   delete w.scouting;
+  for (const k of ["managers", "relationships", "trust", "memories", "commitments", "inbox", "dressing", "salts"]) delete w[k];
   for (const p of Object.values(w.players) as Record<string, any>[]) {
     delete p.fitnessDay;
     delete p.suspensions;
@@ -29,6 +30,17 @@ function asV1(): Record<string, unknown> {
 }
 
 describe("migraciones", () => {
+  it("v3 → v4: el vestuario empieza vacío", () => {
+    const w = JSON.parse(JSON.stringify(newGame({ seed: 22 }, "quick").world)) as Record<string, any>;
+    w.meta.saveVersion = 3;
+    for (const k of ["managers", "relationships", "trust", "memories", "commitments", "inbox", "dressing", "salts"]) delete w[k];
+    const world = migrateWorld(w);
+    expect(world.meta.saveVersion).toBe(SAVE_VERSION);
+    expect(world.relationships).toEqual({});
+    expect(world.commitments).toEqual({});
+    expect(world.memories).toEqual({});
+  });
+
   it("v1 → actual: añade los campos nuevos y el mundo se puede seguir jugando", () => {
     const world = migrateWorld(asV1());
     expect(world.meta.saveVersion).toBe(SAVE_VERSION);
@@ -43,6 +55,10 @@ describe("migraciones", () => {
     expect(p.development.recoveryMult).toBe(1);
     expect(p.development.caMonthly).toEqual([]);
     expect(Object.values(world.staff)[0]!.attributes.nutrition).toBe(8);
+    expect(world.managers).toEqual({});
+    expect(world.inbox).toEqual([]);
+    expect(world.dressing).toEqual({});
+    expect(world.salts).toEqual({});
     const game = openGame(world, "quick");
     expect(() => advanceDays(game, 35)).not.toThrow();
   });

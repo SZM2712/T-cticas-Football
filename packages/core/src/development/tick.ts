@@ -6,13 +6,14 @@ import {
   ADULT_DRIFT_MULT, AGE_GROWTH_CURVE, CEILING_DRIFT, CEILING_NOISE, CRITICAL_WINDOW, CRITICAL_WINDOW_MULT, DECLINING_PHYSICAL, EXPERIENCE_ATTRS,
   EXPERIENCE_GAIN, FOCUS_ATTRS, FOCUS_BOOST, FULL_MINUTES, GAP_HALF, YOUTH_MINUTES_FLOOR, IRRELEVANT_GROWTH, MAX_CEILING, MENTOR_MIN_AGE,
   MENTOR_TRAITS, MENTOR_TRANSFER, MONTH_LUCK_SD, MONTHLY_GROWTH, PHYSICAL_DECLINE, SERIOUS_INJURY_DAYS,
-  SLEEP_CONSISTENCY, TECHNICAL_DECLINE, TECHNICAL_DECLINE_AGE,
+  DEV_SPREAD_DAYS, SLEEP_CONSISTENCY, TECHNICAL_DECLINE, TECHNICAL_DECLINE_AGE,
 } from "../config/development";
 import { attributeShape } from "../gen/player";
-import { coachAuthority, invalidateAbilityCache } from "../match/lineup";
+import { coachAuthority, invalidatePlayerAbility } from "../match/lineup";
 import { POSITION_LINE } from "../config/attributes";
 import { currentAbility } from "../player/ability";
 import type { Rng } from "../rng/rng";
+import { fnv1a32 } from "../rng/hash";
 import { dateOf, exactAge } from "../time/calendar";
 import type { Player, World } from "../types/domain";
 import type { DevFactor } from "../types/development";
@@ -229,27 +230,59 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
     .map((f) => ({ key: f.key, value: round(f.value, 2) }));
 }
 
-/** Tick mensual de desarrollo de todo el mundo (primer día de cada mes). */
-export function monthlyDevelopment(world: World, day: GameDay): void {
+/** Día del mes (1–28) en que se desarrolla cada jugador: reparte el coste del tick mensual. */
+export function devDayOf(id: string): number {
+  return 1 + (fnv1a32(id) % DEV_SPREAD_DAYS);
+}
+
+/**
+ * Desarrolla un grupo de jugadores (su tick mensual). El entorno medio se mide sobre el propio
+ * grupo: con cientos de jugadores elegidos por hash es la media del mundo con poco ruido.
+ */
+function developBatch(world: World, day: GameDay, players: Player[]): void {
+  if (!players.length) return;
   const { y, m } = dateOf(day);
   const root = worldRng(world).fork(`dev/${y}/${m}`);
   resetStaffCache(world);
-  // Primera pasada: minutos del mes y entorno medio del mundo.
+  // Primera pasada: minutos del mes y entorno medio.
   let sum = 0;
-  let n = 0;
-  for (const p of Object.values(world.players)) {
-    if (p.retired) continue;
+  for (const p of players) {
     const dev = p.development;
     dev.recentMinutes = Math.round(dev.recentMinutes * 0.5 + dev.monthMinutes);
     dev.monthMinutes = 0;
     sum += baseEnv(minutesFactor(dev, exactAge(p.birthDay, day)), trainingOf(world, p));
-    n++;
   }
-  const ctx: MonthCtx = { day, rngFor: (id) => root.fork(id), meanEnv: n ? sum / n : 0 };
-  for (const p of Object.values(world.players)) {
-    if (p.retired) continue;
+  const ctx: MonthCtx = { day, rngFor: (id) => root.fork(id), meanEnv: sum / players.length };
+  for (const p of players) {
     developPlayer(world, p, ctx);
+    // Sus atributos han cambiado: su CA por posición en caché ya no vale.
+    invalidatePlayerAbility(p);
   }
-  // Los atributos han cambiado: la CA por posición en caché ya no vale.
-  invalidateAbilityCache();
+}
+
+/** Tick mensual de todo el mundo de una vez (tests y herramientas). */
+export function monthlyDevelopment(world: World, day: GameDay): void {
+  developBatch(world, day, Object.values(world.players).filter((p) => !p.retired));
+}
+
+/** Índice en memoria día del mes → ids (se rehace si cambia el número de jugadores). */
+const buckets = new WeakMap<World, { count: number; byDay: string[][] }>();
+
+function dayBucket(world: World, d: number): string[] {
+  const ids = Object.keys(world.players);
+  let b = buckets.get(world);
+  if (!b || b.count !== ids.length) {
+    const byDay: string[][] = Array.from({ length: DEV_SPREAD_DAYS + 1 }, () => []);
+    for (const id of ids) byDay[devDayOf(id)]!.push(id);
+    buckets.set(world, (b = { count: ids.length, byDay }));
+  }
+  return b.byDay[d]!;
+}
+
+/** Tick diario: se desarrollan los jugadores a los que hoy les toca su tick mensual. */
+export function dailyDevelopment(world: World, day: GameDay): void {
+  const d = dateOf(day).d;
+  if (d > DEV_SPREAD_DAYS) return;
+  const players = dayBucket(world, d).map((id) => world.players[id]!).filter((p) => p && !p.retired);
+  developBatch(world, day, players);
 }
