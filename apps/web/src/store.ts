@@ -5,7 +5,7 @@ import { DEFAULT_LOCALE, type Locale } from "@tf/i18n";
 import { create } from "zustand";
 import type { Summary } from "./protocol";
 
-export type Tab = "table" | "results" | "squad" | "scorers" | "tactics" | "match";
+export type Tab = "table" | "results" | "squad" | "dressing" | "inbox" | "scorers" | "tactics" | "match";
 
 interface UiState {
   locale: Locale;

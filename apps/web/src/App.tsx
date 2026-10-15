@@ -5,13 +5,15 @@ import { LeagueTable } from "./components/LeagueTable";
 import { MatchPanel } from "./components/MatchPanel";
 import { Results } from "./components/Results";
 import { Scorers } from "./components/Scorers";
+import { Dressing } from "./components/Dressing";
+import { Inbox } from "./components/Inbox";
 import { Squad } from "./components/Squad";
 import { TacticsPanel } from "./components/TacticsPanel";
 import { act, useView } from "./hooks";
 import { useT } from "./i18n";
 import { useUi, type Tab } from "./store";
 
-const TABS: Tab[] = ["table", "results", "squad", "scorers", "tactics", "match"];
+const TABS: Tab[] = ["table", "results", "squad", "dressing", "inbox", "scorers", "tactics", "match"];
 
 function formatDay(day: number, locale: Locale): string {
   // GameDay = días desde el 1/1/2000 (UTC). Solo la UI usa Date.
@@ -111,6 +113,8 @@ export function App() {
         {ui.summary && ui.tab === "table" && <LeagueTable />}
         {ui.summary && ui.tab === "results" && <Results />}
         {ui.summary && ui.tab === "squad" && <Squad />}
+        {ui.summary && ui.tab === "dressing" && <Dressing />}
+        {ui.summary && ui.tab === "inbox" && <Inbox />}
         {ui.summary && ui.tab === "scorers" && <Scorers />}
         {ui.summary && ui.tab === "tactics" && <TacticsPanel />}
         {ui.summary && ui.tab === "match" && <MatchPanel />}

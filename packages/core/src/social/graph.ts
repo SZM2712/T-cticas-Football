@@ -4,7 +4,7 @@
 
 import type { Position } from "../config/attributes";
 import {
-  BASE_CLOSE_AGE, BASE_COMMON_LANGUAGE, BASE_NOISE_SD, BASE_RIVALRY, BASE_SAME_NATION, CLIQUE_MIN_SIZE, CLIQUE_MIN_VALENCE,
+  BASE_CLOSE_AGE, BASE_COMMON_LANGUAGE, BASE_NOISE_SD, BASE_RIVALRY, BASE_SAME_NATION, CLIQUE_EDGE_QUANTILE, CLIQUE_MIN_SIZE, CLIQUE_MIN_VALENCE,
   CONTAGION, INFLUENCE_WEIGHTS, K_ENVY_STATUS, K_ENVY_WAGE, K_LANGUAGE, K_RESPECT_PERF, K_RESPECT_PROF, K_RIVALRY,
   K_SOCIABILITY, LEVEL_PERCENTILES, MAX_LEADERS, MORALE_DECAY, OUTCAST_VALENCE, RELATION_DECAY, SENIORITY_YEARS,
   STATUS_STARTS, STATUS_WINDOW,
@@ -403,13 +403,17 @@ export function recomputeStructure(world: World, clubId: ClubId): void {
   }
   dr.levels = levels;
 
-  // Camarillas: Louvain sobre las aristas de valencia positiva.
-  const groups = louvain(ids, (a, b) => {
+  // Camarillas: Louvain sobre las aristas más fuertes del vestuario (por encima de un umbral
+  // absoluto y del percentil CLIQUE_EDGE_QUANTILE: si no, todo el mundo cae en dos bloques).
+  const mutual = (a: string, b: string): number => {
     const r = rel(a, b);
-    if (!r) return 0;
-    const v = (valence(r, a, b) + valence(r, b, a)) / 2;
-    return v > CLIQUE_MIN_VALENCE ? v : 0;
-  });
+    return r ? (valence(r, a, b) + valence(r, b, a)) / 2 : 0;
+  };
+  const all: number[] = [];
+  for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) all.push(mutual(ids[i]!, ids[j]!));
+  all.sort((a, b) => a - b);
+  const th = Math.max(CLIQUE_MIN_VALENCE, all[Math.floor(CLIQUE_EDGE_QUANTILE * (all.length - 1))] ?? 0);
+  const groups = louvain(ids, (a, b) => Math.max(0, mutual(a, b) - th));
   dr.cliques = groups
     .filter((g) => g.length >= CLIQUE_MIN_SIZE)
     .map((g) => ({ members: g as PlayerId[], ...labelClique(world, g.map((id) => byId.get(id as PlayerId)!), clubId, day) }));

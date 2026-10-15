@@ -61,6 +61,8 @@ function makeLeader(w: World, squad: Player[], psych: Partial<Player["psych"]>):
   const leader = [...squad].sort((a, b) => currentAbility(b) - currentAbility(a) || (a.id < b.id ? -1 : 1))[0]!;
   script(w, leader, { influence: 0.95, ...psych }, PLAYS);
   leader.state.expectedStatus = "keyPlayer";
+  // Lleva años en el club: es líder del vestuario, no solo influyente.
+  leader.contract = { ...leader.contract!, signed: (w.meta.today - 6 * 365) as GameDay };
   recomputeStructure(w, clubId);
   return leader;
 }
@@ -82,6 +84,9 @@ function signStar(w: World, squad: Player[], leader: Player, ratio: number): Pla
 function share(n: number, f: (seed: number) => boolean): number {
   let hits = 0;
   for (let s = 0; s < n; s++) if (f(s)) hits++;
+  // Con SOCIAL_REPORT=1 se imprime cada tasa (para docs/balance/fase4.md).
+  const g = globalThis as { process?: { env: Record<string, string | undefined> }; console?: { log(s: string): void } };
+  if (g.process?.env.SOCIAL_REPORT) g.console?.log(`[escenario] ${expect.getState().currentTestName}: ${((100 * hits) / n).toFixed(1)} %`);
   return hits / n;
 }
 
@@ -91,6 +96,7 @@ describe("celos salariales (§5.4.1)", () => {
       const { w, squad } = scenarioWorld(seed);
       const leader = makeLeader(w, squad, { ego: 0.85, loyalty: 0.3 });
       signStar(w, squad, leader, 1.5);
+      expect(w.dressing[clubId]!.levels[leader.id]).toBe("leader");
       run(w, 30);
       return (leader.state.tensions.salaryEnvy ?? 0) >= 0.45;
     });

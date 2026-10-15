@@ -30,6 +30,13 @@ function shapeOf(world: World, p: Player): Record<AttrKey, number> {
   return s;
 }
 
+/** Atributos con su grupo y pesos por posición precompilados (el reparto mensual es el bucle más caliente). */
+const ATTRS = ALL_ATTRS.map((a) => ({ a, g: ATTR_GROUP[a] }));
+const POS_WEIGHTS = Object.fromEntries(
+  Object.entries(POSITION_WEIGHTS).map(([pos, w]) => [pos, Float64Array.from(ALL_ATTRS, (a) => (w as Partial<Record<AttrKey, number>>)[a] ?? 0)]),
+) as Record<string, Float64Array>;
+const weightBuf = new Float64Array(ALL_ATTRS.length);
+
 /** Interpolación lineal en una curva [x, y]. */
 export function curve(points: readonly (readonly [number, number])[], x: number): number {
   if (x <= points[0]![0]) return points[0]![1];
@@ -152,26 +159,31 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
   // 3) Reparto entre atributos: talento natural, foco del plan, edad y margen hasta 20.
   if (growth > 0) {
     const shape = shapeOf(world, p);
-    const posW = POSITION_WEIGHTS[p.position];
-    const focus = new Set(plan ? FOCUS_ATTRS[plan.focus] : []);
+    const posW = POS_WEIGHTS[p.position]!;
+    const focus = plan ? FOCUS_ATTRS[plan.focus] : [];
+    const isGK = p.position === "GK";
     let sumRel = 0;
     let sumRelW = 0;
-    const w: Partial<Record<AttrKey, number>> = {};
-    for (const a of ALL_ATTRS) {
-      const rel = posW[a] ?? 0;
-      const value = group(p, a)[a]!;
+    const w = weightBuf;
+    for (let i = 0; i < ATTRS.length; i++) {
+      const { a, g } = ATTRS[i]!;
+      const rel = posW[i]!;
+      const value = (p[g] as Record<string, number>)[a]!;
       const margin = clamp((20 - value) / 8, 0.05, 1);
-      let weight = shape[a]! * shape[a]! * typeCurve(ATTR_GROUP[a], age) * margin * (rel > 0 ? rel : IRRELEVANT_GROWTH);
-      if (focus.has(a)) weight *= 1 + (FOCUS_BOOST - 1) * fx.focus;
-      w[a] = weight;
+      const sh = shape[a]!;
+      let weight = sh * sh * typeCurve(g, age) * margin * (rel > 0 ? rel : IRRELEVANT_GROWTH);
+      if (focus.length && focus.includes(a)) weight *= 1 + (FOCUS_BOOST - 1) * fx.focus;
+      w[i] = weight;
       sumRel += rel;
       sumRelW += rel * weight;
     }
     const k = sumRelW > 0 ? (growth * sumRel) / sumRelW : 0;
-    for (const a of ALL_ATTRS) {
+    for (let i = 0; i < ATTRS.length; i++) {
+      const { a, g } = ATTRS[i]!;
       // Los porteros no ganan juego de pies de campo, ni los de campo atributos de portero.
-      if ((ATTR_GROUP[a] === "goalkeeping") !== (p.position === "GK") && !(posW[a] ?? 0)) continue;
-      addAttr(p, a, k * w[a]!);
+      if ((g === "goalkeeping") !== isGK && !posW[i]) continue;
+      const grp = p[g] as Record<string, number>;
+      grp[a] = round(clamp(grp[a]! + k * w[i]!, 1, 20), 3);
     }
   }
 
@@ -269,12 +281,14 @@ export function monthlyDevelopment(world: World, day: GameDay): void {
 const buckets = new WeakMap<World, { count: number; byDay: string[][] }>();
 
 function dayBucket(world: World, d: number): string[] {
-  const ids = Object.keys(world.players);
+  // Los jugadores nuevos (canteranos) suben el contador de ids: basta con mirarlo.
+  const count = world.idCounters.pl ?? 0;
   let b = buckets.get(world);
-  if (!b || b.count !== ids.length) {
+  if (!b || b.count !== count) {
+    const ids = Object.keys(world.players);
     const byDay: string[][] = Array.from({ length: DEV_SPREAD_DAYS + 1 }, () => []);
     for (const id of ids) byDay[devDayOf(id)]!.push(id);
-    buckets.set(world, (b = { count: ids.length, byDay }));
+    buckets.set(world, (b = { count, byDay }));
   }
   return b.byDay[d]!;
 }

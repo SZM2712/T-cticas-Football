@@ -34,6 +34,8 @@ export const VALENCE_WEIGHTS = { affinity: 0.5, respect: 0.25, envy: 0.35, rival
 /** Solo cuentan para las camarillas las aristas con valencia mayor que esto. */
 export const CLIQUE_MIN_VALENCE = 0.15;
 export const CLIQUE_MIN_SIZE = 3;
+/** Además, solo las aristas por encima de este percentil del propio vestuario. */
+export const CLIQUE_EDGE_QUANTILE = 0.88;
 /** Influencia real = pesos (§5.2). */
 export const INFLUENCE_WEIGHTS = { trait: 0.35, pagerank: 0.25, seniority: 0.15, status: 0.15, reputation: 0.1 };
 /** Años en el club para la antigüedad máxima. */
@@ -93,6 +95,12 @@ export const LADDER_RESET = 0.1;
 export const PUBLIC_COMPLAINT_MORALE = -0.25;
 /** Decaimiento diario de la tensión cuando ya no hay disparador. */
 export const TENSION_DECAY = 0.02;
+/**
+ * Habituación diaria con el disparador activo: dT = Δ − H·T. Un agravio que persiste se
+ * estabiliza en Δ/H, así que solo los caracteres extremos (o los líderes) llegan a los últimos
+ * escalones. Sin ella, cualquier titular con ego peor pagado que la estrella pedía salir en un mes.
+ */
+export const HABITUATION: Record<"salaryEnvy" | "statusGap" | "roosters", number> = { salaryEnvy: 0.04, statusGap: 0.008, roosters: 0 };
 
 // Celos salariales (§5.4.1)
 export const ENVY_MIN_EGO = 0.55;
@@ -100,13 +108,15 @@ export const ENVY_WAGE_RATIO = 1.15;
 /** Solo envidia quien juega con regularidad (participación reciente mínima). */
 export const ENVY_MIN_PARTICIPATION = 0.3;
 /** Escala de la acumulación diaria: ego · (ratio − 1) · (0,5 + reconocimiento) · (1 − 0,5·lealtad) · esto. */
-export const ENVY_RATE = 0.07;
-export const ENVY_LEADER_MULT = 1.3;
+export const ENVY_RATE = 0.1;
+export const ENVY_LEADER_MULT = 1.5;
 /** Renovación que la desactiva: ≥ 90 % del salario del compañero. */
 export const ENVY_RENEW_SHARE = 0.9;
+/** Un agravio mayor no acelera la tensión sin límite: (ratio − 1) cuenta como mucho esto. */
+export const ENVY_MAX_GAP = 0.6;
 
 // Estatus prometido frente a real (§5.4.2)
-export const STATUS_RATE = 0.011;
+export const STATUS_RATE = 0.014;
 /** Con una promesa de minutos en riesgo, la tensión sube más rápido. */
 export const STATUS_PROMISE_MULT = 1.8;
 

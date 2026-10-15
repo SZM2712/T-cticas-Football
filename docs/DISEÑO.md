@@ -807,6 +807,88 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 ### Estado v3
 `SAVE_VERSION = 3`, con migración v2→v3 y su test.
 
+## 10d. Fase 4 — vestuario y ego (implementado)
+
+### Mánagers humanos y estado v4
+- **Mánagers**:
+  - `World.managers`: uno por humano.
+  - Un humano toma el mando de un club con el comando `takeCharge`; entonces nace su vestuario (`World.dressing`).
+  - Cada `Command` admite autor (`by`). Con varios humanos, cada uno solo actúa sobre su club (error `notYourPlayer`/`notYourTeam`).
+- **Sal de turno** (`World.salts`, §11.3): entra en la ruta del stream de cada partido (`matchSeedPath`). Vacía en un jugador: no cambia nada.
+- **Estado v4**: relaciones, confianza, recuerdos, promesas, buzón y vestuario. Todo vacío al generar; migración v3→v4 con test.
+
+### Grafo social (`social/graph.ts`, §5.1–5.2)
+- **Relación de partida**: idioma común, compatriota, edad cercana, química al azar y rivalidad por compartir línea.
+- **Deriva semanal**:
+  - afinidad hacia su base, más idioma y sociabilidad;
+  - rivalidad;
+  - envidia por salario frente a rendimiento, y por titularidad;
+  - respeto por rendimiento y profesionalidad.
+- **Impulsos**: goles con asistencia entre compañeros.
+- **Jerarquía**: influencia real = rasgo, PageRank del respeto, antigüedad, participación y reputación. Hasta 3 líderes, influyentes, núcleo y periferia; marginados por valencia.
+- **Camarillas**: Louvain determinista sobre las aristas por encima del percentil 88 del propio vestuario. Se nombran por lo que comparten: idioma, nación, veteranos, jóvenes, canteranos, los de casa o grupo mixto.
+- **Estatus**:
+  - esperado: el papel que le daría la IA al tomar el mando (un escalón más con mucho ego y un contrato que le promete más);
+  - percibido: su participación en los últimos 8 partidos oficiales;
+  - un veterano que no juega se siente reserva, no promesa.
+- **Felicidad y moral**: confianza en el mánager, agravio de estatus, cómo le ven sus compañeros, recuerdos sobre el mánager y tensión. Contagio de moral de los influyentes a quienes les aprecian.
+
+### Memoria episódica (`social/store.ts`)
+- **Semivida** según el tipo de recuerdo, los rasgos del dueño (lo negativo dura más con ego, necesidad de reconocimiento y temperamento volátil) y lo público que fue.
+- **Poda**: mensual, y como máximo 40 recuerdos vivos por jugador.
+- **Recuerdos que se crean**:
+  - quedarse fuera esperando ser titular, o un cambio pronto;
+  - promesas hechas, cumplidas, rotas o renegociadas;
+  - capitanía dada o quitada, y papeles dados o quitados;
+  - charlas buenas y malas, y escalones de ego.
+
+### Dinámicas de ego (`social/ego.ts`, §5.3–5.4)
+- **Motor genérico**: detectar → acumular → escalera común (0,25 / 0,45 / 0,65 / 0,8 / 0,95).
+- **Canal según rasgos**: en privado, la camarilla, el agente, las redes o en público.
+- **Escalones**:
+  - cada uno deja aviso en el buzón y evento;
+  - desde el segundo, también recuerdo;
+  - en el cuarto: queja pública, baja de moral y, entre gallos, bronca con el vestuario tomando partido;
+  - el quinto es la petición de salida (`transferRequest`, para el mercado de la Fase 6).
+- **Habituación** (`HABITUATION`): con el disparador activo, dT = Δ − H·T. Un agravio que persiste se estabiliza en Δ/H; solo los caracteres extremos o los líderes llegan a los últimos escalones.
+- **Celos salariales**:
+  - solo de quien juega con regularidad;
+  - la lealtad amortigua (1 − 0,8·lealtad) y la necesidad de reconocimiento pesa 0,7 + 0,6·rec (calibrado con los escenarios);
+  - la diferencia salarial cuenta como mucho +60 %;
+  - se desactiva al renovar al 90 % del mejor pagado, o con una charla de rol que acaba en promesa de renovación.
+- **Estatus**: brecha esperado–percibido. Más rápida con inseguridad y con una promesa de minutos en riesgo; no cuenta mientras está lesionado.
+- **Dos gallos**:
+  - mismo puesto ofensivo exacto y los dos juegan;
+  - o uno tira los penaltis o las faltas y el otro también sabría;
+  - o uno es capitán y el otro, líder.
+  - Los roles pactados (`agreeRoles`) los separan.
+
+### Promesas (`social/commitments.ts`)
+- **Origen**: toda promesa de una conversación crea un `Commitment` con su acción enlazada (minutos, papel, capitanía, renovación, mentor).
+- **Seguimiento semanal**: medición; aviso de riesgo; las de acción puntual se cumplen al hacerla y las de minutos se juzgan al vencer.
+- **Romperla**: recuerdo fuerte y −0,35 de confianza. Si había testigos, ellos también lo recuerdan y confían menos.
+- **Renegociarla**: cuesta menos que romperla.
+
+### Conversaciones y decisiones
+- **Conversación** (`talk`, una por semana con cada jugador): elogiar, exigir, explicar su papel, prometer minutos, papel o renovación, o pactar roles entre dos gallos.
+- **Quién decide**: el jugador, según la autoridad del mánager (reputación relativa y confianza), su ego y su inseguridad. La UI solo muestra si parece receptivo.
+- **Decisiones**: capitán, lanzador de penaltis o faltas (también fija el plan táctico) y renovación.
+
+### Encaje (`social/fit.ts`, §5.5)
+- **Componentes**: táctico (familiaridad con el dibujo), cultural (idioma, compatriota, adaptabilidad), social (cómo le ven) y con el mánager (confianza).
+- **Efecto**: ±5 % de rendimiento en partido y más felicidad. Solo en clubes con vestuario: el resto del mundo no cambia.
+
+### Rendimiento (§2.2)
+- El desarrollo mensual se reparte por días del mes (`devDayOf`).
+- La caché de capacidad se invalida por jugador.
+- Con humanos en la partida, el motor completo se reserva a sus partidos y a las selecciones con jugadores suyos.
+- Medidas en `docs/balance/fase4.md`.
+
+### UI de depuración
+- **Vestuario**: tomar el mando, camarillas, jerarquía, ánimo, confianza, encaje, papel, preocupaciones y promesas.
+- **Buzón**.
+- **Ficha del jugador**: relaciones, recuerdos, encaje, conversación y decisiones.
+
 ## 11. Ideas incorporadas (pendientes de su fase)
 
 ### 11.1 Contratos avanzados (Fase 6 — economía y mercado)

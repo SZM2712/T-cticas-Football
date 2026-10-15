@@ -60,3 +60,4 @@ export { makeCommitment, reviewCommitments, measure, liveCommitments } from "./s
 export { talk, talkChance, managerAuthority, type TalkArgs, type TalkResult } from "./social/talk";
 export { fitOf, type FitBreakdown } from "./social/fit";
 export { remember, salience, halfLife, valence, pairKey, trustOf, managerOf, notify } from "./social/store";
+export * from "./views/social";

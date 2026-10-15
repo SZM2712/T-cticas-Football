@@ -1,5 +1,37 @@
 # Cambios por fase
 
+## Fase 4 — Vestuario y ego (rama `claude/fase-4-vestuario`)
+
+### Qué hay
+- **Tomar el mando de un club** (mánager humano). Varios humanos pueden dirigir clubes distintos en el mismo mundo, y cada uno solo actúa sobre el suyo.
+- **Grafo social del vestuario**: afinidad, respeto, rivalidad y envidia entre compañeros, que cambian cada semana.
+- **Jerarquía** (líderes, influyentes, núcleo, periferia, marginados) y **camarillas** con nombre (los de casa, los veteranos, los de habla portuguesa…).
+- **Moral contagiosa**, felicidad, estatus esperado frente al percibido y confianza en el mánager.
+- **Memoria episódica**: cada jugador recuerda lo que le haces, y lo malo dura más en quien tiene ego.
+- **Tres dinámicas de ego** con escalera común. Primero parece molesto, luego quiere hablar, después mueve a su agente o lanza indirectas en redes, se queja en público y, al final, pide salir:
+  - celos salariales;
+  - estatus prometido frente a real;
+  - dos gallos en el mismo corral.
+- **Promesas rastreables**: toda promesa en una conversación queda registrada con su plazo y la acción que la cumple. Romperla tiene consecuencias, también en los testigos.
+- **Conversaciones**: elogiar, exigir, explicar su papel, prometer minutos, papel o renovación, y pactar roles entre gallos. **El jugador decide** cómo se lo toma.
+- **Decisiones**: capitán, lanzadores y renovación.
+- **Encaje** (táctico, cultural, social y contigo): ±5 % de rendimiento en partido.
+- **Buzón** con todo lo que pasa en el vestuario.
+- **Preparación multijugador**: autor en cada comando, varios mánagers y sal de turno en la semilla de los partidos.
+- **Rendimiento**:
+  - el desarrollo mensual se reparte por días;
+  - caché de nivel por jugador;
+  - con humanos en la partida, el motor completo solo en sus partidos y en las selecciones con jugadores suyos.
+  - El avance de día pasa de 215 ms a 55 ms en el percentil 90 (Node) y las 20 temporadas de simulación, de 283 s a 188 s.
+- **Estado v4** con migración.
+
+### Balance (`docs/balance/fase4.md`)
+- Los 8 escenarios guionizados están dentro de rango en 200 semillas cada uno.
+- Un vestuario desatendido 4 meses da señales y alguna queja, pero ninguna petición de salida.
+- Avance de día en el navegador: p50 14 ms y p90 51 ms sin limitar la CPU. Con ×4 se estima ≈ 56 ms y ≈ 204 ms (la limitación de Chromium no llega al Worker, así que se estima multiplicando).
+- Partidos y desarrollo de las fases anteriores, sin cambios.
+- El hash del mundo de referencia cambia solo por los campos nuevos del estado v4.
+
 ## Fase 3 — Desarrollo (rama `claude/fase-3-desarrollo`)
 
 ### Qué hay

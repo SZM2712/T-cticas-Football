@@ -7,6 +7,7 @@ import { call } from "../client";
 import { act, useView } from "../hooks";
 import { useT } from "../i18n";
 import { useUi } from "../store";
+import { SocialPanel } from "./SocialPanel";
 
 const DEFAULT_PLAN: DevelopmentPlan = { focus: "balanced", intensity: "normal", diet: "standard", exercise: "none", sleep: "free" };
 
@@ -164,6 +165,7 @@ export function PlayerPanel({ id }: { id: string }) {
           <p className="hint">{t("dev.scoutsHelp")}</p>
         </section>
       </div>
+      <SocialPanel id={id} />
     </div>
   );
 }

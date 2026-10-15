@@ -82,3 +82,12 @@ ul.instructions { padding-left: 18px; }
 ul.factors { list-style: none; padding: 0; margin: 0; }
 ul.factors li { padding: 2px 0; }
 .spark { color: var(--accent); max-width: 100%; height: auto; }
+.inbox-list { list-style: none; padding: 0; }
+.inbox-list li { padding: 4px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.inbox-list li.read { opacity: 0.6; }
+.dressing section { margin: 8px 0; }
+.mood-awful, .mood-low { color: var(--bad, #c62828); }
+.mood-great { color: var(--ok, #2e7d32); }
+.social { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+.dressing-table td.left { white-space: normal; }
+.dressing-table td:last-child { min-width: 14em; }

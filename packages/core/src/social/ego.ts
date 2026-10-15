@@ -4,7 +4,7 @@
 // cruzar los escalones de la escalera común, el jugador actúa por el canal que eligen sus rasgos.
 
 import {
-  ENVY_LEADER_MULT, ENVY_MIN_EGO, ENVY_MIN_PARTICIPATION, ENVY_RATE, ENVY_WAGE_RATIO, LADDER, LADDER_RESET, PUBLIC_COMPLAINT_MORALE,
+  ENVY_LEADER_MULT, ENVY_MAX_GAP, HABITUATION, ENVY_MIN_EGO, ENVY_MIN_PARTICIPATION, ENVY_RATE, ENVY_WAGE_RATIO, LADDER, LADDER_RESET, PUBLIC_COMPLAINT_MORALE,
   ROOSTER_MIN_EGO, ROOSTER_RATE, STATUS_PROMISE_MULT, STATUS_RATE, TENSION_DECAY,
 } from "../config/social";
 import type { Player, World } from "../types/domain";
@@ -63,15 +63,16 @@ const salaryEnvy: EgoDynamic = {
         const better = ctx.perf.get(i.id)! >= ctx.perf.get(j.id)! || ctx.part.get(i.id)! >= ctx.part.get(j.id)!;
         if (better && (!best || ratio > best.ratio)) best = { j, ratio };
       }
-      if (best) out.push({ actor: i.id, other: best.j.id, key: "salaryEnvy", strength: Math.min(2, best.ratio) });
+      if (best) out.push({ actor: i.id, other: best.j.id, key: "salaryEnvy", strength: 1 + Math.min(ENVY_MAX_GAP, best.ratio - 1) });
     }
     return out;
   },
   accumulate(t, p, ctx) {
     const ps = p.psych;
     const leader = ctx.dr.levels[p.id] === "leader" ? ENVY_LEADER_MULT : 1;
-    // La lealtad amortigua más de lo que proponía el borrador (1 − 0,8·lealtad): calibrado con los escenarios.
-    return ENVY_RATE * ps.ego * (t.strength - 1) * (0.5 + ps.recognitionNeed) * (1 - 0.8 * ps.loyalty) * leader;
+    // Calibrado con los escenarios: la lealtad amortigua más (1 − 0,8·lealtad) y la necesidad de
+    // reconocimiento pesa algo menos (0,7 + 0,6·rec) que en el borrador (0,5 + rec).
+    return ENVY_RATE * ps.ego * (t.strength - 1) * (0.7 + 0.6 * ps.recognitionNeed) * (1 - 0.8 * ps.loyalty) * leader;
   },
 };
 
@@ -99,8 +100,8 @@ const statusGap: EgoDynamic = {
 /** Solapamiento de rol simbólico entre dos jugadores (0..1). */
 export function symbolicOverlap(ctx: EgoContext, a: Player, b: Player): number {
   let o = 0;
-  const la = LINE_ATTACK[a.position];
-  if (la && la === LINE_ATTACK[b.position] && ctx.part.get(a.id)! >= 0.3 && ctx.part.get(b.id)! >= 0.3) o += 0.5;
+  // Mismo puesto ofensivo exacto (dos nueves, dos mediapuntas…) y los dos juegan.
+  if (LINE_ATTACK[a.position] && a.position === b.position && ctx.part.get(a.id)! >= 0.3 && ctx.part.get(b.id)! >= 0.3) o += 0.5;
   const pens = ctx.dr.roles.penalties;
   if ((pens === a.id && b.technical.penalties >= 13) || (pens === b.id && a.technical.penalties >= 13)) o += 0.3;
   const fks = ctx.dr.roles.freeKicks;
@@ -226,7 +227,8 @@ export function dailyEgo(world: World, clubId: ClubId, day: GameDay): void {
     for (const t of dyn.detect(ctx)) {
       const p = world.players[t.actor]!;
       const delta = dyn.accumulate(t, p, ctx);
-      p.state.tensions[t.key] = round(clamp((p.state.tensions[t.key] ?? 0) + delta, 0, 1), 4);
+      const prev = p.state.tensions[t.key] ?? 0;
+      p.state.tensions[t.key] = round(clamp(prev + delta - HABITUATION[dyn.id] * prev, 0, 1), 4);
       active.set(`${t.actor}:${t.key}`, t);
     }
   }
