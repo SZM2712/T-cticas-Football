@@ -51,6 +51,8 @@ export interface EmotionalState {
 export type MaturationProfile = "early" | "standard" | "late";
 
 export interface DevelopmentState {
+  /** Niño prodigio (wonderkid): nació con techo de estrella; el cupo de élite no lo recorta. OCULTO. */
+  prodigy?: boolean;
   /** Techo latente real L(t) en escala CA. OCULTO (§4). */
   latentCeiling: number;
   /** Volatilidad del proceso del techo; decrece con la edad. */

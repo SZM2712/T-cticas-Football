@@ -24,13 +24,20 @@
   - con humanos en la partida, el motor completo solo en sus partidos y en las selecciones con jugadores suyos.
   - El avance de día pasa de 215 ms a 55 ms en el percentil 90 (Node) y las 20 temporadas de simulación, de 283 s a 188 s.
 - **Estado v4** con migración.
+- **Niños prodigio (wonderkids)** (petición del usuario): cada temporada sale un canterano de 16–17 años con un nivel muy alto para su edad y techo de estrella (el mundo inicial trae 5). El cupo de élite no les recorta el techo, aunque no todos triunfan.
+- **Élite dentro de ±12 %** (criterio del usuario):
+  - la «generación que viene» se dimensiona con las salidas previstas por la edad de los cracks;
+  - si faltan cracks, los jóvenes que llegarían antes reciben techo de élite;
+  - fuera de ±6 %, un ajuste de cierre sobre unos pocos jugadores en el límite (eventos `player.agingToll` y `player.breakthrough`);
+  - la experiencia ya no lleva a nadie por encima de su techo.
+  - Resultado: 49–54 frente a 52 en 20 temporadas (antes, ±29 %).
 
 ### Balance (`docs/balance/fase4.md`)
 - Los 8 escenarios guionizados están dentro de rango en 200 semillas cada uno.
 - Un vestuario desatendido 4 meses da señales y alguna queja, pero ninguna petición de salida.
 - Avance de día en el navegador: p50 14 ms y p90 51 ms sin limitar la CPU. Con ×4 se estima ≈ 56 ms y ≈ 204 ms (la limitación de Chromium no llega al Worker, así que se estima multiplicando).
-- Partidos y desarrollo de las fases anteriores, sin cambios.
-- El hash del mundo de referencia cambia solo por los campos nuevos del estado v4.
+- Partidos sin cambios. Desarrollo: P50, P95 y P99 en rango, y la élite ya cumple el ±12 % (desviación máxima 5,8 %).
+- El hash del mundo de referencia cambia por los campos nuevos del estado v4 y por los niños prodigio del mundo inicial.
 
 ## Fase 3 — Desarrollo (rama `claude/fase-3-desarrollo`)
 

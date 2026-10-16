@@ -49,6 +49,7 @@ Además, una promesa de minutos incumplida se rompe al vencer: deja un recuerdo 
 
 ## Balance de las fases anteriores tras estos cambios
 
-- **Partidos** (8 temporadas, motor automático y sin humanos): 2,54 goles por partido, 43,0 % de victorias locales, 25,1 % de empates y 0,16 rojas por partido. ✅
-- **Desarrollo** (20 temporadas): P50 −6,3 % ✅, P95 +1,9 % ✅, P99 +0,6 % ✅. La élite pasa de 54 a 54 (rango 43–67), igual que en la Fase 3; el criterio de la élite sigue pendiente de decisión.
+- **Partidos** (8 temporadas, motor automático y sin humanos): 2,57 goles por partido, 43,2 % de victorias locales, 24,95 % de empates y 0,16 rojas por partido. ✅
+- **Desarrollo** (20 temporadas): P50 −6,3 % ✅, P95 +1,7 % ✅, P99 +1,0 % ✅.
+- **Élite** (CA ≥ 16): ✅ con el criterio del usuario de ±12 %. Se mueve entre 49 y 54 frente a 52 al empezar (desviación máxima 5,8 %), con el control nuevo y los niños prodigio (ver `docs/balance/fase3.md`).
 - **Tiempo de simulación**: las 20 temporadas tardan 188 s (antes 283 s).

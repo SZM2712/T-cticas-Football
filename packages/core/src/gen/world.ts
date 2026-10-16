@@ -25,8 +25,8 @@ import { generateClub } from "./clubs";
 import { generatePlayer } from "./player";
 import { normalizePosition, splitName, validateRealPlayers } from "./realPlayers";
 import { generateStaff } from "./staff";
-import { limitEliteCeilings } from "../development/season";
-import { ELITE_PIPELINE_START } from "../config/development";
+import { limitEliteCeilings, seedWonderkids } from "../development/season";
+import { ELITE_PIPELINE_START, WONDERKIDS_AT_START } from "../config/development";
 
 export interface GenerateOptions {
   seed: string | number;
@@ -429,6 +429,7 @@ export function generateWorld(opts: GenerateOptions): World {
   }
   // La generación que viene: solo un cupo de jóvenes con techo de élite (DISEÑO §4.3).
   limitEliteCeilings(Object.values(world.players), ELITE_PIPELINE_START, root.fork("gen/elite"));
+  seedWonderkids(world, WONDERKIDS_AT_START, root.fork("gen/wonderkids"));
   callUps(world);
   return world;
 }

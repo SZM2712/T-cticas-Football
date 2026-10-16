@@ -15,8 +15,9 @@ import {
 // techos de élite al generar (ELITE_PIPELINE_START) y campos nuevos de desarrollo, plans y
 // scouting (SAVE_VERSION 3).
 // Fase 4: cambia solo por el formato del estado (SAVE_VERSION 4: managers, relationships,
-// trust, memories, commitments, inbox, dressing y salts, todos vacíos al generar).
-const GOLDEN_HASH_123 = "9e1d559365f80553";
+// trust, memories, commitments, inbox, dressing y salts, todos vacíos al generar) y por la
+// generación: niños prodigio del mundo inicial (techo de estrella y marca `prodigy`).
+const GOLDEN_HASH_123 = "d12680c82673c4c4";
 
 let world: World;
 beforeAll(() => {

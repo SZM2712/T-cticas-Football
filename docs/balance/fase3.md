@@ -1,59 +1,60 @@
 # Balance de la Fase 3 — desarrollo
 
 Generado con `npm run sim -- --seasons=20 --engine=quick --dev` (semilla 123, motor rápido en todos los partidos para acelerar 20 temporadas; el desarrollo es el mismo con cualquier motor).
-Tiempo: 283 s (14,2 s por temporada) · hash final `f0663ade5f5fa41e`.
+Actualizado en la Fase 4: control de la élite (criterio del usuario: ±12 %), niños prodigio y desarrollo mensual repartido por días.
 
 ### Talento mundial por temporada (jugadores con club)
 
 | Temporada | Jugadores | CA P50 | P95 | P99 | Élite (CA ≥ 16) | Edad media | ≤ 21 años |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | 2026 | 16186 | 11.01 | 14.14 | 15.56 | 52 | 25.9 | 2551 |
-| 2027 | 16320 | 10.97 | 14.15 | 15.49 | 53 | 26.2 | 2787 |
-| 2028 | 16508 | 10.94 | 14.13 | 15.50 | 56 | 26.4 | 3204 |
-| 2029 | 16583 | 10.87 | 14.15 | 15.51 | 58 | 26.5 | 3358 |
-| 2030 | 16619 | 10.78 | 14.14 | 15.49 | 57 | 26.6 | 3513 |
-| 2031 | 16618 | 10.70 | 14.14 | 15.47 | 45 | 26.5 | 3327 |
-| 2032 | 16634 | 10.63 | 14.14 | 15.52 | 44 | 26.4 | 3640 |
-| 2033 | 16601 | 10.57 | 14.16 | 15.50 | 47 | 26.1 | 3959 |
-| 2034 | 16591 | 10.50 | 14.18 | 15.52 | 49 | 25.8 | 4121 |
-| 2035 | 16581 | 10.45 | 14.23 | 15.51 | 54 | 25.5 | 4239 |
-| 2036 | 16597 | 10.42 | 14.25 | 15.51 | 56 | 25.3 | 4232 |
-| 2037 | 16620 | 10.42 | 14.28 | 15.55 | 59 | 25.3 | 3990 |
-| 2038 | 16636 | 10.41 | 14.30 | 15.56 | 62 | 25.4 | 3602 |
-| 2039 | 16681 | 10.43 | 14.34 | 15.60 | 64 | 25.6 | 3107 |
-| 2040 | 16696 | 10.43 | 14.36 | 15.59 | 63 | 25.9 | 2770 |
-| 2041 | 16701 | 10.41 | 14.38 | 15.58 | 64 | 26.1 | 2621 |
-| 2042 | 16688 | 10.40 | 14.39 | 15.59 | 63 | 26.3 | 2704 |
-| 2043 | 16672 | 10.39 | 14.38 | 15.60 | 59 | 26.4 | 2922 |
-| 2044 | 16661 | 10.37 | 14.37 | 15.61 | 54 | 26.4 | 3095 |
-| 2045 | 16653 | 10.35 | 14.38 | 15.58 | 57 | 26.4 | 3267 |
-| 2046 | 16640 | 10.32 | 14.36 | 15.59 | 54 | 26.4 | 3401 |
+| 2027 | 16320 | 10.97 | 14.15 | 15.49 | 53 | 26.1 | 2797 |
+| 2028 | 16505 | 10.94 | 14.14 | 15.49 | 54 | 26.4 | 3226 |
+| 2029 | 16581 | 10.88 | 14.14 | 15.49 | 52 | 26.6 | 3345 |
+| 2030 | 16619 | 10.78 | 14.12 | 15.44 | 49 | 26.6 | 3488 |
+| 2031 | 16612 | 10.70 | 14.11 | 15.40 | 49 | 26.5 | 3287 |
+| 2032 | 16628 | 10.61 | 14.13 | 15.43 | 49 | 26.4 | 3681 |
+| 2033 | 16610 | 10.54 | 14.14 | 15.42 | 49 | 26.1 | 4027 |
+| 2034 | 16606 | 10.49 | 14.16 | 15.42 | 49 | 25.8 | 4228 |
+| 2035 | 16602 | 10.44 | 14.21 | 15.45 | 52 | 25.5 | 4301 |
+| 2036 | 16598 | 10.42 | 14.25 | 15.46 | 53 | 25.3 | 4236 |
+| 2037 | 16611 | 10.41 | 14.27 | 15.48 | 50 | 25.3 | 3971 |
+| 2038 | 16645 | 10.41 | 14.30 | 15.50 | 49 | 25.3 | 3582 |
+| 2039 | 16681 | 10.43 | 14.34 | 15.54 | 52 | 25.6 | 3128 |
+| 2040 | 16712 | 10.43 | 14.38 | 15.55 | 54 | 25.8 | 2817 |
+| 2041 | 16717 | 10.41 | 14.37 | 15.55 | 53 | 26.1 | 2667 |
+| 2042 | 16711 | 10.41 | 14.36 | 15.56 | 54 | 26.3 | 2692 |
+| 2043 | 16699 | 10.40 | 14.37 | 15.55 | 54 | 26.4 | 2908 |
+| 2044 | 16692 | 10.37 | 14.35 | 15.55 | 54 | 26.4 | 3076 |
+| 2045 | 16669 | 10.35 | 14.36 | 15.54 | 51 | 26.5 | 3211 |
+| 2046 | 16653 | 10.32 | 14.33 | 15.52 | 54 | 26.4 | 3395 |
 
-### Criterio de la Fase 3: sin inflación (±8 % respecto al año 1)
+### Criterio de la Fase 3: sin inflación (±8 % en P50/P95/P99 y ±12 % en élite respecto al año 1)
 
-- ✅ p50: desviación máxima 6.3 %
-- ✅ p95: desviación máxima 1.8 %
-- ✅ p99: desviación máxima 0.5 %
-- ❌ elite: desviación máxima 23.1 %
+- ✅ p50: desviación máxima 6.3 % (límite 8 %)
+- ✅ p95: desviación máxima 1.7 % (límite 8 %)
+- ✅ p99: desviación máxima 1.0 % (límite 8 %)
+- ✅ elite: desviación máxima 5.8 % (límite 12 %)
 
 ### Criterios de aceptación (partidos de liga)
 
 ## Lectura
 
-- **P50, P95 y P99 cumplen** (desviación máxima 6,3 %, 1,8 % y 0,5 %). El nivel mediano baja despacio porque la plantilla rejuvenece: la cantera repone retiradas con jugadores de 18–20 años que aún no han crecido.
-- **La élite (CA ≥ 16) no se infla**: empieza con 52–53, oscila entre 44 y 64 y acaba en 54. **No cumple el ±8 % (desviación máxima 23 %).**
-  - Son unos 55 jugadores en todo el mundo: solo el ruido aleatorio de un recuento así ya mueve el número en torno a ±13 % (√55 ≈ 7,4).
-  - Además, la cantera tarda de 3 a 5 años en dar un crack. Las oleadas de edad de la generación inicial (columna «≤ 21 años») producen un valle hacia 2031–2033 y un pico hacia 2039–2041.
-  - Cada temporada se corrige el tamaño de la «generación que viene» según lo lejos que esté la élite de su cuota mundial (`ELITE_TARGET_SHARE`, `ELITE_FEEDBACK`). Sin esa corrección, la élite subía hasta 91 (+60 %) con cupo fijo, o hasta 219 sin cupo.
-  - Propuesta: medir la élite con un criterio adecuado a su tamaño, por ejemplo **±25 % y sin tendencia** (la media de las 5 últimas temporadas cerca del año 1: aquí 57,4 frente a 53, un +8,3 %, en el límite). Queda a decisión en la revisión del PR.
+- **P50, P95 y P99 cumplen** (desviación máxima 6,3 %, 1,7 % y 1,0 %). El nivel mediano baja despacio porque la plantilla rejuvenece.
+- **La élite (CA ≥ 16) cumple el ±12 %**: empieza en 52, se mueve entre 49 y 54 y acaba en 54 (desviación máxima 5,8 %). Antes del control oscilaba entre 44 y 64 (±23–29 %).
+- **Cómo se controla** (DISEÑO §10c):
+  - la «generación que viene» cubre objetivo − élite + salidas previstas por la edad de los cracks;
+  - si faltan cracks, los jóvenes que llegarían antes reciben techo de élite;
+  - fuera de ±6 %, un ajuste de cierre sobre unos pocos jugadores en el límite: en 20 temporadas, 18 veteranos a los que pasó factura la edad y 9 temporadas de explosión.
+- **Niños prodigio**:
+  - 5 en el mundo inicial y 1 por temporada (25 en 20 temporadas);
+  - 23 de los 25 llegan alguna vez a la élite: en una buena cantera su techo crece durante la etapa formativa.
 
 ## Balance de partidos tras el desarrollo
 
-Comprobado con `npm run sim -- --seasons=8 --engine=auto`. Sigue dentro de los objetivos de la Fase 2:
+Comprobado con `npm run sim -- --seasons=8 --engine=auto`:
 
-- ✅ goles por partido: 2,55 (objetivo 2,5–2,9)
-- ✅ victoria local: 42,87 % (objetivo 42–47)
-- ✅ empates: 24,81 % (objetivo 24–28)
+- ✅ goles por partido: 2,57 (objetivo 2,5–2,9)
+- ✅ victoria local: 43,20 % (objetivo 42–47)
+- ✅ empates: 24,95 % (objetivo 24–28)
 - ✅ rojas por partido: 0,16 (objetivo 0,1–0,2)
-
-Con solo 2 temporadas los empates salen en 23,9 %: es ruido de muestra.

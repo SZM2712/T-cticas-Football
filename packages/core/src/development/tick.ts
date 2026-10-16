@@ -205,7 +205,8 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
     for (const a of ["firstTouch", "technique", "dribbling", "crossing"] as const) addAttr(p, a, -k);
     decline += k * 0.5;
   }
-  if (age >= 22 && age <= 32 && minutes > 0.2) for (const a of EXPERIENCE_ATTRS) addAttr(p, a, EXPERIENCE_GAIN * minutes);
+  // La experiencia madura la cabeza, pero no lleva a nadie por encima de su techo.
+  if (age >= 22 && age <= 32 && minutes > 0.2 && before < dev.latentCeiling) for (const a of EXPERIENCE_ATTRS) addAttr(p, a, EXPERIENCE_GAIN * minutes);
 
   // 6) Secuelas de una lesión larga reciente: techo y explosividad.
   let injuryHit = 0;

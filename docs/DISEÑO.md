@@ -427,7 +427,7 @@ Valores iniciales en generación: `L₀ = CA₀ + |normal(μ_gap(edad, reputaci�
 ### 4.3 Anti-inflación de talento
 
 - La **oferta de talento** entra por las canteras: cada club genera su promoción anual con una distribución de `L₀` determinada por instalaciones juveniles y reputación, **normalizada a nivel mundial** para que el número esperado de jugadores con `L₀ ≥ 16` por año sea constante (`config.eliteInflowPerYear`).
-- Test de balance (Fase 3): en 20 temporadas, el percentil 99, 95 y 50 de CA de todo el mundo y el nº de jugadores con CA ≥ 16 deben quedar dentro de ±8 % del año 1.
+- Test de balance (Fase 3): en 20 temporadas, el percentil 99, 95 y 50 de CA de todo el mundo deben quedar dentro de ±8 % del año 1, y el nº de jugadores con CA ≥ 16 dentro de ±12 % (decisión del usuario en la revisión: es un recuento de ~50 jugadores y ±8 % quedaba por debajo de su ruido natural).
 - La deriva del techo es de media cero en un entorno "promedio" (env = 0.5); solo entornos por encima/debajo de la media lo desplazan.
 
 ### 4.4 Mentoría
@@ -548,7 +548,7 @@ Escenarios guionizados de test (Fase 4): para cada dinámica, ≥ 3 escenarios c
 |---|---|---|
 | **1. Núcleo** | Monorepo, RNG, tipos, tiempo/calendario, datos de ~100 naciones, i18n, generación de mundo, motor de formatos de competición (ligas, copas, continentales, selecciones), serialización, CLI `gen` | Mismo seed → mismo hash; seeds distintos → mundos distintos; calendario de 4 temporadas sin choques; generación < 5 s; distribuciones en rango (§10) |
 | **2. Motor de partido** | Motor por eventos, tácticas básicas, cambios, tarjetas, lesiones, modelo rápido, CLI `sim` | 20 temporadas: goles/partido 2,5–2,9; local 42–47 %; empates 24–28 %; rojas 0,1–0,2; goleadores con cola larga; partido reproducible por `seedPath`; motor rápido dentro de ±3 % del completo en esas métricas |
-| **3. Desarrollo** | Techo latente, crecimiento, entrenamiento, mentoría (atributos), ojeadores | 20 temporadas sin inflación (±8 % en P50/P95/P99 y nº de élite); dos ojeadores discrepan en ≥ 30 % de jóvenes; informe "por qué" presente en todo cambio de CA ≥ 0.3 |
+| **3. Desarrollo** | Techo latente, crecimiento, entrenamiento, mentoría (atributos), ojeadores | 20 temporadas sin inflación (±8 % en P50/P95/P99; ±12 % en nº de élite); dos ojeadores discrepan en ≥ 30 % de jóvenes; informe "por qué" presente en todo cambio de CA ≥ 0.3 |
 | **4. Vestuario y ego** | Grafo, camarillas, jerarquía, estado emocional, memoria episódica, 3 dinámicas, `Commitment`s, encaje, conversaciones. Preparación multijugador (§11.3): autor en cada `Command`, varios mánagers humanos, sal de turno en la semilla | Escenarios guionizados dentro de rango en ≥ 200 semillas; cada promesa de prensa/conversación crea `Commitment` con acción enlazada; avance de día < 200 ms (perfil móvil simulado con CPU ×4 throttling) |
 | **5. Medios, redes y disciplina** | Narrativas, periodistas, prensa contextual, redes sociales ficticias, decisiones arbitrales dudosas con evidencia, colectivo arbitral, comité de disciplina con expedientes, alegaciones y recursos, delegación con directrices (§11.4) | 0 preguntas repetidas en una temporada sin hecho nuevo (test automático en 20 temporadas); el asistente nunca viola una directriz; toda sanción tiene expediente con hechos enlazados; ninguna publicación expone números ocultos |
 | **6. Mundo** | Economía, mercado, IA de clubes, directiva, afición, redes | Sin traspasos absurdos (detector: precio vs. valor, encaje con necesidad, presupuesto) en 20 temporadas; FFP respetado por la IA |
@@ -789,10 +789,17 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 - **Retiradas**: al cierre de temporada, por edad (pesan no tener club o haberse quedado atrás).
 - **Cantera**: los canteranos (18–20 años) cubren los huecos por puesto, más uno extra por club jugable.
 - **Plantilla larga**: los más flojos ya formados quedan libres.
-- **Anti-inflación (§4.3)**:
+- **Anti-inflación (§4.3)**, ajustada en la Fase 4 para cumplir ±12 % en el nº de élite:
   - cupo mundial de canteranos con techo de élite por promoción;
-  - «generación que viene»: jóvenes por debajo de la élite con techo de élite. Su tamaño se corrige cada temporada según lo lejos que esté la élite de su cuota mundial (`ELITE_TARGET_SHARE`);
-  - el resto de techos altos se recorta justo por debajo.
+  - **«generación que viene»** (jóvenes por debajo de la élite con techo de élite). Se dimensiona para que dentro de unos años haya `ELITE_TARGET_SHARE` de cracks: objetivo − élite actual + salidas previstas por edad de los cracks (`ELITE_EXIT_BY_AGE`), corrigiendo el 70 % de la diferencia cada temporada. Anticiparse a las olas de edad evita el retraso de 3–5 años de la cantera, que hacía oscilar la élite ±30 %;
+  - si sobran, se recorta el techo de los de techo más bajo; si faltan, reciben techo de élite los jóvenes (≤ 28 años) que por nivel y edad llegarían antes;
+  - **ajuste de cierre**: solo fuera de ±6 % del objetivo, y solo sobre unos pocos jugadores a menos de 0,8 del umbral. Si sobran, a los veteranos de élite (≥ 27) les pasa factura la edad (`player.agingToll`); si faltan, un joven a las puertas tiene una temporada de explosión (`player.breakthrough`). Son eventos que la prensa podrá contar en la Fase 5;
+  - la experiencia ya no lleva a nadie por encima de su techo.
+- **Niños prodigio (wonderkids)** (petición del usuario):
+  - cada temporada sale un canterano de 16–17 años con nivel 12,5–14,5 y un techo de 15,5–19,5 (no todos triunfan), más probable en las mejores canteras (evento `player.prodigy`);
+  - el mundo inicial trae 5;
+  - el cupo de élite no les recorta el techo (marca oculta `development.prodigy`);
+  - los ojeadores los ven con su incertidumbre habitual.
 
 ### Retiradas anticipadas (`development/retirement.ts`)
 - **Cuándo se lo plantea un jugador**: una lesión de 4 meses o más (a partir de los 27 años, más probable si reincide), motivos personales (raro; pesan su inseguridad y su vida fuera del campo) o la edad sin minutos (33 años o más).

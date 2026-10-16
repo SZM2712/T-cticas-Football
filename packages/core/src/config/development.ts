@@ -153,13 +153,45 @@ export const ELITE_INFLOW_PER_YEAR = 7;
  */
 export const ELITE_PIPELINE_START = 15;
 /**
- * Realimentación del cupo anterior: proporción objetivo de jugadores con club en la élite
- * (CA ≥ ELITE_CA) y cuánto se agranda o encoge la "generación que viene" según la
- * desviación relativa (ganancia 4: un 10 % de exceso recorta el cupo un 40 %). Sin esto,
- * las oleadas de edad de la cantera hacen oscilar la élite ±40 % en 20 temporadas.
+ * Control de la élite (criterio del usuario: dentro de ±12 % en 20 temporadas). La "generación
+ * que viene" (techo de élite, aún por debajo) se dimensiona para que, dentro de unos años, haya
+ * ELITE_TARGET_SHARE de cracks entre los jugadores con club: objetivo − élite actual + salidas
+ * previstas por edad. Anticiparse así evita el retraso de 3–5 años de la cantera, que hacía oscilar
+ * la élite ±30–40 %. Si sobran, se recorta; si faltan, se da techo de élite a los jóvenes que por
+ * nivel y edad llegarían antes.
  */
-export const ELITE_TARGET_SHARE = 0.0032;
-export const ELITE_FEEDBACK = 4;
+export const ELITE_TARGET_SHARE = 0.0031;
+/**
+ * Probabilidad de que un crack deje de serlo en los próximos ~3 años según su edad: la "generación
+ * que viene" debe cubrir esas salidas (objetivo − élite + salidas previstas).
+ */
+/** Banda de la élite (±) fuera de la cual actúa el ajuste de cierre de temporada. */
+export const ELITE_BAND = 0.06;
+/** Ese ajuste solo toca a jugadores a menos de esto del umbral de élite. */
+export const ELITE_NUDGE_MAX = 0.8;
+/** Fracción de la diferencia con el objetivo que se corrige cada temporada (amortigua el exceso tras un bache). */
+export const ELITE_CONTROL_GAIN = 0.7;
+export const ELITE_EXIT_BY_AGE: readonly (readonly [number, number])[] = [[26, 0.05], [29, 0.25], [31, 0.6], [33, 0.9], [35, 1]];
+/** Crecimiento esperado en un año según la edad (para saber quién llegaría antes). */
+export const NEAR_ELITE_GROWTH: readonly (readonly [number, number])[] = [[17, 2.4], [19, 2.2], [21, 1.8], [23, 1.2], [25, 0.6], [27, 0.2], [30, 0]];
+export const NEAR_ELITE_MAX_AGE = 28;
+/** Solo candidatos que quedarían a menos de esto de la élite. */
+export const NEAR_ELITE_SLACK = 0.3;
+/** Techo que reciben: ELITE_CA + MARGIN (+ hasta 0,6). */
+export const NEAR_ELITE_MARGIN = 0.4;
+
+// ── Niños prodigio (wonderkids) ─────────────────────────────────────────────
+/**
+ * Cada temporada sale algún canterano de 16–17 años con un nivel muy alto para su edad y un
+ * techo que puede ser de estrella (no todos triunfan: el techo va de 15,5 a 19,5 y luego
+ * cuentan los minutos, el entrenamiento y su cabeza); más probable en clubes con buena cantera. Cuentan dentro del cupo de élite
+ * (tienen el techo más alto, así que siempre lo conservan). El mundo inicial ya trae algunos.
+ */
+export const WONDERKIDS_PER_YEAR = 1;
+export const WONDERKIDS_AT_START = 5;
+export const WONDERKID_AGE: readonly [number, number] = [16, 17];
+export const WONDERKID_CA: readonly [number, number] = [12.5, 14.5];
+export const WONDERKID_CEILING: readonly [number, number] = [15.5, 19.5];
 /** Canteranos extra por club jugable al año (además de cubrir bajas). */
 export const INTAKE_EXTRA = 1;
 /** Tamaño máximo de plantilla: los más flojos sin minutos salen del club (agentes libres). */

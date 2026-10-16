@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import {
   ageOn, applyCommand, currentAbility, dayOf, exactAge, generateWorld, hashValue, monthlyDevelopment, newGame,
   observe, planEffects, playerDevelopmentView, rollAdherence, scoutReportsView, seasonTurnover, staffQuality,
-  worldRng, type DevelopmentPlan, type GameDay, type Player, type PlayerId, type Staff, type World,
+  worldRng, WONDERKID_CEILING, WONDERKIDS_AT_START, WONDERKIDS_PER_YEAR, type DevelopmentPlan, type GameDay, type Player, type PlayerId, type Staff, type World,
 } from "../src";
 
 let base: World;
@@ -171,6 +171,35 @@ describe("relevo generacional", () => {
     const retired = Object.values(w.players).filter((p) => p.retired);
     expect(retired.every((p) => p.clubId === null)).toBe(true);
     expect(retired.filter((p) => ageOn(p.birthDay, w.meta.today) >= 32).length / retired.length).toBeGreaterThan(0.6);
+  });
+});
+
+describe("niños prodigio (wonderkids)", () => {
+  it("el mundo inicial trae algunos: jóvenes con techo alto", () => {
+    const kids = Object.values(base.players).filter((p) => p.development.prodigy);
+    expect(kids.length).toBe(WONDERKIDS_AT_START);
+    for (const p of kids) {
+      expect(ageOn(p.birthDay, base.meta.today)).toBeLessThanOrEqual(18);
+      expect(p.development.latentCeiling).toBeGreaterThanOrEqual(WONDERKID_CEILING[0]);
+    }
+  });
+
+  it("cada temporada sale alguno de 16–17 años con nivel alto para su edad, y queda registrado", () => {
+    const w = clone(base);
+    w.meta.today = dayOf(w.meta.startYear + 1, 7, 1);
+    seasonTurnover(w, w.meta.startYear);
+    const events = w.events.filter((e) => e.type === "player.prodigy");
+    expect(events.length).toBe(WONDERKIDS_PER_YEAR);
+    for (const e of events) {
+      const p = w.players[e.data.player as string]!;
+      expect(p.development.prodigy).toBe(true);
+      expect(ageOn(p.birthDay, w.meta.today)).toBeLessThanOrEqual(17);
+      expect(currentAbility(p)).toBeGreaterThanOrEqual(12);
+      // El cupo de élite no les recorta el techo.
+      expect(p.development.latentCeiling).toBeGreaterThanOrEqual(WONDERKID_CEILING[0]);
+      // Nada lo delata como número: la ficha no expone el techo ni la marca.
+      expect(JSON.stringify(playerDevelopmentView(w, p.id as PlayerId))).not.toMatch(/prodigy|latentCeiling/);
+    }
   });
 });
 
