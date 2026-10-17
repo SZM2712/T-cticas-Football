@@ -17,7 +17,9 @@ import {
 // Fase 4: cambia solo por el formato del estado (SAVE_VERSION 4: managers, relationships,
 // trust, memories, commitments, inbox, dressing y salts, todos vacíos al generar) y por la
 // generación: niños prodigio del mundo inicial (techo de estrella y marca `prodigy`).
-const GOLDEN_HASH_123 = "d12680c82673c4c4";
+// Revisión de la Fase 4: cambia solo por SAVE_VERSION 5 (reuniones y apoyo a la táctica en el
+// vestuario); con saveVersion 4 el mismo mundo da el hash anterior, d12680c82673c4c4.
+const GOLDEN_HASH_123 = "b137367e7d3e7187";
 
 let world: World;
 beforeAll(() => {

@@ -60,6 +60,13 @@ const MIGRATIONS: Record<number, Migration> = {
     w.dressing ??= {};
     w.salts ??= {};
   },
+  // v4 → v5 (Fase 4, revisión): reuniones con la plantilla y apoyo a la táctica en cada vestuario.
+  4: (w) => {
+    for (const dr of Object.values(w.dressing as Record<string, Record<string, unknown>>)) {
+      dr.meetings ??= [];
+      dr.buyIn ??= {};
+    }
+  },
 };
 
 /** Lleva un estado guardado de cualquier versión anterior a la actual. */

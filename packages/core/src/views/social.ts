@@ -1,16 +1,19 @@
 // Vistas del vestuario (Fase 4): solo lectura y sin números de rasgos ocultos ni de tensiones
 // (regla 6). Lo que la UI muestra son claves cualitativas: "parece molesto", "confía en ti".
 
-import { LADDER } from "../config/social";
+import { BUYIN_DAYS, LADDER, MEETING_COOLDOWN } from "../config/social";
 import { liveCommitments } from "../social/commitments";
 import { dynamicOfKey } from "../social/ego";
 import { fitOf } from "../social/fit";
 import { squadPlayers } from "../social/graph";
 import { managerOf, pairKey, salience, trustOf, valence } from "../social/store";
-import { talkChance } from "../social/talk";
+import { minutesDemand, talkChance } from "../social/talk";
 import type { Player, SquadStatus, World } from "../types/domain";
 import type { ClubId, PlayerId } from "../types/ids";
-import type { CommitmentStatus, CommitmentType, HierarchyLevel, InboxItem, MemoryKind, Publicness, TalkTopic } from "../types/social";
+import type {
+  CommitmentStatus, CommitmentType, HierarchyLevel, InboxItem, MeetingApproach, MeetingObjective, MeetingReason, MeetingStance, MeetingStyle, MemoryKind,
+  Publicness, TalkTopic, TeamMeeting,
+} from "../types/social";
 import { TALK_TOPICS } from "../types/social";
 import { currentAbility } from "../player/ability";
 import { displayName } from "./player";
@@ -71,6 +74,32 @@ export interface DressingRoomView {
   roles: { penalties?: string; freeKicks?: string };
   /** Líderes del vestuario, del más influyente al menos. */
   leaders: { id: string; name: string }[];
+  /** Reunión con la plantilla: si toca, cuándo se podrá y cómo fue la última. */
+  meeting: { available: boolean; nextDay?: number; last?: MeetingView };
+}
+
+export interface MeetingView {
+  day: number;
+  first: boolean;
+  style: MeetingStyle;
+  objective: MeetingObjective;
+  approach: MeetingApproach;
+  /** El líder que habló por el grupo y qué dijo. */
+  spokesman?: { id: string; name: string; stance: MeetingStance };
+  counts: Record<MeetingStance, number>;
+  players: { id: string; name: string; stance: MeetingStance; reason: MeetingReason }[];
+}
+
+export function meetingView(world: World, m: TeamMeeting): MeetingView {
+  const players = Object.keys(m.reactions).sort().filter((id) => world.players[id]).map((id) => ({ id, name: displayName(world.players[id]!), ...m.reactions[id]! }));
+  const counts = { agree: 0, doubt: 0, disagree: 0 };
+  for (const r of players) counts[r.stance]++;
+  const order = { disagree: 0, doubt: 1, agree: 2 };
+  players.sort((a, b) => order[a.stance] - order[b.stance] || a.name.localeCompare(b.name));
+  const view: MeetingView = { day: m.day, first: m.first, style: m.style, objective: m.objective, approach: m.approach, counts, players };
+  const sp = m.spokesman ? m.reactions[m.spokesman] : undefined;
+  if (m.spokesman && sp && world.players[m.spokesman]) view.spokesman = { id: m.spokesman, name: displayName(world.players[m.spokesman]!), stance: sp.stance };
+  return view;
 }
 
 const LEVEL_ORDER: Record<HierarchyLevel, number> = { leader: 0, influential: 1, core: 2, periphery: 3, outcast: 4 };
@@ -79,7 +108,7 @@ export function dressingRoomView(world: World, clubId: ClubId): DressingRoomView
   const dr = world.dressing[clubId];
   const mgr = managerOf(world, clubId);
   const name = (id: string) => displayName(world.players[id]!);
-  if (!dr || !mgr) return { club: clubId, manager: null, cliques: [], players: [], roles: {}, leaders: [] };
+  if (!dr || !mgr) return { club: clubId, manager: null, cliques: [], players: [], roles: {}, leaders: [], meeting: { available: false } };
   const players = squadPlayers(world, clubId).map((p): DressingPlayerView => ({
     id: p.id, name: displayName(p), position: p.position, level: dr.levels[p.id] ?? "periphery",
     mood: mood(p.state.morale), trust: trustKey(trustOf(world, p.id, mgr.id)), fit: fitKey(fitOf(world, p, clubId).total),
@@ -97,7 +126,15 @@ export function dressingRoomView(world: World, clubId: ClubId): DressingRoomView
       members: c.members.filter((id) => world.players[id]).map((id) => ({ id, name: name(id) })),
     })),
     players, roles, leaders: leadersOf(world, clubId),
+    meeting: meetingStatus(world, dr.meetings),
   };
+}
+
+function meetingStatus(world: World, meetings: TeamMeeting[]): DressingRoomView["meeting"] {
+  const last = meetings.at(-1);
+  if (!last) return { available: true };
+  const next = last.day + MEETING_COOLDOWN;
+  return { available: world.meta.today >= next, ...(world.meta.today < next ? { nextDay: next } : {}), last: meetingView(world, last) };
 }
 
 export interface InboxItemView {
@@ -171,6 +208,12 @@ export interface PlayerSocialView {
   /** Gallos con los que podría pactar roles. */
   roosters: { id: string; name: string }[];
   transferRequest: boolean;
+  /** Cuota de titularidades que pide (es lo que dice él, no un rasgo oculto). */
+  minutesDemand?: number;
+  /** Qué le pareció la última reunión con la plantilla. */
+  meetingStance?: MeetingStance;
+  /** Se comprometió a apoyar la táctica (y sigue vigente). */
+  backsTactic?: boolean;
 }
 
 export function playerSocialView(world: World, playerId: string): PlayerSocialView {
@@ -216,6 +259,9 @@ export function playerSocialView(world: World, playerId: string): PlayerSocialVi
     talk: { available, topics },
     roosters,
     transferRequest: p.transferRequest !== undefined,
+    minutesDemand: minutesDemand(p),
+    ...(dr.meetings.at(-1)?.reactions[p.id] ? { meetingStance: dr.meetings.at(-1)!.reactions[p.id]!.stance } : {}),
+    backsTactic: dr.buyIn[p.id] !== undefined && day - dr.buyIn[p.id]! < BUYIN_DAYS,
   };
 }
 

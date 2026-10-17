@@ -89,7 +89,7 @@ export function predictedStatuses(world: World, clubId: ClubId, day: GameDay): M
 /** Vestuario nuevo cuando un humano toma el mando de un club. */
 export function initDressingRoom(world: World, clubId: ClubId, manager: ManagerId, day: GameDay, rng: Rng): DressingRoom {
   ensureRelationships(world, clubId, day, rng);
-  const dr: DressingRoom = { cliques: [], levels: {}, influence: {}, roles: {}, steps: {}, talks: {}, recent: {}, lastWeekly: day };
+  const dr: DressingRoom = { cliques: [], levels: {}, influence: {}, roles: {}, steps: {}, talks: {}, recent: {}, lastWeekly: day, meetings: [], buyIn: {} };
   world.dressing[clubId] = dr;
   const predicted = predictedStatuses(world, clubId, day);
   for (const p of squadPlayers(world, clubId)) {

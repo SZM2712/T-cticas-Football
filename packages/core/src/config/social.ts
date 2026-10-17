@@ -68,6 +68,7 @@ export const MEMORY_HALF_LIFE: Record<MemoryKind, number> = {
   promiseMade: 60, promiseKept: 240, promiseBroken: 400, witnessedBrokenPromise: 200, promiseRenegotiated: 120,
   salaryInsult: 300, renewed: 200, captaincyGiven: 300, captaincyRemoved: 500, roleGiven: 120, roleTaken: 250,
   goodTalk: 40, badTalk: 80, dressingRoomRow: 180, sharedGoal: 45,
+  teamMeeting: 90, backsTactic: 90, lowballed: 150,
 };
 /** Multiplicador por lo público que fue. */
 export const PUBLICNESS_MULT: Record<Publicness, number> = { private: 1, squad: 1.3, public: 1.8 };
@@ -144,6 +145,36 @@ export const TALK_COOLDOWN = 7;
 export const TALK = { base: 0.55, authority: 0.35, trust: 0.3, ego: -0.25, insecurity: 0.1, tension: -0.2 };
 /** Cuánto baja la tensión una conversación que sale bien. */
 export const TALK_TENSION_RELIEF = 0.3;
+
+// ── Negociar minutos ────────────────────────────────────────────────────────
+/** Titularidades que pide cada jugador según el estatus que cree merecer (+ ego). */
+export const MINUTES_DEMAND: Record<"prospect" | "backup" | "rotation" | "firstTeam" | "keyPlayer", number> = {
+  prospect: 0.15, backup: 0.25, rotation: 0.45, firstTeam: 0.7, keyPlayer: 0.85,
+};
+export const MINUTES_DEMAND_EGO = 0.1;
+/** Oferta aceptada si no se queda más corta que esto de lo que pide. */
+export const MINUTES_ACCEPT_GAP = 0.05;
+/** Hasta este hueco contraoferta (el punto medio); más allá se siente menospreciado. */
+export const MINUTES_COUNTER_GAP = 0.25;
+
+// ── Reuniones con la plantilla y apoyo a la táctica ────────────────────────
+/** Días entre dos reuniones con la plantilla (la primera, la presentación, siempre se puede). */
+export const MEETING_COOLDOWN = 28;
+/** Reuniones que se guardan en el historial del vestuario. */
+export const MEETING_HISTORY = 6;
+/** Pesos de la reacción: encaje del estilo, objetivo, forma de gestionar, confianza y autoridad. */
+export const MEETING = { style: 0.35, objective: 1, approach: 1, trust: 0.3, authority: 0.2, firstBonus: 0.05, noise: 0.12, leader: 0.06 };
+/** Umbrales de la reacción: por encima, de acuerdo; por debajo del negativo, en contra. */
+export const MEETING_AGREE = 0.1;
+/** Efecto de cada reacción en la confianza y la moral. */
+export const MEETING_EFFECT = { agree: { trust: 0.05, morale: 0.04 }, doubt: { trust: 0, morale: 0 }, disagree: { trust: -0.04, morale: -0.03 } };
+/** Pedir apoyo a la táctica: encaje táctico, minutos y lo que dijo en la última reunión. */
+export const SUPPORT = { tactical: 0.25, minutes: 0.15, agreed: 0.15, disagreed: -0.15 };
+/** Quien apoya la táctica cumple mejor las instrucciones: + autoridad durante BUYIN_DAYS. */
+export const BUYIN_AUTHORITY = 0.15;
+export const BUYIN_DAYS = 90;
+/** Si un líder apoya la táctica, sus compañeros de grupo ganan algo de confianza. */
+export const BUYIN_LEADER_TRUST = 0.02;
 
 // ── Encaje (§5.5) ──────────────────────────────────────────────────────────
 export const FIT_WEIGHTS = { tactical: 0.35, cultural: 0.25, social: 0.25, manager: 0.15 };

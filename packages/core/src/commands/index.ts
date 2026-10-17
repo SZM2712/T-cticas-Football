@@ -11,13 +11,16 @@ import {
 import { isNationalTeamId, type PlayerId, type TeamId } from "../types/ids";
 import { MENTOR_MIN_AGE } from "../config/development";
 import { INSTRUCTION_KEYS, type TacticsPlan } from "../types/tactics";
-import { ENVY_RENEW_SHARE, ROOSTER_ROLE_IMPULSE, TALK_COOLDOWN } from "../config/social";
+import { ENVY_RENEW_SHARE, MEETING_COOLDOWN, ROOSTER_ROLE_IMPULSE, TALK_COOLDOWN } from "../config/social";
 import { renegotiate } from "../social/commitments";
 import { relieve } from "../social/ego";
 import { takeCharge } from "../social";
 import { managerRef, remember } from "../social/store";
-import { talk, type TalkArgs } from "../social/talk";
-import { SYMBOLIC_ROLES, TALK_TOPICS, type ManagerId, type Manager } from "../types/social";
+import { teamMeeting, type MeetingArgs } from "../social/meeting";
+import { talk, type TalkArgs, type TalkResult } from "../social/talk";
+import {
+  MEETING_APPROACHES, MEETING_OBJECTIVES, MEETING_STYLES, SYMBOLIC_ROLES, TALK_TOPICS, type ManagerId, type Manager, type TeamMeeting,
+} from "../types/social";
 import type { ClubId, GameDay } from "../types/ids";
 import { worldRng } from "../world/rng";
 
@@ -41,9 +44,11 @@ export type Command =
   | { type: "renewContract"; player: PlayerId; wage: number; years: number }
   /** Renegociar una promesa (cuesta confianza, menos que romperla). */
   | { type: "renegotiateCommitment"; commitment: string }
-  | { type: "markInboxRead"; ids: string[] };
+  | { type: "markInboxRead"; ids: string[] }
+  /** Reunión con la plantilla (la primera es la presentación): estilo, objetivo y forma de gestionar. */
+  | ({ type: "teamMeeting" } & MeetingArgs);
 
-export type CommandResult = { ok: true; talk?: { success: boolean; reaction: string; commitments: string[] } } | { ok: false; error: string };
+export type CommandResult = { ok: true; talk?: TalkResult; meeting?: TeamMeeting } | { ok: false; error: string };
 
 const SET_PIECE_VALUES: Record<string, readonly string[]> = {
   corners: ["nearPost", "farPost", "short", "edgeOfBox"],
@@ -183,7 +188,6 @@ export function applyCommand(world: World, cmd: Command, by?: ManagerId): Comman
       }
       for (const r of [cmd.role, cmd.otherRole]) if (r !== undefined && !SYMBOLIC_ROLES.includes(r)) return { ok: false, error: "error.roles" };
       if (cmd.minStartsPct !== undefined && !(cmd.minStartsPct > 0 && cmd.minStartsPct <= 1)) return { ok: false, error: "error.range" };
-      dr.talks[cmd.player] = day;
       const args: TalkArgs = { topic: cmd.topic };
       if (cmd.minStartsPct !== undefined) args.minStartsPct = cmd.minStartsPct;
       if (cmd.role !== undefined) args.role = cmd.role;
@@ -192,6 +196,8 @@ export function applyCommand(world: World, cmd: Command, by?: ManagerId): Comman
       if (cmd.wage !== undefined) args.wage = cmd.wage;
       if (cmd.days !== undefined) args.days = cmd.days;
       const res = talk(world, own.clubId, own.mgr, world.players[cmd.player]!, args, day, worldRng(world).fork(`talk/${day}/${cmd.player}`));
+      // Una contraoferta no cierra la conversación: puedes aceptarla o mejorar tu oferta.
+      if (res.counter === undefined) dr.talks[cmd.player] = day;
       return { ok: true, talk: res };
     }
     case "setCaptain": {
@@ -238,6 +244,20 @@ export function applyCommand(world: World, cmd: Command, by?: ManagerId): Comman
       if (c.status !== "active" && c.status !== "atRisk") return { ok: false, error: "error.commitmentClosed" };
       renegotiate(world, c, world.meta.today);
       return { ok: true };
+    }
+    case "teamMeeting": {
+      const mgr = actor(world, by);
+      if (!mgr?.clubId || !world.dressing[mgr.clubId]) return { ok: false, error: "error.noManager" };
+      if (!MEETING_STYLES.includes(cmd.style) || !MEETING_OBJECTIVES.includes(cmd.objective) || !MEETING_APPROACHES.includes(cmd.approach)) {
+        return { ok: false, error: "error.range" };
+      }
+      const dr = world.dressing[mgr.clubId]!;
+      const day = world.meta.today;
+      const last = dr.meetings.at(-1);
+      if (last && day - last.day < MEETING_COOLDOWN) return { ok: false, error: "error.meetingRecently" };
+      const meeting = teamMeeting(world, mgr.clubId, mgr, { style: cmd.style, objective: cmd.objective, approach: cmd.approach }, day,
+        worldRng(world).fork(`meeting/${day}/${mgr.clubId}`));
+      return { ok: true, meeting };
     }
     case "markInboxRead": {
       const mgr = actor(world, by);

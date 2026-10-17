@@ -11,6 +11,10 @@
   - Si el elegido está lesionado o sancionado el día del partido, el cuerpo técnico lo sustituye.
 - **Desarrollo más realista** (DISEÑO §4.3.1): el encaje (sobre todo la táctica y el mánager) acelera o frena el crecimiento. Los prodigios ya no triunfan casi siempre: sin minutos reales o con mal encaje, su techo se erosiona. Los adultos que no son de élite pueden **florecer tarde** si la táctica y el técnico les van bien.
 - **Datos reales con nombres oficiales**: Premier League, LaLiga, Serie A, Bundesliga, Ligue 1, sus segundas divisiones y copas, y las competiciones UEFA (`packages/data/src/real/competitions.ts`). El mundo ficticio sigue con nombres genéricos.
+- **Reunión con la plantilla** (Vestuario): la primera es tu **presentación**. Anuncias estilo, objetivo y forma de llevar el grupo, y cada jugador te dice si está de acuerdo, con dudas o en contra, y por qué (el estilo, el objetivo, tu forma de gestionar, la confianza o su líder). El líder más influyente habla por el grupo. Deja confianza, moral y recuerdos. Se puede repetir cada 4 semanas.
+- **Pedirle que apoye tu táctica** (nuevo tema de conversación): si acepta, cumple mejor tus instrucciones durante 3 meses, y si es líder arrastra a su grupo.
+- **Negociar minutos**: el jugador dice cuántas titularidades pide. Si te quedas corto, contraoferta y puedes aceptarla. Si te quedas muy corto, se ofende y lo recuerda.
+- Formato del estado: SAVE_VERSION 5 (reuniones y apoyo a la táctica) con migración v4 → v5. El hash de referencia cambia solo por la versión (con saveVersion 4 da el anterior).
 - **«Nueva partida» pasa a Ajustes** (⚙): idioma y «Reiniciar carrera» (semilla y datos reales), con confirmación.
 - **Tomar el mando de un club** (mánager humano). Varios humanos pueden dirigir clubes distintos en el mismo mundo, y cada uno solo actúa sobre el suyo.
 - **Grafo social del vestuario**: afinidad, respeto, rivalidad y envidia entre compañeros, que cambian cada semana.

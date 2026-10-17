@@ -4,6 +4,7 @@ import { call } from "../client";
 import { act, useView } from "../hooks";
 import { useT } from "../i18n";
 import { useUi } from "../store";
+import { TeamMeeting } from "./TeamMeeting";
 
 const STATUS_RANK: Record<string, number> = { prospect: 0, backup: 1, rotation: 2, firstTeam: 3, keyPlayer: 4 };
 
@@ -69,6 +70,7 @@ export function Dressing() {
   return (
     <div className="dressing">
       <p className="hint">{t("dressing.managedBy", { name: v.manager })}</p>
+      <TeamMeeting meeting={v.meeting} />
       <section>
         <h4>{t("dressing.leaders")}</h4>
         <p>

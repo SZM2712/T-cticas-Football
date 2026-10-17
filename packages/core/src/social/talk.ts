@@ -2,7 +2,10 @@
 // jugador según su carácter, la autoridad del mánager y la confianza que le tiene; toda
 // promesa hecha en una conversación crea un `Commitment` con su acción enlazada.
 
-import { AUTHORITY_TRUST, PROMISE_DAYS, TALK, TALK_TENSION_RELIEF } from "../config/social";
+import {
+  AUTHORITY_TRUST, BUYIN_LEADER_TRUST, MINUTES_ACCEPT_GAP, MINUTES_COUNTER_GAP, MINUTES_DEMAND, MINUTES_DEMAND_EGO, PROMISE_DAYS, SUPPORT,
+  TALK, TALK_TENSION_RELIEF,
+} from "../config/social";
 import type { Rng } from "../rng/rng";
 import type { Player, World } from "../types/domain";
 import type { ClubId, GameDay, PlayerId } from "../types/ids";
@@ -11,6 +14,7 @@ import { clamp, round } from "../util/math";
 import { makeCommitment } from "./commitments";
 import { relieve } from "./ego";
 import { statusFromParticipation } from "./graph";
+import { fitOf } from "./fit";
 import { addTrust, managerRef, remember, trustOf } from "./store";
 
 /** Autoridad de un mánager humano sobre un jugador (0..1): reputación relativa y confianza. */
@@ -38,6 +42,20 @@ export interface TalkResult {
   /** Clave de texto de la reacción (la UI la traduce). */
   reaction: string;
   commitments: string[];
+  /** promisePlayingTime: la contraoferta del jugador (cuota de titularidades) si la tuya se quedó corta. */
+  counter?: number;
+}
+
+/** Cuota de titularidades que pide un jugador (0..1, en pasos de 5 %): su estatus esperado y su ego. */
+export function minutesDemand(p: Player): number {
+  const d = MINUTES_DEMAND[p.state.expectedStatus] + MINUTES_DEMAND_EGO * (p.psych.ego - 0.5);
+  return Math.round(clamp(d, 0.1, 0.95) * 20) / 20;
+}
+
+/** Participación media reciente en partidos oficiales (0..1). */
+function participation(world: World, clubId: ClubId, id: string): number {
+  const r = world.dressing[clubId]?.recent[id] ?? [];
+  return r.length ? r.reduce((s, x) => s + x, 0) / r.length : 0.5;
 }
 
 /** Probabilidad de que la conversación salga bien (pura; no consume azar). */
@@ -48,6 +66,12 @@ export function talkChance(world: World, mgr: Manager, p: Player, topic: TalkTop
     TALK.ego * (ps.ego - 0.5) + TALK.insecurity * (ps.insecurity - 0.5) + TALK.tension * maxTension;
   if (topic === "criticize") c += 0.3 * (ps.professionalism - 0.5) + 0.3 * (ps.growthMindset - 0.5) - 0.3 * (ps.temperament - 0.5);
   if (topic === "praise") c += 0.15 + 0.2 * (ps.recognitionNeed - 0.5);
+  if (topic === "askSupport" && p.clubId) {
+    // Apoya la táctica quien juega en su sitio, juega a menudo y salió convencido de la última reunión.
+    const stance = world.dressing[p.clubId]?.meetings.at(-1)?.reactions[p.id]?.stance;
+    c += SUPPORT.tactical * fitOf(world, p, p.clubId).tactical + SUPPORT.minutes * (participation(world, p.clubId, p.id) - 0.5) +
+      (stance === "agree" ? SUPPORT.agreed : stance === "disagree" ? SUPPORT.disagreed : 0);
+  }
   return clamp(c, 0.05, 0.95);
 }
 
@@ -95,10 +119,38 @@ export function talk(world: World, clubId: ClubId, mgr: Manager, p: Player, args
       break;
     }
     case "promisePlayingTime": {
+      // Negociación: pide una cuota; si te quedas algo corto, contraoferta; si muy corto, se ofende.
       const pct = clamp(args.minStartsPct ?? 0.5, 0.1, 1);
+      const demand = minutesDemand(p);
+      if (pct < demand - MINUTES_COUNTER_GAP) {
+        addTrust(world, p.id, mgr.id, -0.04, day);
+        remember(world, day, { owner: p.id, about: me, kind: "lowballed", valence: -0.4, intensity: 0.4, publicness: "private", source: `talk:${day}` });
+        world.events.push({ day, type: "manager.talk", data: { player: p.id, topic: args.topic, success: false, lowball: true } });
+        return { success: false, reaction: "talk.promisePlayingTime.lowball", commitments };
+      }
+      if (pct < demand - MINUTES_ACCEPT_GAP) {
+        const counter = Math.ceil(((pct + demand) / 2) * 20) / 20;
+        return { success: false, reaction: "talk.promisePlayingTime.counter", commitments, counter };
+      }
       promise("playingTime", { minStartsPct: pct, matches: 0, starts: 0 });
       s.expectedStatus = statusFromParticipation(pct);
       relieve(p, "statusGap", success ? TALK_TENSION_RELIEF * 1.5 : TALK_TENSION_RELIEF * 0.5);
+      break;
+    }
+    case "askSupport": {
+      const dr = world.dressing[clubId]!;
+      if (success) {
+        dr.buyIn[p.id] = day;
+        addTrust(world, p.id, mgr.id, 0.04, day);
+        remember(world, day, { owner: p.id, about: me, kind: "backsTactic", valence: 0.3, intensity: 0.35, publicness: "squad", source: `talk:${day}` });
+        // Un líder que se compromete arrastra a los de su grupo.
+        if (dr.levels[p.id] === "leader") {
+          const mates = new Set(dr.cliques.filter((c) => c.members.includes(p.id)).flatMap((c) => c.members));
+          for (const id of [...mates].sort()) if (id !== p.id) addTrust(world, id, mgr.id, BUYIN_LEADER_TRUST, day);
+        }
+      } else if (p.psych.ego > 0.6) {
+        remember(world, day, { owner: p.id, about: me, kind: "badTalk", valence: -0.2, intensity: 0.25, publicness: "private", source: `talk:${day}` });
+      }
       break;
     }
     case "promiseRole": {

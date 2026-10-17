@@ -888,6 +888,25 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 - **Conversación** (`talk`, una por semana con cada jugador): elogiar, exigir, explicar su papel, prometer minutos, papel o renovación, o pactar roles entre dos gallos.
 - **Quién decide**: el jugador, según la autoridad del mánager (reputación relativa y confianza), su ego y su inseguridad. La UI solo muestra si parece receptivo.
 - **Decisiones**: capitán, lanzador de penaltis o faltas (también fija el plan táctico) y renovación.
+- **Añadido en la revisión** (petición del usuario: «presentarme al equipo, decirles mi plan, escuchar si están de acuerdo; pedirles que me apoyen con la táctica y mediar los minutos»):
+  - **Reunión con la plantilla** (`teamMeeting`; la primera es la presentación; después, como mucho una cada 28 días). El mánager anuncia:
+    - un estilo (posesión, contragolpe, presión, directo, defensivo);
+    - un objetivo (liga, Europa, mitad alta, salvarse, cantera);
+    - una forma de llevar el grupo (disciplina, libertad, meritocracia, jerarquía).
+
+    Cada jugador reacciona de acuerdo, con dudas o en contra según:
+    - si el estilo le va a sus habilidades;
+    - si el objetivo está a la altura del club (el ambicioso quiere apuntar alto; nadie se cree uno desmesurado);
+    - su carácter frente a la forma de gestionar;
+    - la confianza y la autoridad.
+
+    Los líderes arrastran a su camarilla y el más influyente habla por el grupo. Deja confianza, moral y un recuerdo (`teamMeeting`). La UI explica qué pesó más en cada uno, sin números.
+  - **Pedir apoyo a la táctica** (tema `askSupport`): lo concede más quien juega en su sitio, juega a menudo y salió convencido de la reunión. Si dice que sí, durante 90 días cumple mejor las instrucciones (+ autoridad) y queda el recuerdo `backsTactic`. Si es líder, sus compañeros de grupo confían algo más en el mánager.
+  - **Negociar minutos**: el jugador pide una cuota de titularidades según el estatus que cree merecer y su ego (la UI la muestra: es lo que dice él, no un rasgo oculto).
+    - Si la oferta llega, hay promesa.
+    - Si se queda algo corta, contraoferta con el punto medio (no gasta la conversación de la semana).
+    - Si es muy corta, se siente menospreciado: pierde confianza y queda el recuerdo `lowballed`.
+  - Estado: `DressingRoom.meetings` y `DressingRoom.buyIn` (SAVE_VERSION 5, migración v4 → v5).
 
 ### Encaje (`social/fit.ts`, §5.5)
 - **Componentes**: táctico (familiaridad con el dibujo), cultural (idioma, compatriota, adaptabilidad), social (cómo le ven) y con el mánager (confianza).

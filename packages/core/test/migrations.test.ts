@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- se manipula JSON de un formato antiguo */
 
 import { describe, expect, it } from "vitest";
-import { SAVE_VERSION, advanceDays, migrateWorld, newGame, openGame } from "../src";
+import { SAVE_VERSION, advanceDays, applyCommand, migrateWorld, newGame, openGame } from "../src";
 
 /** Convierte un mundo actual en uno con el formato v1 (Fase 1). */
 function asV1(): Record<string, unknown> {
@@ -39,6 +39,21 @@ describe("migraciones", () => {
     expect(world.relationships).toEqual({});
     expect(world.commitments).toEqual({});
     expect(world.memories).toEqual({});
+  });
+
+  it("v4 → v5: cada vestuario gana reuniones y apoyo a la táctica vacíos", () => {
+    const g = newGame({ seed: 22 }, "quick");
+    const club = Object.values(g.world.clubs).find((c) => c.leagueId)!;
+    applyCommand(g.world, { type: "takeCharge", club: club.id, name: "Stefan" });
+    const w = JSON.parse(JSON.stringify(g.world)) as Record<string, any>;
+    w.meta.saveVersion = 4;
+    delete w.dressing[club.id].meetings;
+    delete w.dressing[club.id].buyIn;
+    const world = migrateWorld(w);
+    expect(world.meta.saveVersion).toBe(SAVE_VERSION);
+    expect(world.dressing[club.id]!.meetings).toEqual([]);
+    expect(world.dressing[club.id]!.buyIn).toEqual({});
+    expect(applyCommand(world, { type: "teamMeeting", style: "possession", objective: "topHalf", approach: "meritocracy" }).ok).toBe(true);
   });
 
   it("v1 → actual: añade los campos nuevos y el mundo se puede seguir jugando", () => {

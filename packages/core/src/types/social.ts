@@ -29,6 +29,7 @@ export const MEMORY_KINDS = [
   "promiseMade", "promiseKept", "promiseBroken", "witnessedBrokenPromise", "promiseRenegotiated",
   "salaryInsult", "renewed", "captaincyGiven", "captaincyRemoved", "roleGiven", "roleTaken",
   "goodTalk", "badTalk", "dressingRoomRow", "sharedGoal",
+  "teamMeeting", "backsTactic", "lowballed",
 ] as const;
 export type MemoryKind = (typeof MEMORY_KINDS)[number];
 
@@ -134,6 +135,35 @@ export interface DressingRoom {
    */
   recent: Record<string, number[]>;
   lastWeekly: GameDay;
+  /** Reuniones con la plantilla (la primera es la presentación), de la más antigua a la última. */
+  meetings: TeamMeeting[];
+  /** Jugadores que se comprometieron a apoyar la táctica, y desde qué día. */
+  buyIn: Record<string, GameDay>;
+}
+
+/** Estilo de juego que el mánager anuncia al vestuario. */
+export const MEETING_STYLES = ["possession", "counter", "pressing", "direct", "defensive"] as const;
+export type MeetingStyle = (typeof MEETING_STYLES)[number];
+/** Objetivo de la temporada que anuncia. */
+export const MEETING_OBJECTIVES = ["title", "europe", "topHalf", "survival", "youth"] as const;
+export type MeetingObjective = (typeof MEETING_OBJECTIVES)[number];
+/** Forma de gestionar el grupo. */
+export const MEETING_APPROACHES = ["discipline", "freedom", "meritocracy", "hierarchy"] as const;
+export type MeetingApproach = (typeof MEETING_APPROACHES)[number];
+export type MeetingStance = "agree" | "doubt" | "disagree";
+/** Qué pesó más en la reacción de un jugador (para explicarla sin números). */
+export type MeetingReason = "style" | "objective" | "approach" | "trust" | "leader";
+
+export interface TeamMeeting {
+  day: GameDay;
+  /** La primera reunión: la presentación del mánager. */
+  first: boolean;
+  style: MeetingStyle;
+  objective: MeetingObjective;
+  approach: MeetingApproach;
+  reactions: Record<string, { stance: MeetingStance; reason: MeetingReason }>;
+  /** El líder que habla en nombre del grupo. */
+  spokesman?: PlayerId;
 }
 
 export const INBOX_KINDS = [
@@ -159,6 +189,6 @@ export interface InboxItem {
 
 /** Temas de conversación con un jugador (comando `talk`). */
 export const TALK_TOPICS = [
-  "praise", "criticize", "rolePlans", "promisePlayingTime", "promiseRole", "promiseContract", "agreeRoles",
+  "praise", "criticize", "rolePlans", "promisePlayingTime", "promiseRole", "promiseContract", "agreeRoles", "askSupport",
 ] as const;
 export type TalkTopic = (typeof TALK_TOPICS)[number];

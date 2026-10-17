@@ -22,18 +22,33 @@ export function SocialPanel({ id, wage: currentWage }: { id: string; wage: numbe
   useEffect(() => setWage(currentWage !== null ? String(currentWage) : ""), [id, currentWage]);
   const [years, setYears] = useState(3);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  // Contraoferta de minutos pendiente (no cierra la conversación: puedes aceptarla).
+  const [counter, setCounter] = useState<number | null>(null);
+  useEffect(() => setCounter(null), [id, topic]);
+  // La oferta de minutos parte de lo que pide el jugador.
+  const demand = v?.minutesDemand;
+  useEffect(() => {
+    if (demand !== undefined) setPct(Math.round(demand * 100));
+  }, [id, demand]);
   if (!v?.managed) return null;
 
   const run = (cmd: Parameters<typeof call<"command">>[1]["cmd"], okText?: string) =>
     act(async () => {
       const r = await call("command", { cmd });
       if (!r.ok) setMsg({ ok: false, text: t(r.error) });
-      else if (r.talk) setMsg({ ok: r.talk.success, text: t(r.talk.reaction) + (r.talk.commitments.length ? ` ${t("talk.promiseMade")}` : "") });
+      else if (r.talk) {
+        const c = r.talk.counter;
+        setCounter(c ?? null);
+        setMsg({
+          ok: r.talk.success,
+          text: t(r.talk.reaction, { pct: c !== undefined ? Math.round(c * 100) : "" }) + (r.talk.commitments.length ? ` ${t("talk.promiseMade")}` : ""),
+        });
+      }
       else setMsg({ ok: true, text: okText ?? t("talk.done") });
     });
-  const talk = () => {
+  const talk = (offer?: number) => {
     const cmd: Record<string, unknown> = { type: "talk", player: id, topic };
-    if (topic === "promisePlayingTime") cmd.minStartsPct = pct / 100;
+    if (topic === "promisePlayingTime") cmd.minStartsPct = offer ?? pct / 100;
     if (topic === "promiseRole" || topic === "agreeRoles") cmd.role = role;
     if (topic === "agreeRoles") Object.assign(cmd, { other: other || v.roosters[0]?.id, otherRole });
     if (topic === "promiseContract" && wage) cmd.wage = Number(wage);
@@ -86,7 +101,7 @@ export function SocialPanel({ id, wage: currentWage }: { id: string; wage: numbe
             <label>
               {t("talk.starts")}
               <select value={pct} onChange={(e) => setPct(Number(e.target.value))}>
-                {[30, 50, 70, 90].map((x) => <option key={x} value={x}>{x}%</option>)}
+                {Array.from({ length: 18 }, (_, i) => 10 + i * 5).map((x) => <option key={x} value={x}>{x}%</option>)}
               </select>
             </label>
           )}
@@ -121,9 +136,17 @@ export function SocialPanel({ id, wage: currentWage }: { id: string; wage: numbe
             </label>
           )}
         </div>
+        {topic === "promisePlayingTime" && v.minutesDemand !== undefined && (
+          <p className="hint">{t("talk.demand", { pct: Math.round(v.minutesDemand * 100) })}</p>
+        )}
         {receptivity && <p className="hint">{t(`receptive.${receptivity}`)}</p>}
+        {v.meetingStance && <p className="hint">{t("talk.meetingStance", { stance: t(`stance.${v.meetingStance}`) })}</p>}
+        {v.backsTactic && <p className="ok">{t("talk.backsTactic")}</p>}
         <div className="row">
-          <button className="primary" disabled={!v.talk.available} onClick={talk}>{t("talk.go")}</button>
+          <button className="primary" disabled={!v.talk.available} onClick={() => talk()}>{t("talk.go")}</button>
+          {counter !== null && topic === "promisePlayingTime" && (
+            <button onClick={() => talk(counter)}>{t("talk.acceptCounter", { pct: Math.round(counter * 100) })}</button>
+          )}
         </div>
         <h4>{t("social.decisions")}</h4>
         <div className="row">

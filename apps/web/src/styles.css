@@ -136,3 +136,11 @@ ul.factors li { padding: 2px 0; }
 
 .modal.settings { padding: 16px; max-width: 560px; box-sizing: border-box; }
 .modal.settings section { border-top: 1px solid var(--line); padding: 8px 0; }
+.meeting { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+.meeting-result p { margin: 4px 0; }
+ul.stances { columns: 2 260px; column-gap: 24px; }
+ul.stances li { break-inside: avoid; }
+.stance { display: inline-block; min-width: 6.5em; font-size: 0.8rem; font-weight: 600; padding: 0 6px; border-radius: 4px; text-align: center; }
+.stance.agree { background: color-mix(in srgb, var(--ok) 20%, transparent); color: var(--ok); }
+.stance.doubt { background: color-mix(in srgb, var(--muted) 18%, transparent); color: var(--muted); }
+.stance.disagree { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }

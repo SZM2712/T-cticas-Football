@@ -8,10 +8,11 @@ import { managerOf } from "../social/store";
 import { managerAuthority } from "../social/talk";
 import { RELATED_POSITIONS, type Position } from "../config/attributes";
 import { BENCH_SIZE, RECOVERY_PER_DAY } from "../config/match";
+import { BUYIN_AUTHORITY, BUYIN_DAYS } from "../config/social";
 import { POSITION_INDEX, abilityVector } from "../player/ability";
 import { fnv1a32 } from "../rng/hash";
 import type { Match, Player, World } from "../types/domain";
-import { isNationalTeamId, type CompetitionId, type GameDay, type TeamId } from "../types/ids";
+import { isNationalTeamId, type ClubId, type CompetitionId, type GameDay, type TeamId } from "../types/ids";
 import { clamp } from "../util/math";
 import { FORMATIONS, FORMATION_IDS, aiTactics, instructionCompliance, resolveTactics, teamStyle } from "./tactics";
 import { INSTRUCTION_KEYS, type InstructionKey } from "../types/tactics";
@@ -256,7 +257,12 @@ export function pickLineup(world: World, team: TeamId, day: GameDay, competition
  */
 export function coachAuthority(world: World, team: TeamId, p: Player): number {
   const mgr = isNationalTeamId(team) ? undefined : managerOf(world, team);
-  if (mgr) return managerAuthority(world, mgr, p);
+  if (mgr) {
+    // Quien se comprometió a apoyar la táctica cumple mejor las instrucciones durante un tiempo.
+    const since = world.dressing[team as ClubId]?.buyIn[p.id];
+    const buyIn = since !== undefined && world.meta.today - since < BUYIN_DAYS ? BUYIN_AUTHORITY : 0;
+    return clamp(managerAuthority(world, mgr, p) + buyIn, 0, 1);
+  }
   const coachId = isNationalTeamId(team)
     ? world.nationalTeams[team]?.coachId
     : world.clubs[team]?.staff.find((id) => world.staff[id]?.role === "headCoach");

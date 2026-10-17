@@ -4,7 +4,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import {
   applyCommand, currentAbility, dailySocial, dressingRoomView, fitOf, gossipView, generateWorld, hashValue, liveCommitments, louvain, recomputeStructure,
-  Rng, salience, squadPlayers, talkChance, type ClubId, type GameDay, type Player, type PlayerId, type World,
+  Rng, coachAuthority, minutesDemand, salience, squadPlayers, talkChance, type ClubId, type GameDay, type Player, type PlayerId, type World,
 } from "../src";
 
 const SEEDS = 200;
@@ -339,5 +339,87 @@ describe("salario aceptado y chismes", () => {
     expect(gossip[0]).toMatchObject({ kind: "newCaptain", player: { id: squad[2]!.id } });
     expect(JSON.stringify(gossip)).not.toMatch(/tension|psych|ego"/);
     expect(dressingRoomView(w, clubId0).leaders.length).toBeGreaterThan(0);
+  });
+});
+
+describe("reunión con la plantilla, apoyo a la táctica y negociar minutos", () => {
+  it("la primera reunión es la presentación: todos reaccionan, deja confianza y recuerdos, y no se repite enseguida", () => {
+    const { w, squad } = scenarioWorld(1);
+    const trust0 = new Map(squad.map((p) => [p.id, w.trust[`${p.id}|${Object.keys(w.managers)[0]}`]?.trust ?? 0.1]));
+    const r = applyCommand(w, { type: "teamMeeting", style: "possession", objective: "europe", approach: "meritocracy" });
+    expect(r.ok).toBe(true);
+    const m = r.ok ? r.meeting! : undefined;
+    expect(m?.first).toBe(true);
+    expect(Object.keys(m!.reactions).length).toBe(squad.length);
+    const v = dressingRoomView(w, clubId);
+    expect(v.meeting.available).toBe(false);
+    expect(v.meeting.last!.counts.agree + v.meeting.last!.counts.doubt + v.meeting.last!.counts.disagree).toBe(squad.length);
+    const mgr = Object.keys(w.managers)[0]!;
+    for (const p of squad) {
+      const stance = m!.reactions[p.id]!.stance;
+      const t = w.trust[`${p.id}|${mgr}`]?.trust ?? 0.1;
+      if (stance === "agree") expect(t).toBeGreaterThan(trust0.get(p.id)!);
+      if (stance === "disagree") expect(t).toBeLessThan(trust0.get(p.id)!);
+      if (stance !== "doubt") expect(p.memoryIds.some((id) => w.memories[id]?.kind === "teamMeeting")).toBe(true);
+    }
+    expect(w.events.some((e) => e.type === "manager.presentation")).toBe(true);
+    expect(applyCommand(w, { type: "teamMeeting", style: "counter", objective: "europe", approach: "discipline" })).toEqual({ ok: false, error: "error.meetingRecently" });
+    run(w, 28);
+    const again = applyCommand(w, { type: "teamMeeting", style: "counter", objective: "europe", approach: "discipline" });
+    expect(again.ok && again.meeting!.first).toBe(false);
+  });
+
+  it("un objetivo a la altura del club convence a más que uno muy por debajo", () => {
+    let realistic = 0;
+    let absurd = 0;
+    for (let seed = 0; seed < 20; seed++) {
+      const a = scenarioWorld(seed).w;
+      // El club del escenario es el de más reputación: el título está a su altura; salvarse es muy
+      // poco para él y molesta a los competitivos.
+      const ok = applyCommand(a, { type: "teamMeeting", style: "possession", objective: "title", approach: "meritocracy" });
+      const b = scenarioWorld(seed).w;
+      const low = applyCommand(b, { type: "teamMeeting", style: "possession", objective: "survival", approach: "meritocracy" });
+      if (ok.ok && low.ok) {
+        realistic += Object.values(ok.meeting!.reactions).filter((r) => r.stance === "agree").length;
+        absurd += Object.values(low.meeting!.reactions).filter((r) => r.stance === "agree").length;
+      }
+    }
+    expect(realistic).toBeGreaterThan(absurd);
+  });
+
+  it("quien se compromete a apoyar la táctica cumple mejor las instrucciones", () => {
+    const { w, squad } = scenarioWorld(2);
+    const p = squad.find((x) => x.psych.ego < 0.6)!;
+    Object.assign(p.psych, { professionalism: 0.95, ego: 0.1 });
+    const before = coachAuthority(w, clubId, p);
+    let res;
+    for (let i = 0; i < 6 && !w.dressing[clubId]!.buyIn[p.id]; i++) {
+      res = applyCommand(w, { type: "talk", player: p.id, topic: "askSupport" });
+      expect(res.ok).toBe(true);
+      run(w, 7);
+    }
+    expect(w.dressing[clubId]!.buyIn[p.id]).toBeDefined();
+    expect(coachAuthority(w, clubId, p)).toBeGreaterThan(before);
+    expect(p.memoryIds.some((id) => w.memories[id]?.kind === "backsTactic")).toBe(true);
+  });
+
+  it("negociar minutos: si te quedas corto contraoferta; si te pasas de corto se ofende; si llegas, promesa", () => {
+    const { w, squad } = scenarioWorld(3);
+    const p = squad.find((x) => x.state.expectedStatus === "firstTeam" || x.state.expectedStatus === "keyPlayer")!;
+    const demand = minutesDemand(p);
+    // Contraoferta: no cierra la conversación.
+    const c = applyCommand(w, { type: "talk", player: p.id, topic: "promisePlayingTime", minStartsPct: Math.max(0.1, demand - 0.15) });
+    expect(c.ok && c.talk!.counter).toBeGreaterThan(demand - 0.15);
+    expect(c.ok && c.talk!.counter!).toBeLessThanOrEqual(demand);
+    expect(c.ok && c.talk!.commitments.length).toBe(0);
+    // Aceptar su contraoferta: promesa con acción enlazada.
+    const ok = applyCommand(w, { type: "talk", player: p.id, topic: "promisePlayingTime", minStartsPct: c.ok ? c.talk!.counter! : 0 });
+    expect(ok.ok && ok.talk!.commitments.length).toBe(1);
+    // Otro jugador al que se le ofrece muy poco: se ofende.
+    const q = squad.find((x) => x.id !== p.id && minutesDemand(x) >= 0.5)!;
+    const low = applyCommand(w, { type: "talk", player: q.id, topic: "promisePlayingTime", minStartsPct: 0.1 });
+    expect(low.ok && low.talk!.reaction).toBe("talk.promisePlayingTime.lowball");
+    expect(q.memoryIds.some((id) => w.memories[id]?.kind === "lowballed")).toBe(true);
+    expect(applyCommand(w, { type: "talk", player: q.id, topic: "praise" })).toEqual({ ok: false, error: "error.talkedRecently" });
   });
 });
