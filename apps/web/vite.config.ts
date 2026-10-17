@@ -6,6 +6,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   worker: { format: "es" },
-  server: { fs: { allow: ["../.."] } },
+  // En Codespaces el navegador entra por un dominio reenviado (*.app.github.dev): el servidor
+  // escucha en todas las interfaces y acepta ese host.
+  server: { host: true, port: 5173, strictPort: true, allowedHosts: true, fs: { allow: ["../.."] } },
+  preview: { host: true, allowedHosts: true },
   build: { target: "es2022", chunkSizeWarningLimit: 4000 },
 });
