@@ -4,7 +4,6 @@ import { call } from "../client";
 import { act, useView } from "../hooks";
 import { useT } from "../i18n";
 import { useUi } from "../store";
-import { PlayerPanel } from "./PlayerPanel";
 
 const STATUS_RANK: Record<string, number> = { prospect: 0, backup: 1, rotation: 2, firstTeam: 3, keyPlayer: 4 };
 
@@ -22,6 +21,8 @@ function languageName(locale: string, code: string): string {
   }
 }
 
+const openPlayer = (id: string) => useUi.getState().set({ player: id });
+
 /** Vestuario: tomar el mando, camarillas, jerarquía, ánimo y promesas. */
 export function Dressing() {
   const { t, locale, nation } = useT();
@@ -29,6 +30,7 @@ export function Dressing() {
   const open = useUi((s) => s.player);
   const v = useView("dressing", team ? { team } : null) as DressingRoomView | null;
   const commitments = useView("commitments", team && v?.manager ? { team } : null);
+  const gossip = useView("gossip", team && v?.manager ? { team } : null);
   const concern = useConcernText();
   const [name, setName] = useState("Stefan");
   const [msg, setMsg] = useState<string | null>(null);
@@ -66,14 +68,43 @@ export function Dressing() {
 
   return (
     <div className="dressing">
-      {open && v.players.some((p) => p.id === open) && <PlayerPanel id={open} />}
       <p className="hint">{t("dressing.managedBy", { name: v.manager })}</p>
+      <section>
+        <h4>{t("dressing.leaders")}</h4>
+        <p>
+          {v.leaders.length
+            ? v.leaders.map((l, i) => (
+              <span key={l.id}>
+                <span className="link" onClick={() => openPlayer(l.id)}>{l.name}</span>{i < v.leaders.length - 1 ? ", " : ""}
+              </span>
+            ))
+            : t("dressing.noLeaders")}
+        </p>
+      </section>
+      <section>
+        <h4>{t("dressing.gossip")}</h4>
+        {gossip?.length ? (
+          <ul className="factors gossip">
+            {gossip.map((g, i) => (
+              <li key={i} className="link" onClick={() => openPlayer(g.player.id)}>
+                <span className="hint">{new Date(Date.UTC(2000, 0, 1) + g.day * 86400000).toLocaleDateString(locale, { timeZone: "UTC" })}</span>{" "}
+                {t(`gossip.${g.kind}`, { player: g.player.name, other: g.other?.name ?? "", about: g.about ? t(`dynamic.${g.about}`) : "" })}
+              </li>
+            ))}
+          </ul>
+        ) : <p className="hint">{t("dressing.noGossip")}</p>}
+      </section>
       <section>
         <h4>{t("dressing.cliques")}</h4>
         {v.cliques.length ? (
           <ul className="factors">
             {v.cliques.map((c, i) => (
-              <li key={i}><strong>{cliqueName(c)}</strong>: {c.members.map((m) => m.name).join(", ")}</li>
+              <li key={i}>
+                <strong>{cliqueName(c)}</strong>:{" "}
+                {c.members.map((m, j) => (
+                  <span key={m.id}><span className="link" onClick={() => openPlayer(m.id)}>{m.name}</span>{j < c.members.length - 1 ? ", " : ""}</span>
+                ))}
+              </li>
             ))}
           </ul>
         ) : <p className="hint">{t("dressing.noCliques")}</p>}

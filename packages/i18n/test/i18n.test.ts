@@ -97,6 +97,8 @@ describe("i18n del vestuario", () => {
       ...["private", "clique", "agent", "social", "public"].map((k) => `channel.${k}`),
       ...["language", "nation", "veterans", "youngsters", "homegrown", "locals", "mixed"].map((k) => `clique.${k}`),
       ...core.EGO_DYNAMICS.flatMap((d) => [`dynamic.${d.id}`, ...[1, 2, 3, 4, 5].map((s) => `concern.${d.id}.${s}`)]),
+      ...core.GOSSIP_KINDS.map((k) => `gossip.${k}`),
+      ...["technical", "mental", "physical", "goalkeeping"].map((k) => `attrGroup.${k}`),
     ];
     for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
   });

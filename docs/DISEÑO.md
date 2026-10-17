@@ -914,6 +914,12 @@ Todo contrato y traspaso es un objeto con cláusulas que el motor ejecuta y recu
 
 Las cláusulas también alimentan el ego (§5): un jugador sabe cuánto vale su cláusula comparada con la del compañero.
 
+- **Valor frente a precio** (petición del usuario, Fase 4):
+  - el valor estimado (`marketValue`, visible desde la Fase 4) es solo una referencia;
+  - lo que pide el club vendedor y lo que acaba pagando el comprador va casi siempre por encima: necesidad, rivalidad entre compradores, años de contrato, «impuesto» a los clubes ricos y a los compradores humanos;
+  - la negociación partirá del valor, pero el precio de cierre lo deciden las partes.
+- **Salario aceptado**: quien firma o renueva acepta su salario. No se queja de él en un año, salvo que después llegue o renueve un compañero que cobre más (implementado en la Fase 4, `SALARY_CONTENT_DAYS`).
+
 ### 11.2 Roles jugables: entrenador, director deportivo y presidente
 Los cargos del club son puestos que ocupa **un actor** (el jugador humano o una IA con personalidad y memoria):
 

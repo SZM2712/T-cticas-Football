@@ -4,7 +4,7 @@
 // cruzar los escalones de la escalera común, el jugador actúa por el canal que eligen sus rasgos.
 
 import {
-  ENVY_LEADER_MULT, ENVY_MAX_GAP, HABITUATION, ENVY_MIN_EGO, ENVY_MIN_PARTICIPATION, ENVY_RATE, ENVY_WAGE_RATIO, LADDER, LADDER_RESET, PUBLIC_COMPLAINT_MORALE,
+  ENVY_LEADER_MULT, ENVY_MAX_GAP, SALARY_CONTENT_DAYS, HABITUATION, ENVY_MIN_EGO, ENVY_MIN_PARTICIPATION, ENVY_RATE, ENVY_WAGE_RATIO, LADDER, LADDER_RESET, PUBLIC_COMPLAINT_MORALE,
   ROOSTER_MIN_EGO, ROOSTER_RATE, STATUS_PROMISE_MULT, STATUS_RATE, TENSION_DECAY,
 } from "../config/social";
 import type { Player, World } from "../types/domain";
@@ -58,6 +58,8 @@ const salaryEnvy: EgoDynamic = {
         if (j.id === i.id || !j.contract) continue;
         const ratio = j.contract.wage / i.contract.wage;
         if (ratio < ENVY_WAGE_RATIO) continue;
+        // Firmó hace poco: aceptó su salario. Solo le escuece si el otro firmó después.
+        if (ctx.day - i.contract.signed < SALARY_CONTENT_DAYS && j.contract.signed <= i.contract.signed) continue;
         // Rinde como él o mejor, o juega tanto como él o más (§5.4.1). Solo cuenta quien juega
         // con regularidad: si no, cualquier suplente envidiaría al titular mejor pagado.
         const better = ctx.perf.get(i.id)! >= ctx.perf.get(j.id)! || ctx.part.get(i.id)! >= ctx.part.get(j.id)!;

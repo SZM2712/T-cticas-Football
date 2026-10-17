@@ -22,9 +22,9 @@ export function Scorers() {
       </thead>
       <tbody>
         {rows.map((r, i) => (
-          <tr key={r.id}>
+          <tr key={r.id} onClick={() => useUi.getState().set({ player: r.id })}>
             <td>{i + 1}</td>
-            <td className="left">{r.name}</td>
+            <td className="left link">{r.name}</td>
             <td className="left">{team(r.team)}</td>
             <td>{r.apps}</td>
             <td><strong>{r.goals}</strong></td>

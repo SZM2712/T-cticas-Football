@@ -68,6 +68,8 @@ export interface DressingRoomView {
   cliques: { label: string; labelParam?: string; members: { id: PlayerId; name: string }[] }[];
   players: DressingPlayerView[];
   roles: { penalties?: string; freeKicks?: string };
+  /** Líderes del vestuario, del más influyente al menos. */
+  leaders: { id: string; name: string }[];
 }
 
 const LEVEL_ORDER: Record<HierarchyLevel, number> = { leader: 0, influential: 1, core: 2, periphery: 3, outcast: 4 };
@@ -76,7 +78,7 @@ export function dressingRoomView(world: World, clubId: ClubId): DressingRoomView
   const dr = world.dressing[clubId];
   const mgr = managerOf(world, clubId);
   const name = (id: string) => displayName(world.players[id]!);
-  if (!dr || !mgr) return { club: clubId, manager: null, cliques: [], players: [], roles: {} };
+  if (!dr || !mgr) return { club: clubId, manager: null, cliques: [], players: [], roles: {}, leaders: [] };
   const players = squadPlayers(world, clubId).map((p): DressingPlayerView => ({
     id: p.id, name: displayName(p), position: p.position, level: dr.levels[p.id] ?? "periphery",
     mood: mood(p.state.morale), trust: trustKey(trustOf(world, p.id, mgr.id)), fit: fitKey(fitOf(world, p, clubId).total),
@@ -93,7 +95,7 @@ export function dressingRoomView(world: World, clubId: ClubId): DressingRoomView
       label: c.label, ...(c.labelParam ? { labelParam: c.labelParam } : {}),
       members: c.members.filter((id) => world.players[id]).map((id) => ({ id, name: name(id) })),
     })),
-    players, roles,
+    players, roles, leaders: leadersOf(world, clubId),
   };
 }
 
@@ -227,4 +229,84 @@ export function managersView(world: World): ManagerView[] {
     const m = world.managers[id]!;
     return { id: m.id, name: m.name, club: m.clubId };
   });
+}
+
+export const GOSSIP_KINDS = [
+  "grumbling", "socialDig", "publicComplaint", "rivalry", "row", "mentorClash", "nightLife", "skipsDiet",
+  "brokenPromise", "ignoredOrders", "retirementRumour", "prodigy", "agingToll", "breakthrough", "newCaptain",
+] as const;
+export type GossipKind = (typeof GOSSIP_KINDS)[number];
+
+export interface GossipView {
+  day: number;
+  kind: GossipKind;
+  player: { id: string; name: string };
+  other?: { id: string; name: string };
+  /** Clave de la dinámica de ego (para "grumbling" y "publicComplaint"). */
+  about?: string;
+}
+
+/**
+ * Lo que se comenta en el vestuario: los sucesos recientes de los jugadores del club contados
+ * como rumores (sin números). Sale del registro de eventos del mundo.
+ */
+export function gossipView(world: World, clubId: ClubId, limit = 25): GossipView[] {
+  const squad = new Set(world.clubs[clubId]?.squad ?? []);
+  const ref = (id: unknown) => {
+    const p = typeof id === "string" ? world.players[id] : undefined;
+    return p ? { id: p.id as string, name: displayName(p) } : undefined;
+  };
+  const out: GossipView[] = [];
+  for (let i = world.events.length - 1; i >= 0 && out.length < limit; i--) {
+    const e = world.events[i]!;
+    const pid = (e.data.player ?? e.data.manager) as string | undefined;
+    if (!pid || !squad.has(pid as PlayerId)) continue;
+    const player = ref(pid);
+    if (!player) continue;
+    const g = (kind: GossipKind, extra: Partial<GossipView> = {}) => out.push({ day: e.day, kind, player, ...extra });
+    switch (e.type) {
+      case "player.egoStep": {
+        const step = Number(e.data.step);
+        const about = String(e.data.dynamic);
+        const other = ref(e.data.other);
+        if (about === "roosters" && other) {
+          // Un pique es de los dos: se cuenta una vez por pareja y día.
+          const kind: GossipKind | null = step >= 4 ? "row" : step >= 2 ? "rivalry" : null;
+          const dup = out.some((x) => x.day === e.day && x.kind === kind && x.player.id === other.id && x.other?.id === player.id);
+          if (kind && !dup) g(kind, { other });
+        } else if (step >= 4) g("publicComplaint", { about });
+        else if (e.data.channel === "social") g("socialDig", { about });
+        else if (step >= 2) g("grumbling", { about });
+        break;
+      }
+      case "player.mentorClash": {
+        const other = ref(e.data.mentor);
+        if (other) g("mentorClash", { other });
+        break;
+      }
+      case "player.planIgnored": {
+        const parts = (e.data.parts as string[] | undefined) ?? [];
+        if (parts.includes("sleep")) g("nightLife");
+        else if (parts.includes("diet")) g("skipsDiet");
+        break;
+      }
+      case "manager.promiseBroken": g("brokenPromise"); break;
+      case "player.ignoredInstruction": g("ignoredOrders"); break;
+      case "player.consideringRetirement": g("retirementRumour"); break;
+      case "player.prodigy": g("prodigy"); break;
+      case "player.agingToll": g("agingToll"); break;
+      case "player.breakthrough": g("breakthrough"); break;
+      case "manager.captain": g("newCaptain"); break;
+    }
+  }
+  return out;
+}
+
+/** Líderes del vestuario (para la cabecera de la pestaña). */
+export function leadersOf(world: World, clubId: ClubId): { id: string; name: string }[] {
+  const dr = world.dressing[clubId];
+  if (!dr) return [];
+  return Object.keys(dr.levels).sort().filter((id) => dr.levels[id] === "leader" && world.players[id])
+    .sort((a, b) => (dr.influence[b] ?? 0) - (dr.influence[a] ?? 0) || (a < b ? -1 : 1))
+    .map((id) => ({ id, name: displayName(world.players[id]!) }));
 }

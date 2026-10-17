@@ -2,7 +2,6 @@ import { useView } from "../hooks";
 import { money } from "../format";
 import { useT } from "../i18n";
 import { useUi } from "../store";
-import { PlayerPanel } from "./PlayerPanel";
 
 export function Squad() {
   const { t, nation, locale } = useT();
@@ -14,7 +13,6 @@ export function Squad() {
   if (!rows) return null;
   return (
     <>
-    {open && rows.some((r) => r.id === open) && <PlayerPanel id={open} />}
     <table className="grid">
       <thead>
         <tr>

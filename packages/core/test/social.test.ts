@@ -3,7 +3,7 @@
 
 import { beforeAll, describe, expect, it } from "vitest";
 import {
-  applyCommand, currentAbility, dailySocial, fitOf, generateWorld, hashValue, liveCommitments, louvain, recomputeStructure,
+  applyCommand, currentAbility, dailySocial, dressingRoomView, fitOf, gossipView, generateWorld, hashValue, liveCommitments, louvain, recomputeStructure,
   Rng, salience, squadPlayers, talkChance, type ClubId, type GameDay, type Player, type PlayerId, type World,
 } from "../src";
 
@@ -312,5 +312,32 @@ describe("vestuario", () => {
     expect(applyCommand(w, { type: "talk", player: squad[0]!.id, topic: "praise" }, ana)).toEqual({ ok: false, error: "error.notYourPlayer" });
     expect(applyCommand(w, { type: "talk", player: squad[0]!.id, topic: "praise" }, mine).ok).toBe(true);
     expect(applyCommand(w, { type: "takeCharge", club: clubId, name: "Intruso" }, ana)).toEqual({ ok: false, error: "error.clubTaken" });
+  });
+});
+
+describe("salario aceptado y chismes", () => {
+  it("quien acaba de firmar no se queja de su salario, salvo que otro firme después cobrando más", () => {
+    const { w, squad } = scenarioWorld(9);
+    const leader = makeLeader(w, squad, { ego: 0.9, loyalty: 0.2 });
+    // Acaba de renovar con el salario que aceptó; ya había alguien que cobraba más.
+    leader.contract = { ...leader.contract!, signed: w.meta.today };
+    const rich = squad.find((p) => p.id !== leader.id)!;
+    rich.contract = { ...rich.contract!, wage: leader.contract.wage * 2, signed: (w.meta.today - 400) as GameDay };
+    run(w, 30);
+    expect(leader.state.tensions.salaryEnvy ?? 0).toBe(0);
+    // Llega después un fichaje que cobra mucho más: eso sí le escuece.
+    signStar(w, squad, leader, 1.6).contract!.signed = w.meta.today;
+    run(w, 30);
+    expect(leader.state.tensions.salaryEnvy ?? 0).toBeGreaterThan(0.2);
+  });
+
+  it("los chismes cuentan lo que pasa en el vestuario, sin números", () => {
+    const { w, squad } = scenarioWorld(10);
+    const clubId0 = Object.values(w.managers)[0]!.clubId!;
+    expect(applyCommand(w, { type: "setCaptain", player: squad[2]!.id }).ok).toBe(true);
+    const gossip = gossipView(w, clubId0);
+    expect(gossip[0]).toMatchObject({ kind: "newCaptain", player: { id: squad[2]!.id } });
+    expect(JSON.stringify(gossip)).not.toMatch(/tension|psych|ego"/);
+    expect(dressingRoomView(w, clubId0).leaders.length).toBeGreaterThan(0);
   });
 });

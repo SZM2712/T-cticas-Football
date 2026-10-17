@@ -2,7 +2,7 @@
 // comandos; nunca toca el estado del mundo (regla 3 de CLAUDE.md).
 
 import type {
-  Command, CommandResult, CommitmentView, CompetitionId, DressingRoomView, FixtureView, InboxItemView, Intervention, LeagueOption,
+  Command, CommandResult, CommitmentView, GossipView, CompetitionId, DressingRoomView, FixtureView, InboxItemView, Intervention, LeagueOption,
   ManagerView, MatchChange, MatchId, MatchReport, PlayerDevelopmentView, PlayerSocialView, Position, ScorerView, SquadRowView,
   TableRowView, TacticsView, TeamId,
 } from "@tf/core";
@@ -59,6 +59,8 @@ export interface Api {
   dressing(args: { team: TeamId }): DressingRoomView;
   inbox(args: { team: TeamId }): InboxItemView[];
   commitments(args: { team: TeamId }): CommitmentView[];
+  /** Lo que se comenta en el vestuario (rumores recientes). */
+  gossip(args: { team: TeamId }): GossipView[];
   /** Vida social de un jugador: relaciones, recuerdos, promesas y conversación. */
   playerSocial(args: { id: string }): PlayerSocialView;
   managers(args: object): ManagerView[];

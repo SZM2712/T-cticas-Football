@@ -7,6 +7,7 @@ import { Results } from "./components/Results";
 import { Scorers } from "./components/Scorers";
 import { Dressing } from "./components/Dressing";
 import { Inbox } from "./components/Inbox";
+import { PlayerModal } from "./components/PlayerModal";
 import { Squad } from "./components/Squad";
 import { TacticsPanel } from "./components/TacticsPanel";
 import { act, useView } from "./hooks";
@@ -119,6 +120,7 @@ export function App() {
         {ui.summary && ui.tab === "tactics" && <TacticsPanel />}
         {ui.summary && ui.tab === "match" && <MatchPanel />}
       </main>
+      {ui.summary && ui.player && <PlayerModal id={ui.player} />}
     </div>
   );
 }

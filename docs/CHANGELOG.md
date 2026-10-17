@@ -26,6 +26,11 @@
 - **Estado v4** con migración.
 - **Niños prodigio (wonderkids)** (petición del usuario): cada temporada sale un canterano de 16–17 años con un nivel muy alto para su edad y techo de estrella (el mundo inicial trae 5). El cupo de élite no les recorta el techo, aunque no todos triunfan.
 - **Salario y valor de mercado visibles** (petición del usuario): en la plantilla y en la ficha se ven el salario semanal, el fin de contrato y un valor de mercado estimado. El valor sale solo de datos visibles (nivel, edad, reputación y años de contrato); el mercado completo llega en la Fase 6. Al renovar, el campo parte del salario actual.
+- **Ficha del jugador** (peticiones del usuario):
+  - se abre al pulsar cualquier nombre (plantilla, vestuario, buzón, goleadores, camarillas, chismes) en una ventana encima de la pestaña, que se cierra con Esc;
+  - gráfica de habilidades por grupo (técnica, mental, física; los porteros, las de portería).
+- **Vestuario más visible**: líderes, camarillas y **chismes** (piques, quejas, indirectas en redes, quién sale de noche, quién pasa de tus instrucciones, promesas rotas, prodigios de la cantera…).
+- **Salario aceptado**: quien acaba de firmar no se queja de su salario durante un año, salvo que después llegue o renueve un compañero que cobre más.
 - **Élite dentro de ±12 %** (criterio del usuario):
   - la «generación que viene» se dimensiona con las salidas previstas por la edad de los cracks;
   - si faltan cracks, los jóvenes que llegarían antes reciben techo de élite;

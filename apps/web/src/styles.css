@@ -91,3 +91,15 @@ ul.factors li { padding: 2px 0; }
 .social { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
 .dressing-table td.left { white-space: normal; }
 .dressing-table td:last-child { min-width: 14em; }
+
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.45); display: flex; align-items: flex-start; justify-content: center; padding: 24px 12px; overflow-y: auto; z-index: 50; }
+.modal { background: var(--card); color: var(--fg); border-radius: 8px; max-width: 1100px; width: 100%; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); }
+.modal .player-panel { margin: 0; }
+.attr-chart { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px 20px; }
+.attr-group h5 { margin: 4px 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
+.attr-row { display: grid; grid-template-columns: 9.5em 1fr 2em; align-items: center; gap: 6px; font-size: 0.85rem; line-height: 1.6; }
+.attr-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.attr-bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.attr-bar > span { display: block; height: 100%; border-radius: 4px; }
+.attr-val { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.gossip li { padding: 3px 0; }

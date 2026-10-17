@@ -1,7 +1,7 @@
 // Web Worker que hospeda el juego (GameHost). Todo el estado vive aquí.
 
 import {
-  advanceDay, applyCommand, commitmentsView, competitionResultsView, dressingRoomView, inboxView, managersView, playerSocialView, displayName, playerDevelopmentView, finishLive, hashValue, liveIntervene, liveReport, simulateWithInterventions, worldRng, leagueOptions, leagueTableView, newGame, squadView, tacticsView,
+  advanceDay, applyCommand, commitmentsView, competitionResultsView, dressingRoomView, gossipView, inboxView, managersView, playerSocialView, displayName, playerDevelopmentView, finishLive, hashValue, liveIntervene, liveReport, simulateWithInterventions, worldRng, leagueOptions, leagueTableView, newGame, squadView, tacticsView,
   teamFixturesView, teamRef, topScorersView, type Game, type GenerateOptions, type Match, type MatchReport,
   type MatchInput, type TeamId,
 } from "@tf/core";
@@ -164,6 +164,7 @@ const handlers: { [M in keyof Api]: (args: Parameters<Api[M]>[0]) => ReturnType<
   dressing: ({ team }) => dressingRoomView(need().world, team as never),
   inbox: ({ team }) => inboxView(need().world, team as never),
   commitments: ({ team }) => commitmentsView(need().world, team as never),
+  gossip: ({ team }) => gossipView(need().world, team as never),
   playerSocial: ({ id }) => playerSocialView(need().world, id),
   managers: () => managersView(need().world),
   command: ({ cmd }) => applyCommand(need().world, cmd),

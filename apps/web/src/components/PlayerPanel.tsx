@@ -8,6 +8,7 @@ import { act, useView } from "../hooks";
 import { useT } from "../i18n";
 import { useUi } from "../store";
 import { SocialPanel } from "./SocialPanel";
+import { AttributeChart } from "./AttributeChart";
 import { money } from "../format";
 
 const DEFAULT_PLAN: DevelopmentPlan = { focus: "balanced", intensity: "normal", diet: "standard", exercise: "none", sleep: "free" };
@@ -94,6 +95,10 @@ export function PlayerPanel({ id }: { id: string }) {
           )}
         </div>
       )}
+      <section className="attrs">
+        <h4>{t("dev.attributes")}</h4>
+        <AttributeChart values={v.attributes} goalkeeper={v.position === "GK"} />
+      </section>
       <div className="dev-grid">
         <section>
           <h4>{t("dev.evolution")}</h4>

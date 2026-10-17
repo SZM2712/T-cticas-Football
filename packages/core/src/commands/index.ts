@@ -204,6 +204,7 @@ export function applyCommand(world: World, cmd: Command, by?: ManagerId): Comman
         remember(world, day, { owner: dr.captain, about: me, kind: "captaincyRemoved", valence: -0.7, intensity: 0.7, publicness: "public", source: "setCaptain" });
       }
       dr.captain = cmd.player;
+      world.events.push({ day, type: "manager.captain", data: { player: cmd.player } });
       remember(world, day, { owner: cmd.player, about: me, kind: "captaincyGiven", valence: 0.7, intensity: 0.6, publicness: "public", source: "setCaptain" });
       return { ok: true };
     }

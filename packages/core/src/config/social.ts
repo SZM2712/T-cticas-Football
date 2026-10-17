@@ -105,6 +105,11 @@ export const HABITUATION: Record<"salaryEnvy" | "statusGap" | "roosters", number
 // Celos salariales (§5.4.1)
 export const ENVY_MIN_EGO = 0.55;
 export const ENVY_WAGE_RATIO = 1.15;
+/**
+ * Quien acaba de firmar aceptó su salario: no se queja de él durante este tiempo, salvo que
+ * después llegue (o renueve) un compañero cobrando más. Petición del usuario.
+ */
+export const SALARY_CONTENT_DAYS = 365;
 /** Solo envidia quien juega con regularidad (participación reciente mínima). */
 export const ENVY_MIN_PARTICIPATION = 0.3;
 /** Escala de la acumulación diaria: ego · (ratio − 1) · (0,5 + reconocimiento) · (1 − 0,5·lealtad) · esto. */

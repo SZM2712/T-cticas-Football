@@ -18,7 +18,7 @@ export function Inbox() {
       {unread.length > 0 && <button onClick={markRead}>{t("inbox.markRead")}</button>}
       <ul className="inbox-list">
         {items.map((i) => (
-          <li key={i.id} className={i.read ? "read" : ""} onClick={() => i.player && useUi.getState().set({ player: i.player.id, tab: "dressing" })}>
+          <li key={i.id} className={i.read ? "read" : ""} onClick={() => i.player && useUi.getState().set({ player: i.player.id })}>
             <span className="hint">{new Date(Date.UTC(2000, 0, 1) + i.day * 86400000).toLocaleDateString(locale, { timeZone: "UTC" })}</span>{" "}
             {t(`inbox.${i.kind}`, {
               player: i.player?.name ?? "",
