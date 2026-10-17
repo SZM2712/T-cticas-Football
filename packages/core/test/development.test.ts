@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import {
   ageOn, applyCommand, currentAbility, dayOf, exactAge, generateWorld, hashValue, monthlyDevelopment, newGame,
   observe, planEffects, playerDevelopmentView, rollAdherence, scoutReportsView, seasonTurnover, staffQuality,
-  worldRng, WONDERKID_CEILING, WONDERKIDS_AT_START, WONDERKIDS_PER_YEAR, type DevelopmentPlan, type GameDay, type Player, type PlayerId, type Staff, type World,
+  marketValue, worldRng, WONDERKID_CEILING, WONDERKIDS_AT_START, WONDERKIDS_PER_YEAR, type DevelopmentPlan, type GameDay, type Player, type PlayerId, type Staff, type World,
 } from "../src";
 
 let base: World;
@@ -245,5 +245,24 @@ describe("retiradas anticipadas", () => {
     expect(decision.data.approach).toBe("support");
     expect(["retire", "stay"]).toContain(decision.data.decision);
     if (decision.data.decision === "retire") expect(p.retiring).toBe(true);
+  });
+});
+
+describe("valor de mercado y salario visibles", () => {
+  it("el valor sube con el nivel, baja con la edad y la ficha muestra salario y valor", () => {
+    const w = clone(base);
+    const day = w.meta.today;
+    const p = Object.values(w.players).find((x) => x.clubId && x.contract && ageOn(x.birthDay, day) === 25)!;
+    const v0 = marketValue(p, day);
+    const better = clone({ ...w, players: { [p.id]: p } } as World).players[p.id]!;
+    for (const k of Object.keys(better.technical) as (keyof Player["technical"])[]) better.technical[k] = Math.min(20, better.technical[k] + 1);
+    for (const k of Object.keys(better.mental) as (keyof Player["mental"])[]) better.mental[k] = Math.min(20, better.mental[k] + 1);
+    for (const k of Object.keys(better.physical) as (keyof Player["physical"])[]) better.physical[k] = Math.min(20, better.physical[k] + 1);
+    expect(marketValue(better, day)).toBeGreaterThan(v0);
+    const older = { ...p, birthDay: (p.birthDay - 8 * 365) as GameDay };
+    expect(marketValue(older, day)).toBeLessThan(v0);
+    const view = playerDevelopmentView(w, p.id as PlayerId);
+    expect(view.contract?.wage).toBe(p.contract!.wage);
+    expect(view.value).toBe(v0);
   });
 });

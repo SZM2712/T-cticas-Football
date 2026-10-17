@@ -7,6 +7,7 @@ import { groupTable } from "../competition/standings";
 import { fitnessOn, isInjured, isSuspended } from "../match/lineup";
 import { defaultSetPieces, teamStyle } from "../match/tactics";
 import { currentAbility } from "../player/ability";
+import { marketValue } from "../player/value";
 import { ageOn } from "../time/calendar";
 import type { Match, World } from "../types/domain";
 import { isNationalTeamId, nationOfTeam, type CompetitionId, type MatchId, type PlayerId, type TeamId } from "../types/ids";
@@ -76,6 +77,10 @@ export interface SquadRowView {
   fitness: number;
   injuredDays: number;
   suspended: boolean;
+  /** Salario semanal en euros (null si no tiene contrato). */
+  wage: number | null;
+  /** Valor de mercado estimado (€). */
+  value: number;
   /** Se plantea retirarse o ya anunció que se retira. */
   retirement: "considering" | "retiring" | null;
   apps: number;
@@ -115,6 +120,8 @@ export function squadView(world: World, team: TeamId, competitionId?: Competitio
         fitness: Math.round(fitnessOn(p, day) * 100),
         injuredDays: isInjured(p, day) ? p.injury!.until - day : 0,
         suspended: competitionId ? isSuspended(p, competitionId) : p.suspensions.length > 0,
+        wage: p.contract?.wage ?? null,
+        value: marketValue(p, day),
         retirement: p.retirementIntent ? ("considering" as const) : p.retiring ? ("retiring" as const) : null,
         apps,
         goals,

@@ -61,3 +61,5 @@ export { talk, talkChance, managerAuthority, type TalkArgs, type TalkResult } fr
 export { fitOf, type FitBreakdown } from "./social/fit";
 export { remember, salience, halfLife, valence, pairKey, trustOf, managerOf, notify } from "./social/store";
 export * from "./views/social";
+export { marketValue } from "./player/value";
+export * from "./config/market";

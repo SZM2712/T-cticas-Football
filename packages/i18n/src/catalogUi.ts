@@ -481,4 +481,9 @@ export const UI_ENTRIES: Record<string, Row> = {
   "error.wageTooLow": ["No aceptará cobrar menos", "He won't accept a pay cut", "Il n'acceptera pas de gagner moins", "Er akzeptiert keine Gehaltskürzung", "他不会接受降薪"],
   "error.unknownCommitment": ["Promesa desconocida", "Unknown promise", "Promesse inconnue", "Unbekanntes Versprechen", "未知的承诺"],
   "error.commitmentClosed": ["Esa promesa ya está cerrada", "That promise is already closed", "Cette promesse est déjà close", "Dieses Versprechen ist schon abgeschlossen", "该承诺已结束"],
+  "squad.wage": ["Salario/sem.", "Wage/wk", "Salaire/sem.", "Gehalt/Wo.", "周薪"],
+  "dev.contract": ["{wage} €/semana · contrato hasta {date}", "€{wage}/week · contract until {date}", "{wage} €/semaine · contrat jusqu'au {date}", "{wage} €/Woche · Vertrag bis {date}", "周薪{wage}欧元 · 合同至{date}"],
+  "social.currentWage": ["Ahora cobra {wage} €/semana. No aceptará cobrar menos.", "He currently earns €{wage}/week. He won't accept less.", "Il gagne actuellement {wage} €/semaine. Il n'acceptera pas moins.", "Er verdient derzeit {wage} €/Woche. Weniger akzeptiert er nicht.", "他目前周薪{wage}欧元，不会接受降薪。"],
+  "squad.value": ["Valor", "Value", "Valeur", "Marktwert", "身价"],
+  "dev.value": ["Valor estimado: {value}", "Estimated value: {value}", "Valeur estimée : {value}", "Geschätzter Marktwert: {value}", "估计身价：{value}"],
 };

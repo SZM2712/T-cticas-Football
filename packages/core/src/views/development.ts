@@ -4,6 +4,7 @@
 
 import { scoutReportsView, type ScoutReportView } from "../development/scouting";
 import { fitnessOn, isInjured } from "../match/lineup";
+import { marketValue } from "../player/value";
 import { currentAbility } from "../player/ability";
 import type { World } from "../types/domain";
 import type { DevelopmentPlan, PlanAdherence, RetirementIntent } from "../types/development";
@@ -30,6 +31,10 @@ export interface PlayerDevelopmentView extends PlayerView {
   retiring: boolean;
   /** Posibles mentores: compañeros veteranos. */
   mentors: { id: PlayerId; name: string }[];
+  /** Contrato visible: salario semanal (€) y día en que vence (null si no tiene club). */
+  contract: { wage: number; expires: number } | null;
+  /** Valor de mercado estimado (€), solo con datos visibles. */
+  value: number;
 }
 
 export function playerDevelopmentView(world: World, id: PlayerId): PlayerDevelopmentView {
@@ -48,6 +53,8 @@ export function playerDevelopmentView(world: World, id: PlayerId): PlayerDevelop
     .map((m) => ({ id: m.id, name: m.knownAs ?? `${m.firstName} ${m.lastName}` }));
   return {
     ...base,
+    contract: p.contract ? { wage: p.contract.wage, expires: p.contract.expires } : null,
+    value: marketValue(p, day),
     level: Math.round(currentAbility(p) * 10) / 10,
     monthly: p.development.caMonthly.map((x) => x / 10),
     yearly: p.development.caYearly.map((x) => x / 10),

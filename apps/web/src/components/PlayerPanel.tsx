@@ -8,6 +8,7 @@ import { act, useView } from "../hooks";
 import { useT } from "../i18n";
 import { useUi } from "../store";
 import { SocialPanel } from "./SocialPanel";
+import { money } from "../format";
 
 const DEFAULT_PLAN: DevelopmentPlan = { focus: "balanced", intensity: "normal", diet: "standard", exercise: "none", sleep: "free" };
 
@@ -30,7 +31,7 @@ const stars = (n: number) => "★".repeat(Math.floor(n)) + (n % 1 ? "½" : "");
 
 /** Ficha de desarrollo: evolución, «¿por qué?», plan individual, staff y ojeadores. */
 export function PlayerPanel({ id }: { id: string }) {
-  const { t, nation } = useT();
+  const { t, nation, locale } = useT();
   const v = useView("player", { id }) as PlayerDevelopmentView | null;
   const [plan, setPlan] = useState<DevelopmentPlan>(DEFAULT_PLAN);
   const [msg, setMsg] = useState<string | null>(null);
@@ -66,6 +67,15 @@ export function PlayerPanel({ id }: { id: string }) {
         <h3>{v.name}</h3>
         <span>{t(`pos.${v.position}`)} · {t("dev.years", { n: v.age })} · {nation(v.nationality)} · {v.heightCm} cm · {v.weightKg} kg</span>
         <span className="hint">{t(`archetype.${v.archetype.primary}`)}</span>
+        <span>{t("dev.value", { value: money(v.value, locale) })}</span>
+        {v.contract && (
+          <span>
+            {t("dev.contract", {
+              wage: v.contract.wage.toLocaleString(locale),
+              date: new Date(Date.UTC(2000, 0, 1) + v.contract.expires * 86400000).toLocaleDateString(locale, { timeZone: "UTC" }),
+            })}
+          </span>
+        )}
         <button onClick={() => useUi.getState().set({ player: null })}>✕</button>
       </div>
       {v.retiring && <p className="bad"><strong>{t("retire.announced")}</strong></p>}
@@ -165,7 +175,7 @@ export function PlayerPanel({ id }: { id: string }) {
           <p className="hint">{t("dev.scoutsHelp")}</p>
         </section>
       </div>
-      <SocialPanel id={id} />
+      <SocialPanel id={id} wage={v.contract?.wage ?? null} />
     </div>
   );
 }

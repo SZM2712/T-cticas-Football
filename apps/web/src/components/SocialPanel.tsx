@@ -1,5 +1,5 @@
 import { TALK_TOPICS, type PlayerSocialView, type SymbolicRole, type TalkTopic } from "@tf/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { call } from "../client";
 import { act, useView } from "../hooks";
 import { useT } from "../i18n";
@@ -8,7 +8,7 @@ import { useConcernText } from "./Dressing";
 const ROLES: SymbolicRole[] = ["penalties", "freeKicks", "captain"];
 
 /** Vida en el vestuario de un jugador y conversación con él (solo si su club lo diriges tú). */
-export function SocialPanel({ id }: { id: string }) {
+export function SocialPanel({ id, wage: currentWage }: { id: string; wage: number | null }) {
   const { t, locale } = useT();
   const v = useView("playerSocial", { id }) as PlayerSocialView | null;
   const concern = useConcernText();
@@ -17,7 +17,9 @@ export function SocialPanel({ id }: { id: string }) {
   const [role, setRole] = useState<SymbolicRole>("penalties");
   const [other, setOther] = useState("");
   const [otherRole, setOtherRole] = useState<SymbolicRole>("freeKicks");
-  const [wage, setWage] = useState("");
+  const [wage, setWage] = useState(currentWage !== null ? String(currentWage) : "");
+  // Al cambiar de jugador (o tras renovar), el campo parte de su salario actual.
+  useEffect(() => setWage(currentWage !== null ? String(currentWage) : ""), [id, currentWage]);
   const [years, setYears] = useState(3);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   if (!v?.managed) return null;
@@ -129,6 +131,7 @@ export function SocialPanel({ id }: { id: string }) {
           <button onClick={() => run({ type: "setRoleTaker", role: "penalties", player: id as never })}>{t("social.penaltyTaker")}</button>
           <button onClick={() => run({ type: "setRoleTaker", role: "freeKicks", player: id as never })}>{t("social.freeKickTaker")}</button>
         </div>
+        {currentWage !== null && <p className="hint">{t("social.currentWage", { wage: currentWage.toLocaleString(locale) })}</p>}
         <div className="row">
           <label>
             {t("talk.wage")} <input value={wage} onChange={(e) => setWage(e.target.value.replace(/\D/g, ""))} size={9} />
