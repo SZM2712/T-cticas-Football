@@ -47,6 +47,26 @@ const MIGRATIONS: Record<number, Migration> = {
       s.attributes.conditioning ??= 8;
     }
   },
+  // v3 → v4 (Fase 4): vestuario. Mánagers humanos, relaciones, confianza, memoria episódica,
+  // promesas, buzón, estado del vestuario y sal de turno. Todo empieza vacío: el vestuario
+  // de un club se crea cuando un humano toma el mando.
+  3: (w) => {
+    w.managers ??= {};
+    w.relationships ??= {};
+    w.trust ??= {};
+    w.memories ??= {};
+    w.commitments ??= {};
+    w.inbox ??= [];
+    w.dressing ??= {};
+    w.salts ??= {};
+  },
+  // v4 → v5 (Fase 4, revisión): reuniones con la plantilla y apoyo a la táctica en cada vestuario.
+  4: (w) => {
+    for (const dr of Object.values(w.dressing as Record<string, Record<string, unknown>>)) {
+      dr.meetings ??= [];
+      dr.buyIn ??= {};
+    }
+  },
 };
 
 /** Lleva un estado guardado de cualquier versión anterior a la actual. */

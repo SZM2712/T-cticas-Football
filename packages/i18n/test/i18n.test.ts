@@ -78,3 +78,28 @@ describe("i18n del desarrollo", () => {
     for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
   });
 });
+
+describe("i18n del vestuario", () => {
+  it("niveles, ánimos, preocupaciones, recuerdos, buzón, promesas y conversación tienen texto", async () => {
+    const core = await import("@tf/core");
+    const keys = [
+      ...core.HIERARCHY_LEVELS.map((k) => `level.${k}`),
+      ...core.MEMORY_KINDS.map((k) => `memory.${k}`),
+      ...core.INBOX_KINDS.map((k) => `inbox.${k}`),
+      ...core.COMMITMENT_TYPES.map((k) => `commit.${k}`),
+      ...core.SYMBOLIC_ROLES.map((k) => `srole.${k}`),
+      ...core.TALK_TOPICS.flatMap((k) => [`topic.${k}`, `talk.${k}.ok`, `talk.${k}.bad`]),
+      ...["active", "atRisk", "kept", "broken", "renegotiated", "void"].map((k) => `commitStatus.${k}`),
+      ...["great", "good", "ok", "low", "awful"].map((k) => `mood.${k}`),
+      ...["high", "some", "doubts", "none"].map((k) => `trust.${k}`),
+      ...["good", "ok", "poor"].map((k) => `fit.${k}`),
+      ...["keyPlayer", "firstTeam", "rotation", "backup", "prospect"].map((k) => `sstatus.${k}`),
+      ...["private", "clique", "agent", "social", "public"].map((k) => `channel.${k}`),
+      ...["language", "nation", "veterans", "youngsters", "homegrown", "locals", "mixed"].map((k) => `clique.${k}`),
+      ...core.EGO_DYNAMICS.flatMap((d) => [`dynamic.${d.id}`, ...[1, 2, 3, 4, 5].map((s) => `concern.${d.id}.${s}`)]),
+      ...core.GOSSIP_KINDS.map((k) => `gossip.${k}`),
+      ...["technical", "mental", "physical", "goalkeeping"].map((k) => `attrGroup.${k}`),
+    ];
+    for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
+  });
+});

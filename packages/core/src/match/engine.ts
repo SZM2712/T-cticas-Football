@@ -18,6 +18,7 @@ import {
   STOPPAGE_SECOND, SUB_CONDITION, SUB_WINDOWS, TACTICAL_FOUL, TACTICAL_YELLOW_MULT, XG_BASE, YELLOW_PER_FOUL,
   CORNER_CROWD, CORNER_ROUTINES, FREE_KICK_DIRECT, INSTRUCTION_EFFECTS, LONG_THROW_BONUS,
 } from "../config/match";
+import { FIT_MATCH_EFFECT } from "../config/social";
 import type { Rng } from "../rng/rng";
 import { clamp } from "../util/math";
 import { ATTACKING_ROLES as ATTACKERS, DEFENDING_ROLES as DEFENDERS } from "./roles";
@@ -216,7 +217,7 @@ export class Sim {
   }
 
   private updateMult(p: Live): void {
-    p.mult = p.form * (CONDITION_FLOOR + (1 - CONDITION_FLOOR) * p.cond) * (0.85 + 0.15 * p.fam) * (1 + 0.04 * p.sp.morale);
+    p.mult = p.form * (CONDITION_FLOOR + (1 - CONDITION_FLOOR) * p.cond) * (0.85 + 0.15 * p.fam) * (1 + 0.04 * p.sp.morale) * (1 + FIT_MATCH_EFFECT * p.sp.fit);
   }
 
   // ── Utilidades de posición ────────────────────────────────────────────────

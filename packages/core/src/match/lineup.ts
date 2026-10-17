@@ -2,12 +2,17 @@
 // Disponibilidad (lesiones, sanciones), forma física con recuperación perezosa,
 // elección de formación por encaje con la plantilla y banquillo.
 
+import { matchSeedPath } from "../world/rng";
+import { fitOf } from "../social/fit";
+import { managerOf } from "../social/store";
+import { managerAuthority } from "../social/talk";
 import { RELATED_POSITIONS, type Position } from "../config/attributes";
 import { BENCH_SIZE, RECOVERY_PER_DAY } from "../config/match";
+import { BUYIN_AUTHORITY, BUYIN_DAYS } from "../config/social";
 import { POSITION_INDEX, abilityVector } from "../player/ability";
 import { fnv1a32 } from "../rng/hash";
 import type { Match, Player, World } from "../types/domain";
-import { isNationalTeamId, type CompetitionId, type GameDay, type TeamId } from "../types/ids";
+import { isNationalTeamId, type ClubId, type CompetitionId, type GameDay, type TeamId } from "../types/ids";
 import { clamp } from "../util/math";
 import { FORMATIONS, FORMATION_IDS, aiTactics, instructionCompliance, resolveTactics, teamStyle } from "./tactics";
 import { INSTRUCTION_KEYS, type InstructionKey } from "../types/tactics";
@@ -94,6 +99,16 @@ export function invalidateAbilityCache(): void {
   abilityEpoch++;
 }
 
+/** Invalida solo la de un jugador (el desarrollo diario toca a unos cientos cada día). */
+export function invalidatePlayerAbility(p: Player): void {
+  abilityCache.delete(p);
+}
+
+/** CA de un jugador en una posición, con caché. */
+export function abilityAt(p: Player, pos: Position): number {
+  return cachedAbility(p).ability[POSITION_INDEX[pos]]!;
+}
+
 const ORDER = Object.keys(POSITION_INDEX) as Position[];
 
 function cachedAbility(p: Player): CachedAbility {
@@ -104,6 +119,13 @@ function cachedAbility(p: Player): CachedAbility {
   const v = { ability: abilityVector(p), familiarity: fam };
   abilityCache.set(p, { epoch: abilityEpoch, v });
   return v;
+}
+
+/** Rendimiento esperado en un puesto: su CA ahí menos el desencaje si no es su sitio (sin cansancio). */
+export function roleRating(p: Player, role: Position): number {
+  const { ability, familiarity: fam } = cachedAbility(p);
+  const i = POSITION_INDEX[role];
+  return ability[i]! - (1 - fam[i]!) * 5;
 }
 
 function candidate(p: Player, day: GameDay): Candidate {
@@ -234,6 +256,13 @@ export function pickLineup(world: World, team: TeamId, day: GameDay, competition
  * y su mano con la gente. Sin técnico, autoridad media.
  */
 export function coachAuthority(world: World, team: TeamId, p: Player): number {
+  const mgr = isNationalTeamId(team) ? undefined : managerOf(world, team);
+  if (mgr) {
+    // Quien se comprometió a apoyar la táctica cumple mejor las instrucciones durante un tiempo.
+    const since = world.dressing[team as ClubId]?.buyIn[p.id];
+    const buyIn = since !== undefined && world.meta.today - since < BUYIN_DAYS ? BUYIN_AUTHORITY : 0;
+    return clamp(managerAuthority(world, mgr, p) + buyIn, 0, 1);
+  }
   const coachId = isNationalTeamId(team)
     ? world.nationalTeams[team]?.coachId
     : world.clubs[team]?.staff.find((id) => world.staff[id]?.role === "headCoach");
@@ -243,7 +272,7 @@ export function coachAuthority(world: World, team: TeamId, p: Player): number {
 }
 
 function sheetPlayer(
-  p: Player, role: Position | null, day: GameDay, ability: number, instructions: InstructionKey[], authority: number,
+  p: Player, role: Position | null, day: GameDay, ability: number, instructions: InstructionKey[], authority: number, fit: number,
 ): SheetPlayer {
   const compliance = {} as Record<InstructionKey, number>;
   for (const key of INSTRUCTION_KEYS) compliance[key] = instructionCompliance(p, key, authority);
@@ -259,6 +288,7 @@ function sheetPlayer(
     injuryProneness: clamp(p.hidden.injuryProneness + p.development.injuryRiskDelta, 1, 20),
     temperament: p.hidden.temperament,
     morale: p.state.morale,
+    fit,
     ability,
     instructions,
     compliance,
@@ -274,8 +304,10 @@ export function teamSheet(
   const ids = new Set([...lineup.xi, ...lineup.bench].map((p) => p.id as string));
   tactics.instructions = tactics.instructions.filter((i) => ids.has(i.player));
   const instructionsOf = (p: Player) => tactics.instructions.filter((i) => i.player === p.id).map((i) => i.key);
+  // Encaje (§5.5): solo en clubes dirigidos por humanos, donde existe el vestuario.
+  const managed = !isNationalTeamId(team) && !!world.dressing[team];
   const sheet = (p: Player, role: Position | null) =>
-    sheetPlayer(p, role, day, lineup.ability.get(p.id) ?? 10, instructionsOf(p), coachAuthority(world, team, p));
+    sheetPlayer(p, role, day, lineup.ability.get(p.id) ?? 10, instructionsOf(p), coachAuthority(world, team, p), managed ? fitOf(world, p, team).total : 0);
   const out: TeamSheet = {
     team,
     tactics,
@@ -328,7 +360,7 @@ export function buildMatchInput(world: World, m: Match, aggregate?: [number, num
   const h = pickLineup(world, m.home, m.day, m.competitionId, planH);
   const a = pickLineup(world, m.away, m.day, m.competitionId, planA);
   const input: MatchInput = {
-    seedPath: `match/${m.id}`,
+    seedPath: matchSeedPath(world, m),
     home: teamSheet(world, h, m.home, a.level, !m.neutral, m.day, planH),
     away: teamSheet(world, a, m.away, h.level, false, m.day, planA),
     neutral: m.neutral,

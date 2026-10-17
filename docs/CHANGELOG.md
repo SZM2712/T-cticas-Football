@@ -1,5 +1,67 @@
 # Cambios por fase
 
+## Fase 4 — Vestuario y ego (rama `claude/fase-4-vestuario`)
+
+### Qué hay
+- **Elegir el once titular sobre el campo** (Táctica → Alineación titular):
+  - Se pulsa un puesto del dibujo y luego un jugador de la lista; si ya jugaba, se intercambian.
+  - La lista se ordena por **estrellas en ese puesto**: 3 estrellas es rendir como el once titular medio, y cada estrella más o menos equivale a 1,5 niveles. Las estrellas usan el mismo cálculo que el motor (nivel en el puesto menos el desencaje).
+  - Cada jugador muestra los **puestos que domina**: natural, lo domina, se defiende o no convence. Muchos son polivalentes, mejor en unos puestos que en otros.
+  - Hay botón para volver al once sugerido o dejar que lo elija el cuerpo técnico.
+  - Si el elegido está lesionado o sancionado el día del partido, el cuerpo técnico lo sustituye.
+- **Desarrollo más realista** (DISEÑO §4.3.1): el encaje (sobre todo la táctica y el mánager) acelera o frena el crecimiento. Los prodigios ya no triunfan casi siempre: sin minutos reales o con mal encaje, su techo se erosiona. Los adultos que no son de élite pueden **florecer tarde** si la táctica y el técnico les van bien.
+- **Datos reales con nombres oficiales**: Premier League, LaLiga, Serie A, Bundesliga, Ligue 1, sus segundas divisiones y copas, y las competiciones UEFA (`packages/data/src/real/competitions.ts`). El mundo ficticio sigue con nombres genéricos.
+- **Reunión con la plantilla** (Vestuario): la primera es tu **presentación**. Anuncias estilo, objetivo y forma de llevar el grupo, y cada jugador te dice si está de acuerdo, con dudas o en contra, y por qué (el estilo, el objetivo, tu forma de gestionar, la confianza o su líder). El líder más influyente habla por el grupo. Deja confianza, moral y recuerdos. Se puede repetir cada 4 semanas.
+- **Pedirle que apoye tu táctica** (nuevo tema de conversación): si acepta, cumple mejor tus instrucciones durante 3 meses, y si es líder arrastra a su grupo.
+- **Negociar minutos**: el jugador dice cuántas titularidades pide. Si te quedas corto, contraoferta y puedes aceptarla. Si te quedas muy corto, se ofende y lo recuerda.
+- Formato del estado: SAVE_VERSION 5 (reuniones y apoyo a la táctica) con migración v4 → v5. El hash de referencia cambia solo por la versión (con saveVersion 4 da el anterior).
+- **«Nueva partida» pasa a Ajustes** (⚙): idioma y «Reiniciar carrera» (semilla y datos reales), con confirmación.
+- **Tomar el mando de un club** (mánager humano). Varios humanos pueden dirigir clubes distintos en el mismo mundo, y cada uno solo actúa sobre el suyo.
+- **Grafo social del vestuario**: afinidad, respeto, rivalidad y envidia entre compañeros, que cambian cada semana.
+- **Jerarquía** (líderes, influyentes, núcleo, periferia, marginados) y **camarillas** con nombre (los de casa, los veteranos, los de habla portuguesa…).
+- **Moral contagiosa**, felicidad, estatus esperado frente al percibido y confianza en el mánager.
+- **Memoria episódica**: cada jugador recuerda lo que le haces, y lo malo dura más en quien tiene ego.
+- **Tres dinámicas de ego** con escalera común. Primero parece molesto, luego quiere hablar, después mueve a su agente o lanza indirectas en redes, se queja en público y, al final, pide salir:
+  - celos salariales;
+  - estatus prometido frente a real;
+  - dos gallos en el mismo corral.
+- **Promesas rastreables**: toda promesa en una conversación queda registrada con su plazo y la acción que la cumple. Romperla tiene consecuencias, también en los testigos.
+- **Conversaciones**: elogiar, exigir, explicar su papel, prometer minutos, papel o renovación, y pactar roles entre gallos. **El jugador decide** cómo se lo toma.
+- **Decisiones**: capitán, lanzadores y renovación.
+- **Encaje** (táctico, cultural, social y contigo): ±5 % de rendimiento en partido.
+- **Buzón** con todo lo que pasa en el vestuario.
+- **Preparación multijugador**: autor en cada comando, varios mánagers y sal de turno en la semilla de los partidos.
+- **Rendimiento**:
+  - el desarrollo mensual se reparte por días;
+  - caché de nivel por jugador;
+  - con humanos en la partida, el motor completo solo en sus partidos y en las selecciones con jugadores suyos.
+  - El avance de día pasa de 215 ms a 55 ms en el percentil 90 (Node) y las 20 temporadas de simulación, de 283 s a 188 s.
+- **Estado v4** con migración.
+- **Niños prodigio (wonderkids)** (petición del usuario): cada temporada sale un canterano de 16–17 años con un nivel muy alto para su edad y techo de estrella (el mundo inicial trae 5). El cupo de élite no les recorta el techo, aunque no todos triunfan.
+- **Salario y valor de mercado visibles** (petición del usuario): en la plantilla y en la ficha se ven el salario semanal, el fin de contrato y un valor de mercado estimado. El valor sale solo de datos visibles (nivel, edad, reputación y años de contrato); el mercado completo llega en la Fase 6. Al renovar, el campo parte del salario actual.
+- **Ficha del jugador** (peticiones del usuario):
+  - se abre al pulsar cualquier nombre (plantilla, vestuario, buzón, goleadores, camarillas, chismes) en una ventana encima de la pestaña, que se cierra con Esc;
+  - gráfica de habilidades por grupo (técnica, mental, física; los porteros, las de portería).
+- **Elegir club al empezar** (petición del usuario):
+  - al abrir el juego o empezar una partida se abre el selector de club: liga, prestigio, nivel, estadio y presupuesto;
+  - en el mismo selector se elige **mundo real (clubes y jugadores 2026/27) o ficticio**, y el juego recuerda la elección. Por la regla 7, el núcleo sigue siendo ficticio por defecto;
+  - en la cabecera siempre está «Tu club», con acceso directo.
+- **Vestuario más visible**: líderes, camarillas y **chismes** (piques, quejas, indirectas en redes, quién sale de noche, quién pasa de tus instrucciones, promesas rotas, prodigios de la cantera…).
+- **Salario aceptado**: quien acaba de firmar no se queja de su salario durante un año, salvo que después llegue o renueve un compañero que cobre más.
+- **Élite dentro de ±12 %** (criterio del usuario):
+  - la «generación que viene» se dimensiona con las salidas previstas por la edad de los cracks;
+  - si faltan cracks, los jóvenes que llegarían antes reciben techo de élite;
+  - fuera de ±6 %, un ajuste de cierre sobre unos pocos jugadores en el límite (eventos `player.agingToll` y `player.breakthrough`);
+  - la experiencia ya no lleva a nadie por encima de su techo.
+  - Resultado: 49–54 frente a 52 en 20 temporadas (antes, ±29 %).
+
+### Balance (`docs/balance/fase4.md`)
+- Los 8 escenarios guionizados están dentro de rango en 200 semillas cada uno.
+- Un vestuario desatendido 4 meses da señales y alguna queja, pero ninguna petición de salida.
+- Avance de día en el navegador: p50 14 ms y p90 51 ms sin limitar la CPU. Con ×4 se estima ≈ 56 ms y ≈ 204 ms (la limitación de Chromium no llega al Worker, así que se estima multiplicando).
+- Partidos sin cambios. Desarrollo: P50, P95 y P99 en rango, y la élite ya cumple el ±12 % (desviación máxima 5,8 %).
+- El hash del mundo de referencia cambia por los campos nuevos del estado v4 y por los niños prodigio del mundo inicial.
+
 ## Fase 3 — Desarrollo (rama `claude/fase-3-desarrollo`)
 
 ### Qué hay

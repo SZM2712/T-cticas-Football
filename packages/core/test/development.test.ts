@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import {
   ageOn, applyCommand, currentAbility, dayOf, exactAge, generateWorld, hashValue, monthlyDevelopment, newGame,
   observe, planEffects, playerDevelopmentView, rollAdherence, scoutReportsView, seasonTurnover, staffQuality,
-  worldRng, type DevelopmentPlan, type GameDay, type Player, type PlayerId, type Staff, type World,
+  marketValue, worldRng, WONDERKID_CEILING, WONDERKIDS_AT_START, WONDERKIDS_PER_YEAR, type DevelopmentPlan, type GameDay, type Player, type PlayerId, type Staff, type World,
 } from "../src";
 
 let base: World;
@@ -50,6 +50,52 @@ describe("desarrollo mensual", () => {
     };
     expect(gain(true)).toBeGreaterThan(gain(false) + 0.15);
     expect(gain(true)).toBeGreaterThan(0.3);
+  });
+
+  it("un prodigio que no juega ve caer su techo; si juega, lo conserva o lo sube", () => {
+    const run = (minutes: number) => {
+      const w = clone(base);
+      const kids = Object.values(w.players).filter((p) => p.development.prodigy);
+      const start = new Map(kids.map((p) => [p.id, p.development.latentCeiling]));
+      for (let m = 0; m < 24; m++) {
+        // El resto del mundo juega lo normal: el entorno se mide respecto a la media.
+        for (const p of Object.values(w.players)) p.development.monthMinutes = 300;
+        for (const p of kids) p.development.monthMinutes = minutes;
+        monthlyDevelopment(w, monthDay(w, m));
+      }
+      return kids.reduce((s, p) => s + w.players[p.id]!.development.latentCeiling - start.get(p.id)!, 0) / kids.length;
+    };
+    const benched = run(0);
+    const playing = run(450);
+    expect(benched).toBeLessThan(-0.5);
+    expect(playing).toBeGreaterThan(benched + 1);
+  });
+
+  it("un adulto que encaja con la táctica y el técnico y juega puede florecer; uno que no, no", () => {
+    const w = clone(base);
+    const club = Object.values(w.clubs).find((c) => c.leagueId)!;
+    expect(applyCommand(w, { type: "takeCharge", club: club.id, name: "Stefan" }).ok).toBe(true);
+    const mgr = Object.keys(w.managers)[0]!;
+    const adults = club.squad.map((id) => w.players[id]!).filter((p) => { const a = ageOn(p.birthDay, w.meta.today); return a >= 24 && a <= 30; });
+    const good = new Set(adults.filter((_, i) => i % 2 === 0).map((p) => p.id));
+    const start = new Map(adults.map((p) => [p.id, { ca: currentAbility(p), ceil: p.development.latentCeiling }]));
+    for (const p of adults) w.trust[`${p.id}|${mgr}`] = { trust: good.has(p.id) ? 1 : -1, sinceDay: w.meta.today };
+    for (let m = 0; m < 12; m++) {
+      for (const p of Object.values(w.players)) p.development.monthMinutes = 300;
+      for (const p of adults) p.development.monthMinutes = good.has(p.id) ? 450 : 0;
+      monthlyDevelopment(w, monthDay(w, m));
+    }
+    const mean = (yes: boolean, f: (id: PlayerId) => number) => {
+      const list = adults.filter((p) => good.has(p.id) === yes);
+      return list.reduce((s, p) => s + f(p.id), 0) / list.length;
+    };
+    const ceil = (id: PlayerId) => w.players[id]!.development.latentCeiling - start.get(id)!.ceil;
+    const ca = (id: PlayerId) => currentAbility(w.players[id]!) - start.get(id)!.ca;
+    expect(mean(true, ceil)).toBeGreaterThan(0.15);
+    expect(mean(false, ceil)).toBeLessThan(0.1);
+    expect(mean(true, ceil)).toBeGreaterThan(mean(false, ceil) + 0.15);
+    expect(mean(true, ca)).toBeGreaterThan(mean(false, ca) + 0.12);
+    expect(adults.some((p) => good.has(p.id) && w.players[p.id]!.development.recentFactors.some((f) => f.key === "bloom"))).toBe(true);
   });
 
   it("los veteranos pierden físico con los años", () => {
@@ -174,6 +220,35 @@ describe("relevo generacional", () => {
   });
 });
 
+describe("niños prodigio (wonderkids)", () => {
+  it("el mundo inicial trae algunos: jóvenes con techo alto", () => {
+    const kids = Object.values(base.players).filter((p) => p.development.prodigy);
+    expect(kids.length).toBe(WONDERKIDS_AT_START);
+    for (const p of kids) {
+      expect(ageOn(p.birthDay, base.meta.today)).toBeLessThanOrEqual(18);
+      expect(p.development.latentCeiling).toBeGreaterThanOrEqual(WONDERKID_CEILING[0]);
+    }
+  });
+
+  it("cada temporada sale alguno de 16–17 años con nivel alto para su edad, y queda registrado", () => {
+    const w = clone(base);
+    w.meta.today = dayOf(w.meta.startYear + 1, 7, 1);
+    seasonTurnover(w, w.meta.startYear);
+    const events = w.events.filter((e) => e.type === "player.prodigy");
+    expect(events.length).toBe(WONDERKIDS_PER_YEAR);
+    for (const e of events) {
+      const p = w.players[e.data.player as string]!;
+      expect(p.development.prodigy).toBe(true);
+      expect(ageOn(p.birthDay, w.meta.today)).toBeLessThanOrEqual(17);
+      expect(currentAbility(p)).toBeGreaterThanOrEqual(12);
+      // El cupo de élite no les recorta el techo.
+      expect(p.development.latentCeiling).toBeGreaterThanOrEqual(WONDERKID_CEILING[0]);
+      // Nada lo delata como número: la ficha no expone el techo ni la marca.
+      expect(JSON.stringify(playerDevelopmentView(w, p.id as PlayerId))).not.toMatch(/prodigy|latentCeiling/);
+    }
+  });
+});
+
 describe("vistas", () => {
   it("la ficha de desarrollo nunca expone el techo latente ni rasgos ocultos", () => {
     const w = clone(base);
@@ -216,5 +291,24 @@ describe("retiradas anticipadas", () => {
     expect(decision.data.approach).toBe("support");
     expect(["retire", "stay"]).toContain(decision.data.decision);
     if (decision.data.decision === "retire") expect(p.retiring).toBe(true);
+  });
+});
+
+describe("valor de mercado y salario visibles", () => {
+  it("el valor sube con el nivel, baja con la edad y la ficha muestra salario y valor", () => {
+    const w = clone(base);
+    const day = w.meta.today;
+    const p = Object.values(w.players).find((x) => x.clubId && x.contract && ageOn(x.birthDay, day) === 25)!;
+    const v0 = marketValue(p, day);
+    const better = clone({ ...w, players: { [p.id]: p } } as World).players[p.id]!;
+    for (const k of Object.keys(better.technical) as (keyof Player["technical"])[]) better.technical[k] = Math.min(20, better.technical[k] + 1);
+    for (const k of Object.keys(better.mental) as (keyof Player["mental"])[]) better.mental[k] = Math.min(20, better.mental[k] + 1);
+    for (const k of Object.keys(better.physical) as (keyof Player["physical"])[]) better.physical[k] = Math.min(20, better.physical[k] + 1);
+    expect(marketValue(better, day)).toBeGreaterThan(v0);
+    const older = { ...p, birthDay: (p.birthDay - 8 * 365) as GameDay };
+    expect(marketValue(older, day)).toBeLessThan(v0);
+    const view = playerDevelopmentView(w, p.id as PlayerId);
+    expect(view.contract?.wage).toBe(p.contract!.wage);
+    expect(view.value).toBe(v0);
   });
 });

@@ -22,9 +22,12 @@ export function abilityFor(attrs: AttributeMap, position: Position): number {
   return total ? sum / total : 0;
 }
 
-/** CA en la posición natural del jugador. */
+/** CA en la posición natural del jugador (pesos precompilados: misma suma, sin mapa intermedio). */
 export function currentAbility(p: Player): number {
-  return abilityFor(attributeMap(p), p.position);
+  const c = COMPILED[POSITION_INDEX[p.position]]!;
+  let sum = 0;
+  for (const k of c.keys) sum += k.w * (p[k.group] as Record<string, number>)[k.key]!;
+  return c.total ? sum / c.total : 0;
 }
 
 /** Mejor CA entre las posiciones que el jugador domina (familiaridad ≥ 0.75). */

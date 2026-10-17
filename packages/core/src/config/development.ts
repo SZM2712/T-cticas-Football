@@ -40,6 +40,50 @@ export const ADULT_DRIFT_MULT = 0;
  */
 export const MAX_CEILING = 20;
 
+// ── Encaje: táctica, mánager, cultura y vestuario ───────────────────────────
+/**
+ * El encaje total (−1..1, `social/fit.ts`) entra en el entorno que mueve el techo y en el
+ * ritmo de crecimiento: un jugador en su puesto, con un técnico que confía en él y a gusto en
+ * el vestuario progresa más; uno descolocado o enfrentado con el mánager se estanca.
+ */
+export const FIT_ENV_WEIGHT = 0.3;
+/**
+ * Peso de cada parte del encaje en el desarrollo: aquí mandan la táctica (jugar en su sitio) y
+ * el mánager (que confíe en él); en el partido pesa más lo cultural y social (`config/social.ts`).
+ * Sin mánager humano la parte del mánager es neutra.
+ */
+export const DEV_FIT_WEIGHTS = { tactical: 0.4, manager: 0.35, social: 0.15, cultural: 0.1 } as const;
+/** Multiplicador del crecimiento mensual: × (1 + FIT_GROWTH × encaje). */
+export const FIT_GROWTH = 0.25;
+/**
+ * Prodigios: su techo es una promesa, no un destino. Un buen entorno la sostiene (no la agranda);
+ * uno malo la erosiona PRODIGY_DRIFT_MULT veces más deprisa que a un canterano normal. Cuentan sus
+ * minutos reales (sin el suelo de filial): un prodigio sin minutos, mal encajado o poco
+ * profesional se queda por el camino.
+ */
+export const PRODIGY_DRIFT_MULT = 8;
+/** La cabeza del prodigio: su profesionalidad (0..1, centrada en 0,5) suma o resta al entorno. */
+export const PRODIGY_ATTITUDE = 0.4;
+/** Edad hasta la que un prodigio sigue dependiendo así del entorno. */
+export const PRODIGY_MAX_AGE = 23;
+/**
+ * Florecimiento tardío: entre LATE_BLOOM_AGE, un jugador que aún no es de élite, que juega casi
+ * siempre (minutos ≥ LATE_BLOOM_MINUTES) y encaja con la táctica y el técnico claramente mejor que
+ * la media (encaje − media > LATE_BLOOM_MIN_FIT) puede subir su techo (solo hacia arriba) hasta
+ * LATE_BLOOM_HEADROOM por encima de su nivel y crecer aunque su edad ya no ayude.
+ */
+export const LATE_BLOOM_AGE: readonly [number, number] = [22, 32];
+export const LATE_BLOOM_MAX_CA = 15;
+export const LATE_BLOOM_MINUTES = 0.7;
+export const LATE_BLOOM_MIN_FIT = 0.1;
+/** Encaje (sobre el umbral) con el que el florecimiento es pleno. */
+export const LATE_BLOOM_FULL = 0.2;
+/** Techo que gana al mes con florecimiento pleno (× mentalidad de crecimiento). */
+export const LATE_BLOOM_DRIFT = 0.06;
+export const LATE_BLOOM_HEADROOM = 1.2;
+/** Curva de edad mínima para un adulto que florece: × intensidad del florecimiento (0..1). */
+export const LATE_BLOOM_AGE_FACTOR = 0.5;
+
 // ── Declive ─────────────────────────────────────────────────────────────────
 
 /** Atributos físicos que más sufren con la edad. */
@@ -153,13 +197,45 @@ export const ELITE_INFLOW_PER_YEAR = 7;
  */
 export const ELITE_PIPELINE_START = 15;
 /**
- * Realimentación del cupo anterior: proporción objetivo de jugadores con club en la élite
- * (CA ≥ ELITE_CA) y cuánto se agranda o encoge la "generación que viene" según la
- * desviación relativa (ganancia 4: un 10 % de exceso recorta el cupo un 40 %). Sin esto,
- * las oleadas de edad de la cantera hacen oscilar la élite ±40 % en 20 temporadas.
+ * Control de la élite (criterio del usuario: dentro de ±12 % en 20 temporadas). La "generación
+ * que viene" (techo de élite, aún por debajo) se dimensiona para que, dentro de unos años, haya
+ * ELITE_TARGET_SHARE de cracks entre los jugadores con club: objetivo − élite actual + salidas
+ * previstas por edad. Anticiparse así evita el retraso de 3–5 años de la cantera, que hacía oscilar
+ * la élite ±30–40 %. Si sobran, se recorta; si faltan, se da techo de élite a los jóvenes que por
+ * nivel y edad llegarían antes.
  */
-export const ELITE_TARGET_SHARE = 0.0032;
-export const ELITE_FEEDBACK = 4;
+export const ELITE_TARGET_SHARE = 0.0031;
+/**
+ * Probabilidad de que un crack deje de serlo en los próximos ~3 años según su edad: la "generación
+ * que viene" debe cubrir esas salidas (objetivo − élite + salidas previstas).
+ */
+/** Banda de la élite (±) fuera de la cual actúa el ajuste de cierre de temporada. */
+export const ELITE_BAND = 0.06;
+/** Ese ajuste solo toca a jugadores a menos de esto del umbral de élite. */
+export const ELITE_NUDGE_MAX = 0.8;
+/** Fracción de la diferencia con el objetivo que se corrige cada temporada (amortigua el exceso tras un bache). */
+export const ELITE_CONTROL_GAIN = 0.7;
+export const ELITE_EXIT_BY_AGE: readonly (readonly [number, number])[] = [[26, 0.05], [29, 0.25], [31, 0.6], [33, 0.9], [35, 1]];
+/** Crecimiento esperado en un año según la edad (para saber quién llegaría antes). */
+export const NEAR_ELITE_GROWTH: readonly (readonly [number, number])[] = [[17, 2.4], [19, 2.2], [21, 1.8], [23, 1.2], [25, 0.6], [27, 0.2], [30, 0]];
+export const NEAR_ELITE_MAX_AGE = 28;
+/** Solo candidatos que quedarían a menos de esto de la élite. */
+export const NEAR_ELITE_SLACK = 0.3;
+/** Techo que reciben: ELITE_CA + MARGIN (+ hasta 0,6). */
+export const NEAR_ELITE_MARGIN = 0.4;
+
+// ── Niños prodigio (wonderkids) ─────────────────────────────────────────────
+/**
+ * Cada temporada sale algún canterano de 16–17 años con un nivel muy alto para su edad y un
+ * techo que puede ser de estrella (no todos triunfan: el techo va de 15,5 a 19,5 y luego
+ * cuentan los minutos, el entrenamiento y su cabeza); más probable en clubes con buena cantera. Cuentan dentro del cupo de élite
+ * (tienen el techo más alto, así que siempre lo conservan). El mundo inicial ya trae algunos.
+ */
+export const WONDERKIDS_PER_YEAR = 1;
+export const WONDERKIDS_AT_START = 5;
+export const WONDERKID_AGE: readonly [number, number] = [16, 17];
+export const WONDERKID_CA: readonly [number, number] = [12.5, 14.5];
+export const WONDERKID_CEILING: readonly [number, number] = [15.5, 19.5];
 /** Canteranos extra por club jugable al año (además de cubrir bajas). */
 export const INTAKE_EXTRA = 1;
 /** Tamaño máximo de plantilla: los más flojos sin minutos salen del club (agentes libres). */
@@ -192,3 +268,10 @@ export const RETIRE_AGE_MONTHLY = 0.04;
 export const RETIRE_DECISION_DAYS = 28;
 /** Probabilidad base de retirarse según el motivo. */
 export const RETIRE_BASE: Record<"injury" | "personal" | "age", number> = { injury: 0.55, personal: 0.6, age: 0.65 };
+
+// ── Reparto del tick mensual ────────────────────────────────────────────────
+/**
+ * El desarrollo mensual de cada jugador ocurre en "su" día del mes (1–28, por hash del id):
+ * así ningún día carga con los 16.000 jugadores a la vez (avance de día < 200 ms en móvil).
+ */
+export const DEV_SPREAD_DAYS = 28;

@@ -9,3 +9,12 @@ export function worldRng(world: World): Rng {
   if (!rng) cache.set(world, (rng = Rng.create(world.meta.seed)));
   return rng;
 }
+
+/**
+ * Ruta del stream de un partido. En multijugador entra la sal del día (secreta hasta cerrarlo,
+ * DISEÑO §11.3) para que nadie pueda ensayar su partido en casa; sin sal, la ruta de siempre.
+ */
+export function matchSeedPath(world: World, m: { id: string; day: number }): string {
+  const salt = world.salts[String(m.day)];
+  return salt ? `match/${salt}/${m.id}` : `match/${m.id}`;
+}
