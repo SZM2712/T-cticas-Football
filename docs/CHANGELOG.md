@@ -3,7 +3,15 @@
 ## Fase 4 — Vestuario y ego (rama `claude/fase-4-vestuario`)
 
 ### Qué hay
-- **Elegir el once titular** (Táctica → Alineación titular): once sugerido por formación, un selector por puesto (elegir a uno que ya juega los intercambia) y botón para volver al sugerido. Si el elegido está lesionado o sancionado el día del partido, el cuerpo técnico lo sustituye.
+- **Elegir el once titular sobre el campo** (Táctica → Alineación titular):
+  - Se pulsa un puesto del dibujo y luego un jugador de la lista; si ya jugaba, se intercambian.
+  - La lista se ordena por **estrellas en ese puesto**: 3 estrellas es rendir como el once titular medio, y cada estrella más o menos equivale a 1,5 niveles. Las estrellas usan el mismo cálculo que el motor (nivel en el puesto menos el desencaje).
+  - Cada jugador muestra los **puestos que domina**: natural, lo domina, se defiende o no convence. Muchos son polivalentes, mejor en unos puestos que en otros.
+  - Hay botón para volver al once sugerido o dejar que lo elija el cuerpo técnico.
+  - Si el elegido está lesionado o sancionado el día del partido, el cuerpo técnico lo sustituye.
+- **Desarrollo más realista** (DISEÑO §4.3.1): el encaje (sobre todo la táctica y el mánager) acelera o frena el crecimiento. Los prodigios ya no triunfan casi siempre: sin minutos reales o con mal encaje, su techo se erosiona. Los adultos que no son de élite pueden **florecer tarde** si la táctica y el técnico les van bien.
+- **Datos reales con nombres oficiales**: Premier League, LaLiga, Serie A, Bundesliga, Ligue 1, sus segundas divisiones y copas, y las competiciones UEFA (`packages/data/src/real/competitions.ts`). El mundo ficticio sigue con nombres genéricos.
+- **«Nueva partida» pasa a Ajustes** (⚙): idioma y «Reiniciar carrera» (semilla y datos reales), con confirmación.
 - **Tomar el mando de un club** (mánager humano). Varios humanos pueden dirigir clubes distintos en el mismo mundo, y cada uno solo actúa sobre el suyo.
 - **Grafo social del vestuario**: afinidad, respeto, rivalidad y envidia entre compañeros, que cambian cada semana.
 - **Jerarquía** (líderes, influyentes, núcleo, periferia, marginados) y **camarillas** con nombre (los de casa, los veteranos, los de habla portuguesa…).

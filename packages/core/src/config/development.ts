@@ -40,6 +40,50 @@ export const ADULT_DRIFT_MULT = 0;
  */
 export const MAX_CEILING = 20;
 
+// ── Encaje: táctica, mánager, cultura y vestuario ───────────────────────────
+/**
+ * El encaje total (−1..1, `social/fit.ts`) entra en el entorno que mueve el techo y en el
+ * ritmo de crecimiento: un jugador en su puesto, con un técnico que confía en él y a gusto en
+ * el vestuario progresa más; uno descolocado o enfrentado con el mánager se estanca.
+ */
+export const FIT_ENV_WEIGHT = 0.3;
+/**
+ * Peso de cada parte del encaje en el desarrollo: aquí mandan la táctica (jugar en su sitio) y
+ * el mánager (que confíe en él); en el partido pesa más lo cultural y social (`config/social.ts`).
+ * Sin mánager humano la parte del mánager es neutra.
+ */
+export const DEV_FIT_WEIGHTS = { tactical: 0.4, manager: 0.35, social: 0.15, cultural: 0.1 } as const;
+/** Multiplicador del crecimiento mensual: × (1 + FIT_GROWTH × encaje). */
+export const FIT_GROWTH = 0.25;
+/**
+ * Prodigios: su techo es una promesa, no un destino. Un buen entorno la sostiene (no la agranda);
+ * uno malo la erosiona PRODIGY_DRIFT_MULT veces más deprisa que a un canterano normal. Cuentan sus
+ * minutos reales (sin el suelo de filial): un prodigio sin minutos, mal encajado o poco
+ * profesional se queda por el camino.
+ */
+export const PRODIGY_DRIFT_MULT = 8;
+/** La cabeza del prodigio: su profesionalidad (0..1, centrada en 0,5) suma o resta al entorno. */
+export const PRODIGY_ATTITUDE = 0.4;
+/** Edad hasta la que un prodigio sigue dependiendo así del entorno. */
+export const PRODIGY_MAX_AGE = 23;
+/**
+ * Florecimiento tardío: entre LATE_BLOOM_AGE, un jugador que aún no es de élite, que juega casi
+ * siempre (minutos ≥ LATE_BLOOM_MINUTES) y encaja con la táctica y el técnico claramente mejor que
+ * la media (encaje − media > LATE_BLOOM_MIN_FIT) puede subir su techo (solo hacia arriba) hasta
+ * LATE_BLOOM_HEADROOM por encima de su nivel y crecer aunque su edad ya no ayude.
+ */
+export const LATE_BLOOM_AGE: readonly [number, number] = [22, 32];
+export const LATE_BLOOM_MAX_CA = 15;
+export const LATE_BLOOM_MINUTES = 0.7;
+export const LATE_BLOOM_MIN_FIT = 0.1;
+/** Encaje (sobre el umbral) con el que el florecimiento es pleno. */
+export const LATE_BLOOM_FULL = 0.2;
+/** Techo que gana al mes con florecimiento pleno (× mentalidad de crecimiento). */
+export const LATE_BLOOM_DRIFT = 0.06;
+export const LATE_BLOOM_HEADROOM = 1.2;
+/** Curva de edad mínima para un adulto que florece: × intensidad del florecimiento (0..1). */
+export const LATE_BLOOM_AGE_FACTOR = 0.5;
+
 // ── Declive ─────────────────────────────────────────────────────────────────
 
 /** Atributos físicos que más sufren con la edad. */

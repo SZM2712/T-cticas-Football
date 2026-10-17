@@ -120,6 +120,13 @@ function cachedAbility(p: Player): CachedAbility {
   return v;
 }
 
+/** Rendimiento esperado en un puesto: su CA ahí menos el desencaje si no es su sitio (sin cansancio). */
+export function roleRating(p: Player, role: Position): number {
+  const { ability, familiarity: fam } = cachedAbility(p);
+  const i = POSITION_INDEX[role];
+  return ability[i]! - (1 - fam[i]!) * 5;
+}
+
 function candidate(p: Player, day: GameDay): Candidate {
   const { ability, familiarity: fam } = cachedAbility(p);
   const fitness = fitnessOn(p, day);

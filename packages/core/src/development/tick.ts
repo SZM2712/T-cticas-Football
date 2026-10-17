@@ -6,12 +6,15 @@ import {
   ADULT_DRIFT_MULT, AGE_GROWTH_CURVE, CEILING_DRIFT, CEILING_NOISE, CRITICAL_WINDOW, CRITICAL_WINDOW_MULT, DECLINING_PHYSICAL, EXPERIENCE_ATTRS,
   EXPERIENCE_GAIN, FOCUS_ATTRS, FOCUS_BOOST, FULL_MINUTES, GAP_HALF, YOUTH_MINUTES_FLOOR, IRRELEVANT_GROWTH, MAX_CEILING, MENTOR_MIN_AGE,
   MENTOR_TRAITS, MENTOR_TRANSFER, MONTH_LUCK_SD, MONTHLY_GROWTH, PHYSICAL_DECLINE, SERIOUS_INJURY_DAYS,
-  DEV_SPREAD_DAYS, SLEEP_CONSISTENCY, TECHNICAL_DECLINE, TECHNICAL_DECLINE_AGE,
+  DEV_FIT_WEIGHTS, DEV_SPREAD_DAYS, FIT_ENV_WEIGHT, FIT_GROWTH, LATE_BLOOM_AGE, LATE_BLOOM_AGE_FACTOR, LATE_BLOOM_DRIFT, LATE_BLOOM_FULL, LATE_BLOOM_HEADROOM, LATE_BLOOM_MAX_CA,
+  LATE_BLOOM_MIN_FIT, LATE_BLOOM_MINUTES,
+  PRODIGY_ATTITUDE, PRODIGY_DRIFT_MULT, PRODIGY_MAX_AGE, SLEEP_CONSISTENCY, TECHNICAL_DECLINE, TECHNICAL_DECLINE_AGE,
 } from "../config/development";
 import { attributeShape } from "../gen/player";
 import { coachAuthority, invalidatePlayerAbility } from "../match/lineup";
 import { POSITION_LINE } from "../config/attributes";
 import { currentAbility } from "../player/ability";
+import { fitOf } from "../social/fit";
 import type { Rng } from "../rng/rng";
 import { fnv1a32 } from "../rng/hash";
 import { dateOf, exactAge } from "../time/calendar";
@@ -74,6 +77,17 @@ interface MonthCtx {
   rngFor: (id: string) => Rng;
   /** Entorno medio del mundo este mes: la deriva del techo se mide respecto a él (anti-inflación). */
   meanEnv: number;
+  /** Encaje medio del grupo: el encaje acelera o frena el crecimiento respecto a él (sin inflar el mundo). */
+  meanFit: number;
+  /** Minutos, entrenamiento y encaje de cada jugador del grupo (calculados en la primera pasada). */
+  inputs: Map<string, EnvInputs>;
+}
+
+interface EnvInputs {
+  minutes: number;
+  training: number;
+  /** Encaje total en su club (−1..1): táctica, mánager, cultura y vestuario. */
+  fit: number;
 }
 
 /** Minutos efectivos (0..1) tras el decaimiento mensual; los jóvenes juegan en filial. */
@@ -89,8 +103,16 @@ function trainingOf(world: World, p: Player): number {
 }
 
 /** Parte del entorno que no depende del plan (para centrar la deriva del techo). */
-function baseEnv(minutes: number, training: number): number {
-  return 0.45 * (minutes - 0.5) + 0.35 * (training - 0.5);
+function baseEnv(minutes: number, training: number, fit: number): number {
+  return 0.45 * (minutes - 0.5) + 0.35 * (training - 0.5) + FIT_ENV_WEIGHT * fit;
+}
+
+/** Encaje en su club pesado para el desarrollo; sin club no hay encaje que ayude ni que estorbe. */
+function fitFor(world: World, p: Player): number {
+  if (!p.clubId || !world.clubs[p.clubId]) return 0;
+  const f = fitOf(world, p, p.clubId);
+  const W = DEV_FIT_WEIGHTS;
+  return W.tactical * f.tactical + W.manager * f.manager + W.social * f.social + W.cultural * f.cultural;
 }
 
 /** Mentoría: el aprendiz toma hábitos del mentor (buenos y malos). Devuelve la compatibilidad. */
@@ -123,9 +145,11 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
   const q = staffQuality(world, club);
   const before = currentAbility(p);
 
-  // Minutos (ya actualizados en la primera pasada) y calidad del entrenamiento.
-  const minutes = minutesFactor(dev, age);
-  const training = trainingOf(world, p);
+  // Minutos (ya actualizados en la primera pasada), calidad del entrenamiento y encaje.
+  const { minutes: groupMinutes, training, fit } = ctx.inputs.get(p.id)!;
+  // Un prodigio joven depende de sus minutos reales: el suelo de filial no le basta.
+  const prodigy = !!dev.prodigy && age <= PRODIGY_MAX_AGE;
+  const minutes = prodigy ? clamp01(dev.recentMinutes / FULL_MINUTES) : groupMinutes;
 
   // Plan individual y lo que de verdad hizo el jugador.
   const plan = world.plans[p.id];
@@ -141,9 +165,23 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
   const mentorCompat = mentoring(world, p, plan?.mentor, ctx.day);
 
   // 1) El techo latente se mueve.
-  const window = age >= CRITICAL_WINDOW[0] && age <= CRITICAL_WINDOW[1] ? CRITICAL_WINDOW_MULT : ADULT_DRIFT_MULT;
-  const env = baseEnv(minutes, training) - ctx.meanEnv + 0.2 * (fx.score - 0.5) + (mentorCompat !== null ? 0.05 * mentorCompat : 0);
-  const drift = CEILING_DRIFT * window * env * (0.5 + p.psych.growthMindset);
+  const critical = age >= CRITICAL_WINDOW[0] && age <= CRITICAL_WINDOW[1];
+  const env = baseEnv(minutes, training, fit) - ctx.meanEnv + 0.2 * (fx.score - 0.5) + (mentorCompat !== null ? 0.05 * mentorCompat : 0);
+  // Para un prodigio, la cabeza cuenta tanto como el sitio: el poco profesional se pierde.
+  const attitude = prodigy ? PRODIGY_ATTITUDE * (p.psych.professionalism - 0.5) : 0;
+  // El techo de un prodigio es una promesa: un mal entorno la erosiona deprisa; uno bueno la sostiene.
+  const promise = env + attitude;
+  const window = (critical ? CRITICAL_WINDOW_MULT : ADULT_DRIFT_MULT) * (prodigy ? (promise < 0 ? PRODIGY_DRIFT_MULT : 0) : 1);
+  let drift = CEILING_DRIFT * window * (prodigy ? promise : env) * (0.5 + p.psych.growthMindset);
+  // Florecimiento tardío: un jugador que no es de élite, que juega y al que la táctica y el
+  // técnico le van claramente bien todavía sube (hasta poco por encima de su nivel).
+  let bloom = 0;
+  const fitEdge = fit - ctx.meanFit - LATE_BLOOM_MIN_FIT;
+  if (!critical && age >= LATE_BLOOM_AGE[0] && age <= LATE_BLOOM_AGE[1] && fitEdge > 0 && minutes >= LATE_BLOOM_MINUTES && before < LATE_BLOOM_MAX_CA) {
+    bloom = clamp01(fitEdge / LATE_BLOOM_FULL);
+    const room = before + LATE_BLOOM_HEADROOM - (dev.latentCeiling + drift);
+    if (room > 0) drift += Math.min(room, LATE_BLOOM_DRIFT * bloom * (0.5 + p.psych.growthMindset));
+  }
   dev.volatility = volatilityFor(age);
   const noise = rng.normal(0, (dev.volatility / Math.sqrt(12)) * CEILING_NOISE);
   // Sin suelo en la CA: si el techo pudiera rebotar en ella, el ruido solo empujaría hacia
@@ -152,9 +190,10 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
 
   // 2) Crecimiento de la capacidad actual hacia el techo.
   const gap = Math.max(0, dev.latentCeiling - before);
-  const envMult = (0.35 + 0.65 * minutes) * (0.6 + 0.5 * training) * (0.7 + 0.6 * p.psych.professionalism) * fx.growth;
+  const envMult = (0.35 + 0.65 * minutes) * (0.6 + 0.5 * training) * (0.7 + 0.6 * p.psych.professionalism) * fx.growth * (1 + FIT_GROWTH * (fit - ctx.meanFit));
   const luck = Math.exp(rng.normal(0, MONTH_LUCK_SD));
-  const growth = MONTHLY_GROWTH * curve(AGE_GROWTH_CURVE, age - dev.maturationShift) * (gap / (gap + GAP_HALF)) * envMult * luck;
+  const ageFactor = Math.max(curve(AGE_GROWTH_CURVE, age - dev.maturationShift), LATE_BLOOM_AGE_FACTOR * bloom);
+  const growth = MONTHLY_GROWTH * ageFactor * (gap / (gap + GAP_HALF)) * envMult * luck;
 
   // 3) Reparto entre atributos: talento natural, foco del plan, edad y margen hasta 20.
   if (growth > 0) {
@@ -231,8 +270,10 @@ function developPlayer(world: World, p: Player, ctx: MonthCtx): void {
     { key: "minutes", value: minutes - 0.5 },
     { key: "training", value: training - 0.5 },
     { key: "attitude", value: p.psych.professionalism - 0.5 },
+    { key: "fit", value: fit - ctx.meanFit },
     ...fx.factors,
   ];
+  if (bloom > 0) factors.push({ key: "bloom", value: bloom });
   if (mentorCompat !== null) factors.push({ key: "mentor", value: mentorCompat });
   if (decline > 0) factors.push({ key: "decline", value: -decline * 20 });
   if (injuryHit > 0) factors.push({ key: "injury", value: -injuryHit * 2 });
@@ -257,15 +298,20 @@ function developBatch(world: World, day: GameDay, players: Player[]): void {
   const { y, m } = dateOf(day);
   const root = worldRng(world).fork(`dev/${y}/${m}`);
   resetStaffCache(world);
-  // Primera pasada: minutos del mes y entorno medio.
+  // Primera pasada: minutos del mes, encaje y entorno medio.
   let sum = 0;
+  let fitSum = 0;
+  const inputs = new Map<string, EnvInputs>();
   for (const p of players) {
     const dev = p.development;
     dev.recentMinutes = Math.round(dev.recentMinutes * 0.5 + dev.monthMinutes);
     dev.monthMinutes = 0;
-    sum += baseEnv(minutesFactor(dev, exactAge(p.birthDay, day)), trainingOf(world, p));
+    const input = { minutes: minutesFactor(dev, exactAge(p.birthDay, day)), training: trainingOf(world, p), fit: fitFor(world, p) };
+    inputs.set(p.id, input);
+    sum += baseEnv(input.minutes, input.training, input.fit);
+    fitSum += input.fit;
   }
-  const ctx: MonthCtx = { day, rngFor: (id) => root.fork(id), meanEnv: sum / players.length };
+  const ctx: MonthCtx = { day, rngFor: (id) => root.fork(id), meanEnv: sum / players.length, meanFit: fitSum / players.length, inputs };
   for (const p of players) {
     developPlayer(world, p, ctx);
     // Sus atributos han cambiado: su CA por posición en caché ya no vale.

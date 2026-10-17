@@ -430,6 +430,14 @@ Valores iniciales en generación: `L₀ = CA₀ + |normal(μ_gap(edad, reputaci�
 - Test de balance (Fase 3): en 20 temporadas, el percentil 99, 95 y 50 de CA de todo el mundo deben quedar dentro de ±8 % del año 1, y el nº de jugadores con CA ≥ 16 dentro de ±12 % (decisión del usuario en la revisión: es un recuento de ~50 jugadores y ±8 % quedaba por debajo de su ruido natural).
 - La deriva del techo es de media cero en un entorno "promedio" (env = 0.5); solo entornos por encima/debajo de la media lo desplazan.
 
+### 4.3.1 Encaje, prodigios y florecimiento tardío (decisión del usuario en la revisión de la Fase 4)
+
+"Debería ser más realista: depende de cómo entrenan y de si la táctica y el mánager les funcionan; incluso un veterano puede mejorar con la táctica y el mánager adecuados."
+
+- **El encaje entra en el desarrollo.** El encaje del jugador en su club (§5.5) suma al entorno que mueve el techo y multiplica el ritmo de crecimiento, siempre **respecto a la media del mundo** (no infla el talento). En el desarrollo pesan sobre todo la táctica (jugar en su sitio) y el mánager (que confíe en él): `config/development.ts → DEV_FIT_WEIGHTS`. El informe «¿por qué?» lo explica («Encaja en la táctica y con el técnico» / «No encaja…»).
+- **Prodigios: el techo es una promesa, no un destino.** Un buen entorno la sostiene, pero no la agranda. Uno malo (pocos minutos reales, mal encaje, poca profesionalidad) la erosiona `PRODIGY_DRIFT_MULT` veces más deprisa que a un canterano normal, hasta los 23 años. Para un prodigio cuentan sus minutos reales: el suelo de minutos de filial no le basta. Antes, 23 de 25 llegaban a la élite; ahora depende de dónde caigan y de cómo se les trate.
+- **Florecimiento tardío.** Entre los 22 y los 32 años, un jugador que aún no es de élite, juega casi siempre y encaja claramente mejor que la media (sobre todo por la táctica y la confianza del mánager) puede subir su techo, solo hacia arriba y como mucho `LATE_BLOOM_HEADROOM` sobre su nivel. También crece aunque la edad ya no ayude. Los cracks no florecen más: así la élite no se infla.
+
 ### 4.4 Mentoría
 
 `efectoMentor(p) = compatibilidad(m, p) * (rasgosMentor − rasgosAprendiz)` por rasgo transferible (profesionalismo, compostura, determinación/competitividad, temperamento).

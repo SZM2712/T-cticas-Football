@@ -1,4 +1,4 @@
-import { NATION_LEAGUES, REAL_LEAGUES, REAL_PLAYERS, realPlayersFromCsv, realPlayersToCsv } from "@tf/data";
+import { NATION_LEAGUES, REAL_COMPETITION_NAMES, REAL_LEAGUES, REAL_PLAYERS, realPlayersFromCsv, realPlayersToCsv } from "@tf/data";
 import { describe, expect, it } from "vitest";
 import { displayName, generateWorld, hashValue, teamRating } from "../src";
 import { validateRealPlayers } from "../src/gen/realPlayers";
@@ -24,6 +24,11 @@ describe("paquete opcional de clubes reales", () => {
     expect(best("DE")).toContain("Bayern München");
     expect(best("FR")).toContain("Paris Saint-Germain");
     expect(best("GB-ENG").some((n) => ["Liverpool", "Arsenal", "Manchester City"].includes(n))).toBe(true);
+  });
+
+  it("las ligas y copas de las naciones jugables tienen su nombre oficial", () => {
+    for (const l of Object.values(world.leagues)) if (NATION_LEAGUES.some((n) => n.nation === l.nation)) expect(REAL_COMPETITION_NAMES[`comp.league.${l.nation}.${l.tier}`], l.id).toBeTruthy();
+    for (const n of NATION_LEAGUES) expect(REAL_COMPETITION_NAMES[`comp.cup.${n.nation}`], n.nation).toBeTruthy();
   });
 
   it("es determinista y no altera el mundo ficticio por defecto", () => {

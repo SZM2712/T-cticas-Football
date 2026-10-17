@@ -52,6 +52,52 @@ describe("desarrollo mensual", () => {
     expect(gain(true)).toBeGreaterThan(0.3);
   });
 
+  it("un prodigio que no juega ve caer su techo; si juega, lo conserva o lo sube", () => {
+    const run = (minutes: number) => {
+      const w = clone(base);
+      const kids = Object.values(w.players).filter((p) => p.development.prodigy);
+      const start = new Map(kids.map((p) => [p.id, p.development.latentCeiling]));
+      for (let m = 0; m < 24; m++) {
+        // El resto del mundo juega lo normal: el entorno se mide respecto a la media.
+        for (const p of Object.values(w.players)) p.development.monthMinutes = 300;
+        for (const p of kids) p.development.monthMinutes = minutes;
+        monthlyDevelopment(w, monthDay(w, m));
+      }
+      return kids.reduce((s, p) => s + w.players[p.id]!.development.latentCeiling - start.get(p.id)!, 0) / kids.length;
+    };
+    const benched = run(0);
+    const playing = run(450);
+    expect(benched).toBeLessThan(-0.5);
+    expect(playing).toBeGreaterThan(benched + 1);
+  });
+
+  it("un adulto que encaja con la táctica y el técnico y juega puede florecer; uno que no, no", () => {
+    const w = clone(base);
+    const club = Object.values(w.clubs).find((c) => c.leagueId)!;
+    expect(applyCommand(w, { type: "takeCharge", club: club.id, name: "Stefan" }).ok).toBe(true);
+    const mgr = Object.keys(w.managers)[0]!;
+    const adults = club.squad.map((id) => w.players[id]!).filter((p) => { const a = ageOn(p.birthDay, w.meta.today); return a >= 24 && a <= 30; });
+    const good = new Set(adults.filter((_, i) => i % 2 === 0).map((p) => p.id));
+    const start = new Map(adults.map((p) => [p.id, { ca: currentAbility(p), ceil: p.development.latentCeiling }]));
+    for (const p of adults) w.trust[`${p.id}|${mgr}`] = { trust: good.has(p.id) ? 1 : -1, sinceDay: w.meta.today };
+    for (let m = 0; m < 12; m++) {
+      for (const p of Object.values(w.players)) p.development.monthMinutes = 300;
+      for (const p of adults) p.development.monthMinutes = good.has(p.id) ? 450 : 0;
+      monthlyDevelopment(w, monthDay(w, m));
+    }
+    const mean = (yes: boolean, f: (id: PlayerId) => number) => {
+      const list = adults.filter((p) => good.has(p.id) === yes);
+      return list.reduce((s, p) => s + f(p.id), 0) / list.length;
+    };
+    const ceil = (id: PlayerId) => w.players[id]!.development.latentCeiling - start.get(id)!.ceil;
+    const ca = (id: PlayerId) => currentAbility(w.players[id]!) - start.get(id)!.ca;
+    expect(mean(true, ceil)).toBeGreaterThan(0.15);
+    expect(mean(false, ceil)).toBeLessThan(0.1);
+    expect(mean(true, ceil)).toBeGreaterThan(mean(false, ceil) + 0.15);
+    expect(mean(true, ca)).toBeGreaterThan(mean(false, ca) + 0.12);
+    expect(adults.some((p) => good.has(p.id) && w.players[p.id]!.development.recentFactors.some((f) => f.key === "bloom"))).toBe(true);
+  });
+
   it("los veteranos pierden físico con los años", () => {
     const w = clone(base);
     const vets = Object.values(w.players).filter((p) => ageOn(p.birthDay, w.meta.today) >= 32).slice(0, 100);

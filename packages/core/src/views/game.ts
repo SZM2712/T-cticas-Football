@@ -2,9 +2,9 @@
 // plantillas, goleadores, calendario y táctica. Regla 6: nada de rasgos ocultos.
 // Los textos se traducen en la UI: aquí solo hay nombres propios, claves y números visibles.
 
-import type { Position } from "../config/attributes";
+import { POSITIONS, type Position } from "../config/attributes";
 import { groupTable } from "../competition/standings";
-import { fitnessOn, isInjured, isSuspended, pickLineup } from "../match/lineup";
+import { familiarity, fitnessOn, isInjured, isSuspended, pickLineup, roleRating } from "../match/lineup";
 import { FORMATIONS, FORMATION_IDS, defaultSetPieces, teamStyle } from "../match/tactics";
 import { currentAbility } from "../player/ability";
 import { marketValue } from "../player/value";
@@ -12,6 +12,7 @@ import { ageOn } from "../time/calendar";
 import type { Match, World } from "../types/domain";
 import { isNationalTeamId, nationOfTeam, type CompetitionId, type GameDay, type MatchId, type PlayerId, type TeamId } from "../types/ids";
 import type { TacticsPlan } from "../types/tactics";
+import { clamp } from "../util/math";
 import { displayName } from "./player";
 
 export interface TeamRef {
@@ -204,11 +205,34 @@ export interface TacticsView {
   plan: TacticsPlan | null;
   /** Valores por defecto de la IA para rellenar el formulario. */
   defaults: Required<Omit<TacticsPlan, "lineup" | "instructions">>;
-  squad: { id: PlayerId; name: string; position: Position; level: number; fitness: number; injured: boolean; suspended: boolean }[];
+  squad: {
+    id: PlayerId; name: string; position: Position; level: number; fitness: number; injured: boolean; suspended: boolean;
+    /** Puestos en los que sabe jugar, del más cómodo al menos (cualitativo). */
+    positions: { pos: Position; comfort: PositionComfort }[];
+    /** Estrellas (0,5–5) en cada puesto: cómo rendiría ahí comparado con el once del equipo. */
+    stars: Record<Position, number>;
+  }[];
+  /** Posición en el campo de cada puesto de cada formación (x: 0 portería propia → 1 rival; y: 0 izquierda → 1 derecha). */
+  pitch: Record<string, { x: number; y: number }[]>;
   /** Puestos de cada formación, en el orden de `plan.lineup`. */
   slots: Record<string, Position[]>;
   /** Once que elegiría el cuerpo técnico para cada formación (para rellenar la alineación). */
   suggested: Record<string, PlayerId[]>;
+}
+
+export type PositionComfort = "natural" | "accomplished" | "competent" | "unconvincing";
+
+/** Grado de dominio de un puesto (la familiaridad no es un rasgo oculto: se ve jugando). */
+function comfortOf(f: number): PositionComfort | null {
+  return f >= 0.95 ? "natural" : f >= 0.75 ? "accomplished" : f >= 0.5 ? "competent" : f >= 0.4 ? "unconvincing" : null;
+}
+
+/** Niveles de diferencia con el once titular medio que vale una estrella. */
+const LEVELS_PER_STAR = 1.5;
+
+/** Estrellas en medias: 3 = como el once titular medio; cada LEVELS_PER_STAR por encima o debajo, una estrella. */
+function starsFor(rating: number, ref: number): number {
+  return clamp(Math.round((3 + (rating - ref) / LEVELS_PER_STAR) * 2) / 2, 0.5, 5);
 }
 
 export function tacticsView(world: World, team: TeamId): TacticsView {
@@ -227,6 +251,13 @@ export function tacticsView(world: World, team: TeamId): TacticsView {
     slots[f] = FORMATIONS[f].map((s) => s.role);
     suggested[f] = pickLineup(world, team, (next?.day ?? day) as GameDay, comp, { formation: f }).xi.map((p) => p.id);
   }
+  // Referencia de las estrellas: el once que sale con la formación actual, cada uno en su puesto.
+  const players = (ids ?? []).map((id) => world.players[id]!).filter(Boolean);
+  const formation = world.tactics[team]?.formation ?? style.preferred;
+  const refXi = suggested[formation] ?? [];
+  const ref = refXi.length
+    ? refXi.reduce((s, id, i) => s + roleRating(world.players[id]!, slots[formation]![i]!), 0) / refXi.length
+    : 10;
   return {
     team,
     plan: world.tactics[team] ?? null,
@@ -239,10 +270,17 @@ export function tacticsView(world: World, team: TeamId): TacticsView {
       directness: Math.round(style.directness * 100) / 100,
       setPieces: defaultSetPieces(team),
     },
-    squad: (ids ?? []).map((id) => world.players[id]!).filter(Boolean).map((p) => ({
+    squad: players.map((p) => ({
       id: p.id, name: displayName(p), position: p.position, level: Math.round(currentAbility(p) * 10) / 10,
       fitness: Math.round(fitnessOn(p, day) * 100), injured: isInjured(p, day), suspended: comp ? isSuspended(p, comp) : false,
+      // Solo los puestos que de verdad ha aprendido (no los «parecidos» que el motor tolera a medias).
+      positions: POSITIONS.filter((pos) => p.positions[pos] !== undefined).map((pos) => ({ pos, f: familiarity(p, pos) }))
+        .filter((x) => comfortOf(x.f) !== null)
+        .sort((a, b) => b.f - a.f || POSITIONS.indexOf(a.pos) - POSITIONS.indexOf(b.pos))
+        .map((x) => ({ pos: x.pos, comfort: comfortOf(x.f)! })),
+      stars: Object.fromEntries(POSITIONS.map((pos) => [pos, starsFor(roleRating(p, pos), ref)])) as Record<Position, number>,
     })),
+    pitch: Object.fromEntries(FORMATION_IDS.map((f) => [f, FORMATIONS[f].map((s) => ({ x: s.x, y: s.y }))])),
     slots,
     suggested,
   };
