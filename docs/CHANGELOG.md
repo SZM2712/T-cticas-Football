@@ -29,6 +29,10 @@
 - **Ficha del jugador** (peticiones del usuario):
   - se abre al pulsar cualquier nombre (plantilla, vestuario, buzón, goleadores, camarillas, chismes) en una ventana encima de la pestaña, que se cierra con Esc;
   - gráfica de habilidades por grupo (técnica, mental, física; los porteros, las de portería).
+- **Elegir club al empezar** (petición del usuario):
+  - al abrir el juego o empezar una partida se abre el selector de club: liga, prestigio, nivel, estadio y presupuesto;
+  - en el mismo selector se elige **mundo real (clubes y jugadores 2026/27) o ficticio**, y el juego recuerda la elección. Por la regla 7, el núcleo sigue siendo ficticio por defecto;
+  - en la cabecera siempre está «Tu club», con acceso directo.
 - **Vestuario más visible**: líderes, camarillas y **chismes** (piques, quejas, indirectas en redes, quién sale de noche, quién pasa de tus instrucciones, promesas rotas, prodigios de la cantera…).
 - **Salario aceptado**: quien acaba de firmar no se queja de su salario durante un año, salvo que después llegue o renueve un compañero que cobre más.
 - **Élite dentro de ±12 %** (criterio del usuario):

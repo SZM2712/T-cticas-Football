@@ -103,3 +103,7 @@ ul.factors li { padding: 2px 0; }
 .attr-bar > span { display: block; height: 100%; border-radius: 4px; }
 .attr-val { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
 .gossip li { padding: 3px 0; }
+
+.modal.picker { padding: 16px; overflow-x: auto; box-sizing: border-box; }
+.modal.picker table.grid { width: 100%; }
+.my-club button.primary { font-weight: 600; }

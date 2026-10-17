@@ -12,6 +12,7 @@ import type { Player, SquadStatus, World } from "../types/domain";
 import type { ClubId, PlayerId } from "../types/ids";
 import type { CommitmentStatus, CommitmentType, HierarchyLevel, InboxItem, MemoryKind, Publicness, TalkTopic } from "../types/social";
 import { TALK_TOPICS } from "../types/social";
+import { currentAbility } from "../player/ability";
 import { displayName } from "./player";
 
 export type MoodKey = "great" | "good" | "ok" | "low" | "awful";
@@ -222,12 +223,13 @@ export interface ManagerView {
   id: string;
   name: string;
   club: ClubId | null;
+  clubName: string | null;
 }
 
 export function managersView(world: World): ManagerView[] {
   return Object.keys(world.managers).sort().map((id) => {
     const m = world.managers[id]!;
-    return { id: m.id, name: m.name, club: m.clubId };
+    return { id: m.id, name: m.name, club: m.clubId, clubName: m.clubId ? (world.clubs[m.clubId]?.name ?? null) : null };
   });
 }
 
@@ -309,4 +311,35 @@ export function leadersOf(world: World, clubId: ClubId): { id: string; name: str
   return Object.keys(dr.levels).sort().filter((id) => dr.levels[id] === "leader" && world.players[id])
     .sort((a, b) => (dr.influence[b] ?? 0) - (dr.influence[a] ?? 0) || (a < b ? -1 : 1))
     .map((id) => ({ id, name: displayName(world.players[id]!) }));
+}
+
+export interface ClubOptionView {
+  id: ClubId;
+  name: string;
+  city: string;
+  /** Reputación en estrellas (0,5–5). */
+  stars: number;
+  /** Nivel medio del once (visible), 1 decimal. */
+  level: number;
+  stadium: string;
+  capacity: number;
+  transferBudget: number;
+  /** Mánager humano que ya lo dirige (null si está libre). */
+  takenBy: string | null;
+}
+
+/** Clubes de una liga para elegir club al empezar (del más prestigioso al menos). */
+export function clubOptionsView(world: World, leagueId: string): ClubOptionView[] {
+  const league = world.leagues[leagueId];
+  if (!league) return [];
+  return league.clubs.map((id) => world.clubs[id]!).filter(Boolean).map((c) => {
+    const best = c.squad.map((pid) => world.players[pid]).filter((p): p is Player => !!p && !p.retired)
+      .map((p) => currentAbility(p)).sort((a, b) => b - a).slice(0, 11);
+    return {
+      id: c.id, name: c.name, city: c.city, stars: Math.max(0.5, Math.round(c.reputation * 10) / 2),
+      level: best.length ? Math.round((best.reduce((a, b) => a + b, 0) / best.length) * 10) / 10 : 0,
+      stadium: c.stadium.name, capacity: c.stadium.capacity, transferBudget: c.finances.transferBudget,
+      takenBy: managerOf(world, c.id)?.name ?? null,
+    };
+  }).sort((a, b) => b.stars - a.stars || b.level - a.level || a.name.localeCompare(b.name));
 }

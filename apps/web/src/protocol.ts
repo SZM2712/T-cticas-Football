@@ -2,7 +2,7 @@
 // comandos; nunca toca el estado del mundo (regla 3 de CLAUDE.md).
 
 import type {
-  Command, CommandResult, CommitmentView, GossipView, CompetitionId, DressingRoomView, FixtureView, InboxItemView, Intervention, LeagueOption,
+  ClubOptionView, Command, CommandResult, CommitmentView, GossipView, CompetitionId, DressingRoomView, FixtureView, InboxItemView, Intervention, LeagueOption,
   ManagerView, MatchChange, MatchId, MatchReport, PlayerDevelopmentView, PlayerSocialView, Position, ScorerView, SquadRowView,
   TableRowView, TacticsView, TeamId,
 } from "@tf/core";
@@ -64,6 +64,8 @@ export interface Api {
   /** Vida social de un jugador: relaciones, recuerdos, promesas y conversación. */
   playerSocial(args: { id: string }): PlayerSocialView;
   managers(args: object): ManagerView[];
+  /** Clubes de una liga para elegir club al empezar. */
+  clubs(args: { league: string }): ClubOptionView[];
   command(args: { cmd: Command }): CommandResult;
   /** Huella del mundo (para comprobar el determinismo navegador = Node). */
   hash(args: object): string;

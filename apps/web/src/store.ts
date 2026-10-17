@@ -19,6 +19,8 @@ interface UiState {
   team: TeamId | null;
   /** Jugador abierto en la ficha de desarrollo. */
   player: string | null;
+  /** Selector de club abierto (al empezar una partida o desde la cabecera). */
+  picker: boolean;
   set(patch: Partial<Omit<UiState, "set">>): void;
 }
 
@@ -40,5 +42,6 @@ export const useUi = create<UiState>((set) => ({
   competition: null,
   team: null,
   player: null,
+  picker: false,
   set: (patch) => set(patch),
 }));

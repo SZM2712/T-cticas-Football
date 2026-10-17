@@ -8,6 +8,7 @@ import { Scorers } from "./components/Scorers";
 import { Dressing } from "./components/Dressing";
 import { Inbox } from "./components/Inbox";
 import { PlayerModal } from "./components/PlayerModal";
+import { ClubPicker } from "./components/ClubPicker";
 import { Squad } from "./components/Squad";
 import { TacticsPanel } from "./components/TacticsPanel";
 import { act, useView } from "./hooks";
@@ -23,17 +24,28 @@ function formatDay(day: number, locale: Locale): string {
   });
 }
 
+/** Preferencia del jugador: empezar con clubes y jugadores reales (opcional, regla 7). */
+const savedReal = (() => {
+  try {
+    return localStorage.getItem("tf.real") === "1";
+  } catch {
+    return false;
+  }
+})();
+
 export function App() {
   const { t, comp, locale } = useT();
   const ui = useUi();
   const [seed, setSeed] = useState("123");
-  const [real, setReal] = useState(false);
+  const [real, setReal] = useState(savedReal);
   const leagues = useView("leagues", ui.summary ? {} : null);
+  const managers = useView("managers", ui.summary ? {} : null);
+  const mine = managers?.[0];
 
   useEffect(() => {
     void act(async () => {
-      const summary = await call("newGame", { seed: "123", real: false });
-      useUi.getState().set({ summary });
+      const summary = await call("newGame", { seed: "123", real: savedReal });
+      useUi.getState().set({ summary, picker: true });
     });
   }, []);
 
@@ -47,7 +59,7 @@ export function App() {
     act(async () => {
       useUi.getState().set({ summary: null, team: null, competition: null });
       const summary = await call("newGame", { seed, real });
-      useUi.getState().set({ summary });
+      useUi.getState().set({ summary, picker: true });
     });
   const advance = (days: number) => act(async () => useUi.getState().set({ summary: await call("advance", { days }) }));
   const toMatch = () =>
@@ -87,6 +99,15 @@ export function App() {
             </select>
           </label>
         </div>
+        <div className="controls my-club">
+          {mine?.club ? (
+            <button className="primary" onClick={() => ui.set({ team: mine.club, tab: "squad" })}>
+              {t("picker.yourClub", { club: mine.clubName ?? "" })}
+            </button>
+          ) : (
+            <button className="primary" onClick={() => ui.set({ picker: true })} disabled={!ui.summary}>{t("picker.open")}</button>
+          )}
+        </div>
         <div className="status">
           {ui.summary ? (
             <>
@@ -121,6 +142,21 @@ export function App() {
         {ui.summary && ui.tab === "match" && <MatchPanel />}
       </main>
       {ui.summary && ui.player && <PlayerModal id={ui.player} />}
+      {ui.summary && ui.picker && leagues && <ClubPicker
+        leagues={leagues.filter((l) => l.competitionId)}
+        real={!!ui.summary.real}
+        onData={(r) => act(async () => {
+          try {
+            localStorage.setItem("tf.real", r ? "1" : "0");
+          } catch {
+            /* sin almacenamiento: solo esta sesión */
+          }
+          setReal(r);
+          useUi.getState().set({ summary: null, team: null, competition: null });
+          const summary = await call("newGame", { seed, real: r });
+          useUi.getState().set({ summary, picker: true });
+        })}
+      />}
     </div>
   );
 }
