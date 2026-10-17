@@ -3,6 +3,7 @@
 ## Fase 4 — Vestuario y ego (rama `claude/fase-4-vestuario`)
 
 ### Qué hay
+- **Elegir el once titular** (Táctica → Alineación titular): once sugerido por formación, un selector por puesto (elegir a uno que ya juega los intercambia) y botón para volver al sugerido. Si el elegido está lesionado o sancionado el día del partido, el cuerpo técnico lo sustituye.
 - **Tomar el mando de un club** (mánager humano). Varios humanos pueden dirigir clubes distintos en el mismo mundo, y cada uno solo actúa sobre el suyo.
 - **Grafo social del vestuario**: afinidad, respeto, rivalidad y envidia entre compañeros, que cambian cada semana.
 - **Jerarquía** (líderes, influyentes, núcleo, periferia, marginados) y **camarillas** con nombre (los de casa, los veteranos, los de habla portuguesa…).

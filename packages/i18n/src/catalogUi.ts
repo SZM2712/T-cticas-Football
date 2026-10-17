@@ -523,4 +523,11 @@ export const UI_ENTRIES: Record<string, Row> = {
   "picker.world": ["Mundo:", "World:", "Monde :", "Welt:", "世界："],
   "picker.real": ["Clubes y jugadores reales (2026/27)", "Real clubs and players (2026/27)", "Clubs et joueurs réels (2026/27)", "Echte Vereine und Spieler (2026/27)", "真实俱乐部和球员（2026/27）"],
   "picker.fictional": ["Mundo ficticio", "Fictional world", "Monde fictif", "Fiktive Welt", "虚构世界"],
+  "tactics.lineup": ["Alineación titular", "Starting XI", "Onze de départ", "Startelf", "首发阵容"],
+  "tactics.fixLineup": ["Elegir yo el once", "Pick the XI myself", "Choisir moi-même le onze", "Startelf selbst wählen", "由我选择首发"],
+  "tactics.lineupAuto": ["Ahora el once lo elige tu cuerpo técnico (es el que ves). Marca la casilla para elegirlo tú.", "Your staff picks the XI (shown here). Tick the box to pick it yourself.", "Votre staff choisit le onze (affiché ici). Cochez la case pour le choisir vous-même.", "Dein Trainerstab wählt die Startelf (hier zu sehen). Setze den Haken, um sie selbst zu wählen.", "目前由教练组选择首发（如下所示）。勾选后可由你亲自选择。"],
+  "tactics.lineupHelp": ["Elige un jugador para cada puesto (si eliges uno que ya juega, se intercambian). Si uno está lesionado o sancionado el día del partido, el cuerpo técnico lo sustituye. Pulsa «Guardar táctica».", "Pick a player for each position (picking one who already plays swaps them). If someone is injured or suspended on match day, the staff replaces him. Press “Save tactics”.", "Choisissez un joueur par poste (choisir un titulaire déjà placé les échange). S'il est blessé ou suspendu le jour du match, le staff le remplace. Cliquez sur « Enregistrer ».", "Wähle für jede Position einen Spieler (ein bereits aufgestellter wird getauscht). Ist einer am Spieltag verletzt oder gesperrt, ersetzt ihn der Trainerstab. Klicke auf „Speichern“.", "为每个位置选择球员（选择已在阵中的球员会互换位置）。若比赛日有人受伤或停赛，教练组会替换。点击“保存战术”。"],
+  "tactics.useSuggested": ["Usar el once sugerido", "Use the suggested XI", "Utiliser le onze suggéré", "Vorgeschlagene Startelf verwenden", "使用建议首发"],
+  "tactics.injured": ["lesionado", "injured", "blessé", "verletzt", "受伤"],
+  "tactics.suspended": ["sancionado", "suspended", "suspendu", "gesperrt", "停赛"],
 };

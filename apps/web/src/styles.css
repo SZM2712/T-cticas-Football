@@ -107,3 +107,14 @@ ul.factors li { padding: 2px 0; }
 .modal.picker { padding: 16px; overflow-x: auto; box-sizing: border-box; }
 .modal.picker table.grid { width: 100%; }
 .my-club button.primary { font-weight: 600; }
+
+.lineup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 14px; margin: 6px 0; }
+.lineup-slot { display: grid; grid-template-columns: 9em 1fr; align-items: center; gap: 6px; }
+.slot-role { font-weight: 600; font-size: 0.9rem; }
+label.inline { display: inline-flex; align-items: center; gap: 4px; }
+.tactics section.lineup { display: block; }
+.tactics section.lineup > * { margin: 6px 0; }
+.tactics label.inline { flex-direction: row; font-weight: 600; }
+.tactics .lineup-grid { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+.tactics .lineup-slot { flex-direction: row; display: grid; grid-template-columns: 9em 1fr; }
+.tactics .lineup-slot select { min-width: 0; }

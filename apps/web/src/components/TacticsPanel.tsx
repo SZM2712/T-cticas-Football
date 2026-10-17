@@ -39,6 +39,10 @@ export function TacticsPanel() {
   const setSp = (patch: Partial<SetPieces>) => setPlan({ ...plan, setPieces: { ...sp, ...patch } });
   const name = (id: string) => view.squad.find((p) => p.id === id)?.name ?? id;
   const instructions = plan.instructions ?? [];
+  const formation = plan.formation ?? view.defaults.formation;
+  const slots = view.slots[formation] ?? [];
+  const suggested = view.suggested[formation] ?? [];
+  const lineup = plan.lineup ?? suggested;
 
   const save = () =>
     act(async () => {
@@ -65,7 +69,13 @@ export function TacticsPanel() {
         <h3>{t("tactics.style")}</h3>
         <label>
           {t("tactics.formation")}
-          <select value={plan.formation} onChange={(e) => setPlan({ ...plan, formation: e.target.value as never })}>
+          <select value={plan.formation} onChange={(e) => {
+            const formation = e.target.value as never;
+            const next: TacticsPlan = { ...plan, formation };
+            // Al cambiar el dibujo, el once fijado vuelve al sugerido para ese dibujo.
+            if (plan.lineup) next.lineup = [...(view.suggested[formation] ?? [])];
+            setPlan(next);
+          }}>
             {FORMATION_IDS.map((f) => <option key={f}>{f}</option>)}
           </select>
         </label>
@@ -82,6 +92,54 @@ export function TacticsPanel() {
             </label>
           );
         })}
+      </section>
+      <section className="lineup">
+        <h3>{t("tactics.lineup")}</h3>
+        <label className="inline">
+          <input
+            type="checkbox"
+            checked={!!plan.lineup}
+            onChange={(e) => {
+              const next = { ...plan };
+              if (e.target.checked) next.lineup = [...suggested];
+              else delete next.lineup;
+              setPlan(next);
+            }}
+          />{" "}
+          {t("tactics.fixLineup")}
+        </label>
+        <p className="hint">{t(plan.lineup ? "tactics.lineupHelp" : "tactics.lineupAuto")}</p>
+        <div className="lineup-grid">
+          {slots.map((role, i) => {
+            const current = lineup[i] ?? "";
+            const options = [...view.squad].sort((a, b) => Number(b.position === role) - Number(a.position === role) || b.level - a.level);
+            return (
+              <label key={i} className="lineup-slot">
+                <span className="slot-role">{t(`pos.${role}`)}</span>
+                <select
+                  value={current}
+                  disabled={!plan.lineup}
+                  onChange={(e) => {
+                    const id = e.target.value as PlayerId;
+                    const next = [...lineup];
+                    // Si ya estaba en otro puesto, se intercambian.
+                    const j = next.indexOf(id);
+                    if (j >= 0) next[j] = next[i]!;
+                    next[i] = id;
+                    setPlan({ ...plan, lineup: next });
+                  }}
+                >
+                  {options.map((p) => (
+                    <option key={p.id} value={p.id}>
+                      {p.position} · {p.name} ({p.level.toFixed(1)}){p.injured ? ` · ${t("tactics.injured")}` : p.suspended ? ` · ${t("tactics.suspended")}` : p.fitness < 80 ? ` · ${p.fitness}%` : ""}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            );
+          })}
+        </div>
+        {plan.lineup && <button onClick={() => setPlan({ ...plan, lineup: [...suggested] })}>{t("tactics.useSuggested")}</button>}
       </section>
       <section>
         <h3>{t("tactics.setPieces")}</h3>

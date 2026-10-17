@@ -4,13 +4,13 @@
 
 import type { Position } from "../config/attributes";
 import { groupTable } from "../competition/standings";
-import { fitnessOn, isInjured, isSuspended } from "../match/lineup";
-import { defaultSetPieces, teamStyle } from "../match/tactics";
+import { fitnessOn, isInjured, isSuspended, pickLineup } from "../match/lineup";
+import { FORMATIONS, FORMATION_IDS, defaultSetPieces, teamStyle } from "../match/tactics";
 import { currentAbility } from "../player/ability";
 import { marketValue } from "../player/value";
 import { ageOn } from "../time/calendar";
 import type { Match, World } from "../types/domain";
-import { isNationalTeamId, nationOfTeam, type CompetitionId, type MatchId, type PlayerId, type TeamId } from "../types/ids";
+import { isNationalTeamId, nationOfTeam, type CompetitionId, type GameDay, type MatchId, type PlayerId, type TeamId } from "../types/ids";
 import type { TacticsPlan } from "../types/tactics";
 import { displayName } from "./player";
 
@@ -204,12 +204,29 @@ export interface TacticsView {
   plan: TacticsPlan | null;
   /** Valores por defecto de la IA para rellenar el formulario. */
   defaults: Required<Omit<TacticsPlan, "lineup" | "instructions">>;
-  squad: { id: PlayerId; name: string; position: Position }[];
+  squad: { id: PlayerId; name: string; position: Position; level: number; fitness: number; injured: boolean; suspended: boolean }[];
+  /** Puestos de cada formación, en el orden de `plan.lineup`. */
+  slots: Record<string, Position[]>;
+  /** Once que elegiría el cuerpo técnico para cada formación (para rellenar la alineación). */
+  suggested: Record<string, PlayerId[]>;
 }
 
 export function tacticsView(world: World, team: TeamId): TacticsView {
   const style = teamStyle(team);
   const ids = isNationalTeamId(team) ? world.nationalTeams[team]?.squad : world.clubs[team]?.squad;
+  const day = world.meta.today;
+  // Competición del próximo partido (para sanciones); si no hay, la liga.
+  const next = Object.values(world.matches)
+    .filter((m) => !m.result && (m.home === team || m.away === team))
+    .sort((a, b) => a.day - b.day || a.id.localeCompare(b.id))[0];
+  const club = isNationalTeamId(team) ? undefined : world.clubs[team];
+  const comp = (next?.competitionId ?? (club?.leagueId ? world.leagues[club.leagueId]?.currentCompetition : null) ?? "") as CompetitionId;
+  const slots: Record<string, Position[]> = {};
+  const suggested: Record<string, PlayerId[]> = {};
+  for (const f of FORMATION_IDS) {
+    slots[f] = FORMATIONS[f].map((s) => s.role);
+    suggested[f] = pickLineup(world, team, (next?.day ?? day) as GameDay, comp, { formation: f }).xi.map((p) => p.id);
+  }
   return {
     team,
     plan: world.tactics[team] ?? null,
@@ -222,6 +239,11 @@ export function tacticsView(world: World, team: TeamId): TacticsView {
       directness: Math.round(style.directness * 100) / 100,
       setPieces: defaultSetPieces(team),
     },
-    squad: (ids ?? []).map((id) => world.players[id]!).filter(Boolean).map((p) => ({ id: p.id, name: displayName(p), position: p.position })),
+    squad: (ids ?? []).map((id) => world.players[id]!).filter(Boolean).map((p) => ({
+      id: p.id, name: displayName(p), position: p.position, level: Math.round(currentAbility(p) * 10) / 10,
+      fitness: Math.round(fitnessOn(p, day) * 100), injured: isInjured(p, day), suspended: comp ? isSuspended(p, comp) : false,
+    })),
+    slots,
+    suggested,
   };
 }
