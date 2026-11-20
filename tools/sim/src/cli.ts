@@ -131,8 +131,10 @@ if (seasons > 0 && !opts.replay) {
     lines.push("### Talento mundial por temporada (jugadores con club)", "", "| Temporada | Jugadores | CA P50 | P95 | P99 | Élite (CA ≥ 16) | Edad media | ≤ 21 años |", "|---|---:|---:|---:|---:|---:|---:|---:|");
     for (const s of snaps) lines.push(`| ${s.season} | ${s.players} | ${f2(s.p50)} | ${f2(s.p95)} | ${f2(s.p99)} | ${s.elite} | ${f1(s.avgAge)} | ${s.youth} |`);
     const d = maxDrift(snaps);
-    lines.push("", "### Criterio de la Fase 3: sin inflación (±8 % respecto al año 1)", "");
-    for (const k of ["p50", "p95", "p99", "elite"] as const) lines.push(`- ${d[k] <= 0.08 ? "✅" : "❌"} ${k}: desviación máxima ${f1(100 * d[k])} %`);
+    lines.push("", "### Criterio de la Fase 3: sin inflación (±8 % en P50/P95/P99 y ±12 % en élite respecto al año 1)", "");
+    // ±8 % en percentiles; ±12 % en el nº de élite (decisión del usuario: es un recuento de ~50 jugadores).
+    const limit = { p50: 0.08, p95: 0.08, p99: 0.08, elite: 0.12 } as const;
+    for (const k of ["p50", "p95", "p99", "elite"] as const) lines.push(`- ${d[k] <= limit[k] ? "✅" : "❌"} ${k}: desviación máxima ${f1(100 * d[k])} % (límite ${100 * limit[k]} %)`);
     lines.push("");
   }
   lines.push("### Criterios de aceptación (partidos de liga)", "");

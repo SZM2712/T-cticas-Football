@@ -2,6 +2,8 @@
   "name": "Tactical Football",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
   "postCreateCommand": "npm install",
+  "forwardPorts": [5173],
+  "portsAttributes": { "5173": { "label": "Tactical Football", "onAutoForward": "openBrowser" } },
   "customizations": {
     "vscode": {
       "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "vitest.explorer"]

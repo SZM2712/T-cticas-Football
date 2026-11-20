@@ -1,10 +1,10 @@
 import { useView } from "../hooks";
+import { money } from "../format";
 import { useT } from "../i18n";
 import { useUi } from "../store";
-import { PlayerPanel } from "./PlayerPanel";
 
 export function Squad() {
-  const { t, nation } = useT();
+  const { t, nation, locale } = useT();
   const team = useUi((s) => s.team);
   const competition = useUi((s) => s.competition);
   const rows = useView("squad", team ? { team, ...(competition ? { competition } : {}) } : null);
@@ -13,7 +13,6 @@ export function Squad() {
   if (!rows) return null;
   return (
     <>
-    {open && rows.some((r) => r.id === open) && <PlayerPanel id={open} />}
     <table className="grid">
       <thead>
         <tr>
@@ -28,6 +27,8 @@ export function Squad() {
           <th>{t("squad.goals")}</th>
           <th>{t("squad.assists")}</th>
           <th>{t("squad.rating")}</th>
+          <th>{t("squad.wage")}</th>
+          <th>{t("squad.value")}</th>
         </tr>
       </thead>
       <tbody>
@@ -48,6 +49,8 @@ export function Squad() {
             <td>{r.goals}</td>
             <td>{r.assists}</td>
             <td>{r.avgRating?.toFixed(2) ?? "–"}</td>
+            <td>{r.wage !== null ? `${r.wage.toLocaleString(locale)} €` : "–"}</td>
+            <td>{money(r.value, locale)}</td>
           </tr>
         ))}
       </tbody>

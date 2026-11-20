@@ -3,7 +3,7 @@
 /** Versión del generador: cambia el hash del mundo de referencia si se toca. */
 export const GENERATOR_VERSION = "gen-1";
 /** Versión del formato del estado: cada cambio añade una migración en world/migrations.ts. */
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 5;
 /** Año de la primera temporada (julio). */
 export const DEFAULT_START_YEAR = 2026;
 

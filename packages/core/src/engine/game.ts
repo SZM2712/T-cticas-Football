@@ -16,12 +16,13 @@ import { updateElo } from "../match/quick";
 import type { MatchInput, MatchReport } from "../match/types";
 import type { Intervention } from "../types/tactics";
 import { dateOf, seasonStartDay } from "../time/calendar";
-import { monthlyDevelopment } from "../development/tick";
+import { dailyDevelopment } from "../development/tick";
 import { monthlyScouting } from "../development/scouting";
 import { monthlyRetirementCheck } from "../development/retirement";
+import { dailySocial, monthlyMemoryPrune } from "../social";
 import type { Match, World } from "../types/domain";
 import type { GameDay } from "../types/ids";
-import { worldRng } from "../world/rng";
+import { matchSeedPath, worldRng } from "../world/rng";
 import { buildSeason, closeSeason } from "./season";
 
 export interface Game {
@@ -93,11 +94,13 @@ export function advanceDay(game: Game, opts: AdvanceOptions = {}): PlayedMatch[]
     buildSeason(ctx, world.meta.season);
   }
 
-  // Desarrollo de los jugadores y trabajo de los ojeadores, el primer día de cada mes.
+  // Desarrollo mensual de los jugadores, repartido por días (cada uno en el suyo).
+  dailyDevelopment(world, day);
+  // Trabajo de los ojeadores, retiradas y poda de recuerdos, el primer día de cada mes.
   if (dateOf(day).d === 1) {
-    monthlyDevelopment(world, day);
     monthlyScouting(world, day);
     monthlyRetirementCheck(world, day);
+    monthlyMemoryPrune(world, day);
   }
 
   // Convocatorias y amistosos al abrirse una ventana FIFA; convocatorias antes de un torneo.
@@ -124,10 +127,12 @@ export function advanceDay(game: Game, opts: AdvanceOptions = {}): PlayedMatch[]
     const aggregate = aggregateBefore(world, m);
     const playOpts: Parameters<typeof playMatch>[3] = { mode: game.engine, frames, ratings };
     if (aggregate) playOpts.aggregate = aggregate;
-    played.push(playMatch(world, m, worldRng(world).fork(`match/${m.id}`), playOpts));
+    played.push(playMatch(world, m, worldRng(world).fork(matchSeedPath(world, m)), playOpts));
     const comp = world.competitions[m.competitionId];
     if (comp) tryAdvance(ctx, comp);
   }
+  // Vestuario de los clubes dirigidos por humanos (dinámicas de ego, grafo semanal, promesas).
+  dailySocial(world, day);
   return played;
 }
 

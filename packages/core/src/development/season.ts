@@ -2,11 +2,11 @@
 // ajuste de plantillas. Mantiene el mundo vivo y estable durante décadas (DISEÑO §4.3).
 
 import { nationByCode } from "@tf/data";
-import { SQUAD_TEMPLATE, type Position } from "../config/attributes";
-import { ELITE_CA, ELITE_FEEDBACK, ELITE_INFLOW_PER_YEAR, ELITE_PIPELINE_START, ELITE_TARGET_SHARE, INTAKE_AGE, INTAKE_EXTRA, INTAKE_GAP_EXTRA, INTAKE_GAP_SD, INTAKE_OFFSET, MAX_CEILING, RETIRE_CURVE, SQUAD_MAX } from "../config/development";
+import { POSITION_WEIGHTS, SQUAD_TEMPLATE, type Position } from "../config/attributes";
+import { ELITE_BAND, ELITE_NUDGE_MAX, ELITE_CONTROL_GAIN, ELITE_EXIT_BY_AGE, NEAR_ELITE_GROWTH, NEAR_ELITE_SLACK, WONDERKID_AGE, WONDERKID_CA, WONDERKID_CEILING, WONDERKIDS_PER_YEAR, NEAR_ELITE_MARGIN, NEAR_ELITE_MAX_AGE, ELITE_CA, ELITE_INFLOW_PER_YEAR, ELITE_TARGET_SHARE, INTAKE_AGE, INTAKE_EXTRA, INTAKE_GAP_EXTRA, INTAKE_GAP_SD, INTAKE_OFFSET, MAX_CEILING, RETIRE_CURVE, SQUAD_MAX } from "../config/development";
 import { SHADOW_SQUAD_SIZE, YOUTH_CA_PENALTY } from "../config/generation";
 import { generatePlayer } from "../gen/player";
-import { invalidateAbilityCache } from "../match/lineup";
+import { invalidateAbilityCache, invalidatePlayerAbility } from "../match/lineup";
 import { currentAbility } from "../player/ability";
 import { ageOn, dateOf, dayOf } from "../time/calendar";
 import type { Club, Player, World } from "../types/domain";
@@ -106,26 +106,141 @@ export function seasonTurnover(world: World, season: number): TurnoverSummary {
       }
     }
   }
+  // Niños prodigio: unos pocos por temporada, más probables en las mejores canteras.
+  const playable = Object.values(world.clubs).filter((c) => c.leagueId).sort((a, b) => a.id.localeCompare(b.id));
+  const wrng = rng.fork("wonderkids");
+  for (let i = 0; i < WONDERKIDS_PER_YEAR && playable.length; i++) {
+    const club = wrng.weighted(playable, (c) => c.facilities.youth ** 2 + 0.05);
+    const position = wrng.pick(Object.keys(templateFor(club)) as Position[]);
+    const kid = promoteYouth(world, club, position, day, wrng.int(WONDERKID_AGE[0], WONDERKID_AGE[1]), root, wrng.fork(`kid${i}`), true);
+    intake.push(kid);
+    summary.promoted++;
+    world.events.push({ day, type: "player.prodigy", data: { player: kid.id, club: club.id } });
+  }
   // Oferta de élite: un cupo de cracks por promoción y una "generación que viene" cuyo tamaño
   // se corrige según lo lejos que esté la élite actual de su cuota mundial.
   limitEliteCeilings(intake, ELITE_INFLOW_PER_YEAR, rng.fork("elite"));
   limitEliteCeilings(Object.values(world.players).filter((p) => !p.retired), elitePipelineSize(world), rng.fork("pipeline"));
+  steerNearElite(world, rng.fork("near"));
+  invalidateAbilityCache();
+  nudgeEliteBand(world, day);
   invalidateAbilityCache();
   return summary;
 }
 
-/** Tamaño de la "generación que viene" esta temporada (realimentación sobre la élite actual). */
-export function elitePipelineSize(world: World): number {
+/**
+ * Élite actual, objetivo y salidas previstas en los próximos años (los cracks veteranos dejarán
+ * de serlo pronto: así el control se anticipa a las olas de edad).
+ */
+function eliteStatus(world: World): { elite: number; target: number; exits: number } {
+  const day = world.meta.today;
   let withClub = 0;
   let elite = 0;
+  let exits = 0;
   for (const p of Object.values(world.players)) {
     if (p.retired || !p.clubId) continue;
     withClub++;
-    if (currentAbility(p) >= ELITE_CA) elite++;
+    if (currentAbility(p) < ELITE_CA) continue;
+    elite++;
+    exits += curve(ELITE_EXIT_BY_AGE, ageOn(p.birthDay, day));
   }
-  const target = Math.max(1, withClub * ELITE_TARGET_SHARE);
-  const scale = 1 + ELITE_FEEDBACK * (target - elite) / target;
-  return Math.round(clamp(ELITE_PIPELINE_START * scale, 0, 3 * ELITE_PIPELINE_START));
+  return { elite, target: Math.max(1, withClub * ELITE_TARGET_SHARE), exits };
+}
+
+/**
+ * Último ajuste de la élite al cerrar la temporada, solo si está fuera de ±ELITE_BAND del objetivo
+ * y sobre jugadores que ya están en el límite (a menos de ELITE_NUDGE_MAX de ELITE_CA):
+ * - si sobran, a los veteranos de élite más mayores les pasa factura la edad;
+ * - si faltan, los jóvenes que se quedaron a las puertas tienen una temporada de explosión.
+ * El cambio es pequeño y queda en el registro de eventos (la prensa lo contará en la Fase 5).
+ */
+export function nudgeEliteBand(world: World, day: GameDay): void {
+  const { elite, target } = eliteStatus(world);
+  const hi = Math.floor(target * (1 + ELITE_BAND));
+  const lo = Math.ceil(target * (1 - ELITE_BAND));
+  const club = Object.values(world.players).filter((p) => !p.retired && p.clubId);
+  const shift = (p: Player, delta: number) => {
+    // Sumar delta a todos los atributos que pesan en su posición mueve su CA exactamente delta.
+    const w = POSITION_WEIGHTS[p.position];
+    for (const g of ["technical", "mental", "physical", "goalkeeping"] as const) {
+      const grp = p[g] as Record<string, number>;
+      for (const a of Object.keys(grp)) if ((w as Record<string, number | undefined>)[a]) grp[a] = round(clamp(grp[a]! + delta, 1, 20), 3);
+    }
+    invalidatePlayerAbility(p);
+  };
+  if (elite > hi) {
+    const vets = club
+      .map((p) => ({ p, ca: currentAbility(p), age: ageOn(p.birthDay, day) }))
+      .filter((x) => x.ca >= ELITE_CA && x.ca < ELITE_CA + ELITE_NUDGE_MAX && x.age >= 27)
+      .sort((a, b) => b.age - a.age || a.ca - b.ca || a.p.id.localeCompare(b.p.id))
+      .slice(0, elite - hi);
+    for (const { p, ca } of vets) {
+      shift(p, ELITE_CA - 0.05 - ca);
+      world.events.push({ day, type: "player.agingToll", data: { player: p.id } });
+    }
+  } else if (elite < lo) {
+    const kids = club
+      .map((p) => ({ p, ca: currentAbility(p), age: ageOn(p.birthDay, day) }))
+      .filter((x) => x.ca < ELITE_CA && x.ca >= ELITE_CA - ELITE_NUDGE_MAX && x.age <= NEAR_ELITE_MAX_AGE && !x.p.development.prodigy)
+      .sort((a, b) => b.ca - a.ca || a.p.id.localeCompare(b.p.id))
+      .slice(0, lo - elite);
+    for (const { p, ca } of kids) {
+      shift(p, ELITE_CA + 0.05 - ca);
+      p.development.latentCeiling = Math.max(p.development.latentCeiling, round(ELITE_CA + NEAR_ELITE_MARGIN, 3));
+      world.events.push({ day, type: "player.breakthrough", data: { player: p.id } });
+    }
+  }
+}
+
+/** Jóvenes con techo de élite que aún no han llegado (la "generación que viene"). */
+function pipelineOf(world: World): Player[] {
+  return Object.values(world.players).filter((p) => !p.retired && p.development.latentCeiling >= ELITE_CA && currentAbility(p) < ELITE_CA);
+}
+
+/**
+ * Tamaño de la "generación que viene" (sin contar prodigios): se controla el total de cracks y
+ * futuros cracks, ELITE_TARGET_SHARE × (1 + ELITE_PIPELINE_RATIO). Si hoy sobran cracks, la
+ * generación que viene se encoge en el acto, sin esperar a que pasen los años.
+ */
+export function elitePipelineSize(world: World): number {
+  const { elite, target, exits } = eliteStatus(world);
+  const prodigies = pipelineOf(world).filter((p) => p.development.prodigy).length;
+  return Math.max(0, Math.round(ELITE_CONTROL_GAIN * (target - elite) + exits - prodigies));
+}
+
+/**
+ * Prodigios del mundo inicial: los jóvenes (≤ 18) con más nivel para su edad de los clubes
+ * jugables reciben techo de estrella. Se llama al generar, después del cupo de élite.
+ */
+export function seedWonderkids(world: World, n: number, rng: ReturnType<typeof worldRng>): void {
+  const day = world.meta.today;
+  const kids = Object.values(world.players)
+    .filter((p) => !p.retired && p.clubId && world.clubs[p.clubId]?.leagueId && ageOn(p.birthDay, day) <= 18)
+    .map((p) => ({ p, score: currentAbility(p) + 0.8 * (18 - ageOn(p.birthDay, day)) }))
+    .sort((a, b) => b.score - a.score || a.p.id.localeCompare(b.p.id))
+    .slice(0, n);
+  for (const { p } of kids) {
+    p.development.latentCeiling = round(Math.max(p.development.latentCeiling, rng.range(WONDERKID_CEILING[0], WONDERKID_CEILING[1])), 3);
+    p.development.prodigy = true;
+  }
+}
+
+/**
+ * Si faltan cracks y futuros cracks, los jóvenes con mejor proyección (por su nivel y su edad
+ * llegarían pronto) reciben techo de élite. Determinista: orden por proyección e id.
+ */
+export function steerNearElite(world: World, rng: ReturnType<typeof worldRng>): void {
+  const { elite, target, exits } = eliteStatus(world);
+  const deficit = Math.round(ELITE_CONTROL_GAIN * (target - elite) + exits - pipelineOf(world).length);
+  if (deficit <= 0) return;
+  const day = world.meta.today;
+  const readyAt = ELITE_CA + NEAR_ELITE_MARGIN;
+  const candidates = Object.values(world.players)
+    .filter((p) => !p.retired && p.clubId && !p.development.prodigy && p.development.latentCeiling < ELITE_CA && ageOn(p.birthDay, day) <= NEAR_ELITE_MAX_AGE)
+    .map((p) => ({ p, projected: currentAbility(p) + curve(NEAR_ELITE_GROWTH, ageOn(p.birthDay, day)) }))
+    .filter((x) => x.projected >= ELITE_CA - NEAR_ELITE_SLACK)
+    .sort((a, b) => b.projected - a.projected || a.p.id.localeCompare(b.p.id));
+  for (const { p } of candidates.slice(0, deficit)) p.development.latentCeiling = round(readyAt + rng.float() * 0.6, 3);
 }
 
 /**
@@ -135,10 +250,10 @@ export function elitePipelineSize(world: World): number {
  */
 export function limitEliteCeilings(players: Player[], allowed: number, rng: ReturnType<typeof worldRng>): void {
   const candidates = players
-    .filter((p) => p.development.latentCeiling >= ELITE_CA && currentAbility(p) < ELITE_CA)
+    .filter((p) => p.development.latentCeiling >= ELITE_CA && currentAbility(p) < ELITE_CA && !p.development.prodigy)
     .sort((a, b) => b.development.latentCeiling - a.development.latentCeiling || a.id.localeCompare(b.id));
   for (const p of candidates.slice(allowed)) {
-    p.development.latentCeiling = round(ELITE_CA - 0.1 - rng.float() * 0.8, 3);
+    p.development.latentCeiling = round(ELITE_CA - 0.4 - rng.float() * 0.8, 3);
   }
 }
 
@@ -146,11 +261,14 @@ export function limitEliteCeilings(players: Player[], allowed: number, rng: Retu
 function promoteYouth(
   world: World, club: Club, position: Position, day: GameDay, age: number, root: ReturnType<typeof worldRng>,
   rng: ReturnType<typeof worldRng>,
+  prodigy = false,
 ): Player {
   const id = nextId<PlayerId>(world, "pl");
   const youth = club.facilities.youth;
   const agePenalty = Math.max(0, 22 - age) * YOUTH_CA_PENALTY;
-  const targetCA = clamp(club.quality + INTAKE_OFFSET - agePenalty + rng.normal(0, 0.7) + (youth - 0.5), 3, 16);
+  const targetCA = prodigy
+    ? rng.range(WONDERKID_CA[0], WONDERKID_CA[1])
+    : clamp(club.quality + INTAKE_OFFSET - agePenalty + rng.normal(0, 0.7) + (youth - 0.5), 3, 16);
   const p = generatePlayer(rng.fork(id), root, {
     id,
     nation: nationByCode(club.nation),
@@ -174,6 +292,10 @@ function promoteYouth(
   // Techo del canterano: el dial principal de la oferta de talento (anti-inflación).
   const gap = Math.max(0, rng.normal(agePenalty + INTAKE_GAP_EXTRA * (0.6 + 0.8 * youth), INTAKE_GAP_SD));
   p.development.latentCeiling = round(Math.min(MAX_CEILING, currentAbility(p) + gap), 3);
+  if (prodigy) {
+    p.development.latentCeiling = round(Math.max(currentAbility(p) + 3, rng.range(WONDERKID_CEILING[0], WONDERKID_CEILING[1])), 3);
+    p.development.prodigy = true;
+  }
   p.fitnessDay = day;
   world.players[id] = p;
   club.squad.push(id);

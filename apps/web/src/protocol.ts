@@ -2,8 +2,9 @@
 // comandos; nunca toca el estado del mundo (regla 3 de CLAUDE.md).
 
 import type {
-  Command, CommandResult, CompetitionId, FixtureView, Intervention, LeagueOption, MatchChange, MatchId, MatchReport,
-  PlayerDevelopmentView, Position, ScorerView, SquadRowView, TableRowView, TacticsView, TeamId,
+  ClubOptionView, Command, CommandResult, CommitmentView, GossipView, CompetitionId, DressingRoomView, FixtureView, InboxItemView, Intervention, LeagueOption,
+  ManagerView, MatchChange, MatchId, MatchReport, PlayerDevelopmentView, PlayerSocialView, Position, ScorerView, SquadRowView,
+  TableRowView, TacticsView, TeamId,
 } from "@tf/core";
 
 export interface Summary {
@@ -54,6 +55,17 @@ export interface Api {
   tactics(args: { team: TeamId }): TacticsView;
   /** Ficha de desarrollo de un jugador (evolución, por qué, plan, ojeadores). */
   player(args: { id: string }): PlayerDevelopmentView;
+  /** Vestuario del club (vacío si no lo dirige un humano). */
+  dressing(args: { team: TeamId }): DressingRoomView;
+  inbox(args: { team: TeamId }): InboxItemView[];
+  commitments(args: { team: TeamId }): CommitmentView[];
+  /** Lo que se comenta en el vestuario (rumores recientes). */
+  gossip(args: { team: TeamId }): GossipView[];
+  /** Vida social de un jugador: relaciones, recuerdos, promesas y conversación. */
+  playerSocial(args: { id: string }): PlayerSocialView;
+  managers(args: object): ManagerView[];
+  /** Clubes de una liga para elegir club al empezar. */
+  clubs(args: { league: string }): ClubOptionView[];
   command(args: { cmd: Command }): CommandResult;
   /** Huella del mundo (para comprobar el determinismo navegador = Node). */
   hash(args: object): string;

@@ -58,6 +58,8 @@ export interface SheetPlayer {
   temperament: number;
   /** −1..1 */
   morale: number;
+  /** Encaje en el club −1..1 (0 en clubes sin vestuario simulado). */
+  fit: number;
   /** CA en su posición natural (para decidir cambios). */
   ability: number;
   /** Instrucciones que le dio el técnico antes del partido. */

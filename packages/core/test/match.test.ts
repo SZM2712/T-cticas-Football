@@ -4,7 +4,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import {
   advanceDay, applyCommand, finishLive, liveIntervene, liveReport, applyReport, buildMatchInput, generateWorld, hashValue, instructionCompliance, newGame,
-  pickLineup, quickMatch, simulateMatch, worldRng, type GameDay, type Match, type MatchId, type MatchInput, type MatchReport,
+  pickLineup, quickMatch, simulateMatch, tacticsView, worldRng, type GameDay, type Match, type MatchId, type MatchInput, type MatchReport,
   type PlayerId, type World,
 } from "../src";
 
@@ -178,6 +178,26 @@ describe("tácticas: balón parado e instrucciones", () => {
     expect(applyCommand(ww, { type: "setTactics", team: club!, plan: { setPieces: { corners: "rabona" as never } } }).ok).toBe(false);
     expect(applyCommand(ww, { type: "setTactics", team: club!, plan: { instructions: [{ player: mine, key: "shootMore" }] } }).ok).toBe(true);
     expect(ww.tactics[club!]!.instructions).toHaveLength(1);
+  });
+
+  it("el once elegido por el usuario es el que sale de titular (y la vista sugiere uno por formación)", () => {
+    const g = newGame({ seed: 13 });
+    const ww = g.world;
+    const league = Object.values(ww.leagues)[0]!;
+    const [h, a] = league.clubs;
+    const view = tacticsView(ww, h!);
+    const formation = view.defaults.formation;
+    expect(view.slots[formation]).toHaveLength(11);
+    expect(view.suggested[formation]).toHaveLength(11);
+    // Cambiamos un titular sugerido por un suplente sano del mismo puesto (o cualquiera).
+    const xi = [...view.suggested[formation]!];
+    const bench = view.squad.filter((p) => !xi.includes(p.id) && !p.injured && !p.suspended);
+    const swapIn = bench.find((p) => p.position === view.squad.find((q) => q.id === xi[5])!.position) ?? bench[0]!;
+    xi[5] = swapIn.id;
+    expect(applyCommand(ww, { type: "setTactics", team: h!, plan: { formation, lineup: xi } }).ok).toBe(true);
+    const input = buildMatchInput(ww, fixture(ww, h!, a!, 99));
+    expect(input.home.xi.map((p) => p.id)).toContain(swapIn.id);
+    expect(input.home.xi.map((p) => p.id)).toEqual(xi);
   });
 
   it("el lanzador de penaltis designado tira los penaltis cuando está en el campo", () => {

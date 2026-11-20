@@ -9,13 +9,24 @@ import { buildMatchInput } from "./lineup";
 import { quickMatch, updateElo } from "./quick";
 import type { MatchInput, MatchReport } from "./types";
 
-/** "auto": motor completo salvo entre dos clubes en sombra (LOD ligero). */
+/**
+ * "auto": motor completo salvo entre dos clubes en sombra (LOD ligero). Con humanos en la
+ * partida (DISEÑO §2.2), el motor completo se reserva para lo que viven: los partidos de sus
+ * clubes y de las selecciones que convocan a jugadores suyos. El resto del mundo (también su
+ * liga) juega con el modelo rápido, calibrado contra el completo. Un partido concreto se puede
+ * ver igualmente en directo con el motor completo (`advanceDay` con `live`).
+ */
 export type EngineMode = "auto" | "full" | "quick";
 
 export function engineFor(world: World, m: Match, mode: EngineMode): "full" | "quick" {
   if (mode !== "auto") return mode;
   const light = (id: string) => !isNationalTeamId(id) && world.clubs[id]?.lod === "light";
-  return light(m.home) && light(m.away) ? "quick" : "full";
+  if (light(m.home) && light(m.away)) return "quick";
+  if (!Object.keys(world.dressing).length) return "full";
+  const seen = (id: string) => isNationalTeamId(id)
+    ? (world.nationalTeams[id]?.squad ?? []).some((pid) => !!world.dressing[world.players[pid]?.clubId ?? ""])
+    : !!world.dressing[id];
+  return seen(m.home) || seen(m.away) ? "full" : "quick";
 }
 
 export interface PlayedMatch {

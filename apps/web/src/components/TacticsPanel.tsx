@@ -6,6 +6,7 @@ import { call } from "../client";
 import { act, useView } from "../hooks";
 import { useT } from "../i18n";
 import { useUi } from "../store";
+import { LineupPitch } from "./LineupPitch";
 
 const ROUTINES: { key: keyof SetPieces; prefix: string; values: string[] }[] = [
   { key: "corners", prefix: "corners", values: ["nearPost", "farPost", "short", "edgeOfBox"] },
@@ -39,6 +40,9 @@ export function TacticsPanel() {
   const setSp = (patch: Partial<SetPieces>) => setPlan({ ...plan, setPieces: { ...sp, ...patch } });
   const name = (id: string) => view.squad.find((p) => p.id === id)?.name ?? id;
   const instructions = plan.instructions ?? [];
+  const formation = plan.formation ?? view.defaults.formation;
+  const suggested = view.suggested[formation] ?? [];
+  const lineup = plan.lineup ?? suggested;
 
   const save = () =>
     act(async () => {
@@ -65,7 +69,13 @@ export function TacticsPanel() {
         <h3>{t("tactics.style")}</h3>
         <label>
           {t("tactics.formation")}
-          <select value={plan.formation} onChange={(e) => setPlan({ ...plan, formation: e.target.value as never })}>
+          <select value={plan.formation} onChange={(e) => {
+            const formation = e.target.value as never;
+            const next: TacticsPlan = { ...plan, formation };
+            // Al cambiar el dibujo, el once fijado vuelve al sugerido para ese dibujo.
+            if (plan.lineup) next.lineup = [...(view.suggested[formation] ?? [])];
+            setPlan(next);
+          }}>
             {FORMATION_IDS.map((f) => <option key={f}>{f}</option>)}
           </select>
         </label>
@@ -82,6 +92,33 @@ export function TacticsPanel() {
             </label>
           );
         })}
+      </section>
+      <section className="lineup">
+        <h3>{t("tactics.lineup")}</h3>
+        <div className="row">
+          <label className="inline">
+            <input
+              type="checkbox"
+              checked={!plan.lineup}
+              onChange={(e) => {
+                const next = { ...plan };
+                if (e.target.checked) delete next.lineup;
+                else next.lineup = [...suggested];
+                setPlan(next);
+              }}
+            />{" "}
+            {t("tactics.autoLineup")}
+          </label>
+          {plan.lineup && <button onClick={() => setPlan({ ...plan, lineup: [...suggested] })}>{t("tactics.useSuggested")}</button>}
+        </div>
+        <LineupPitch
+          view={view}
+          formation={formation}
+          lineup={lineup}
+          fixed={!!plan.lineup}
+          // Elegir a mano a alguien fija el once (deja de decidir el cuerpo técnico).
+          onChange={(next) => setPlan({ ...plan, lineup: next })}
+        />
       </section>
       <section>
         <h3>{t("tactics.setPieces")}</h3>
