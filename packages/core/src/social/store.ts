@@ -134,7 +134,7 @@ export function feelingAbout(world: World, owner: Player, about: (a: ActorRef) =
 
 export function notify(
   world: World, day: GameDay, clubId: ClubId, kind: InboxKind,
-  extra: Partial<Pick<InboxItem, "dynamic" | "player" | "other" | "commitment" | "channel">> = {},
+  extra: Partial<Pick<InboxItem, "dynamic" | "player" | "other" | "commitment" | "channel" | "ref">> = {},
 ): InboxItem {
   const item: InboxItem = { id: nextId<string>(world, "inb", 6), day, clubId, kind, read: false, ...extra };
   world.inbox.push(item);

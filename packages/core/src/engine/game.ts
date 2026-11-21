@@ -19,6 +19,8 @@ import { dateOf, seasonStartDay } from "../time/calendar";
 import { dailyDevelopment } from "../development/tick";
 import { monthlyScouting } from "../development/scouting";
 import { monthlyRetirementCheck } from "../development/retirement";
+import { dailyMedia } from "../media";
+import { managerOf } from "../social/store";
 import { dailySocial, monthlyMemoryPrune } from "../social";
 import type { Match, World } from "../types/domain";
 import type { GameDay } from "../types/ids";
@@ -133,6 +135,7 @@ export function advanceDay(game: Game, opts: AdvanceOptions = {}): PlayedMatch[]
   }
   // Vestuario de los clubes dirigidos por humanos (dinámicas de ego, grafo semanal, promesas).
   dailySocial(world, day);
+  dailyMedia(world, day);
   return played;
 }
 
@@ -160,6 +163,9 @@ export function liveReport(game: Game, frames = true): MatchReport {
 export function liveIntervene(game: Game, iv: Intervention): { ok: true } | { ok: false; error: string } {
   const live = game.live;
   if (!live) return { ok: false, error: "error.noLiveMatch" };
+  // Sancionado sin banquillo: los cambios los hace el segundo entrenador según el plan.
+  const mgr = managerOf(game.world, iv.side === 0 ? live.match.home : live.match.away);
+  if (mgr && (game.world.media.touchlineBans[mgr.id] ?? 0) > 0) return { ok: false, error: "error.touchlineBan" };
   const last = live.interventions.at(-1);
   if (last && iv.step < last.step) return { ok: false, error: "error.pastStep" };
   const list = [...live.interventions, iv];

@@ -12,7 +12,7 @@ import { BUYIN_AUTHORITY, BUYIN_DAYS } from "../config/social";
 import { POSITION_INDEX, abilityVector } from "../player/ability";
 import { fnv1a32 } from "../rng/hash";
 import type { Match, Player, World } from "../types/domain";
-import { isNationalTeamId, type ClubId, type CompetitionId, type GameDay, type TeamId } from "../types/ids";
+import { isNationalTeamId, type ClubId, type CompetitionId, type GameDay, type StaffId, type TeamId } from "../types/ids";
 import { clamp } from "../util/math";
 import { FORMATIONS, FORMATION_IDS, aiTactics, instructionCompliance, resolveTactics, teamStyle } from "./tactics";
 import { INSTRUCTION_KEYS, type InstructionKey } from "../types/tactics";
@@ -318,10 +318,10 @@ export function teamSheet(
   return out;
 }
 
-const refereeCache = new WeakMap<World, Map<string, number[]>>();
+const refereeCache = new WeakMap<World, Map<string, StaffId[]>>();
 
-/** Rigor del árbitro asignado: uno de la nación de la competición (o cualquiera si es internacional). */
-function refereeStrictness(world: World, m: Match): number {
+/** Árbitro asignado: uno de la nación de la competición (o cualquiera si es internacional). */
+export function refereeFor(world: World, m: Match): StaffId | undefined {
   let byNation = refereeCache.get(world);
   if (!byNation) {
     byNation = new Map();
@@ -329,15 +329,21 @@ function refereeStrictness(world: World, m: Match): number {
       if (s.role !== "referee") continue;
       for (const key of [s.nationality as string, "*"]) {
         const list = byNation.get(key) ?? [];
-        list.push(s.attributes.refStrictness ?? 11);
+        list.push(s.id);
         byNation.set(key, list);
       }
     }
     refereeCache.set(world, byNation);
   }
   const nation = world.competitions[m.competitionId]?.nation;
-  const list = (nation && byNation.get(nation)) || byNation.get("*") || [11];
-  return list[fnv1a32(m.id) % list.length]!;
+  const list = (nation && byNation.get(nation)) || byNation.get("*") || [];
+  return list.length ? list[fnv1a32(m.id) % list.length] : undefined;
+}
+
+/** Rigor del árbitro asignado. */
+function refereeStrictness(world: World, m: Match): number {
+  const id = refereeFor(world, m);
+  return (id ? world.staff[id]?.attributes.refStrictness : undefined) ?? 11;
 }
 
 /** Importancia del partido: finales y eliminatorias pesan más que una jornada de liga. */

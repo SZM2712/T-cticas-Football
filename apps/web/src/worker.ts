@@ -2,7 +2,7 @@
 
 import {
   advanceDay, applyCommand, clubOptionsView, commitmentsView, competitionResultsView, dressingRoomView, gossipView, inboxView, managersView, playerSocialView, displayName, playerDevelopmentView, finishLive, hashValue, liveIntervene, liveReport, simulateWithInterventions, worldRng, leagueOptions, leagueTableView, newGame, squadView, tacticsView,
-  teamFixturesView, teamRef, topScorersView, type Game, type GenerateOptions, type Match, type MatchReport,
+  teamFixturesView, teamRef, topScorersView, pressView, narrativesView, feedView, disciplineView, fansView, type Game, type GenerateOptions, type Match, type MatchReport,
   type MatchInput, type TeamId,
 } from "@tf/core";
 import type { Api, Request, Response, Summary, WatchedMatch } from "./protocol";
@@ -168,6 +168,11 @@ const handlers: { [M in keyof Api]: (args: Parameters<Api[M]>[0]) => ReturnType<
   playerSocial: ({ id }) => playerSocialView(need().world, id),
   managers: () => managersView(need().world),
   clubs: ({ league }) => clubOptionsView(need().world, league),
+  press: ({ team }) => pressView(need().world, team as never),
+  narratives: ({ team }) => narrativesView(need().world, team as never),
+  feed: ({ team }) => feedView(need().world, team as never),
+  discipline: ({ team }) => disciplineView(need().world, team as never),
+  fans: ({ team }) => fansView(need().world, team as never),
   command: ({ cmd }) => applyCommand(need().world, cmd),
   hash: () => hashValue(need().world),
 };

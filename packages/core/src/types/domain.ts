@@ -6,6 +6,7 @@ import type { GoalkeepingAttr, MentalAttr, PhysicalAttr, Position, TechnicalAttr
 import type { PsychTrait } from "../config/psych";
 import type { DevFactor, DevelopmentPlan, PlanAdherence, RetirementIntent, ScoutBelief } from "./development";
 import type { Commitment, DressingRoom, InboxItem, Manager, ManagerTrust, Memory, Relationship } from "./social";
+import type { MediaState } from "./media";
 import type { Intervention, TacticsPlan } from "./tactics";
 import type {
   Attr, ClubId, CompetitionId, GameDay, LeagueId, MatchId, NationalTeamId, NationId, PlayerId, Signed, StaffId,
@@ -433,6 +434,8 @@ export interface Match {
   /** En la vuelta de una eliminatoria o en una ronda única: hay que decidir ganador. */
   decisive: boolean;
   result?: MatchResult;
+  /** Árbitro que lo dirigió (solo partidos del motor completo). */
+  referee?: StaffId;
   /** Intervenciones en directo del técnico humano (para repetir o auditar el partido). */
   interventions?: Intervention[];
 }
@@ -504,5 +507,7 @@ export interface World {
    * semilla de sus partidos. Vacía en un jugador: no cambia nada.
    */
   salts: Record<string, string>;
+  // ── Medios, redes y disciplina (Fase 5) ──
+  media: MediaState;
   idCounters: Record<string, number>;
 }

@@ -3,6 +3,7 @@
 
 import type { Match, MatchCard, MatchGoal, MatchResult, PlayerCompStats, World } from "../types/domain";
 import { isNationalTeamId, type GameDay, type PlayerId, type TeamId } from "../types/ids";
+import { afterMatchMedia } from "../media";
 import { afterMatch } from "../social";
 import type { MatchReport } from "./types";
 
@@ -115,5 +116,9 @@ export function applyReport(world: World, m: Match, report: MatchReport, engine:
     }
   }
   // Vestuario de los clubes dirigidos por humanos: participación, promesas, moral y recuerdos.
-  if (Object.keys(world.dressing).length) afterMatch(world, m, report, !friendly);
+  if (Object.keys(world.dressing).length) {
+    afterMatch(world, m, report, !friendly);
+    // Medios (Fase 5): árbitro, polémicas, rachas, afición, acta y rueda de prensa.
+    afterMatchMedia(world, m, report, engine, !friendly);
+  }
 }

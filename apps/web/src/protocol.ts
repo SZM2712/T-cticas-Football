@@ -4,7 +4,7 @@
 import type {
   ClubOptionView, Command, CommandResult, CommitmentView, GossipView, CompetitionId, DressingRoomView, FixtureView, InboxItemView, Intervention, LeagueOption,
   ManagerView, MatchChange, MatchId, MatchReport, PlayerDevelopmentView, PlayerSocialView, Position, ScorerView, SquadRowView,
-  TableRowView, TacticsView, TeamId,
+  TableRowView, TacticsView, TeamId, PressView, NarrativeView, PostView, DisciplineView, FansView,
 } from "@tf/core";
 
 export interface Summary {
@@ -66,6 +66,12 @@ export interface Api {
   managers(args: object): ManagerView[];
   /** Clubes de una liga para elegir club al empezar. */
   clubs(args: { league: string }): ClubOptionView[];
+  /** Medios (Fase 5): ruedas de prensa, narrativas, redes, disciplina y afición del club. */
+  press(args: { team: TeamId }): PressView;
+  narratives(args: { team: TeamId }): NarrativeView[];
+  feed(args: { team: TeamId }): PostView[];
+  discipline(args: { team: TeamId }): DisciplineView;
+  fans(args: { team: TeamId }): FansView;
   command(args: { cmd: Command }): CommandResult;
   /** Huella del mundo (para comprobar el determinismo navegador = Node). */
   hash(args: object): string;
