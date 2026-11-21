@@ -64,3 +64,12 @@ export { remember, salience, halfLife, valence, pairKey, trustOf, managerOf, not
 export * from "./views/social";
 export { marketValue } from "./player/value";
 export * from "./config/market";
+// ── Medios, redes y disciplina (Fase 5) ──
+export * from "./types/media";
+export { emptyMedia, subjectKey } from "./media/state";
+export { afterMatchMedia, dailyMedia } from "./media";
+export { activeNarratives, feedNarrative } from "./media/narratives";
+export { journalistsOf, ensureJournalistsFor } from "./media/journalists";
+export { assistantIntent, canAsk, directivesOf, forbiddenBy } from "./media/press";
+export { findControversies, refereeMemory } from "./media/referees";
+export * from "./views/media";

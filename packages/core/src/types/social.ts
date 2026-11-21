@@ -169,6 +169,7 @@ export interface TeamMeeting {
 export const INBOX_KINDS = [
   "egoSignal", "egoAsksTalk", "egoAgent", "egoPublic", "egoTransfer",
   "commitmentAtRisk", "commitmentKept", "commitmentBroken", "dressingRoomRow", "cliqueChanged",
+  "pressConference", "caseOpened", "caseResolved", "refereeStatement",
 ] as const;
 export type InboxKind = (typeof INBOX_KINDS)[number];
 
@@ -184,6 +185,8 @@ export interface InboxItem {
   commitment?: string;
   /** Por dónde llegó: en privado, a través de su camarilla, de su agente, en redes o en público. */
   channel?: "private" | "clique" | "agent" | "social" | "public";
+  /** Rueda de prensa o expediente al que se refiere (Fase 5). */
+  ref?: string;
   read: boolean;
 }
 

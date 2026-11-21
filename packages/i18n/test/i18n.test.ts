@@ -103,3 +103,35 @@ describe("i18n del vestuario", () => {
     for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
   });
 });
+
+describe("i18n de medios, redes y disciplina", () => {
+  it("preguntas, respuestas, narrativas, publicaciones, expedientes y hechos tienen texto", async () => {
+    const core = await import("@tf/core");
+    const keys = [
+      ...core.NARRATIVE_KINDS.flatMap((k) => [`narr.${k}`, `post.article.${k}`, `press.q.${k}.a`, `press.q.${k}.b`]),
+      ...["preview", "win", "draw", "loss"].flatMap((k) => [`press.q.match.${k}.a`, `press.q.match.${k}.b`]),
+      ...core.ANSWER_INTENTS.flatMap((k) => [`intent.${k}`, `press.r.${k}`, `post.press.${k}`]),
+      ...core.ANSWER_TONES.map((k) => `tone.${k}`),
+      ...core.OUTLET_KINDS.flatMap((k) => [`outlet.${k}`, `outlet.${k}.national`]),
+      ...core.PLATFORMS.map((k) => `platform.${k}`),
+      ...core.CASE_KINDS.map((k) => `case.${k}`),
+      ...core.ALLEGATIONS.map((k) => `allegation.${k}`),
+      ...core.CONTROVERSY_KINDS.map((k) => `fact.ctrv.${k}`),
+      ...["win", "draw", "loss", "robbed"].map((k) => `post.fans.${k}`),
+      ...["salaryEnvy", "statusGap", "roosters"].flatMap((k) => [`post.player.indirect.${k}`, `post.player.interview.${k}`]),
+      ...["praisePlayer", "criticizePlayer", "criticizeReferee", "ambitious", "humble", "calm"].map((k) => `post.manager.${k}`),
+      ...["allegations", "sanctioned", "appealed", "closed", "dismissed"].map((k) => `caseStatus.${k}`),
+      ...["fine", "touchlineBan", "playerBan", "stadiumClosure"].map((k) => `sanction.${k}`),
+      ...["upheld", "reduced", "annulled"].map((k) => `appeal.${k}`),
+      ...["match.redCard", "media.refereeReport", "press", "pressOld", "post", "postOld", "match", "unknown"].map((k) => `fact.${k}`),
+      ...["ultras", "members", "casual", "international"].map((k) => `segment.${k}`),
+      ...["furious", "unhappy", "calm", "happy", "euphoric"].map((k) => `fanMood.${k}`),
+      ...["hot", "warm", "cool"].map((k) => `heat.${k}`),
+      ...["low", "medium", "viral"].map((k) => `reach.${k}`),
+      ...["clear", "debatable", "marginal"].map((k) => `clarity.${k}`),
+      ...["tense", "strained", "normal"].map((k) => `refMood.${k}`),
+      ...["press", "social", "discipline"].map((k) => `tab.${k}`),
+    ];
+    for (const key of keys) expect(ENTRIES[key], key).toBeDefined();
+  });
+});

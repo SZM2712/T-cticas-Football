@@ -19,7 +19,9 @@ import {
 // generación: niños prodigio del mundo inicial (techo de estrella y marca `prodigy`).
 // Revisión de la Fase 4: cambia solo por SAVE_VERSION 5 (reuniones y apoyo a la táctica en el
 // vestuario); con saveVersion 4 el mismo mundo da el hash anterior, d12680c82673c4c4.
-const GOLDEN_HASH_123 = "b137367e7d3e7187";
+// Fase 5: cambia solo por SAVE_VERSION 6 y el bloque `media` (vacío al generar: los periodistas se
+// crean al tomar el mando); con saveVersion 5 y sin `media` da el anterior, b137367e7d3e7187.
+const GOLDEN_HASH_123 = "471b30463ae6d7dc";
 
 let world: World;
 beforeAll(() => {

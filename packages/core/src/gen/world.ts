@@ -1,6 +1,7 @@
 // Generación del mundo (Fase 1). Cada parte usa su propio stream RNG derivado por
 // nombre, de modo que cambiar la generación de un club no altera la de los demás.
 
+import { emptyMedia } from "../media/state";
 import {
   NATION_LEAGUES, NATIONS, PLAYABLE_CITIES, REAL_LEAGUES, REAL_SHADOW_CLUBS, nationByCode, type CityData, type NationData,
   REAL_PLAYERS, mergeLeagues, type RealClub, type RealDataUpdate, type RealPlayerRecord,
@@ -282,6 +283,7 @@ export function generateWorld(opts: GenerateOptions): World {
     inbox: [],
     dressing: {},
     salts: {},
+    media: emptyMedia(),
     idCounters: {},
   };
   const playable = new Set(NATION_LEAGUES.map((l) => l.nation as string));

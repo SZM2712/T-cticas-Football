@@ -2,6 +2,8 @@
 // estado de la versión anterior (packages/core/test/migrations.test.ts).
 
 import { SAVE_VERSION } from "../config/generation";
+import { ensureJournalistsFor } from "../media/journalists";
+import { emptyMedia } from "../media/state";
 import type { World } from "../types/domain";
 import type { GameDay } from "../types/ids";
 
@@ -65,6 +67,14 @@ const MIGRATIONS: Record<number, Migration> = {
     for (const dr of Object.values(w.dressing as Record<string, Record<string, unknown>>)) {
       dr.meetings ??= [];
       dr.buyIn ??= {};
+    }
+  },
+  // v5 → v6 (Fase 5): medios, redes y disciplina. Todo empieza vacío; los periodistas de una
+  // nación se crean cuando un humano dirige un club de ella.
+  5: (w) => {
+    w.media ??= emptyMedia();
+    for (const m of Object.values(w.managers as Record<string, { clubId: string | null }>)) {
+      if (m.clubId) ensureJournalistsFor(w as unknown as World, m.clubId);
     }
   },
 };
