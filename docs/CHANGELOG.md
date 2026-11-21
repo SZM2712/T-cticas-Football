@@ -1,5 +1,31 @@
 # Cambios por fase
 
+## Fase 5 — Medios, redes y disciplina (rama `claude/fase-5-medios`)
+
+### Qué hay
+- **Prensa** (pestaña nueva):
+  - **Ruedas de prensa** la víspera y después de cada partido. Las preguntas salen de lo que pasa en el club y nunca repiten tema y protagonista en la temporada sin un hecho nuevo.
+  - Eliges respuesta y tono. Lo que dices tiene consecuencias: recuerdos de los aludidos, promesas públicas, tensión con los árbitros, expedientes, la relación con cada periodista y contradicciones que acaban en titulares.
+  - **Lo que se cuenta del club**: las historias vivas (rachas, crisis, malestar, peticiones de salida, polémicas…) y lo calientes que están.
+  - **Directrices del asistente**: si no respondes a tiempo, o se lo pides, responde él, sin saltárselas nunca.
+- **Redes** (pestaña nueva):
+  - el ánimo de cada sector de la afición y tus últimos resultados;
+  - lo que publican periodistas, aficionados, jugadores y el colectivo arbitral, con su alcance;
+  - tus propias publicaciones (una al día), que cuentan como declaración pública.
+- **Disciplina** (pestaña nueva):
+  - expedientes con sus hechos enlazados, alegaciones, sanción y recurso;
+  - partidos sin banquillo (no puedes hacer cambios en directo) y cierre parcial del estadio;
+  - tu relación con cada árbitro.
+- **Polémicas arbitrales** con evidencia (claridad y veredicto de las imágenes), calculadas después del partido: nunca cambian el resultado.
+- El **buzón** avisa de ruedas de prensa, expedientes, resoluciones y comunicados arbitrales, y lleva a la pestaña correspondiente.
+- 281 textos nuevos en los 5 idiomas.
+
+### Técnico
+- `world.media` con SAVE_VERSION 6 y migración v5 → v6 (los periodistas del país se crean si ya había un humano al mando).
+- El hash del mundo de referencia cambia solo por la versión y el bloque `media` vacío. Con saveVersion 5 y sin `media` da el anterior.
+- Simulación de aceptación `npm run sim:media` (20 temporadas) e informe en `docs/balance/fase5.md`.
+
+
 ## Fase 4 — Vestuario y ego (rama `claude/fase-4-vestuario`)
 
 ### Qué hay

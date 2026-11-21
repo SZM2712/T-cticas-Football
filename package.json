@@ -17,6 +17,7 @@
     "gen": "tsx tools/gen/src/cli.ts",
     "import:football-data": "tsx tools/import/src/footballData.ts",
     "sim": "tsx tools/sim/src/cli.ts",
+    "sim:media": "tsx tools/sim/src/media.ts",
     "dev": "npm run dev -w @tf/web",
     "build:web": "npm run build -w @tf/web"
   },

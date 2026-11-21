@@ -923,6 +923,62 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 - **Buzón**.
 - **Ficha del jugador**: relaciones, recuerdos, encaje, conversación y decisiones.
 
+## 10e. Fase 5 — medios, redes y disciplina (implementado)
+
+Todo vive en `world.media` (SAVE_VERSION 6, migración v5 → v6) y solo hay actividad alrededor de clubes dirigidos por humanos: sin humanos no cuesta nada. Diales en `config/media.ts`; código en `packages/core/src/media/`.
+
+### Narrativas (`media/narratives.ts`)
+- Historias vivas por club: nuevo técnico, rachas de victorias y de derrotas, sequía goleadora, goleador en racha, promesa rota, malestar público, petición de salida, lesión de un titular, prodigio, explosión, rumor de retirada, polémica arbitral, vestuario dividido, contradicciones del técnico, expediente y capitanía.
+- Cada narrativa enlaza los hechos que la sostienen (eventos del mundo, partidos, declaraciones). El calor sube con cada hecho nuevo y se enfría con una semivida de 9 días; por debajo de un umbral se cierra. Las rachas y las sequías se cierran al romperse.
+- Se alimentan leyendo los eventos nuevos del mundo con un cursor (los eventos nunca se borran) y, tras cada partido, con la forma del club y los goles de sus titulares.
+
+### Periodistas y ruedas de prensa (`media/journalists.ts`, `media/press.ts`)
+- Ocho periodistas ficticios por nación, creados al tomar el mando de un club de ella (el mundo de referencia no cambia). Tienen medio (diario, radio, televisión, foro), ciudad, club afín, gusto por el escándalo, rigor, agresividad, alcance y relación con cada mánager.
+- Rueda de prensa la víspera y después de cada partido oficial:
+  - una pregunta del partido;
+  - hasta dos de las narrativas más calientes.
+
+  Una pregunta sobre el mismo tema y sujeto no se repite en la temporada salvo que la narrativa tenga un hecho nuevo desde la última vez. El periodista agresivo, o con mala relación, pregunta de forma incisiva.
+- La respuesta es intención + tono y tiene consecuencias:
+  - elogiar o criticar en público deja recuerdos en el aludido;
+  - prometer minutos crea una promesa pública con su acción enlazada;
+  - criticar al árbitro sube la tensión con él y, con firmeza o dureza, abre expediente;
+  - aceptar la decisión la baja;
+  - esquivar o el tono duro empeoran la relación con el periodista;
+  - lo dicho sale publicado.
+- **Contradicciones**: cada declaración se guarda como postura sobre un tema. Decir lo contrario sobre lo mismo en menos de 90 días abre la narrativa de hipocresía.
+- **Delegación con directrices**: si no respondes en plazo, o si lo pides, responde tu asistente. Lo hace con la intención más prudente que permiten tus directrices (criticar árbitros, criticar jugadores, hacer promesas) y con tu tono. Nunca las viola: hay test y simulación de 20 temporadas.
+
+### Redes (`media/posts.ts`)
+- Plataformas genéricas: mensajes cortos, fotos, prensa, radio y TV, y foro.
+- Quién publica:
+  - periodistas: un artículo al día sobre la narrativa más caliente, con un tono que depende de la noticia, de la afinidad del medio y de su relación contigo;
+  - la afición por segmentos tras cada partido (su ánimo cambia; los ultras viven más el resultado y el arbitraje);
+  - los jugadores cuyo ego llega a las redes o a la prensa;
+  - el colectivo arbitral, con un comunicado si la tensión se dispara;
+  - tú: una publicación al día, que cuenta como declaración pública.
+- El alcance es cualitativo (poco eco, se comenta, viral) y depende del autor, del calor del tema, del tono y de si un árbitro ya les perjudicó antes.
+
+### Árbitros, polémicas y disciplina (`media/referees.ts`, `media/discipline.ts`)
+- Cada partido del motor completo guarda su árbitro (el mismo que ya se elegía).
+- Las decisiones discutibles (penalti pitado o no pitado, roja, gol en posible fuera de juego) se deciden **después** del partido con su propio stream de azar, a partir de lo que pasó. Tienen claridad y veredicto de las imágenes, y **no cambian el resultado**.
+- El colectivo arbitral recuerda las críticas: la tensión con cada árbitro solo endurece sus actas (expedientes por conducta violenta tras una roja directa, o por protestas). Nunca cambia lo que pita.
+- **Comité de disciplina**: acta → expediente con hechos enlazados → alegaciones en 5 días (aceptar rebaja; disculparse rebaja y calma al árbitro; recurrir puede archivarlo si las imágenes te dan la razón) → sanción → recurso en 7 días (anular, rebajar a la mitad o confirmar).
+- Sanciones:
+  - multas, descontadas del saldo del club;
+  - partidos sin banquillo: en directo no puedes hacer cambios, los hace tu segundo;
+  - partidos de sanción para jugadores;
+  - cierre parcial del estadio, que cuesta ingresos y ánimo de la afición.
+
+  Sin hechos no hay expediente.
+
+### Criterios de aceptación
+`npm run sim:media -- --seasons=20` (docs/balance/fase5.md) y `packages/core/test/media.test.ts` comprueban:
+- 0 preguntas repetidas sin hecho nuevo;
+- 0 respuestas del asistente que violen una directriz;
+- toda sanción con hechos que se pueden enseñar;
+- ninguna publicación con parámetros que no sean nombres o recuentos visibles.
+
 ## 11. Ideas incorporadas (pendientes de su fase)
 
 ### 11.1 Contratos avanzados (Fase 6 — economía y mercado)
