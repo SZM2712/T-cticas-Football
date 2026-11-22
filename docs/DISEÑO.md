@@ -923,6 +923,13 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 - **Buzón**.
 - **Ficha del jugador**: relaciones, recuerdos, encaje, conversación y decisiones.
 
+### Ajuste tras la Fase 5: periodo de gracia del técnico
+Decisión del usuario: «suavizar un poco» las quejas tempranas. Al tomar el mando, las tensiones de ego crecen a un 25 % de su ritmo, y vuelven al 100 % de forma lineal en 90 días (`HONEYMOON_DAYS`, `HONEYMOON_FLOOR`).
+- Medido en 6 clubes sin hacer nada durante 120 días:
+  - la primera queja pública pasa de los días 23–36 a los 59–87;
+  - la primera petición de salida, de los días 31–59 a los 68–110.
+- Los escenarios de las dinámicas se miden con un técnico ya asentado, y hay un test del periodo de gracia.
+
 ## 10e. Fase 5 — medios, redes y disciplina (implementado)
 
 Todo vive en `world.media` (SAVE_VERSION 6, migración v5 → v6) y solo hay actividad alrededor de clubes dirigidos por humanos: sin humanos no cuesta nada. Diales en `config/media.ts`; código en `packages/core/src/media/`.
@@ -1053,6 +1060,23 @@ Decisiones del usuario: **2–10 humanos** por partida, **servidor propio** (en 
   - autor en cada `Command`;
   - `World.managers` (varios humanos, cada uno con su club y cargo);
   - la sal de turno en la derivación de semillas de partido (vacía por defecto, sin cambiar el hash de un jugador).
+
+### 11.5 Proyecto deportivo: convencer con un plan (Fase 6)
+Petición del usuario: «convencer jugadores para que se queden, o ficharlos, con proyectos: un plan y una estrategia claros, con apoyo de la directiva».
+
+- **El proyecto del club** es un dato del mundo, no un texto:
+  - el plan que el mánager presenta (estilo, objetivo, apuesta por los jóvenes, el papel que tendría el jugador);
+  - el respaldo real de la directiva (presupuesto comprometido, inversión en instalaciones, plazo de confianza en el técnico).
+- **Retener**: a un jugador que quiere salir se le puede presentar el proyecto. Lo valora según:
+  - su ambición frente al nivel del club;
+  - si el papel prometido es creíble (minutos, estatus);
+  - si la directiva respalda el plan;
+  - lo cumplido antes (memoria: promesas cumplidas o rotas, reuniones).
+
+  Si acepta, se queda con un `Commitment` del papel y de los objetivos del proyecto; si no se cumplen, lo recuerda.
+- **Fichar**: en la negociación de un fichaje, el proyecto pesa junto al dinero. Un jugador ambicioso puede preferir un club con un plan claro y respaldado a uno que paga más.
+- **Directiva**: aprueba (o no) el proyecto y su presupuesto. Su apoyo es limitado y se gasta: si el proyecto fracasa, pierde confianza en el técnico.
+- Encaja con lo que ya existe: la reunión con la plantilla (estilo, objetivo, forma de gestionar), las promesas con acción enlazada, la memoria y la prensa (el proyecto anunciado es una declaración pública que se puede contradecir).
 
 ### 11.4 Redes sociales, polémica y disciplina (Fase 5)
 - **Plataformas ficticias** con nombres genéricos (sin marcas): una red de mensajes cortos, una de fotos, periódicos deportivos, tertulias de radio y TV y foros de aficionados. Con un paquete real se pueden renombrar.

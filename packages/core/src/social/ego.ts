@@ -4,7 +4,7 @@
 // cruzar los escalones de la escalera común, el jugador actúa por el canal que eligen sus rasgos.
 
 import {
-  ENVY_LEADER_MULT, ENVY_MAX_GAP, SALARY_CONTENT_DAYS, HABITUATION, ENVY_MIN_EGO, ENVY_MIN_PARTICIPATION, ENVY_RATE, ENVY_WAGE_RATIO, LADDER, LADDER_RESET, PUBLIC_COMPLAINT_MORALE,
+  ENVY_LEADER_MULT, ENVY_MAX_GAP, HONEYMOON_DAYS, HONEYMOON_FLOOR, SALARY_CONTENT_DAYS, HABITUATION, ENVY_MIN_EGO, ENVY_MIN_PARTICIPATION, ENVY_RATE, ENVY_WAGE_RATIO, LADDER, LADDER_RESET, PUBLIC_COMPLAINT_MORALE,
   ROOSTER_MIN_EGO, ROOSTER_RATE, STATUS_PROMISE_MULT, STATUS_RATE, TENSION_DECAY,
 } from "../config/social";
 import type { Player, World } from "../types/domain";
@@ -223,12 +223,15 @@ export function dailyEgo(world: World, clubId: ClubId, day: GameDay): void {
     perf: new Map(squad.map((p) => [p.id, performance(world, p, clubId)])),
     part: new Map(squad.map((p) => [p.id, participation(dr, p)])),
   };
-  const mgr = managerOf(world, clubId)?.id;
+  const manager = managerOf(world, clubId);
+  const mgr = manager?.id;
+  // Periodo de gracia del técnico recién llegado: las tensiones crecen más despacio al principio.
+  const grace = manager ? clamp(HONEYMOON_FLOOR + (1 - HONEYMOON_FLOOR) * ((day - manager.sinceDay) / HONEYMOON_DAYS), HONEYMOON_FLOOR, 1) : 1;
   const active = new Map<string, Trigger>();
   for (const dyn of EGO_DYNAMICS) {
     for (const t of dyn.detect(ctx)) {
       const p = world.players[t.actor]!;
-      const delta = dyn.accumulate(t, p, ctx);
+      const delta = dyn.accumulate(t, p, ctx) * grace;
       const prev = p.state.tensions[t.key] ?? 0;
       p.state.tensions[t.key] = round(clamp(prev + delta - HABITUATION[dyn.id] * prev, 0, 1), 4);
       active.set(`${t.actor}:${t.key}`, t);

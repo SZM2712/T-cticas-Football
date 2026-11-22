@@ -17,6 +17,7 @@
   - partidos sin banquillo (no puedes hacer cambios en directo) y cierre parcial del estadio;
   - tu relación con cada árbitro.
 - **Polémicas arbitrales** con evidencia (claridad y veredicto de las imágenes), calculadas después del partido: nunca cambian el resultado.
+- **Periodo de gracia del técnico** (ajuste de la Fase 4 pedido por el usuario): al llegar, el vestuario te da margen. Las quejas tardan en aparecer: la primera queja pública pasa de los días 23–36 a los 59–87, y la primera petición de salida, de los días 31–59 a los 68–110.
 - El **buzón** avisa de ruedas de prensa, expedientes, resoluciones y comunicados arbitrales, y lleva a la pestaña correspondiente.
 - 281 textos nuevos en los 5 idiomas.
 

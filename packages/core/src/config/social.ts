@@ -97,6 +97,14 @@ export const PUBLIC_COMPLAINT_MORALE = -0.25;
 /** Decaimiento diario de la tensión cuando ya no hay disparador. */
 export const TENSION_DECAY = 0.02;
 /**
+ * Periodo de gracia de un técnico recién llegado (decisión del usuario tras la Fase 5: «suavizar
+ * un poco» las quejas tempranas). Las tensiones crecen a HONEYMOON_FLOOR de su ritmo el primer día
+ * y vuelven al ritmo normal de forma lineal a lo largo de HONEYMOON_DAYS: el vestuario le da margen
+ * y no le culpa enseguida de salarios y papeles que heredó.
+ */
+export const HONEYMOON_DAYS = 90;
+export const HONEYMOON_FLOOR = 0.25;
+/**
  * Habituación diaria con el disparador activo: dT = Δ − H·T. Un agravio que persiste se
  * estabiliza en Δ/H, así que solo los caracteres extremos (o los líderes) llegan a los últimos
  * escalones. Sin ella, cualquier titular con ego peor pagado que la estrella pedía salir en un mes.
