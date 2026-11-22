@@ -923,6 +923,69 @@ PWA (navegador y móvil) y **aplicación de escritorio con Tauri** (Fase 7). El 
 - **Buzón**.
 - **Ficha del jugador**: relaciones, recuerdos, encaje, conversación y decisiones.
 
+### Ajuste tras la Fase 5: periodo de gracia del técnico
+Decisión del usuario: «suavizar un poco» las quejas tempranas. Al tomar el mando, las tensiones de ego crecen a un 25 % de su ritmo, y vuelven al 100 % de forma lineal en 90 días (`HONEYMOON_DAYS`, `HONEYMOON_FLOOR`).
+- Medido en 6 clubes sin hacer nada durante 120 días:
+  - la primera queja pública pasa de los días 23–36 a los 59–87;
+  - la primera petición de salida, de los días 31–59 a los 68–110.
+- Los escenarios de las dinámicas se miden con un técnico ya asentado, y hay un test del periodo de gracia.
+
+## 10e. Fase 5 — medios, redes y disciplina (implementado)
+
+Todo vive en `world.media` (SAVE_VERSION 6, migración v5 → v6) y solo hay actividad alrededor de clubes dirigidos por humanos: sin humanos no cuesta nada. Diales en `config/media.ts`; código en `packages/core/src/media/`.
+
+### Narrativas (`media/narratives.ts`)
+- Historias vivas por club: nuevo técnico, rachas de victorias y de derrotas, sequía goleadora, goleador en racha, promesa rota, malestar público, petición de salida, lesión de un titular, prodigio, explosión, rumor de retirada, polémica arbitral, vestuario dividido, contradicciones del técnico, expediente y capitanía.
+- Cada narrativa enlaza los hechos que la sostienen (eventos del mundo, partidos, declaraciones). El calor sube con cada hecho nuevo y se enfría con una semivida de 9 días; por debajo de un umbral se cierra. Las rachas y las sequías se cierran al romperse.
+- Se alimentan leyendo los eventos nuevos del mundo con un cursor (los eventos nunca se borran) y, tras cada partido, con la forma del club y los goles de sus titulares.
+
+### Periodistas y ruedas de prensa (`media/journalists.ts`, `media/press.ts`)
+- Ocho periodistas ficticios por nación, creados al tomar el mando de un club de ella (el mundo de referencia no cambia). Tienen medio (diario, radio, televisión, foro), ciudad, club afín, gusto por el escándalo, rigor, agresividad, alcance y relación con cada mánager.
+- Rueda de prensa la víspera y después de cada partido oficial:
+  - una pregunta del partido;
+  - hasta dos de las narrativas más calientes.
+
+  Una pregunta sobre el mismo tema y sujeto no se repite en la temporada salvo que la narrativa tenga un hecho nuevo desde la última vez. El periodista agresivo, o con mala relación, pregunta de forma incisiva.
+- La respuesta es intención + tono y tiene consecuencias:
+  - elogiar o criticar en público deja recuerdos en el aludido;
+  - prometer minutos crea una promesa pública con su acción enlazada;
+  - criticar al árbitro sube la tensión con él y, con firmeza o dureza, abre expediente;
+  - aceptar la decisión la baja;
+  - esquivar o el tono duro empeoran la relación con el periodista;
+  - lo dicho sale publicado.
+- **Contradicciones**: cada declaración se guarda como postura sobre un tema. Decir lo contrario sobre lo mismo en menos de 90 días abre la narrativa de hipocresía.
+- **Delegación con directrices**: si no respondes en plazo, o si lo pides, responde tu asistente. Lo hace con la intención más prudente que permiten tus directrices (criticar árbitros, criticar jugadores, hacer promesas) y con tu tono. Nunca las viola: hay test y simulación de 20 temporadas.
+
+### Redes (`media/posts.ts`)
+- Plataformas genéricas: mensajes cortos, fotos, prensa, radio y TV, y foro.
+- Quién publica:
+  - periodistas: un artículo al día sobre la narrativa más caliente, con un tono que depende de la noticia, de la afinidad del medio y de su relación contigo;
+  - la afición por segmentos tras cada partido (su ánimo cambia; los ultras viven más el resultado y el arbitraje);
+  - los jugadores cuyo ego llega a las redes o a la prensa;
+  - el colectivo arbitral, con un comunicado si la tensión se dispara;
+  - tú: una publicación al día, que cuenta como declaración pública.
+- El alcance es cualitativo (poco eco, se comenta, viral) y depende del autor, del calor del tema, del tono y de si un árbitro ya les perjudicó antes.
+
+### Árbitros, polémicas y disciplina (`media/referees.ts`, `media/discipline.ts`)
+- Cada partido del motor completo guarda su árbitro (el mismo que ya se elegía).
+- Las decisiones discutibles (penalti pitado o no pitado, roja, gol en posible fuera de juego) se deciden **después** del partido con su propio stream de azar, a partir de lo que pasó. Tienen claridad y veredicto de las imágenes, y **no cambian el resultado**.
+- El colectivo arbitral recuerda las críticas: la tensión con cada árbitro solo endurece sus actas (expedientes por conducta violenta tras una roja directa, o por protestas). Nunca cambia lo que pita.
+- **Comité de disciplina**: acta → expediente con hechos enlazados → alegaciones en 5 días (aceptar rebaja; disculparse rebaja y calma al árbitro; recurrir puede archivarlo si las imágenes te dan la razón) → sanción → recurso en 7 días (anular, rebajar a la mitad o confirmar).
+- Sanciones:
+  - multas, descontadas del saldo del club;
+  - partidos sin banquillo: en directo no puedes hacer cambios, los hace tu segundo;
+  - partidos de sanción para jugadores;
+  - cierre parcial del estadio, que cuesta ingresos y ánimo de la afición.
+
+  Sin hechos no hay expediente.
+
+### Criterios de aceptación
+`npm run sim:media -- --seasons=20` (docs/balance/fase5.md) y `packages/core/test/media.test.ts` comprueban:
+- 0 preguntas repetidas sin hecho nuevo;
+- 0 respuestas del asistente que violen una directriz;
+- toda sanción con hechos que se pueden enseñar;
+- ninguna publicación con parámetros que no sean nombres o recuentos visibles.
+
 ## 11. Ideas incorporadas (pendientes de su fase)
 
 ### 11.1 Contratos avanzados (Fase 6 — economía y mercado)
@@ -997,6 +1060,23 @@ Decisiones del usuario: **2–10 humanos** por partida, **servidor propio** (en 
   - autor en cada `Command`;
   - `World.managers` (varios humanos, cada uno con su club y cargo);
   - la sal de turno en la derivación de semillas de partido (vacía por defecto, sin cambiar el hash de un jugador).
+
+### 11.5 Proyecto deportivo: convencer con un plan (Fase 6)
+Petición del usuario: «convencer jugadores para que se queden, o ficharlos, con proyectos: un plan y una estrategia claros, con apoyo de la directiva».
+
+- **El proyecto del club** es un dato del mundo, no un texto:
+  - el plan que el mánager presenta (estilo, objetivo, apuesta por los jóvenes, el papel que tendría el jugador);
+  - el respaldo real de la directiva (presupuesto comprometido, inversión en instalaciones, plazo de confianza en el técnico).
+- **Retener**: a un jugador que quiere salir se le puede presentar el proyecto. Lo valora según:
+  - su ambición frente al nivel del club;
+  - si el papel prometido es creíble (minutos, estatus);
+  - si la directiva respalda el plan;
+  - lo cumplido antes (memoria: promesas cumplidas o rotas, reuniones).
+
+  Si acepta, se queda con un `Commitment` del papel y de los objetivos del proyecto; si no se cumplen, lo recuerda.
+- **Fichar**: en la negociación de un fichaje, el proyecto pesa junto al dinero. Un jugador ambicioso puede preferir un club con un plan claro y respaldado a uno que paga más.
+- **Directiva**: aprueba (o no) el proyecto y su presupuesto. Su apoyo es limitado y se gasta: si el proyecto fracasa, pierde confianza en el técnico.
+- Encaja con lo que ya existe: la reunión con la plantilla (estilo, objetivo, forma de gestionar), las promesas con acción enlazada, la memoria y la prensa (el proyecto anunciado es una declaración pública que se puede contradecir).
 
 ### 11.4 Redes sociales, polémica y disciplina (Fase 5)
 - **Plataformas ficticias** con nombres genéricos (sin marcas): una red de mensajes cortos, una de fotos, periódicos deportivos, tertulias de radio y TV y foros de aficionados. Con un paquete real se pueden renombrar.

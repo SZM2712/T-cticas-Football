@@ -36,6 +36,8 @@ function scenarioWorld(seed: number): { w: World; squad: Player[] } {
     memories: {}, commitments: {}, inbox: [], dressing: {}, salts: {}, history: [],
   };
   expect(applyCommand(w, { type: "takeCharge", club: clubId, name: "Stefan" })).toEqual({ ok: true });
+  // Los escenarios miden las dinámicas con un técnico ya asentado (sin periodo de gracia).
+  for (const m of Object.values(w.managers)) m.sinceDay = (w.meta.today - 365) as GameDay;
   return { w, squad: squadPlayers(w, clubId) };
 }
 
@@ -101,6 +103,24 @@ describe("celos salariales (§5.4.1)", () => {
       return (leader.state.tensions.salaryEnvy ?? 0) >= 0.45;
     });
     expect(rate).toBeGreaterThanOrEqual(0.8);
+  });
+
+  it("con un técnico recién llegado, el vestuario le da margen: la misma estrella tarda más en escocer", () => {
+    let established = 0;
+    let fresh = 0;
+    for (let seed = 0; seed < 40; seed++) {
+      for (const isNew of [false, true]) {
+        const { w, squad } = scenarioWorld(seed);
+        if (isNew) for (const m of Object.values(w.managers)) m.sinceDay = w.meta.today;
+        const leader = makeLeader(w, squad, { ego: 0.85, loyalty: 0.3 });
+        signStar(w, squad, leader, 1.5);
+        run(w, 30);
+        const t = leader.state.tensions.salaryEnvy ?? 0;
+        if (isNew) fresh += t;
+        else established += t;
+      }
+    }
+    expect(fresh).toBeLessThan(established * 0.75);
   });
 
   it("con un líder muy leal (0,9) → como mucho en el 40 %", () => {

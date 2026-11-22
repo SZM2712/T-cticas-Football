@@ -12,13 +12,19 @@ export function Inbox() {
   if (!items) return null;
   if (!items.length) return <p className="hint">{t("inbox.empty")}</p>;
   const unread = items.filter((i) => !i.read).map((i) => i.id);
+  // Cada aviso lleva a donde se resuelve: la ficha del jugador, la prensa o el expediente.
+  const open = (i: (typeof items)[number]) => {
+    if (i.kind === "pressConference") useUi.getState().set({ tab: "press" });
+    else if (i.kind === "caseOpened" || i.kind === "caseResolved" || i.kind === "refereeStatement") useUi.getState().set({ tab: "discipline" });
+    else if (i.player) useUi.getState().set({ player: i.player.id });
+  };
   const markRead = () => act(() => call("command", { cmd: { type: "markInboxRead", ids: unread } }));
   return (
     <div className="inbox">
       {unread.length > 0 && <button onClick={markRead}>{t("inbox.markRead")}</button>}
       <ul className="inbox-list">
         {items.map((i) => (
-          <li key={i.id} className={i.read ? "read" : ""} onClick={() => i.player && useUi.getState().set({ player: i.player.id })}>
+          <li key={i.id} className={i.read ? "read" : ""} onClick={() => open(i)}>
             <span className="hint">{new Date(Date.UTC(2000, 0, 1) + i.day * 86400000).toLocaleDateString(locale, { timeZone: "UTC" })}</span>{" "}
             {t(`inbox.${i.kind}`, {
               player: i.player?.name ?? "",

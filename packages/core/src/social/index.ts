@@ -9,6 +9,7 @@ import type { ClubId, GameDay, PlayerId } from "../types/ids";
 import type { Manager, ManagerId } from "../types/social";
 import { clamp, round } from "../util/math";
 import { nextId } from "../world/ids";
+import { ensureJournalistsFor } from "../media/journalists";
 import { worldRng } from "../world/rng";
 import { countMatchForCommitments, reviewCommitments } from "./commitments";
 import { dailyEgo } from "./ego";
@@ -27,6 +28,9 @@ export function takeCharge(world: World, clubId: ClubId, name: string, by?: Mana
   if (mgr.clubId && mgr.clubId !== clubId && !managerOfOther(world, mgr.clubId, mgr.id)) delete world.dressing[mgr.clubId];
   mgr.clubId = clubId;
   mgr.sinceDay = day;
+  // Los medios empiezan a seguir el mundo ahora (lo anterior no es noticia) y la prensa del país existe.
+  if (!Object.keys(world.dressing).length) world.media.cursor = world.events.length;
+  ensureJournalistsFor(world, clubId);
   if (!world.dressing[clubId]) initDressingRoom(world, clubId, mgr.id, day, worldRng(world).fork(`social/init/${clubId}/${day}`));
   world.events.push({ day, type: "manager.tookCharge", data: { manager: mgr.id, club: clubId } });
   return mgr;

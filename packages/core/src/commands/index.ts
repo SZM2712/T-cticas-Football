@@ -3,7 +3,7 @@
 // partida (DISEÑO §11.3) solo puede actuar sobre su propio club.
 
 import { FORMATIONS, defaultSetPieces as defaultSetPiecesFor } from "../match/tactics";
-import type { World } from "../types/domain";
+import type { Match, World } from "../types/domain";
 import { exactAge } from "../time/calendar";
 import {
   DIETS, EXERCISES, INTENSITIES, PERSUASION_APPROACHES, SLEEP_PLANS, TRAINING_FOCUSES, type DevelopmentPlan, type PersuasionApproach,
@@ -23,6 +23,15 @@ import {
 } from "../types/social";
 import type { ClubId, GameDay } from "../types/ids";
 import { worldRng } from "../world/rng";
+import { allege, appeal } from "../media/discipline";
+import { answerQuestion, applySaying, delegateConference } from "../media/press";
+import { publish, reachOf } from "../media/state";
+import {
+  ALLEGATIONS, ANSWER_TONES, type Allegation, type AnswerIntent, type AnswerTone, type MediaSubject, type PressDirectives,
+} from "../types/media";
+
+/** Lo que se puede publicar en redes. */
+const POST_INTENTS: readonly AnswerIntent[] = ["praisePlayer", "criticizePlayer", "criticizeReferee", "ambitious", "humble", "calm"];
 
 export type Command =
   | { type: "setTactics"; team: TeamId; plan: TacticsPlan }
@@ -46,9 +55,19 @@ export type Command =
   | { type: "renegotiateCommitment"; commitment: string }
   | { type: "markInboxRead"; ids: string[] }
   /** Reunión con la plantilla (la primera es la presentación): estilo, objetivo y forma de gestionar. */
-  | ({ type: "teamMeeting" } & MeetingArgs);
+  | ({ type: "teamMeeting" } & MeetingArgs)
+  // ── Medios, redes y disciplina (Fase 5) ──
+  /** Responder a todas las preguntas de una rueda de prensa (intención y tono de cada una). */
+  | { type: "answerPress"; conference: string; answers: { intent: AnswerIntent; tone: AnswerTone }[] }
+  /** Que la atienda el asistente con tus directrices. */
+  | { type: "delegatePress"; conference: string }
+  | { type: "setPressDirectives"; directives: PressDirectives }
+  /** Publicar en redes: cuenta como una declaración pública (una al día). */
+  | { type: "post"; intent: AnswerIntent; tone: AnswerTone; subject: MediaSubject }
+  | { type: "allegeCase"; case: string; allegation: Allegation }
+  | { type: "appealCase"; case: string };
 
-export type CommandResult = { ok: true; talk?: TalkResult; meeting?: TeamMeeting } | { ok: false; error: string };
+export type CommandResult = { ok: true; talk?: TalkResult; meeting?: TeamMeeting; reactions?: string[] } | { ok: false; error: string };
 
 const SET_PIECE_VALUES: Record<string, readonly string[]> = {
   corners: ["nearPost", "farPost", "short", "edgeOfBox"],
@@ -258,6 +277,70 @@ export function applyCommand(world: World, cmd: Command, by?: ManagerId): Comman
       const meeting = teamMeeting(world, mgr.clubId, mgr, { style: cmd.style, objective: cmd.objective, approach: cmd.approach }, day,
         worldRng(world).fork(`meeting/${day}/${mgr.clubId}`));
       return { ok: true, meeting };
+    }
+    case "answerPress": {
+      const mgr = actor(world, by);
+      const conf = world.media.conferences[cmd.conference];
+      if (!conf || !mgr || conf.manager !== mgr.id) return { ok: false, error: "error.unknownConference" };
+      if (conf.status !== "pending") return { ok: false, error: "error.alreadyAnswered" };
+      if (world.meta.today > conf.deadline) return { ok: false, error: "error.deadlinePassed" };
+      if (cmd.answers.length !== conf.questions.length) return { ok: false, error: "error.answerAll" };
+      for (const [i, a] of cmd.answers.entries()) {
+        if (!conf.questions[i]!.intents.includes(a.intent) || !ANSWER_TONES.includes(a.tone)) return { ok: false, error: "error.range" };
+      }
+      const reactions = cmd.answers.map((a, i) => answerQuestion(world, conf, i, a.intent, a.tone, "manager"));
+      conf.status = "answered";
+      return { ok: true, reactions };
+    }
+    case "delegatePress": {
+      const mgr = actor(world, by);
+      const conf = world.media.conferences[cmd.conference];
+      if (!conf || !mgr || conf.manager !== mgr.id) return { ok: false, error: "error.unknownConference" };
+      if (conf.status !== "pending") return { ok: false, error: "error.alreadyAnswered" };
+      delegateConference(world, conf);
+      return { ok: true };
+    }
+    case "setPressDirectives": {
+      const mgr = actor(world, by);
+      if (!mgr) return { ok: false, error: "error.noManager" };
+      const d = cmd.directives;
+      if (!ANSWER_TONES.includes(d.tone)) return { ok: false, error: "error.range" };
+      world.media.directives[mgr.id] = { refereeCriticism: !!d.refereeCriticism, criticizePlayers: !!d.criticizePlayers, promises: !!d.promises, tone: d.tone };
+      return { ok: true };
+    }
+    case "post": {
+      const mgr = actor(world, by);
+      if (!mgr?.clubId || !world.dressing[mgr.clubId]) return { ok: false, error: "error.noManager" };
+      const club = mgr.clubId;
+      const day = world.meta.today;
+      if (!POST_INTENTS.includes(cmd.intent) || !ANSWER_TONES.includes(cmd.tone)) return { ok: false, error: "error.range" };
+      if (world.media.posts.some((p) => p.day === day && p.author.kind === "manager" && p.author.id === mgr.id)) return { ok: false, error: "error.postedToday" };
+      const s = cmd.subject;
+      let match: Match | undefined;
+      if (s.kind === "player") {
+        if (world.players[s.id]?.clubId !== club) return { ok: false, error: "error.notYourPlayer" };
+      } else if (s.kind === "match") {
+        match = world.matches[s.id];
+        if (!match?.result || (match.home !== club && match.away !== club)) return { ok: false, error: "error.unknownMatch" };
+      } else if (!(s.kind === "club" && s.id === club)) return { ok: false, error: "error.range" };
+      if ((cmd.intent === "praisePlayer" || cmd.intent === "criticizePlayer") && s.kind !== "player") return { ok: false, error: "error.range" };
+      if (cmd.intent === "criticizeReferee" && !match?.referee) return { ok: false, error: "error.range" };
+      const post = publish(world, {
+        day, platform: "shortMessages", author: { kind: "manager", id: mgr.id }, key: `post.manager.${cmd.intent}`, params: {}, subjects: [s],
+        sentiment: cmd.intent === "criticizePlayer" || cmd.intent === "criticizeReferee" ? -1 : 1,
+        reach: reachOf(0.35 + mgr.reputation * 0.3 + (cmd.tone === "combative" ? 0.25 : 0) + (cmd.intent === "criticizeReferee" ? 0.2 : 0)), club,
+      });
+      const reaction = applySaying(world, { club, mgr, intent: cmd.intent, tone: cmd.tone, subject: s, source: `post:${post.id}`, day, ...(match ? { match } : {}) });
+      return { ok: true, reactions: [reaction] };
+    }
+    case "allegeCase":
+    case "appealCase": {
+      const mgr = actor(world, by);
+      const c = world.media.cases[cmd.case];
+      if (!c || !mgr || mgr.clubId !== c.club) return { ok: false, error: "error.unknownCase" };
+      if (cmd.type === "allegeCase" && !ALLEGATIONS.includes(cmd.allegation)) return { ok: false, error: "error.range" };
+      const error = cmd.type === "allegeCase" ? allege(world, c, cmd.allegation) : appeal(world, c);
+      return error ? { ok: false, error } : { ok: true };
     }
     case "markInboxRead": {
       const mgr = actor(world, by);

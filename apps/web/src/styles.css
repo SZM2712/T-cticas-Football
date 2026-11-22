@@ -144,3 +144,37 @@ ul.stances li { break-inside: avoid; }
 .stance.agree { background: color-mix(in srgb, var(--ok) 20%, transparent); color: var(--ok); }
 .stance.doubt { background: color-mix(in srgb, var(--muted) 18%, transparent); color: var(--muted); }
 .stance.disagree { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+
+/* ── Medios, redes y disciplina (Fase 5) ── */
+.media > section, .media > .conference, .media > .case { border-bottom: 1px solid var(--line); padding: 8px 0 12px; }
+.media h4 { margin: 6px 0; }
+.media h5 { margin: 8px 0 4px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
+.chip { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0 6px; margin: 0 4px; border-radius: 4px; background: color-mix(in srgb, var(--muted) 16%, transparent); color: var(--fg); vertical-align: middle; }
+.chip.ok { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+.chip.bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.chip.heat-hot { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+.chip.heat-warm { background: color-mix(in srgb, #d9822b 20%, transparent); color: #b5651d; }
+.chip.heat-cool { color: var(--muted); }
+.chip.reach-medium { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.chip.reach-viral { background: var(--bad); color: #fff; }
+ol.questions { padding-left: 20px; }
+ol.questions li { margin-bottom: 10px; }
+ol.questions p { margin: 3px 0; }
+.question { font-size: 1.02rem; }
+ul.stories li { padding: 3px 0; }
+.recent-conference p { margin: 4px 0; }
+ul.feed { list-style: none; padding: 0; margin: 0; }
+.post { border-left: 3px solid var(--line); padding: 4px 10px; margin: 6px 0; }
+.post.sentiment-1 { border-left-color: var(--ok); }
+.post.sentiment--1 { border-left-color: var(--bad); }
+.post p { margin: 2px 0 0; }
+.post-head .chip:first-child { margin-left: 0; }
+.form b { display: inline-block; width: 1.3em; text-align: center; margin-right: 2px; border-radius: 3px; color: #fff; }
+.form-W { background: var(--ok); }
+.form-D { background: var(--muted); }
+.form-L { background: var(--bad); }
+.mood-furious, .mood-unhappy { color: var(--bad); }
+.mood-happy, .mood-euphoric { color: var(--ok); }
+.case h4 .chip { font-weight: 600; }
+.chip.case-allegations, .chip.case-sanctioned { background: color-mix(in srgb, #d9822b 20%, transparent); color: #b5651d; }
+.chip.case-dismissed { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
